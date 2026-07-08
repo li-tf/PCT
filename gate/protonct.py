@@ -154,9 +154,11 @@ def protonct(
         ]
         phase_space.output_filename = f"{output}/PhaseSpace{name}.root"
 
-        ps_filter = sim.add_filter("ParticleFilter", "Filter" + name)
-        ps_filter.particle = "proton"
-        phase_space.filters.append(ps_filter)
+        # ps_filter = sim.add_filter("ParticleFilter", "Filter" + name)
+        # ps_filter.particle = "proton"
+        # phase_space.filters.append(ps_filter)
+        filter_builder = gate.actors.filters.GateFilterBuilder()
+        phase_space.filter = filter_builder.ParticleName == "proton"
 
     add_detector(sim, "In", [0, 0, -110 * mm])
     add_detector(sim, "Out", [0, 0, 110 * mm])
