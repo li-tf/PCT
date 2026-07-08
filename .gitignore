@@ -2,3 +2,15 @@
 out/
 .idea
 .vscode
+
+# Local environments
+.venv-gate/
+
+# Build and downloaded artifacts
+build/
+downloads/
+test0707/
+
+# Python caches
+__pycache__/
+*.py[cod]
