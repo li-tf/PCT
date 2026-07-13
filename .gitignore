@@ -10,6 +10,7 @@ out/
 build/
 downloads/
 test0707/
+test0710/
 
 # Python caches
 __pycache__/

@@ -41,6 +41,13 @@ def build_parser():
         "-s", "--source", help="Source position", type=float, default=0.0
     )
     parser.add_argument(
+        "-p",
+        "--particle",
+        help="Particle used for imaging",
+        choices=["proton", "alpha"],
+        default="proton",
+    )
+    parser.add_argument(
         "--quadricIn",
         help=(
             "Parameters of the entrance quadric support function, "
@@ -146,6 +153,7 @@ def process(args_info: argparse.Namespace):
     projection.SetInput(constantImageSource.GetOutput())
     projection.SetProtonPairsFileName(args_info.input)
     projection.SetSourceDistance(args_info.source)
+    projection.SetParticle(args_info.particle)
     projection.SetMostLikelyPathType(args_info.mlptype)
     projection.SetMostLikelyPathPolynomialDegree(args_info.mlppolydeg)
     projection.SetMostLikelyPathTrackerUncertainties(args_info.mlptrackeruncert)
@@ -190,8 +198,8 @@ def process(args_info: argparse.Namespace):
 
     projection.Update()
 
-    filler = pct.SmallHoleFiller[OutputImageType]()
     if args_info.fill:
+        filler = pct.SmallHoleFiller[OutputImageType]()
         filler.SetImage(projection.GetOutput())
         filler.SetHolePixel(0.0)
         filler.Fill()
