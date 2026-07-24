@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "algorithm": "pctpairprotons --stream-by-run --no-nuclear",
+  "input_layout": "720 independent native-Windows ROOT shard pairs",
+  "global_run_id_source": "run directory index",
+  "runs": 720,
+  "total_primary_pairs": 63294392,
+  "elapsed_seconds": 365.9843226129997,
+  "started": "2026-07-23T15:12:03",
+  "stopped": "2026-07-23T15:18:09",
+  "output_mhd": 720,
+  "output_raw": 720
+}

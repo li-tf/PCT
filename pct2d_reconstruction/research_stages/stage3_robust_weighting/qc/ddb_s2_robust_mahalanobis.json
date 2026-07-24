@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s2",
+  "candidate": "robust_mahalanobis",
+  "runs": 720,
+  "ddb": "data/preprocessing_data/results0717_s2_water_vacuum_pilot/stage3/ddb/robust_mahalanobis",
+  "selected_train": 0
+}

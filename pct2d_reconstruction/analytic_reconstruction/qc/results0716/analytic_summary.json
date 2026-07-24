@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "experiment": "0716",
+  "started": "2026-07-16T12:34:12",
+  "stopped": "2026-07-16T12:37:27",
+  "method": "DDB-FDK no-Hann",
+  "geometry_seconds": 11.306350376999944,
+  "fdk_seconds": 181.37456657199982,
+  "grid": {
+    "size": [
+      2100,
+      1,
+      2100
+    ],
+    "spacing": [
+      0.1,
+      1.0,
+      0.1
+    ],
+    "origin": [
+      -104.95,
+      0.0,
+      -104.95
+    ],
+    "path": "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/recon/recon_ddb_nohann.mhd"
+  },
+  "finite": true,
+  "truth": {
+    "definition": "/home/ltf/project/github/PCT/pct2d_reconstruction/simulation/simulation0716/truth_geometry_definition.json",
+    "reference": "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/recon/recon_ddb_nohann.mhd",
+    "size": [
+      2100,
+      1,
+      2100
+    ],
+    "spacing_mm": [
+      0.1,
+      1.0,
+      0.1
+    ],
+    "origin_mm": [
+      -104.95,
+      0.0,
+      -104.95
+    ],
+    "supersampling_per_axis": 8,
+    "finite": true,
+    "rsp_200mev_min_max": [
+      0.0,
+      2.11897611618042
+    ]
+  },
+  "rsp_metrics": {
+    "finite_fraction": 1.0,
+    "image_min": -0.18471084535121918,
+    "image_max": 2.148346424102783,
+    "water_mean": 1.013717532157898,
+    "water_std": 0.009719619527459145,
+    "water_rmse_vs_1": 0.01681195216891403,
+    "water_mae_vs_1": 0.014418059028685093,
+    "outside_mean": 0.07045841217041016,
+    "outside_std": 0.0982043445110321,
+    "outside_rmse_vs_0": 0.12086555339767122,
+    "phantom_rmse_vs_red_truth": 0.06197897753714182,
+    "phantom_mae_vs_red_truth": 0.023656195029616356,
+    "phantom_rmse_vs_rsp_truth": 0.04507521789309233,
+    "phantom_mae_vs_rsp_truth": 0.02022021822631359,
+    "aluminium_voxel_rmse_vs_red_truth": 0.4018497293385632,
+    "aluminium_voxel_rmse_vs_rsp_truth": 0.2247730266798593,
+    "aluminium_excess_red_recovery": 0.7291027854175326,
+    "aluminium_excess_rsp_recovery": 0.8752338540255274,
+    "insert_peak_mean": 2.1228764724731444,
+    "insert_contrast_mean": 1.108905668258667,
+    "insert_cnr_median": 111.57307249723122,
+    "insert_roi_cnr_median": 106.92346909686383,
+    "insert_roi_red_recovery_mean": 0.781574890551595,
+    "insert_roi_rsp_recovery_mean": 0.9382227136926182,
+    "insert_contrast_centroid_offset_mean_mm": 0.05310808400242044,
+    "insert_contrast_centroid_offset_max_mm": 0.5435659330147702,
+    "insert_peak_offset_mean_mm": 0.777607188023153,
+    "insert_peak_offset_max_mm": 1.9483926226070227,
+    "aluminium_inner_mean": 2.0954566747826617,
+    "aluminium_platform_rsp_recovery": 0.9889005983392842,
+    "aluminium_edge_10_90_median_mm": 1.1367244984607179,
+    "aluminium_edge_10_90_min_mm": 0.6209762088020652,
+    "aluminium_edge_10_90_max_mm": 1.494576841846975
+  },
+  "commands": {
+    "geometry": [
+      "/home/ltf/project/github/PCT/.venv-gate/bin/rtksimulatedgeometry",
+      "--nproj",
+      "720",
+      "--first_angle",
+      "0",
+      "--arc",
+      "360",
+      "--sid",
+      "1000",
+      "--sdd",
+      "1110",
+      "--output",
+      "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/geometry.xml"
+    ],
+    "fdk": [
+      "/home/ltf/project/github/PCT/.venv-gate/bin/pctfdk",
+      "--lowmem",
+      "--geometry",
+      "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/geometry.xml",
+      "--path",
+      "/home/ltf/project/github/PCT/data/preprocessing_data/results0716/projections_ddb",
+      "--regexp",
+      "proj....\\.mhd",
+      "--output",
+      "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/recon/recon_ddb_nohann.mhd",
+      "--dimension",
+      "2100",
+      "1",
+      "2100",
+      "--spacing",
+      "0.1",
+      "1",
+      "0.1",
+      "--hann",
+      "0",
+      "--verbose"
+    ]
+  },
+  "outputs": {
+    "reconstruction": "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/recon/recon_ddb_nohann.mhd",
+    "truth_rsp": "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/truth/truth_rsp_200mev.mhd"
+  }
+}

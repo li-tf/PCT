@@ -1,0 +1,17 @@
+{
+  "base_config": "base_ct.json",
+  "scenario_id": "s4_material_calibration_air_pilot",
+  "description": "Large material inserts at three radii in a water cylinder surrounded by Air",
+  "output_name": "results0717_s4_material_calibration_air_pilot",
+  "random_seed": 20263720,
+  "world_material": "Air",
+  "phantom_kind": "material_calibration",
+  "calibration_materials": ["Air", "Lung", "A150_Tissue_Plastic", "SpineBone", "Aluminium"],
+  "calibration_rings": [
+    {"radius_mm": 30.0, "diameter_mm": 15.0, "angle_offset_deg": 8.0},
+    {"radius_mm": 60.0, "diameter_mm": 15.0, "angle_offset_deg": 32.0},
+    {"radius_mm": 85.0, "diameter_mm": 15.0, "angle_offset_deg": 56.0}
+  ],
+  "small_aluminium_diameter_mm": 5.0,
+  "measurement_note": "Air background and Air inserts are distinct; external Air WEPL must be handled separately."
+}

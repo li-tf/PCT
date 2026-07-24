@@ -1,0 +1,22 @@
+{
+  "projections": 720,
+  "protons_per_projection": 100000,
+  "beam_energy_mev": 200.0,
+  "source_z_mm": -1060.0,
+  "focus_z_mm": -1000.0,
+  "source_size_mm": [15.0, 0.12, 0.000001],
+  "phantom_radius_mm": 100.0,
+  "phantom_length_mm": 400.0,
+  "phantom_material": "Water",
+  "max_step_mm": 1.0,
+  "detector_in_z_mm": -110.0,
+  "detector_out_z_mm": 110.0,
+  "detector_size_mm": [400.0, 400.0, 0.000001],
+  "world_size_mm": 4000.0,
+  "physics_list": "QGSP_BIC_EMZ",
+  "number_of_threads": 1,
+  "output_attributes": [
+    "RunID", "EventID", "TrackID", "KineticEnergy", "PreGlobalTime",
+    "Position", "Direction"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "experiments": {
+    "vacuum": "0717_s2",
+    "air": "0717_s3",
+    "material": "0717_s4",
+    "resolution": "0717_s5"
+  },
+  "workstation_scenarios": {
+    "vacuum": "s2_water_vacuum_pilot",
+    "air": "s3_water_air_pilot",
+    "material": "s4_material_calibration_air_pilot",
+    "resolution": "s5_resolution_air_pilot"
+  },
+  "split": {
+    "name": "stage2_80_10_10",
+    "identity": ["RunID", "filtered_row_index"],
+    "algorithm": "splitmix64-v1",
+    "seed": 20260713,
+    "modulus": 10,
+    "test_remainder": 0,
+    "validation_remainder": 1,
+    "bit_order": "little"
+  },
+  "air_correction": {
+    "estimator": "S6 paired-primary mean WEPL, origin-constrained",
+    "slope_mm_wepl_per_mm_air": 0.0011471876206752695,
+    "slope_min": 0.0011466030266195405,
+    "slope_max": 0.0011476775416734836,
+    "phantom_radius_mm": 100.0
+  },
+  "analytic_variants": [
+    {"name": "s2_fov210_hann0", "dataset": "vacuum", "ddb": "corrected", "size": 2100, "spacing_mm": 0.1, "hann": 0.0},
+    {"name": "s2_fov220_hann0", "dataset": "vacuum", "ddb": "corrected", "size": 2200, "spacing_mm": 0.1, "hann": 0.0},
+    {"name": "s2_fov240_hann0", "dataset": "vacuum", "ddb": "corrected", "size": 2400, "spacing_mm": 0.1, "hann": 0.0},
+    {"name": "s2_fov260_hann0", "dataset": "vacuum", "ddb": "corrected", "size": 2600, "spacing_mm": 0.1, "hann": 0.0},
+    {"name": "s2_fov210_hann0p5", "dataset": "vacuum", "ddb": "corrected", "size": 2100, "spacing_mm": 0.1, "hann": 0.5},
+    {"name": "s2_fov210_hann1", "dataset": "vacuum", "ddb": "corrected", "size": 2100, "spacing_mm": 0.1, "hann": 1.0},
+    {"name": "s3_uncorrected_fov210_hann0", "dataset": "air", "ddb": "uncorrected", "size": 2100, "spacing_mm": 0.1, "hann": 0.0},
+    {"name": "s3_corrected_fov210_hann0", "dataset": "air", "ddb": "corrected", "size": 2100, "spacing_mm": 0.1, "hann": 0.0},
+    {"name": "s4_corrected_fov210_hann0", "dataset": "material", "ddb": "corrected", "size": 2100, "spacing_mm": 0.1, "hann": 0.0},
+    {"name": "s5_corrected_fov210_hann0", "dataset": "resolution", "ddb": "corrected", "size": 2100, "spacing_mm": 0.1, "hann": 0.0}
+  ],
+  "selected_analytic": {
+    "vacuum": "s2_fov210_hann0",
+    "air": "s3_corrected_fov210_hann0",
+    "material": "s4_corrected_fov210_hann0",
+    "resolution": "s5_corrected_fov210_hann0"
+  },
+  "iterative": {
+    "epochs": 3,
+    "pairs_kind": {
+      "vacuum": "pairs_train",
+      "air": "pairs_train_air_corrected"
+    }
+  },
+  "evaluation": {
+    "core_radius_mm": 90.0,
+    "boundary_inner_mm": [90.0, 100.0],
+    "outside_annulus_mm": [100.0, 105.0],
+    "radial_bin_mm": 0.25,
+    "gpu_batch_size": 4096,
+    "device": 0
+  },
+  "material_rsp_200mev": {
+    "method": "Bethe-Bloch ratio using OpenGATE material electron density and Geant4 mean excitation energy at 200 MeV",
+    "Water": 1.0,
+    "Air": 0.0,
+    "Lung": 0.25748988758806907,
+    "A150_Tissue_Plastic": 1.1244583097375929,
+    "SpineBone": 1.3215450211843316,
+    "Aluminium": 2.1021010459005205
+  }
+}

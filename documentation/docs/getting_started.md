@@ -55,6 +55,7 @@ The arguments are as follows:
 - The `--psin` and `--psout` arguments are the names of the trees to read in the ROOT files.
 - The `--plane-in` and `--plane-out` options correspond to the position of the detectors along the $z$ axis, in millimeters (in PCT, protons always travel along the $z$ axis).
 - The `--output` option gives the pattern of the name of the generated files (one file per projection in our case). The outputs are MHD files that store data in the format assumed by PCT, described in [this page](pct_format.md).
+- For large ROOT files whose entries are ordered by `RunID`, `--stream-by-run` reads and writes one run at a time instead of keeping both complete trees in memory. Omitting this option preserves the original whole-tree behavior.
 
 As before, and for all PCT commands, you can find the list of arguments using the `--help` (shorthand `-h`) flag.
 
@@ -104,6 +105,10 @@ done
 The `--source` parameter is used to provide the source position relatively to the isocenter along the $z$ axis. This parameter is crucial and defaults to 0, i.e., a parallel geometry. Setting a wrong source position results in malformed projections thus in an erroneous reconstruction.
 
 The `--size` (in voxels) and `--spacing` (in millimeters) define the lattice of the projections.
+
+`--count` optionally writes the proton count per projection pixel. `--variance`
+writes the estimated variance of the mean WEPL in each pixel; small negative
+round-off artifacts are clamped to zero when this image is written.
 
 (reconstruction)=
 ## Tomographic reconstruction

@@ -1,0 +1,10 @@
+{
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "device": 0,
+  "batch_size": 4096,
+  "elapsed_seconds": 490.9107399039999,
+  "validation_pairs": 24426971,
+  "checkpoint_count": 5,
+  "throughput_pairs_per_second": 49758.47734187758,
+  "peak_gpu_memory_bytes": 350629888
+}

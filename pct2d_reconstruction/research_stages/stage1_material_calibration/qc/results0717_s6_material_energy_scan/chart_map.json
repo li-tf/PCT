@@ -1,0 +1,72 @@
+[
+  {
+    "file": "water_wepl_vs_thickness.png",
+    "question": "Does the I=78 eV water LUT map Water slabs to their physical thickness?",
+    "family": "comparison",
+    "type": "multi-series line with identity reference",
+    "fields": [
+      "energy_mev",
+      "thickness_mm",
+      "wepl_median_mm"
+    ],
+    "palette": "four energy categories; markers and line styles retained"
+  },
+  {
+    "file": "water_rsp_bias_heatmap.png",
+    "question": "Where does water-equivalent bias depend on energy and thickness?",
+    "family": "matrix",
+    "type": "annotated diverging heatmap",
+    "fields": [
+      "energy_mev",
+      "thickness_mm",
+      "median_rsp_bias_percent"
+    ],
+    "palette": "two-root diverging with numeric labels"
+  },
+  {
+    "file": "aluminium_effective_rsp.png",
+    "question": "How does effective Aluminium RSP differ from the fixed 200 MeV reference?",
+    "family": "uncertainty and benchmark",
+    "type": "multi-series line with fixed benchmark",
+    "fields": [
+      "energy_mev",
+      "thickness_mm",
+      "median_effective_rsp"
+    ],
+    "palette": "four energy categories; dark neutral benchmark"
+  },
+  {
+    "file": "air_wepl_model.png",
+    "question": "How much WEPL is contributed by Air as length and energy change?",
+    "family": "relationship",
+    "type": "multi-series line with origin-constrained fits",
+    "fields": [
+      "energy_mev",
+      "thickness_mm",
+      "wepl_mean_mm"
+    ],
+    "palette": "four energy categories; line style plus marker"
+  },
+  {
+    "file": "ionization_potential_sensitivity.png",
+    "question": "Which empirical water I value minimizes median Water WEPL bias?",
+    "family": "uncertainty and benchmark",
+    "type": "line with 78 eV reference",
+    "fields": [
+      "ionization_potential_ev",
+      "water_bias_rms_percent"
+    ],
+    "palette": "single blue root; dark neutral reference"
+  },
+  {
+    "file": "tail_diagnostics.png",
+    "question": "Do rare energy-loss tails materially separate raw means from robust estimates?",
+    "family": "distribution",
+    "type": "three histograms with median and core-mean references",
+    "fields": [
+      "case_id",
+      "wepl_mm"
+    ],
+    "palette": "single blue root; orange robust reference"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "scenario_id": "s6_material_energy_scan",
+  "output_name": "results0717_s6_material_energy_scan",
+  "description": "Water, Aluminium and Air energy/thickness calibration",
+  "energies_mev": [150.0, 180.0, 200.0, 220.0],
+  "materials": [
+    {"name": "Water", "thicknesses_mm": [5.0, 10.0, 20.0, 50.0, 100.0], "max_step_mm": 1.0},
+    {"name": "Aluminium", "thicknesses_mm": [5.0, 10.0, 20.0, 50.0], "max_step_mm": 1.0},
+    {"name": "Air", "thicknesses_mm": [20.0, 220.0, 1000.0, 2000.0], "max_step_mm": 10.0}
+  ],
+  "protons_per_case": 100000,
+  "random_seed": 20265720,
+  "physics_list": "QGSP_BIC_EMZ",
+  "ionization_potential_water_ev": 78.0,
+  "output_attributes": ["EventID", "TrackID", "KineticEnergy", "Position", "Direction"]
+}

@@ -1,0 +1,39 @@
+{
+  "experiment_name": "test0713_paper_fluence_windows",
+  "projections": 720,
+  "protons_per_projection": 450000,
+  "paper_fluence_protons_per_mm2_projection": 900.0,
+  "random_seed": 20260713,
+  "beam_energy_mev": 200.0,
+  "source_z_mm": -1060.0,
+  "focus_z_mm": -1000.0,
+  "source_size_mm": [15.0, 0.12, 0.000001],
+  "phantom_radius_mm": 100.0,
+  "phantom_length_mm": 400.0,
+  "phantom_material": "Water",
+  "insert_material": "Aluminium",
+  "insert_diameter_mm": 5.0,
+  "insert_angle_step_deg": 139.0,
+  "insert_radii_mm": [
+    0.0, 5.0, 9.0, 13.0, 17.0, 21.0, 25.0, 29.0, 33.0,
+    37.0, 41.0, 45.0, 49.0, 53.0, 57.0, 61.0, 65.0,
+    69.0, 73.0, 77.0, 81.0, 85.0, 89.0, 93.0, 97.0
+  ],
+  "max_step_mm": 1.0,
+  "detector_in_z_mm": -110.0,
+  "detector_out_z_mm": 110.0,
+  "detector_size_mm": [400.0, 400.0, 0.000001],
+  "world_size_mm": 4000.0,
+  "world_material": "Vacuum",
+  "physics_list": "QGSP_BIC_EMZ",
+  "number_of_threads": 1,
+  "output_attributes": [
+    "RunID",
+    "EventID",
+    "TrackID",
+    "KineticEnergy",
+    "PreGlobalTime",
+    "Position",
+    "Direction"
+  ]
+}

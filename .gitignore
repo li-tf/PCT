@@ -11,6 +11,14 @@ build/
 downloads/
 test0707/
 test0710/
+test0713/
+
+# Large local pCT experiment data (code/QC live in pct2d_reconstruction/)
+/data/
+
+# Per-angle operational QC stays local; compact summaries remain trackable.
+pct2d_reconstruction/**/qc/logs/
+pct2d_reconstruction/simulation/*/qc/runs/
 
 # Python caches
 __pycache__/

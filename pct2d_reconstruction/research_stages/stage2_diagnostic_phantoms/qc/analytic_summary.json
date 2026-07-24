@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "variants": 10,
+  "metric_rows": 20,
+  "profile_rows": 8571,
+  "selected": {
+    "vacuum": "s2_fov210_hann0",
+    "air": "s3_corrected_fov210_hann0",
+    "material": "s4_corrected_fov210_hann0",
+    "resolution": "s5_corrected_fov210_hann0"
+  }
+}

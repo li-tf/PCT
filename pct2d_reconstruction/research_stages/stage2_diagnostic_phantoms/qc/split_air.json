@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "dataset": "air",
+  "identity": [
+    "RunID",
+    "filtered_row_index"
+  ],
+  "algorithm": "splitmix64-v1",
+  "seed": 20260713,
+  "rule": "splitmix64_v1(RunID, filtered_row_index, 20260713) % 10: test=0, validation=1, train=2..9",
+  "angles": 720,
+  "total": 46617975,
+  "train": 37291681,
+  "validation": 4663898,
+  "test": 4662396,
+  "train_fraction": 0.7999421038773135,
+  "validation_fraction": 0.10004505772719643,
+  "test_fraction": 0.10001283839549015,
+  "elapsed_seconds": 12.367019322000033,
+  "paths": {
+    "masks": "data/preprocessing_data/results0717_s3_water_air_pilot/splits/stage2_80_10_10",
+    "train_pairs": "data/preprocessing_data/results0717_s3_water_air_pilot/pairs_train",
+    "corrected_train_pairs": "data/preprocessing_data/results0717_s3_water_air_pilot/pairs_train_air_corrected"
+  },
+  "air_correction": {
+    "pairs": 37291681,
+    "cylinder_hit": 32660025,
+    "cylinder_miss": 4631656,
+    "clipped_to_zero": 3379263,
+    "air_length_weighted_sum_mm": 3181625520.506326,
+    "correction_weighted_sum_mm": 3649921.4107493735,
+    "cylinder_hit_fraction": 0.8757992164525916,
+    "mean_air_length_mm": 85.31729960111818,
+    "mean_air_correction_mm": 0.09787494993184602,
+    "slope_mm_wepl_per_mm_air": 0.0011471876206752695
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "algorithm": "Schulte MLP DDB",
+  "ionization_potential_ev": 78.0,
+  "runs": 720,
+  "size": [
+    500,
+    2,
+    500
+  ],
+  "spacing_mm": [
+    0.5,
+    1.0,
+    0.5
+  ],
+  "object_zero_count": 0,
+  "variance_nonfinite": 0,
+  "variance_negative": 0,
+  "elapsed_seconds": 928.5459066720005,
+  "output_mhd": 720,
+  "output_raw": 720
+}

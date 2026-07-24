@@ -1,0 +1,11 @@
+geometry command: /home/ltf/project/github/PCT/.venv-gate/bin/rtksimulatedgeometry --nproj 720 --first_angle 0 --arc 360 --sid 1000 --sdd 1110 --output /home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/geometry.xml
+
+fdk command: /home/ltf/project/github/PCT/.venv-gate/bin/pctfdk --lowmem --geometry /home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/geometry.xml --path /home/ltf/project/github/PCT/data/preprocessing_data/results0716/projections_ddb --regexp 'proj....\.mhd' --output /home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/recon/recon_ddb_nohann.mhd --dimension 2100 1 2100 --spacing 0.1 1 0.1 --hann 0 --verbose
+Regular expression matches 720 file(s)...
+Reading geometry information from /home/ltf/project/github/PCT/data/reconstruction_data/results0716/analytic/geometry.xml...
+Reconstructing and writing... FDKDDConeBeamReconstructionFilter timing:
+  Prefilter operations: 16.2065 s
+  Ramp filter: 6.85511 s
+  Backprojection: 147.548 s
+It took 170.64420700073242 s
+

@@ -1,0 +1,91 @@
+{
+  "model": "linear interpolation in energy of origin-constrained paired-primary mean WEPL/length slopes",
+  "energy_domain_mev": [
+    150.0,
+    220.0
+  ],
+  "length_domain_mm": [
+    20.0,
+    2000.0
+  ],
+  "extrapolation_policy": "flag; do not silently clamp",
+  "fits": [
+    {
+      "energy_mev": 150.0,
+      "operational_estimator": "paired-primary mean WEPL",
+      "slope": 0.0011474479679096316,
+      "intercept_mm": -0.00011707176622884307,
+      "r2": 0.9999997593485828,
+      "origin_constrained_slope": 0.0011473728386665282,
+      "origin_constrained_r2": 0.999999880464849,
+      "median_slope": 0.0011249013106161036,
+      "median_intercept_mm": -0.017151248662094987,
+      "median_r2": 0.9998670028344664,
+      "median_origin_constrained_slope": 0.001113894725751346,
+      "median_origin_constrained_r2": 0.9998446859694723,
+      "core_mean_slope": 0.0011427338404381617,
+      "core_mean_intercept_mm": -0.016268861642850383,
+      "core_mean_r2": 0.9999047406283686,
+      "core_mean_origin_constrained_slope": 0.0011322935156633962,
+      "core_mean_origin_constrained_r2": 0.9998748820764239
+    },
+    {
+      "energy_mev": 180.0,
+      "operational_estimator": "paired-primary mean WEPL",
+      "slope": 0.0011466594168627635,
+      "intercept_mm": -8.787131480989689e-05,
+      "r2": 0.9999999385548906,
+      "origin_constrained_slope": 0.0011466030266195405,
+      "origin_constrained_r2": 0.9999999682571915,
+      "median_slope": 0.0011154855623456675,
+      "median_intercept_mm": -0.018542995404384695,
+      "median_r2": 0.9998278021505109,
+      "median_origin_constrained_slope": 0.0011035858425884563,
+      "median_origin_constrained_r2": 0.9998081334681233,
+      "core_mean_slope": 0.0011353759747196996,
+      "core_mean_intercept_mm": -0.018450919019057196,
+      "core_mean_r2": 0.9998494957888189,
+      "core_mean_origin_constrained_slope": 0.0011235353437535796,
+      "core_mean_origin_constrained_r2": 0.9998236168414949
+    },
+    {
+      "energy_mev": 200.0,
+      "operational_estimator": "paired-primary mean WEPL",
+      "slope": 0.0011471800719160534,
+      "intercept_mm": -0.0001293305820860408,
+      "r2": 0.9999991579941303,
+      "origin_constrained_slope": 0.001147097075741525,
+      "origin_constrained_r2": 0.9999995907796861,
+      "median_slope": 0.001109507632314692,
+      "median_intercept_mm": -0.019053012102670918,
+      "median_r2": 0.9998021319785969,
+      "median_origin_constrained_slope": 0.0010972806161499292,
+      "median_origin_constrained_r2": 0.9997881771213192,
+      "core_mean_slope": 0.0011307738159121988,
+      "core_mean_intercept_mm": -0.019881285451388526,
+      "core_mean_r2": 0.9997927770683845,
+      "core_mean_origin_constrained_slope": 0.0011180152663831026,
+      "core_mean_origin_constrained_r2": 0.9997779327304077
+    },
+    {
+      "energy_mev": 220.0,
+      "operational_estimator": "paired-primary mean WEPL",
+      "slope": 0.0011473961690662315,
+      "intercept_mm": 0.00043845494428926366,
+      "r2": 0.9999999108692377,
+      "origin_constrained_slope": 0.0011476775416734836,
+      "origin_constrained_r2": 0.9999999016947735,
+      "median_slope": 0.0011040617195503656,
+      "median_intercept_mm": -0.019236314909805752,
+      "median_r2": 0.9998063919444546,
+      "median_origin_constrained_slope": 0.0010917170712561627,
+      "median_origin_constrained_r2": 0.9997868265997413,
+      "core_mean_slope": 0.001124948868313698,
+      "core_mean_intercept_mm": -0.019854458534722827,
+      "core_mean_r2": 0.9998001869878382,
+      "core_mean_origin_constrained_slope": 0.0011122075346002406,
+      "core_mean_origin_constrained_r2": 0.9997806324771823
+    }
+  ],
+  "source_dataset": "results0717_s6_material_energy_scan"
+}

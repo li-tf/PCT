@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "dataset": "s5",
+  "runs": 720,
+  "identity": [
+    "RunID",
+    "paired_row_index"
+  ],
+  "rule": "splitmix64-v1(RunID, paired_row_index, 20260713) % 10: test=0, validation=1, train=2..9",
+  "total": 62950582,
+  "train": 50358646,
+  "validation": 6297485,
+  "test": 6294451,
+  "fractions": {
+    "train": 0.7999710947867011,
+    "validation": 0.1000385508747163,
+    "test": 0.09999035433858261
+  },
+  "elapsed_seconds": 3.5520767649977643,
+  "pairs": "data/preprocessing_data/results0717_s5_resolution_air_pilot/pairs",
+  "masks": "data/preprocessing_data/results0717_s5_resolution_air_pilot/stage3/splits/stage3_prefilter_80_10_10"
+}

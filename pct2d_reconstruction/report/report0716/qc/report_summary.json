@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "experiment": "0716",
+  "report": "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/report0716_summary_report.md",
+  "local_links_checked": 8,
+  "missing_links": [],
+  "images": [
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/analytic_rsp_comparison.png",
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/boundary_radial_profile.png",
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/ddb_sinogram_sections.png",
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/iterative_epoch_convergence.png",
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/iterative_rsp_comparison.png",
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/mlp_ddb_principle.png",
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/pipeline_flow.png",
+    "/home/ltf/project/github/PCT/pct2d_reconstruction/report/report0716/assets/simulation_geometry.png"
+  ],
+  "analytic_comparison": [
+    "test0713 DDB no-Hann",
+    "results0716 DDB no-Hann"
+  ],
+  "iterative_status": "results0716 epoch 3 complete and included",
+  "truth": "byte-identical 200 MeV reference RSP maps"
+}

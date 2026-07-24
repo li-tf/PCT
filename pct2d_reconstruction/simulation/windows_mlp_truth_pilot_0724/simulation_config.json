@@ -1,0 +1,93 @@
+{
+  "scenario_id": "mlp_truth_heterogeneous_pilot",
+  "output_name": "results0724_mlp_truth_pilot",
+  "description": "Low-fluence 2-D heterogeneous pCT pilot with primary-proton Geant4 step trajectories",
+  "projections": 72,
+  "angle_step_deg": 5.0,
+  "protons_per_projection": 5000,
+  "random_seed": 20260724,
+  "beam_energy_mev": 200.0,
+  "source_z_mm": -1060.0,
+  "focus_z_mm": -1000.0,
+  "source_size_mm": [15.0, 0.12, 0.000001],
+  "isocenter_field_mm": [250.0, 2.0],
+  "world_material": "Air",
+  "world_size_mm": 4000.0,
+  "phantom_radius_mm": 100.0,
+  "phantom_length_mm": 400.0,
+  "phantom_material": "Water",
+  "phantom_max_step_mm": 1.0,
+  "inserts": [
+    {
+      "name": "AirInsert",
+      "material": "Air",
+      "diameter_mm": 30.0,
+      "center_local_xy_mm": [-45.0, 35.0]
+    },
+    {
+      "name": "LungInsert",
+      "material": "Lung",
+      "diameter_mm": 30.0,
+      "center_local_xy_mm": [0.0, 50.0]
+    },
+    {
+      "name": "A150Insert",
+      "material": "A150_Tissue_Plastic",
+      "diameter_mm": 30.0,
+      "center_local_xy_mm": [45.0, 35.0]
+    },
+    {
+      "name": "SpineBoneInsert",
+      "material": "SpineBone",
+      "diameter_mm": 30.0,
+      "center_local_xy_mm": [-35.0, -35.0]
+    },
+    {
+      "name": "AluminiumInsert",
+      "material": "Aluminium",
+      "diameter_mm": 16.0,
+      "center_local_xy_mm": [35.0, -35.0]
+    }
+  ],
+  "reference_size_mm": [400.0, 20.0, 0.000001],
+  "reference_planes": [
+    {
+      "name": "PhaseSpaceIn",
+      "z_mm": -110.0
+    },
+    {
+      "name": "PhaseSpaceOut",
+      "z_mm": 110.0
+    }
+  ],
+  "reference_attributes": [
+    "RunID",
+    "EventID",
+    "TrackID",
+    "KineticEnergy",
+    "PreGlobalTime",
+    "Position",
+    "Direction"
+  ],
+  "trajectory_actor_name": "PrimaryTrajectory",
+  "trajectory_attributes": [
+    "RunID",
+    "EventID",
+    "TrackID",
+    "ParentID",
+    "KineticEnergy",
+    "PreGlobalTime",
+    "PrePosition",
+    "PostPosition",
+    "PreDirection",
+    "PostDirection"
+  ],
+  "physics_list": "QGSP_BIC_EMZ",
+  "number_of_threads": 1,
+  "minimum_free_gb": 30.0,
+  "expected_root_files": [
+    "PhaseSpaceIn.root",
+    "PhaseSpaceOut.root",
+    "PrimaryTrajectory.root"
+  ]
+}

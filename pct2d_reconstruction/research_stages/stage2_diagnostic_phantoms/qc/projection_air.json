@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "dataset": "air",
+  "pairs": "data/preprocessing_data/results0717_s3_water_air_pilot/pairs_train_air_corrected",
+  "ddb": "data/preprocessing_data/results0717_s3_water_air_pilot/projections_ddb",
+  "runs": 720,
+  "size": [
+    500,
+    2,
+    500
+  ],
+  "spacing_mm": [
+    0.5,
+    1.0,
+    0.5
+  ],
+  "object_zero_count": 189,
+  "variance_nonfinite": 0,
+  "variance_negative": 0,
+  "elapsed_seconds": 166.4242672710002
+}

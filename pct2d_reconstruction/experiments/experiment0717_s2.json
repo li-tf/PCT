@@ -1,0 +1,72 @@
+{
+  "experiment": "0717_s2",
+  "description": "Uniform 100 mm-radius water cylinder in Vacuum, 100k protons per projection",
+  "paths": {
+    "simulation_code": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716",
+    "simulation_data": "data/simulation_data/results0717_s2_water_vacuum_pilot",
+    "preprocessing_data": "data/preprocessing_data/results0717_s2_water_vacuum_pilot",
+    "reconstruction_data": "data/reconstruction_data/results0717_s2_water_vacuum_pilot",
+    "report_code": "pct2d_reconstruction/research_stages/stage2_diagnostic_phantoms"
+  },
+  "acquisition": {
+    "projections": 720,
+    "first_angle_deg": 0.0,
+    "angle_step_deg": 0.5,
+    "arc_deg": 360.0,
+    "protons_per_projection": 100000,
+    "beam_energy_mev": 200.0,
+    "source_to_isocenter_mm": 1000.0,
+    "source_to_detector_mm": 1110.0,
+    "entrance_plane_z_mm": -110.0,
+    "exit_plane_z_mm": 110.0,
+    "world_material": "Vacuum"
+  },
+  "preprocessing": {
+    "primary_only": true,
+    "energy_sigma_cut": 3.0,
+    "angle_sigma_cut": 3.0,
+    "ionization_potential_ev": 78.0,
+    "mlp": "schulte",
+    "ddb_size": [500, 2, 500],
+    "ddb_spacing_mm": [0.5, 1.0, 0.5],
+    "air_correction": false
+  },
+  "truth": {
+    "kind": "uniform_water",
+    "phantom_radius_mm": 100.0,
+    "rsp_200mev": 1.0,
+    "effective_rsp_200mev_s6": 1.013517775250251
+  },
+  "analytic": {
+    "method": "DDB-FDK",
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "hann": 0.0
+  },
+  "iterative": {
+    "method": "GPU MLP OS-SART with Huber-TV",
+    "sample_fraction": 1.0,
+    "runs": 720,
+    "subsets": 18,
+    "epochs": 3,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "path_step_mm": 0.1,
+    "phantom_radius_mm": 100.0,
+    "batch_size": 4096,
+    "initialization": "fdk_nohann",
+    "checkpoint_every_epoch": true,
+    "progress_every_batches": 20,
+    "device": 0,
+    "regularizer": "huber_tv",
+    "regularization_weight": 0.0125,
+    "regularization_iterations": 100,
+    "regularization_every_epochs": 1,
+    "huber_delta": 0.002,
+    "primal_step": 0.25,
+    "dual_step": 0.25,
+    "seed": 20260713
+  }
+}

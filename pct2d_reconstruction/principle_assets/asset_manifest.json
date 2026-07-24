@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "experiment": "0716",
+  "asset_count": 16,
+  "read_only_inputs": true,
+  "assets": [
+    {
+      "name": "01_pipeline.png",
+      "bytes": 119570,
+      "width": 2910,
+      "height": 1010,
+      "sha256": "e2e34cc73c769800be059aeba1caef36fa52c92a776fe2e1b2f0c11b4623dec5"
+    },
+    {
+      "name": "02_pairing_planes.png",
+      "bytes": 176505,
+      "width": 2633,
+      "height": 1048,
+      "sha256": "e75169d4b2cbda0df620a68fcb8c93aad568dbb22c38e72d60f05b521d922d86"
+    },
+    {
+      "name": "03_filtering_actual.png",
+      "bytes": 575968,
+      "width": 2451,
+      "height": 1732,
+      "sha256": "0a94260d87fef6da11bff7acbfdfb76da52f7728dfde3f4e6f194bf53d6cb186"
+    },
+    {
+      "name": "04_bethe_bloch_wepl.png",
+      "bytes": 161186,
+      "width": 2872,
+      "height": 934,
+      "sha256": "4b24620ffe58a0fbc508c21f71bcb8bf3c0ed721b9444c1b42bf0bdc4af045a5"
+    },
+    {
+      "name": "05_schulte_mlp_actual.png",
+      "bytes": 280560,
+      "width": 2606,
+      "height": 1105,
+      "sha256": "c2ed15ca8fdb3b3dddf65b272ed0e67c71d84566a047790db7a687f7b361b96e"
+    },
+    {
+      "name": "06_ddb_binning.png",
+      "bytes": 192162,
+      "width": 2429,
+      "height": 1086,
+      "sha256": "567ae074631780745080896b24cd2a9fddce687c5a28de8916401ec28834ec5a"
+    },
+    {
+      "name": "07_ddb_actual.png",
+      "bytes": 1246783,
+      "width": 3289,
+      "height": 1124,
+      "sha256": "eb20ce979784f91c642542f6dac9bde49c41e01999572ec7bc64a40ed35d9ee4"
+    },
+    {
+      "name": "08_fdk_pipeline.png",
+      "bytes": 156753,
+      "width": 2758,
+      "height": 972,
+      "sha256": "70f63ef61a056a590a337aca754c2273d9fe33fb0ed2c28a84c4ff58c529c101"
+    },
+    {
+      "name": "09_analytic_actual.png",
+      "bytes": 1237103,
+      "width": 3252,
+      "height": 934,
+      "sha256": "478ae201051049f9f2f30fe7b6cde26dc80df579bf11ce798d33bd7c43e504d9"
+    },
+    {
+      "name": "10_iterative_operator.png",
+      "bytes": 138882,
+      "width": 2438,
+      "height": 1067,
+      "sha256": "a0e54949393bc077662660f817aacc430b94c91b7a6356b611fbcb80f9dd4b05"
+    },
+    {
+      "name": "11_iterative_epochs.png",
+      "bytes": 1886806,
+      "width": 2912,
+      "height": 1460,
+      "sha256": "b9176c073cb0cd3fc8d0c9a628a98b4a314c00cc0a4367e382888a1bf87eeb9e"
+    },
+    {
+      "name": "12_huber_regularization.png",
+      "bytes": 167151,
+      "width": 2397,
+      "height": 953,
+      "sha256": "11e56539017fe121bb46a84ce8667e8715515280e301453078fb1b57cf88a685"
+    },
+    {
+      "name": "13_iterative_runtime.png",
+      "bytes": 289512,
+      "width": 2397,
+      "height": 1542,
+      "sha256": "0f039e01ccdc9e1a04b175ce02948d2aa508d2588a413c8e76cf4f5443a9ca45"
+    },
+    {
+      "name": "14_validation_wepl.png",
+      "bytes": 385646,
+      "width": 2606,
+      "height": 991,
+      "sha256": "98a6f538f9a1cfd9652cdc206628360f26ac7f48fe9234b430af00f999393854"
+    },
+    {
+      "name": "08a_analytic_dimensions.png",
+      "bytes": 192022,
+      "width": 3410,
+      "height": 1048,
+      "sha256": "809ea78c9bac1d89bfd0f4b9dca3d71728d7e7723d0f3429ecaa0b1689864a4c"
+    },
+    {
+      "name": "08b_uvd_mapping.png",
+      "bytes": 219928,
+      "width": 3351,
+      "height": 1124,
+      "sha256": "dd702ce94d1bb0d2768946e7fa25b57f3b3943575459170e148b75851c8da292"
+    }
+  ]
+}

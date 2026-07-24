@@ -1,0 +1,1 @@
+$ /home/ltf/project/github/PCT/.venv-gate/bin/rtksimulatedgeometry --nproj 720 --first_angle 0 --arc 360 --sid 1000 --sdd 1110 --output /home/ltf/project/github/PCT/data/reconstruction_data/results0717_s3_water_air_pilot/analytic/geometry.xml

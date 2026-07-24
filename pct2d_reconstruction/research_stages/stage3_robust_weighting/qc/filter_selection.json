@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "winner": "baseline_3sigma",
+  "baseline_retained": true,
+  "decisions": [
+    {
+      "candidate": "baseline_3sigma",
+      "passed": true,
+      "checks": {
+        "validation_rmse": true,
+        "p99": false,
+        "material_mape": true,
+        "small_aluminium": true,
+        "material_retention": true,
+        "no_empty_angle": true
+      },
+      "validation_rmse_mm": 2.480356216430664,
+      "validation_pool": "fixed baseline-accepted validation rows",
+      "abs_p99_mm": 6.5341644287109375,
+      "p99_pool": "candidate-accepted validation rows",
+      "material_mape": 0.011584285682497116,
+      "small_aluminium_ape": 0.011670039966702461,
+      "max_dense_water_retention_difference": 0.008631949399941719
+    },
+    {
+      "candidate": "median_mad",
+      "passed": false,
+      "checks": {
+        "validation_rmse": true,
+        "p99": false,
+        "material_mape": true,
+        "small_aluminium": true,
+        "material_retention": true,
+        "no_empty_angle": true
+      },
+      "validation_rmse_mm": 2.4834506511688232,
+      "validation_pool": "fixed baseline-accepted validation rows",
+      "abs_p99_mm": 6.462464809417725,
+      "p99_pool": "candidate-accepted validation rows",
+      "material_mape": 0.010965288437616367,
+      "small_aluminium_ape": 0.004139459691941738,
+      "max_dense_water_retention_difference": 0.017536418887680205
+    },
+    {
+      "candidate": "robust_mahalanobis",
+      "passed": false,
+      "checks": {
+        "validation_rmse": true,
+        "p99": false,
+        "material_mape": true,
+        "small_aluminium": true,
+        "material_retention": true,
+        "no_empty_angle": true
+      },
+      "validation_rmse_mm": 2.4852373600006104,
+      "validation_pool": "fixed baseline-accepted validation rows",
+      "abs_p99_mm": 6.4100775718688965,
+      "p99_pool": "candidate-accepted validation rows",
+      "material_mape": 0.011470637212579068,
+      "small_aluminium_ape": 0.010167575441300869,
+      "max_dense_water_retention_difference": 0.007775741002221115
+    }
+  ],
+  "test_partition_opened": false
+}

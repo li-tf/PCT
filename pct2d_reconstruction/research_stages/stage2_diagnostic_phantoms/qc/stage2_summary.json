@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "completed_at": "2026-07-24T11:33:26",
+  "datasets": {
+    "vacuum": "0717_s2",
+    "air": "0717_s3",
+    "material": "0717_s4",
+    "resolution": "0717_s5"
+  },
+  "key_results": {
+    "vacuum_analytic_water_mean_rsp": 1.0137739181518555,
+    "air_uncorrected_analytic_water_mean_rsp": 1.0135433673858643,
+    "air_corrected_analytic_water_mean_rsp": 1.0137614011764526,
+    "air_correction_image_delta_rsp": 0.0002180337905883789,
+    "vacuum_iterative_water_mean_rsp": 1.013880729675293,
+    "air_iterative_water_mean_rsp": 1.0138728618621826,
+    "vacuum_test_wepl_rmse_analytic_mm": 2.4777950614217605,
+    "vacuum_test_wepl_rmse_iterative_mm": 2.444963180052929,
+    "air_test_wepl_rmse_analytic_mm": 2.480044965854424,
+    "air_test_wepl_rmse_iterative_mm": 2.4434923715317938,
+    "material_mape_non_air": 0.011696773348376155,
+    "resolution_fmtf50_mean_lp_per_mm": 0.5017021521078606,
+    "resolution_fmtf10_mean_lp_per_mm": 1.0880106262763711,
+    "material_test_wepl_rmse_analytic_mm": 2.6709127310720575,
+    "resolution_test_wepl_rmse_analytic_mm": 2.5985483988687323
+  },
+  "iterative": {
+    "status": "PASS",
+    "datasets": {
+      "vacuum": {
+        "status": "PASS",
+        "elapsed_seconds": 2167.5717185039994,
+        "pairs_per_epoch": 43499353,
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "output": "data/reconstruction_data/results0717_s2_water_vacuum_pilot/iterative/recon/recon_iterative_gpu.mhd"
+      },
+      "air": {
+        "status": "PASS",
+        "elapsed_seconds": 1832.1185703380006,
+        "pairs_per_epoch": 37291681,
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "output": "data/reconstruction_data/results0717_s3_water_air_pilot/iterative/recon/recon_iterative_gpu.mhd"
+      }
+    }
+  },
+  "holdout_resources": {
+    "status": "PASS",
+    "device": 0,
+    "batch_size": 4096,
+    "datasets": {
+      "vacuum": {
+        "elapsed_seconds": 217.05823735900003,
+        "pairs": 10876744,
+        "checkpoint_count": 3,
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+      },
+      "air": {
+        "elapsed_seconds": 182.64646986999998,
+        "pairs": 9326294,
+        "checkpoint_count": 4,
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+      },
+      "material": {
+        "elapsed_seconds": 164.78372001799994,
+        "pairs": 9318463,
+        "checkpoint_count": 2,
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+      },
+      "resolution": {
+        "elapsed_seconds": 164.070110409,
+        "pairs": 9280315,
+        "checkpoint_count": 2,
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+      }
+    }
+  },
+  "outputs": {
+    "report": "pct2d_reconstruction/research_stages/stage2_diagnostic_phantoms/qc/stage2_summary.md",
+    "figures": "pct2d_reconstruction/research_stages/stage2_diagnostic_phantoms/qc/figures"
+  }
+}

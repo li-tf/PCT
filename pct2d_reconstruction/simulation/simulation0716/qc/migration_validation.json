@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "experiment": "0716",
+  "simulation_data": "data/simulation_data/results0716",
+  "root_files": 1440,
+  "entrance_root_files": 720,
+  "exit_root_files": 720,
+  "content_hash_algorithm": "SHA-256",
+  "root_hash_manifest": "root_sha256_manifest.txt",
+  "root_hash_manifest_sha256": "67158c3d0ba71f69c2610a6bde47cdb088bb1f6fd35b3708b945b4c0e4302e72",
+  "post_migration_hash_checks_passed": 1440,
+  "non_root_files_remaining_in_simulation_data": 0,
+  "qc_run_directories": 720,
+  "qc_completed_flags": 720,
+  "qc_log_files": 1440,
+  "note": "ROOT contents were not rewritten; only logs, metadata, statistics, completion flags, launcher summary, and manifest were moved to the code-side QC directory."
+}

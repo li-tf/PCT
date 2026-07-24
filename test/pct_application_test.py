@@ -45,6 +45,37 @@ def test_pairprotons_application(
     pairs_baseline = itk.array_from_image(itk.imread(baseline_pairs_mhd))
     assert np.array_equal(pairs_test, pairs_baseline)
 
+    stream_output = tmp_path / "pairs_stream_test.mhd"
+    pct.pctpairprotons(
+        f"-i {phasespacein_root} -j {phasespaceout_root} -o {stream_output} --plane-in -110 --plane-out 110 --psin PhaseSpaceIn --psout PhaseSpaceOut --stream-by-run"
+    )
+    stream_output0000 = tmp_path / "pairs_stream_test0000.mhd"
+    pairs_stream_test = itk.array_from_image(itk.imread(stream_output0000))
+    assert np.array_equal(pairs_stream_test, pairs_baseline)
+    assert np.array_equal(pairs_stream_test, pairs_test)
+
+
+def test_binning_variance_application(tmp_path, baseline_pairs_mhd):
+    output = tmp_path / "projection.mhd"
+    count = tmp_path / "count.mhd"
+    variance = tmp_path / "variance.mhd"
+    pct.pctbinning(
+        f"-i {baseline_pairs_mhd} -o {output} --count {count} "
+        f"--variance {variance} --source -1000 --ionpot 78 "
+        "--dimension 64 1 8 --spacing 5 1 25"
+    )
+    projection_image = itk.imread(output)
+    count_image = itk.imread(count)
+    variance_image = itk.imread(variance)
+    projection = itk.array_from_image(projection_image)
+    counts = itk.array_from_image(count_image)
+    variances = itk.array_from_image(variance_image)
+    assert projection.shape == counts.shape == variances.shape
+    assert np.isfinite(projection).all()
+    assert np.isfinite(variances).all()
+    assert (counts >= 0).all()
+    assert (variances >= 0).all()
+
 
 def test_weplfit_application(tmp_path):
     output = tmp_path / "weplfit"

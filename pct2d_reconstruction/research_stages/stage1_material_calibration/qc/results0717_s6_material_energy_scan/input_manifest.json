@@ -1,0 +1,1864 @@
+{
+  "created_at": "2026-07-23T14:32:45",
+  "dataset": "results0717_s6_material_energy_scan",
+  "files": [
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t0020/PhaseSpaceIn.root",
+      "bytes": 2844946,
+      "sha256": "6019e080afbdab32108beb8b2ba02cc61783ed72cda421f90f058d4af0074b06"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t0020/PhaseSpaceOut.root",
+      "bytes": 5557079,
+      "sha256": "9e714e25ad9115771c14378d9531ebb166f2448249c62dafbda1cc5f05a36cc9"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t0220/PhaseSpaceIn.root",
+      "bytes": 2840238,
+      "sha256": "a80dfa0b1c3d5c007acccb8f7da0e2d43bc7649f73339aa09f950ae4403fb10a"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t0220/PhaseSpaceOut.root",
+      "bytes": 5643433,
+      "sha256": "9cac2c42041e70079af599e5a500c389a30a05bcb72fe9556ea2fb957824a34f"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t1000/PhaseSpaceIn.root",
+      "bytes": 2826336,
+      "sha256": "11d68140fdf747f83fbf8da5c83494eeacf8dae9920e308dbbda807af66981e5"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t1000/PhaseSpaceOut.root",
+      "bytes": 5652439,
+      "sha256": "4d9392e0e5a1baffd4f98d9a4fde6828f13709883a40fa8a12abba909ec72ded"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t2000/PhaseSpaceIn.root",
+      "bytes": 2833628,
+      "sha256": "dd820e95069f69e7c4beb4f62c2678bb7eb9fbdadcb03f7b2e2d52a421ee12d6"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e150_t2000/PhaseSpaceOut.root",
+      "bytes": 5536322,
+      "sha256": "fe84cf268201611583ef35cabea2d275d5269751803200951b5900d1be3fe68e"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t0020/PhaseSpaceIn.root",
+      "bytes": 2845626,
+      "sha256": "394faa8b1b736343773da3fd8c52c3167246eabc4ead5fbe0838535e32975d36"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t0020/PhaseSpaceOut.root",
+      "bytes": 5552063,
+      "sha256": "1ec82ccd80f3a62346b6c3a7b504c4d39f8f19297bd0c9d992353afbc77ac424"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t0220/PhaseSpaceIn.root",
+      "bytes": 2833987,
+      "sha256": "3e7590f5716d8f07ebfb5ee6abaff93b90a23efdaae29df0083ff417d0a3e951"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t0220/PhaseSpaceOut.root",
+      "bytes": 5626801,
+      "sha256": "9983fd52753ab178c8f9d465ead3092b18ae014d7772773f2cab831f3596767f"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t1000/PhaseSpaceIn.root",
+      "bytes": 2831347,
+      "sha256": "fbcc21423ffac4334f62d88aed1467d2f988becc4691855d14cadddc1a1c76c9"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t1000/PhaseSpaceOut.root",
+      "bytes": 5658955,
+      "sha256": "889eb1c7e478fc8db46e88922a22da4cd8eddad734903de9c5f456bf2718f081"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t2000/PhaseSpaceIn.root",
+      "bytes": 2826280,
+      "sha256": "7741030ba1995e181c25b89c55c858cd00e298ecd3d6dbb66800ba162a72a331"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e180_t2000/PhaseSpaceOut.root",
+      "bytes": 5583168,
+      "sha256": "4a553622f3cd00bb21c86be0619e5604d9729220de1e7ebd4832d47501267cb6"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t0020/PhaseSpaceIn.root",
+      "bytes": 2831510,
+      "sha256": "b4f309e14018daa9c8c1f5f8e505c8d2153b74de4e115a29fb1637209748ec02"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t0020/PhaseSpaceOut.root",
+      "bytes": 5521668,
+      "sha256": "e52389474424ef243be9b9822f88747a7c2efcbffe9f7a3f4fc138c4deab1bc3"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t0220/PhaseSpaceIn.root",
+      "bytes": 2844936,
+      "sha256": "a6681622f2c903cf60a75583460311aa2b786ee64028949a820405c328dcdfbe"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t0220/PhaseSpaceOut.root",
+      "bytes": 5639320,
+      "sha256": "297e0da94440be594feba75c82d65a786585922ad0bba326b972bbd5a8b6552d"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t1000/PhaseSpaceIn.root",
+      "bytes": 2836544,
+      "sha256": "4aaff686c6cef850d58f2487df82972e4183d2e97a3e4067b5156f5c0cdade3b"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t1000/PhaseSpaceOut.root",
+      "bytes": 5665811,
+      "sha256": "0166dc15cf3514914642b95eb70c20591de15e2895e8510478d0a096c0c846c0"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t2000/PhaseSpaceIn.root",
+      "bytes": 2833103,
+      "sha256": "c9436286b43436ff88e7fc447ec8aa2486620cd4ad77966c10a6b29e715fa289"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e200_t2000/PhaseSpaceOut.root",
+      "bytes": 5611130,
+      "sha256": "ef31ba9f573af0f612c3f25a924d2c2bb616aebf4133fea814854214899247ac"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t0020/PhaseSpaceIn.root",
+      "bytes": 2831651,
+      "sha256": "b23a7ffc1f6667df8abbf1bbe5f74e7817b6a8664ce0e12a68dbf75b481ceb04"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t0020/PhaseSpaceOut.root",
+      "bytes": 5520440,
+      "sha256": "9158be6dda6e824071448b2f9dc576fa1525b7b56b96156806b833f9c684b666"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t0220/PhaseSpaceIn.root",
+      "bytes": 2838049,
+      "sha256": "3a23affd2f63ab5866a46429ec615746022ddae80bc948662cb0fa7a7b7af3f1"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t0220/PhaseSpaceOut.root",
+      "bytes": 5619613,
+      "sha256": "48e964a1eb9f81ecd9b1c17677e915de29330906e1648b12759a86f08c5f2edc"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t1000/PhaseSpaceIn.root",
+      "bytes": 2833985,
+      "sha256": "dbcc20f3e81132b32b1bc44b218422da2bde5550926e7d96f6a2be6026d3dcc9"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t1000/PhaseSpaceOut.root",
+      "bytes": 5667915,
+      "sha256": "41ef3e25a291b30b102c9a9c80233da6cc98a6329d0770c616d154e4dedff74a"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t2000/PhaseSpaceIn.root",
+      "bytes": 2836771,
+      "sha256": "5ea984969034a01f8014a3d08ecefb55e8d697d56d9046436a8606f69a694586"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/air_e220_t2000/PhaseSpaceOut.root",
+      "bytes": 5632324,
+      "sha256": "ed91304ea684847dab5ef20805de5d9046f08c1ccf5fca2bbadb84e7e2814e9f"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0005/PhaseSpaceIn.root",
+      "bytes": 2851221,
+      "sha256": "257e23c1a9f10d05b7dbb63d54ccf3e9da3564bef5fede135bd6373076e016d0"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0005/PhaseSpaceOut.root",
+      "bytes": 5769584,
+      "sha256": "a10c726d0d981a2e94c41241805c19878dcd800993e9e81dbefa4b12c53c5b27"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0010/PhaseSpaceIn.root",
+      "bytes": 2843697,
+      "sha256": "0f4d0c513bd71f56d688958afa55cffdaf68c03db34497a45298eb700c41dc44"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0010/PhaseSpaceOut.root",
+      "bytes": 5737428,
+      "sha256": "d26514278f1341814ab3a1a863c96e9bd36bdb8c09ee35ad54496051e39c0957"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0020/PhaseSpaceIn.root",
+      "bytes": 2836651,
+      "sha256": "bcda02f18a0e6339c5ddb77efe619a7cf848d4b6c047d93c2dd14719b487f6ed"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0020/PhaseSpaceOut.root",
+      "bytes": 5638091,
+      "sha256": "9623d59f37380cd00bff5304c9e77f65a2ab97f06ae3e87febf41bbea011b6cf"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0050/PhaseSpaceIn.root",
+      "bytes": 2846737,
+      "sha256": "a2fec0671d60499b10efac1f3bd513cc5d7e04e4404bc52c1f1e86e41c8b1a78"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e150_t0050/PhaseSpaceOut.root",
+      "bytes": 5264771,
+      "sha256": "af2497689266cbd39b3bee77ae62d945cda48f01f313d8bb88fe90f1bec0f2a0"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0005/PhaseSpaceIn.root",
+      "bytes": 2840885,
+      "sha256": "5bbbd2d96fb7faaa79f66a8a555fae833e17944601d714296e90a41f34aecf9e"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0005/PhaseSpaceOut.root",
+      "bytes": 5732572,
+      "sha256": "d4ab6a73397dae19bd32066359ab41a1654fbcfc6e06a3c6b447bb6f191d74f2"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0010/PhaseSpaceIn.root",
+      "bytes": 2847436,
+      "sha256": "74e1100e5abcc5e21d390a5a68e7f552f66631e54910ee3eaed5455e16ea43b4"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0010/PhaseSpaceOut.root",
+      "bytes": 5748397,
+      "sha256": "8c8a08fdffe7ac797aadc509c0551a7e73a5a6a7e131a8a1dafe47a2c6574696"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0020/PhaseSpaceIn.root",
+      "bytes": 2835215,
+      "sha256": "a81482a2750d65c074989277682864822573397190679f6f3b4fd76f5b41f08a"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0020/PhaseSpaceOut.root",
+      "bytes": 5642329,
+      "sha256": "0b7a0ffb2638a30bc6d924c9a1cb3ad18a5ee45b0ddf14e36a99575b2b111fac"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0050/PhaseSpaceIn.root",
+      "bytes": 2828956,
+      "sha256": "41354b1ab6da0e4cc93c7fee33221de642296912effd78fc6cdd365aceae309c"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e180_t0050/PhaseSpaceOut.root",
+      "bytes": 5293162,
+      "sha256": "58c4ab2caed4a60eb0d5125f8f81cc6104e5f61e8bb9f31f388d880434c14adc"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0005/PhaseSpaceIn.root",
+      "bytes": 2841912,
+      "sha256": "035abcdf44c6862a859fd51458f4330e133d27b34f0fb8d94a27fb94b3e42224"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0005/PhaseSpaceOut.root",
+      "bytes": 5742704,
+      "sha256": "ecc745e9de69656e1bf5b8942284ff5fdd3220d9f7cdab61a7613205ee6d2d14"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0010/PhaseSpaceIn.root",
+      "bytes": 2839807,
+      "sha256": "f183b5ea23cfbb1f9ee670af052ceb0b00c75883ff66c07f2e9b6216981cc78c"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0010/PhaseSpaceOut.root",
+      "bytes": 5726066,
+      "sha256": "d99fb01ea0253e49ffd14bcbb781c97263594167d775aa8c80fa4edcd0f0b189"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0020/PhaseSpaceIn.root",
+      "bytes": 2841625,
+      "sha256": "5ec83b44ea6de1d58670f64bc53a0fef94a11fd2d3119692e36f8c35eefa162e"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0020/PhaseSpaceOut.root",
+      "bytes": 5673721,
+      "sha256": "f17f29517084a6f651e3e97811ef7e64f7618ee940fb198f771b71af5f614743"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0050/PhaseSpaceIn.root",
+      "bytes": 2843923,
+      "sha256": "0d452aa9f0c826cd4c3b60a35fe3f14580ddf4c2f3c1b6bb43a2ac27291f6aa4"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e200_t0050/PhaseSpaceOut.root",
+      "bytes": 5342823,
+      "sha256": "3a2d6d474608d897a1ea6e9cc3785cf12c024b469e38f7990a60a5175f16ff4e"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0005/PhaseSpaceIn.root",
+      "bytes": 2841207,
+      "sha256": "59440d4d737d1021234289e794b6be44b2e9c1cc0955b5b50527f05fac98200a"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0005/PhaseSpaceOut.root",
+      "bytes": 5744601,
+      "sha256": "dac0a1814abdff0cfad44238df42b7d9283d51ffac821ebc3e78a8c99893e808"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0010/PhaseSpaceIn.root",
+      "bytes": 2842061,
+      "sha256": "981e8a07a2a2d2679a7f27360291c91822475401d86d48532ee8d2b94b5ce8c7"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0010/PhaseSpaceOut.root",
+      "bytes": 5737721,
+      "sha256": "ff23f1180c6bd8f3644ae663264513c34baf0bb53c1b26065b86ef87d9185ef2"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0020/PhaseSpaceIn.root",
+      "bytes": 2839828,
+      "sha256": "6b4c2657968575a23d7a401fa1487c705b6d3e250de801261cb70210c736ac50"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0020/PhaseSpaceOut.root",
+      "bytes": 5678343,
+      "sha256": "3051e624e0df71e008647cdd114c7c144436fff0c8e5c5eff9f070cb73f130ae"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0050/PhaseSpaceIn.root",
+      "bytes": 2844478,
+      "sha256": "c0242c9d7bc2c7d38a6183ae7e6b3c42d8a439cc512c0327b7dca7b65834998c"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/aluminium_e220_t0050/PhaseSpaceOut.root",
+      "bytes": 5354129,
+      "sha256": "f1e12a997f58d23b920d0ef157367d0a7a0e0e5c0ffd8c649c3199290e91bec7"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0005/PhaseSpaceIn.root",
+      "bytes": 2875448,
+      "sha256": "d23cd07621d91ac02bb51e012770a3ca6137f701560343faedff1b7fd3a81280"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0005/PhaseSpaceOut.root",
+      "bytes": 5788506,
+      "sha256": "99ad33fbf50cf1847ebe0e6003188a5ca27c4465c7290bcc0d372050dcc0cbc4"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0010/PhaseSpaceIn.root",
+      "bytes": 2832047,
+      "sha256": "bc1132498b071091590c9179876a362837294e74b19f35a32b9af6e3c9b3e9a2"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0010/PhaseSpaceOut.root",
+      "bytes": 5717901,
+      "sha256": "b14eaf112a2bd00efc32033012cc3b18061ba8ae4d37398001d9b7fa7d9839a8"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0020/PhaseSpaceIn.root",
+      "bytes": 2842161,
+      "sha256": "eab962c9a26a218343cf9112b9ae24357bb2b04eb266adac0d41ba3bb5200d21"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0020/PhaseSpaceOut.root",
+      "bytes": 5739023,
+      "sha256": "a002cec124caea096298e007b18e2887c01224a8fa848b13acd9284421657a31"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0050/PhaseSpaceIn.root",
+      "bytes": 2840014,
+      "sha256": "3d2e4075cad9b80aea1f8d05c71dbf70bc14cafe4c1a72aff5f5768de4155f97"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0050/PhaseSpaceOut.root",
+      "bytes": 5616283,
+      "sha256": "49e0822a468a49fed7d45171b526834b3fabcdccb5fa4b310a3fad731831ffce"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0100/PhaseSpaceIn.root",
+      "bytes": 2834275,
+      "sha256": "ad00de21e7a39cb1c22a5ab0cddefa0f4d6be67a5ebc4ee9d3913dd1fbc662e5"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e150_t0100/PhaseSpaceOut.root",
+      "bytes": 5223283,
+      "sha256": "0017f509c881414be9efc10fe70155ff225defb474cc4a9920c6db6d3827058c"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0005/PhaseSpaceIn.root",
+      "bytes": 2833750,
+      "sha256": "47621e73dc74728b0b8513bbb5e0ebe4cc23f19f6d35bd8d00dbf5a94adb6ad9"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0005/PhaseSpaceOut.root",
+      "bytes": 5697631,
+      "sha256": "a8f5ccd9e7279c3d6a0329f70b63c340008fcac0a9a801ab4132356964df7f33"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0010/PhaseSpaceIn.root",
+      "bytes": 2842100,
+      "sha256": "7ed042d27f5abb20b558af5281977c4dd182476a3f73d4409280bb5ab687c5df"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0010/PhaseSpaceOut.root",
+      "bytes": 5735289,
+      "sha256": "e5ebe92bce65bac5b39c2cd8788dfc37a0237c6229ae9d6e18f5019f93c474d2"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0020/PhaseSpaceIn.root",
+      "bytes": 2842917,
+      "sha256": "e338fe7682387add1b788f5034c19d81d0ff10aad7c848fa4244a2b212c2d27d"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0020/PhaseSpaceOut.root",
+      "bytes": 5725962,
+      "sha256": "051774f49d76de195848152dc1ee09778d1752a431832d2730311cb2005ec680"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0050/PhaseSpaceIn.root",
+      "bytes": 2840518,
+      "sha256": "bb06c0e9a168152f8495a9f3a01f11e5409e26f8a181af91ee4253c546a830e2"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0050/PhaseSpaceOut.root",
+      "bytes": 5626428,
+      "sha256": "9b93bfc8a65e8ce1bf00cc7e132010b9aecc205cfd80db0b6321779f2835d5fa"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0100/PhaseSpaceIn.root",
+      "bytes": 2859824,
+      "sha256": "597a05dd98c72e8149fba409ea8ef4205648837abc0aabcccc9c1bb7815993b7"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e180_t0100/PhaseSpaceOut.root",
+      "bytes": 5374571,
+      "sha256": "f57e3fe4ca08db96627ca85df1e5cafd9a9be65948eca83b29542ab19ecc631b"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0005/PhaseSpaceIn.root",
+      "bytes": 2836867,
+      "sha256": "7b9fb29ad515de856b1ef6ac19d7111f73ede887ee3e187a287cbbf416dbeca0"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0005/PhaseSpaceOut.root",
+      "bytes": 5707868,
+      "sha256": "268dccdbc5c02e8e9389e35cce1125fc230e3092669de14e26122a2c7a38d9e1"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0010/PhaseSpaceIn.root",
+      "bytes": 2853692,
+      "sha256": "ffb05c541d16ccafbec08274fbedb0e9b2cd8f4f29c73b99db54365b931a510d"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0010/PhaseSpaceOut.root",
+      "bytes": 5751583,
+      "sha256": "64bc87d3a61136bd25aa8db6bb0338d0bf923f6dd6368503c3e69bab27251e31"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0020/PhaseSpaceIn.root",
+      "bytes": 2828961,
+      "sha256": "7ff7dac1c80119bb9a4955bf37493bdf0482a7381c8de7688a7b01ef8ff362ce"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0020/PhaseSpaceOut.root",
+      "bytes": 5701818,
+      "sha256": "3bfa10839db581aac1ba9a078f85f93d2468185daa4bb28b8d9cda5cc9cf0e82"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0050/PhaseSpaceIn.root",
+      "bytes": 2840244,
+      "sha256": "5a3d87b6e4ee47c69bcc55690f1c1cf1323040368b5ae219ab99eae160291279"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0050/PhaseSpaceOut.root",
+      "bytes": 5638085,
+      "sha256": "66c94b39aa3f20fa13b36fe4b8e5bb6e9bba265c4bb52619e5430f2ee584afd2"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0100/PhaseSpaceIn.root",
+      "bytes": 2845462,
+      "sha256": "ca0734413577e6f8fc8c1f21165657a736e2276508f3dd3878803624af5a07b2"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e200_t0100/PhaseSpaceOut.root",
+      "bytes": 5364064,
+      "sha256": "9c56d2627ee4367b417bbbc18c594742144dc81d62f8d8055534eee0c31cb1ab"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0005/PhaseSpaceIn.root",
+      "bytes": 2851376,
+      "sha256": "85b1aa51181473802df2fcf395301d4307b6b1b580da2225611d4fcfe2e0587b"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0005/PhaseSpaceOut.root",
+      "bytes": 5740658,
+      "sha256": "a9984c924e3f27ee4896cb5bb999e4a01a99221ca03df24d97da6d377b1cabbc"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0010/PhaseSpaceIn.root",
+      "bytes": 2838226,
+      "sha256": "63a4b2eacbb91ea32bd02752d0cf234eb4ec935da8959639716888553f1517fc"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0010/PhaseSpaceOut.root",
+      "bytes": 5728078,
+      "sha256": "5ff25d19cedaeecd8710b2509875f59f48f5b0d8c92c61640f4216a70f1a114d"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0020/PhaseSpaceIn.root",
+      "bytes": 2826806,
+      "sha256": "b96806c72571a8e10807afbfa8475d0743100d00cde965c7fa48180f2f0d5b0e"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0020/PhaseSpaceOut.root",
+      "bytes": 5694325,
+      "sha256": "b29eda1e6620187725703cd4312816a2d53dc6fd2d431f16fbe3d0818b127174"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0050/PhaseSpaceIn.root",
+      "bytes": 2831432,
+      "sha256": "2a67ccd5a4c41e7ecb64f8249c4d207fda0618873de3b9841ec64f6034e543ae"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0050/PhaseSpaceOut.root",
+      "bytes": 5616295,
+      "sha256": "8dfe19b5fb904c4885bce3e98016b3be8ede5ec54512c428be5145a69efc1712"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0100/PhaseSpaceIn.root",
+      "bytes": 2843970,
+      "sha256": "32236ee921bbceabc0eba3d43b45cd18dc3c098abb987cbdbc322e115e14113e"
+    },
+    {
+      "path": "data/simulation_data/results0717_s6_material_energy_scan/water_e220_t0100/PhaseSpaceOut.root",
+      "bytes": 5373334,
+      "sha256": "1e4a5e47fa7d89f884110adc048c72936d34275710e1601817871f257ab3aeae"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/material_scan_config.json",
+      "bytes": 741,
+      "sha256": "fa83c3d26c879ca2dbd677d9e77fcd7e46ade1d4b231415a659b4fc3aa7baa2e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/environment_check.json",
+      "bytes": 2507,
+      "sha256": "207df3314c26859dced56f5908b2b72216dea8aa04633675a6808a1f514b3c0d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/overnight_summary.json",
+      "bytes": 1494,
+      "sha256": "5c030183048e7a810c43d7e8bd8ff87dcc8412337fc294e9a59e4297a8b8c887"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t0020/case_metadata.json",
+      "bytes": 783,
+      "sha256": "e0a18444a34d45394b23c3f5b391ea35c1a34d377d09b1e0bead5a6cfe357397"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t0020/completed.flag",
+      "bytes": 21,
+      "sha256": "264ee98b73d67becf673b1c11b428c9022394611f4c1b024627969b462988eed"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "c5b8a8fc49fab63fd3076927da084f6d76ae205ae00b7cf2f1520c1c007be4e4"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t0220/case_metadata.json",
+      "bytes": 785,
+      "sha256": "ea7e6e89569fc46de850a96117de727bf4f9e73965f5b32b5d77b51da6b2c9eb"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t0220/completed.flag",
+      "bytes": 21,
+      "sha256": "542defd3fd39ec8cd8fdff5b4dbba4c15c8a4b794ab1281881b7caecad0e15b9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t0220/protonct.txt",
+      "bytes": 1282,
+      "sha256": "6a26ec8fdd7db1bb63bd4632a16a4cd50abd090d1d01a12c6dc4e7056940ea59"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t1000/case_metadata.json",
+      "bytes": 785,
+      "sha256": "95ee2e7ee29dd1d8d697c67822afe5ae7e94d4f4f5ab872a2ee17ed88ea63c25"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t1000/completed.flag",
+      "bytes": 21,
+      "sha256": "9e8e3ff30978033c1101d0e49cd11f66a6548024e1c1886bf5cbd03f5842da3a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t1000/protonct.txt",
+      "bytes": 1281,
+      "sha256": "775247c3e4a6ad3611358af3729dc9847eafaf0bf133da9ad68b7ccbd6e9e7ac"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t2000/case_metadata.json",
+      "bytes": 785,
+      "sha256": "b2c2372975949fa2769b5c65f64f8163f95f392aac1ef871b8114bae341d9b63"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t2000/completed.flag",
+      "bytes": 21,
+      "sha256": "b3281b231b08f6a0d07e7dbffc7424e75408c1945f196ac2cfc6b1c5e92b8ec0"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e150_t2000/protonct.txt",
+      "bytes": 1283,
+      "sha256": "ba66cbc1da6a3f564561a6cb9dfc9e2f77f8237b26988a79a2cbb6594064145f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t0020/case_metadata.json",
+      "bytes": 782,
+      "sha256": "7e34a0d2f302e9c7dbaa9cbf495cd40561230509879f0e4d2a8caa5bf1d53581"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t0020/completed.flag",
+      "bytes": 21,
+      "sha256": "ab04d1466f87ab2bb67eb9cac046cd62033881b7f128f4e94de8407ce4b8aa06"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "1e6282086724dd5404cf5751e998e18324b09fb18eac71c1a59267dde9ab284e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t0220/case_metadata.json",
+      "bytes": 785,
+      "sha256": "2d1732c6bb56deccea45f22c1672ee0e6db3b5a79df32848c50e635ae1456cf0"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t0220/completed.flag",
+      "bytes": 21,
+      "sha256": "c697e22c926836491c85a23053d46dc054bd7201eb8c8c23e3b87373860e3b28"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t0220/protonct.txt",
+      "bytes": 1280,
+      "sha256": "90e85253bfc3817a39d62cbf6b613ea22450db0625c5ddf446b2fecd56b5dd59"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t1000/case_metadata.json",
+      "bytes": 785,
+      "sha256": "f8eb3abdb2e93cc068d1d201607334ebc0cbdb8107bcba3a294f0325fdde9f42"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t1000/completed.flag",
+      "bytes": 21,
+      "sha256": "4710bf146036d86d23eab5aafc2fd535ff84710239b450669d6d612fbb0d197b"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t1000/protonct.txt",
+      "bytes": 1281,
+      "sha256": "adaaa7c0ea5aa6f8066951acc5b7e7165ccb5d6808b8f8a22635ab2d67091888"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t2000/case_metadata.json",
+      "bytes": 785,
+      "sha256": "8d1718f6a59e044f42304b45e600236f3cd39b22efe1485e300a3c58f0540876"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t2000/completed.flag",
+      "bytes": 21,
+      "sha256": "be07f12e67c29f9ad5f852aa5a192e499077d917cd64cd0435a811c30fe3e33e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e180_t2000/protonct.txt",
+      "bytes": 1282,
+      "sha256": "227a50388f23095f7b106a9cf401f3f52e22e1611ad948dbef72df4da0656d02"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t0020/case_metadata.json",
+      "bytes": 783,
+      "sha256": "7e4079d57423544ba37c8eb18ab9ef38f96047a0370aaf42684a77963ed6563e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t0020/completed.flag",
+      "bytes": 21,
+      "sha256": "f0d2c54acf4825ebcf7ac07064ef73836462ef4a3a800aaa3b0528d48732c11c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "e54f462092c8f66f59cb49f63ff813d72947aa8219a6285e2a912597a718feac"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t0220/case_metadata.json",
+      "bytes": 784,
+      "sha256": "728cbe9cc2550218abc1a3bdd2d2917a2f549fe9b1493078cf1e412552db06d2"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t0220/completed.flag",
+      "bytes": 21,
+      "sha256": "31c51c39bb6a5761a2a6318a794ba3e1aefda57025ca1f7859e0e68fb1a944f5"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t0220/protonct.txt",
+      "bytes": 1279,
+      "sha256": "882746d44bc649a9d4a1aef6389917530cc84aa7fd9405b54e8fdc0d6df15185"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t1000/case_metadata.json",
+      "bytes": 783,
+      "sha256": "1af09500a34561a181c6acce779d925d2c67cd6eb6a185140438b9e160f591b6"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t1000/completed.flag",
+      "bytes": 21,
+      "sha256": "f4e2a3ef753723ba1cfea06ea947c090fbc3cb68af0b939ad0d228f431c3a30b"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t1000/protonct.txt",
+      "bytes": 1281,
+      "sha256": "a522e10e3b5895f94206e5acd8fcd73a2690976a01293be39a5835803292534b"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t2000/case_metadata.json",
+      "bytes": 785,
+      "sha256": "0facc5bb3b27f71a19b7ecf91b312259d2ace2fbbf81a570c83259e9e0a87076"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t2000/completed.flag",
+      "bytes": 21,
+      "sha256": "40058cfde338b16e1f812e80c0e201bd71f461db01801e4b3b1a24e0665fcc10"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e200_t2000/protonct.txt",
+      "bytes": 1282,
+      "sha256": "d532f18265c8d494e08b5bae634fbe2647bb068f99f031733fd5abf0e9005c54"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t0020/case_metadata.json",
+      "bytes": 783,
+      "sha256": "7070ef507bf3f92146e80bd04fed5a601a0ed1daf060d3b0b684806a10764fb2"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t0020/completed.flag",
+      "bytes": 21,
+      "sha256": "85d28da1ee9c80c106466d655b35b2e43063f056078133e0fc79876736487ee3"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t0020/protonct.txt",
+      "bytes": 1279,
+      "sha256": "b310109171966bf046462f55c9965d95453f3e65b1ca6b0429afcefaa5bc5da1"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t0220/case_metadata.json",
+      "bytes": 784,
+      "sha256": "fe416f450122b267cc3d3a160e30b5dc3f1dd3151167e46fa80a98a8bbd73a46"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t0220/completed.flag",
+      "bytes": 21,
+      "sha256": "ac5cd2752631098c7e87b4be766d0f7c9a9ca020769ed7c50fbc1f484d0898a4"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t0220/protonct.txt",
+      "bytes": 1281,
+      "sha256": "f4626df098ea5a206cdfed9f8d4a729b50653dbce4d4008e96e1cb4e556ee920"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t1000/case_metadata.json",
+      "bytes": 785,
+      "sha256": "28df6f678ef096d51de44719f0d051e6a3e010e5ee82511d4e88f9c1acaa72f4"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t1000/completed.flag",
+      "bytes": 21,
+      "sha256": "1b9268837279cb5b48a8b4bffcf78c5cb5267477c21811fa1c8c9157cbfecfd6"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t1000/protonct.txt",
+      "bytes": 1282,
+      "sha256": "134d7aefbf2740c78c776484e5611cf263aaf2e1a2e119c73da47f2f1b6f6012"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t2000/case_metadata.json",
+      "bytes": 785,
+      "sha256": "b33d0438336a059bc0936f7354980ef0bbcd755dc5f487c07776d855f69fbb8d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t2000/completed.flag",
+      "bytes": 21,
+      "sha256": "71548ecdd27de1b4fc9d5da2e86c219703f22e58cabb1d8dd82c3083397145ef"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/air_e220_t2000/protonct.txt",
+      "bytes": 1283,
+      "sha256": "153b1a21a45aa6ddab9af7a0a909a840365663cd0cadd36fa18306cc9dd3d5e5"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0005/case_metadata.json",
+      "bytes": 793,
+      "sha256": "78e6e7142b638be9fe01d35282627e52254a235444637dbad2b9945539a1f7a7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0005/completed.flag",
+      "bytes": 27,
+      "sha256": "86ae1c71cf82e6cff3f5cafd66c745a513c0347ab54de0a165a7060326604d8d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0005/protonct.txt",
+      "bytes": 1281,
+      "sha256": "1df8ab7eff0e4c9d6ae20402fda37fb6ace66c4217d8f424c39303a5e7f650c7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0010/case_metadata.json",
+      "bytes": 794,
+      "sha256": "db7161b4a4b3b6e1492f6f8060468edbfefc6c1fcc8a1b432ab890021d234b6a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0010/completed.flag",
+      "bytes": 27,
+      "sha256": "f70851dc09be4770613bc8a9915a433014e978244addcaef8d3058e1ab7921fa"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0010/protonct.txt",
+      "bytes": 1280,
+      "sha256": "c1514d39f1334ce82331ccb3e1ee59db6927bf922884e3677e85ead3bd73eee9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0020/case_metadata.json",
+      "bytes": 792,
+      "sha256": "f01eaf5842d522c517ec4138ee22c9f9d95822893010e54f2836f95b33853069"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0020/completed.flag",
+      "bytes": 27,
+      "sha256": "1ee80dcc34af5761badb1952f5ab1db4bb9583955fe707d0cb29e28c28b4bdaa"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "444e601e70a0bcfe70c9fc746a92512be5dc49e2977bb1cb032c27d67e06c30c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0050/case_metadata.json",
+      "bytes": 794,
+      "sha256": "543fa13266b31acf43205491ca52ed1530ef808d838b1cd6b6bf6b8c35596a6e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0050/completed.flag",
+      "bytes": 27,
+      "sha256": "9c22df7f73e321fe3708601dedffe3682dfe7e76513f2a5b1c86fd6d3ea804fa"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e150_t0050/protonct.txt",
+      "bytes": 1281,
+      "sha256": "042e45ae8e4d4c0751d72fb6187a5e3b8788dd42c6a6d3e68673b953099d4019"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0005/case_metadata.json",
+      "bytes": 791,
+      "sha256": "739c2c0c9ed3a6a76dabc963998f507aa9b976d797fe68167dd40af3eccf6897"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0005/completed.flag",
+      "bytes": 27,
+      "sha256": "c6280ab7edcf198a0228debece401d46017482afe675238dcadd31597bf0de36"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0005/protonct.txt",
+      "bytes": 1280,
+      "sha256": "7f9202f72786a61ad44861109a1c96f7ed45d0b2edb2a579346893bea06f0f75"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0010/case_metadata.json",
+      "bytes": 795,
+      "sha256": "ad5fea4ad64d2189b9da3aff6d69bfc82a9d00e64fb4a13a842a423a1103a0e7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0010/completed.flag",
+      "bytes": 27,
+      "sha256": "16ae533e25bcbf5e72e904aa4e20a5599c85163bee55385ce8a1949862a7ef09"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0010/protonct.txt",
+      "bytes": 1280,
+      "sha256": "c0431205b79f648ade2b7a17c454f629ca09937a7a87445c11764787c56a4b69"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0020/case_metadata.json",
+      "bytes": 794,
+      "sha256": "16ed29475540cb5badcc86088167f24027db3d4349ffb6e70d908a2b419bc0c1"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0020/completed.flag",
+      "bytes": 27,
+      "sha256": "e248cd14507eb83ae50e29d7856494145c7f6883e199bc4f384657c27fa474b0"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "79336ed7c8bb104f502d12701e293158763756d744e3695961cb420e76316b4d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0050/case_metadata.json",
+      "bytes": 795,
+      "sha256": "e3066bcf52ca8df00d32d09950d6eb029d655f1ff330c50a0522e0e0d5d9a9c7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0050/completed.flag",
+      "bytes": 27,
+      "sha256": "d454468aeea7cdee4e87c2a8ad0e939a4d558ef7660e94aedb81a6bbc1508292"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e180_t0050/protonct.txt",
+      "bytes": 1279,
+      "sha256": "70317d6353904dba680e9c3c5061889e9990c0692e24b9b7c5cedfd8ecb8a60f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0005/case_metadata.json",
+      "bytes": 793,
+      "sha256": "cde6993dab6a1d5df6d1135af2a98ab6508adc006ca708006bf199f23ba823fe"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0005/completed.flag",
+      "bytes": 27,
+      "sha256": "a7673847d83a357ba49bc4497c1337fd93830c5b850917e08113d5412048f3cc"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0005/protonct.txt",
+      "bytes": 1281,
+      "sha256": "8a667196510ee102be357b71fc8a290b020f8f016d88c34c75f991cfc7250abc"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0010/case_metadata.json",
+      "bytes": 793,
+      "sha256": "7df4488eb2d66068040ecafc29a910405444eb838861210f837839a8a0f9014c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0010/completed.flag",
+      "bytes": 27,
+      "sha256": "a6f68cd810153794e288be389604aca987c918a3abd26fa03fcdaa52415c64ab"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0010/protonct.txt",
+      "bytes": 1280,
+      "sha256": "121a5d80dbfb6c44c20195a5aefe54acb022cdedbf1f44ec9b216dda35e2b045"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0020/case_metadata.json",
+      "bytes": 794,
+      "sha256": "f1a2d7cef12028a54519240f255525a63b0e19af6ef8df982b6d7aaecf6ae292"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0020/completed.flag",
+      "bytes": 27,
+      "sha256": "641a7dd7a10ddcd563b90359d3216d5e9ad185b46153f44f9d1d11dffd752ce5"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0020/protonct.txt",
+      "bytes": 1281,
+      "sha256": "7112e81237a2659838b81b6024649dc9d9eb4b413b0ec8e97b1b0bcef632cbba"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0050/case_metadata.json",
+      "bytes": 795,
+      "sha256": "65c79e35f074bac546b92a95a128001c05d1423488738693c8839d1f7732e866"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0050/completed.flag",
+      "bytes": 27,
+      "sha256": "222bad13b1135b4b1d53fc2b07a9384b481a06e09d1b1f36d5fc6ec5d08b0ea4"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e200_t0050/protonct.txt",
+      "bytes": 1280,
+      "sha256": "5ce6298119195e275a9166ecc6caa6dda1c004a14768330fee51eaa56fdb92db"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0005/case_metadata.json",
+      "bytes": 793,
+      "sha256": "be740668cc36401a9c151c7d5a4f4c0b990ca6e47833c5d93748ebe8a223dbc0"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0005/completed.flag",
+      "bytes": 27,
+      "sha256": "fda1e94a0c4392aa4b88b377a39404afb89ce52c55d75133bfdf1db8cdd670b6"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0005/protonct.txt",
+      "bytes": 1280,
+      "sha256": "5cfd5fd6de24a6613db240f7bd7374c6f0295a342f308d7673729d5b7dcdbfb6"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0010/case_metadata.json",
+      "bytes": 794,
+      "sha256": "af6a063fd3c403c23696f0970f5e1c57ce80803ff46412b3f09830ed7845fb9f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0010/completed.flag",
+      "bytes": 27,
+      "sha256": "c55ca35616a150bc957c3d4e0701a9946c2a490c2049a1e053416346b8f131ab"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0010/protonct.txt",
+      "bytes": 1279,
+      "sha256": "bb58369d39bb558f1e9b2d80b689c4863238154b5699796f0dfe04d61f62c386"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0020/case_metadata.json",
+      "bytes": 793,
+      "sha256": "92235df30041b5f9714e3371f524402d755308d314acf495270b422e4bd788d7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0020/completed.flag",
+      "bytes": 27,
+      "sha256": "e3b31b3896128d67e2bc6f85f52800d9fd4dc4b39f5055a5fff49b9584fc3633"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "cc89770d9179789f8c3565fc295d9ed4c159a70f4328f2582491920f9085b6ab"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0050/case_metadata.json",
+      "bytes": 794,
+      "sha256": "39fe654b2c00b0f6ded02f5f9f34c7b2c658460c28559e86a0d32c3ba866e5ef"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0050/completed.flag",
+      "bytes": 27,
+      "sha256": "552a24fe152fe17e46470aed7db2368fcf116b18a9c0ffa58e5ee0484655267d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/aluminium_e220_t0050/protonct.txt",
+      "bytes": 1278,
+      "sha256": "64b8c4eea811eb99242154cf5ea3d6fbc715cd5d9eb55a62c912d28c3ce2f6b7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0005/case_metadata.json",
+      "bytes": 784,
+      "sha256": "db8570a5165b4725a91eea46aa2cbedfffbfe46d0d420797bb77e945592afc44"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0005/completed.flag",
+      "bytes": 23,
+      "sha256": "f721835bfdc4f2576376160c4b29c97d11d0d8d397627b51eccf2d291f5fd967"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0005/protonct.txt",
+      "bytes": 1281,
+      "sha256": "1abe92ea7fd23efee65a09ddd71d216e19b221b00fb7a0d21c8bb4f0938113b7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0010/case_metadata.json",
+      "bytes": 784,
+      "sha256": "9a6b5504bcbf6217f5ae1bc419333fce9d1f00cc784c4f1e507b25b86279a05e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0010/completed.flag",
+      "bytes": 23,
+      "sha256": "7ec41fded8047671228056d4b2f8f2e1fe9844c7772da1c92a637a3cbeaee5b4"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0010/protonct.txt",
+      "bytes": 1279,
+      "sha256": "f8dbd1fc20418a26ca41c99970f977a6ea09d1ff8d53cee358d510c70ab10367"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0020/case_metadata.json",
+      "bytes": 784,
+      "sha256": "20184874f57710f6b52be789f240143131c329420dac4d3db63302d12fbbcf0d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0020/completed.flag",
+      "bytes": 23,
+      "sha256": "1c5576423352d330521ae198dbbf156bb0db3fefe7fab9f502d33b187c4c2399"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0020/protonct.txt",
+      "bytes": 1281,
+      "sha256": "2a767b26869c7e4baffc9443f4551be0aad60480e78a83ee54513eaf9b8d0fa9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0050/case_metadata.json",
+      "bytes": 786,
+      "sha256": "8b73dd251e3f7729b91e0456be7a1366410046233c3c445cfd7f7ad31faf0111"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0050/completed.flag",
+      "bytes": 23,
+      "sha256": "5b5b7d4479bf488f16a3432ae937fb8938a1b0d3a96006ae681f71ebd7c34047"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0050/protonct.txt",
+      "bytes": 1280,
+      "sha256": "7a200e83f712a4a528a87f65deaaa14b312331a17b9fb2390c9c43558b85066a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0100/case_metadata.json",
+      "bytes": 787,
+      "sha256": "f0cd05f896cf1f0da74900a24ae7532953f18265b361d3325d08f133fb4d3c49"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0100/completed.flag",
+      "bytes": 23,
+      "sha256": "a8a4074ff97d0ecf9a32af43f508aa5c04fa168cfcd619cf5c9b43c26aa5e5b8"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e150_t0100/protonct.txt",
+      "bytes": 1280,
+      "sha256": "2bdd1f9eb1cb9065cf7ee949f0f1ead35c264b7c7208887d9a7997cf140e003a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0005/case_metadata.json",
+      "bytes": 784,
+      "sha256": "d5fc5cd6e41fd8b4df360da75b3ae0d7f81b0dbe3f2fb3f285c8b13e4d56e820"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0005/completed.flag",
+      "bytes": 23,
+      "sha256": "f987739500ee3c29de57a83f76b187c449e11a395e0dbde9372723537221195d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0005/protonct.txt",
+      "bytes": 1280,
+      "sha256": "de75e98b346eafa8746bb24aed160c99d6cf77c2e45d44202dffc24944e411ea"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0010/case_metadata.json",
+      "bytes": 785,
+      "sha256": "d161d21e0ffbd2b490ad9ef23388f09dc2b7fcc882f945558dc74a65c21798f6"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0010/completed.flag",
+      "bytes": 23,
+      "sha256": "e5930ed9945d905daec9269f7d30c581e9afb2dab93c3f3ccd55262dff43b5de"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0010/protonct.txt",
+      "bytes": 1281,
+      "sha256": "47ff272b7eb46f66a0c7405263864345444686363de7c6fcd09dc19b4024eca2"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0020/case_metadata.json",
+      "bytes": 785,
+      "sha256": "aaa61fe6ca85ef202716cbed4769ca408fd05fc9fe14c3caba98ab282b9468ee"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0020/completed.flag",
+      "bytes": 23,
+      "sha256": "5fd19565aebed7571af6ef6041879094e9a34ab21d7e0add9471fc13e2d2adad"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "3764f35994620fb57467220ed2a5a3d5375f4d15eaafbcbb687e3c04909ddf3e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0050/case_metadata.json",
+      "bytes": 786,
+      "sha256": "c73a427616a6180163c25cc20944b1484cdfeebadf9902e8929aedb542abba4c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0050/completed.flag",
+      "bytes": 23,
+      "sha256": "31e8cddd658325d41f090805dda5075f183b141faa24c6237fdf9dc10cc5d118"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0050/protonct.txt",
+      "bytes": 1280,
+      "sha256": "33b47ee44e2d0ebed0374aafb06ebcbbd616abf05cf5e9cb5e2bdb364aa8fc78"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0100/case_metadata.json",
+      "bytes": 786,
+      "sha256": "a57314d37ab8375d20321776c551291eaa53e9ee5ef378ccb86ec750dfff0086"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0100/completed.flag",
+      "bytes": 23,
+      "sha256": "17bfee3ff3c3a49b0a0e2979e15f2cb0fcd6e0d3923c4bde8cbeb66828aef155"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e180_t0100/protonct.txt",
+      "bytes": 1281,
+      "sha256": "1140c685c9281daa394faa864a7d6b66e36e1e25e8ee6bef40652eb658627426"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0005/case_metadata.json",
+      "bytes": 785,
+      "sha256": "3ac0fa73c7843c877a55eaed77a16eadd39bc014e27b28f6bf1605dbd76af32c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0005/completed.flag",
+      "bytes": 23,
+      "sha256": "54c498796f039e7253f0956e8e843d9996f388fd3273da3a5e5a7cbd70a780f9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0005/protonct.txt",
+      "bytes": 1280,
+      "sha256": "aef2bc0e6b0ced1df28aec6c1f0375a2cacdf7c06d85da7bc8aed350c6655541"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0010/case_metadata.json",
+      "bytes": 786,
+      "sha256": "792671ca75531cc85869b438b80a6a0042cc7e7dddb848afe7688b73c26ad0ef"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0010/completed.flag",
+      "bytes": 23,
+      "sha256": "bfb12938b00b7b7f0fd80224fcfde13280c626ffb736a376a6c980f65975a933"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0010/protonct.txt",
+      "bytes": 1279,
+      "sha256": "d6a80f1edd649ac1438c216b8fedeea78475f93f406cb427c4466c932515e228"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0020/case_metadata.json",
+      "bytes": 786,
+      "sha256": "5add5ad5243603e1ac70fca6422b9045e5cbdcd8ee55b6eebcce86ff8881b436"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0020/completed.flag",
+      "bytes": 23,
+      "sha256": "097e247077b9007fe84dab9314fe95bc18a1f0f359349c3d3d2af3cb26fcb2ac"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "c6c648b7506ca6091fcc17edf64ab3f39b2f9d614295f66f4e53e98cbd6729bb"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0050/case_metadata.json",
+      "bytes": 787,
+      "sha256": "dae4e1f4817f6201576ed49877724766f88cd1fca0e8bfeb8c5a0f2b2612f045"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0050/completed.flag",
+      "bytes": 23,
+      "sha256": "8c47d5650fb50ff7db6716d721c01b3b17beca909d621eb3956c3237de89d6ef"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0050/protonct.txt",
+      "bytes": 1280,
+      "sha256": "a0f2d16eafab44b9fc5b371adff4955cef8bc410684f4c7aeb22550e06501b76"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0100/case_metadata.json",
+      "bytes": 788,
+      "sha256": "c22a36c09136cd637f7bd5a7066b5db3c5f01ec7c7eb32f96d78191ef3a25d11"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0100/completed.flag",
+      "bytes": 23,
+      "sha256": "60611147a89e000efe1d5764f66bb77b17a955b5952df555ab5d5bffa89ce211"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e200_t0100/protonct.txt",
+      "bytes": 1281,
+      "sha256": "3a9f4f144abd82e5d3b8b5e1f61481997a775778c908d1200c7d86ebc7077bac"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0005/case_metadata.json",
+      "bytes": 785,
+      "sha256": "b6df283d1c985764e4c22ddb3d57b52f4926e768ec74ac5094e0281fb77e68e1"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0005/completed.flag",
+      "bytes": 23,
+      "sha256": "6c64a2bd0381a93b4c307d988678ccc54576eb47576c423dbaf05226c4ed441f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0005/protonct.txt",
+      "bytes": 1281,
+      "sha256": "1016ae3996148824daaf51e2d05c7c19e9c512076e8a206ca0510b8656842790"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0010/case_metadata.json",
+      "bytes": 787,
+      "sha256": "7fd2ab2337208c721cca36eeb8a1fd136ab32c780acc40cd1217d196191bf8e2"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0010/completed.flag",
+      "bytes": 23,
+      "sha256": "1c739ae741f0f58a8192c6f8992f69feedf9fa426a488698b0daceb5416da875"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0010/protonct.txt",
+      "bytes": 1280,
+      "sha256": "af3d2dd7c11daea781cc54579601367529385b259c9561105925eda6ca78ddc9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0020/case_metadata.json",
+      "bytes": 787,
+      "sha256": "6643798c696646ecd20f5c4d3f8366dccb0dfc2aefaff01d6e8fbb116e6e9070"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0020/completed.flag",
+      "bytes": 23,
+      "sha256": "bf855b73a756db16b34a28914a9200300bcccde3871dc2379e2737ce96b4b0fa"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0020/protonct.txt",
+      "bytes": 1280,
+      "sha256": "225c116790cdff0bf2328c292de546cda91e0f8777f891191586be3f7cdee578"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0050/case_metadata.json",
+      "bytes": 786,
+      "sha256": "dac08023043343749de84e490e763f1755e7c537d09752a10abbafc145f81767"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0050/completed.flag",
+      "bytes": 23,
+      "sha256": "eb6e7a472d1398649fcc3d32a634da260f872eeb156464e369196a06f90ad4df"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0050/protonct.txt",
+      "bytes": 1280,
+      "sha256": "834115bfd1913b6aa9beba437d420675803b75ae2f621d1a0c3bc140f019251a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0100/case_metadata.json",
+      "bytes": 788,
+      "sha256": "afa10ca0396a7368fa6073b81822c8fe17d17c39f151cfdc9ed721471b98b5ea"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0100/completed.flag",
+      "bytes": 23,
+      "sha256": "573d3bea3976ab0d5b7f3e0ef092eb44b00dab7f4c6742ad5e42f4c517218c10"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/cases/water_e220_t0100/protonct.txt",
+      "bytes": 1280,
+      "sha256": "f9bd617de3d275cba2042856bc32b3dcf5d97e425112217772becfce2294aee2"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/launcher_summary.json",
+      "bytes": 429,
+      "sha256": "5b7849a389e0721e590ad09a3716726289ada57b0dc7f2041c612b2fa80bc0f6"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t0020.stdout.log",
+      "bytes": 748,
+      "sha256": "9cabd91bfae73a49e677cc30983faedb113c2aa66540cf646387cf68564e57ac"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t0220.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t0220.stdout.log",
+      "bytes": 750,
+      "sha256": "848930541d1c692dddecdc02cf9055a8ccffcb30507da1bb0a337ff7d3b940b9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t1000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t1000.stdout.log",
+      "bytes": 750,
+      "sha256": "ed40b722e91bb59cf3451eba135c0c4ee315b20d75948f4dee79c0cce6f1e2ef"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t2000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e150_t2000.stdout.log",
+      "bytes": 750,
+      "sha256": "78ca64f62dbf594b399ba254833dafd79ebdc4fa35b0e7de52f30ef7d3a2a94c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t0020.stdout.log",
+      "bytes": 748,
+      "sha256": "656efbe46a20f4b380847f13abd7569f389cc1ae33bf003c25186f20d6a67d4f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t0220.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t0220.stdout.log",
+      "bytes": 750,
+      "sha256": "44f2da1e034d2362d374979ee6c15a3a17d1966de60f470b7213e1acf694b60c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t1000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t1000.stdout.log",
+      "bytes": 750,
+      "sha256": "6e993cae7f86ceed97ea71dc293aba9cdbe1face01541d91548644522bacbdd0"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t2000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e180_t2000.stdout.log",
+      "bytes": 750,
+      "sha256": "f9a984c8ff53ceb1c48d738c002946ada83fac69e6738206cbbcd004d032f988"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t0020.stdout.log",
+      "bytes": 748,
+      "sha256": "b411387a072bf781a930408915cc5994d1df8f7a160f2bada68f38163a378682"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t0220.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t0220.stdout.log",
+      "bytes": 750,
+      "sha256": "465a5f504751ab53b3e534970d900f1bd4ce4384c0afdb786b3b6fe7f381f25c"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t1000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t1000.stdout.log",
+      "bytes": 750,
+      "sha256": "c26cb9040610cee4e3b5c98238a0e67f1ff770b90affd516fedbccff44c01fb5"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t2000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e200_t2000.stdout.log",
+      "bytes": 750,
+      "sha256": "4998e75d31728860ea692d492a33a7862cc5635ae60c50cc7ac57a14ad832cbe"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t0020.stdout.log",
+      "bytes": 748,
+      "sha256": "294568e321260dfeb848a2b32361917ecbf602ace8670f1c4d2b683a6fbaa23a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t0220.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t0220.stdout.log",
+      "bytes": 750,
+      "sha256": "552c239a9f76e055c243cd270941fcf633902e86a2478259bfc9e8e1fd36465a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t1000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t1000.stdout.log",
+      "bytes": 750,
+      "sha256": "e4b5a90fc7edfe0f5736d2043f74324a04b0cdfc58ae6add13011d4208b6f1a0"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t2000.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/air_e220_t2000.stdout.log",
+      "bytes": 750,
+      "sha256": "8f7393c1bba304eb416fa70621f5e448b92acd91af806b9b9f455cb55a1dcdf9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0005.stdout.log",
+      "bytes": 760,
+      "sha256": "e8b3f1a1382a2dbdb0daff5f7f3131b3d5c14ac6c602dccd6267e7242f7ba44a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0010.stdout.log",
+      "bytes": 760,
+      "sha256": "c6b61bca4e5c879abf61bf8d9463643a081f8c6872d0962455b1e828c2f96054"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0020.stdout.log",
+      "bytes": 760,
+      "sha256": "798cb7bd49eda2539c007d701f8889552db57ec612d65b91e9ea940c3cc9e328"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e150_t0050.stdout.log",
+      "bytes": 762,
+      "sha256": "a5766c357e4dca7fe3e901c3d3d32b5b194449410d826ef667943d45aed4f263"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0005.stdout.log",
+      "bytes": 760,
+      "sha256": "8f8206818d9c5cb6a8605525258d83573b236c42a807340411cbcd3c29d3d2b6"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0010.stdout.log",
+      "bytes": 760,
+      "sha256": "9f54e4fc2d9456427219c936b9fcb178918e953a03beeb5aaa1909b26203bd67"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0020.stdout.log",
+      "bytes": 760,
+      "sha256": "211d9d14df192d15dad66d7d003685aa271a436d08003e1b5cf4b59d0b78addf"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e180_t0050.stdout.log",
+      "bytes": 762,
+      "sha256": "d9b7539e564f4ce6fdee332f03694970b2e15513cdfa90e463c0ab519c727b7a"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0005.stdout.log",
+      "bytes": 760,
+      "sha256": "f9d618b3864260d2271f53913415f18472e7ccd41c5c28ed8f72d43acd4a8f1d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0010.stdout.log",
+      "bytes": 760,
+      "sha256": "a77e7a4c92970e8b9770acd702c9f560756e8df00d609e66056578ac8cf94da0"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0020.stdout.log",
+      "bytes": 760,
+      "sha256": "ee0b9609c8c9605ae22657dd595ae7b5927113936b6a947f743ba9823d8af6aa"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e200_t0050.stdout.log",
+      "bytes": 762,
+      "sha256": "18112b9c95dcaf2bbc3b614b9cb67055da3737be8a5b35d15c19720473da0cd4"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0005.stdout.log",
+      "bytes": 760,
+      "sha256": "37c70474aa973c3cbbb54642240d46f65794af401e4bcc93fc95354505427837"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0010.stdout.log",
+      "bytes": 760,
+      "sha256": "49c47c3fa40907f3e307279e5bf8a098afec92a25f8bd9d659457eeacb93abca"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0020.stdout.log",
+      "bytes": 760,
+      "sha256": "10ce19fa8c14ad0a76e00a9887bdd80801698e8d2a8b2ca6bd2f1892dfec8186"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/aluminium_e220_t0050.stdout.log",
+      "bytes": 762,
+      "sha256": "44d6bdcd09a92742d4f8208b690b14ec01e37735a986becc3dc6e75ea6e3d930"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0005.stdout.log",
+      "bytes": 752,
+      "sha256": "10a1886aa8b97cd00e7c4e60e2ac7df85aa5e3fbd533119be2e5487232a771cf"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0010.stdout.log",
+      "bytes": 752,
+      "sha256": "4990073c5a66fdba30db750a0d4261aa741a190b6bde0f4bd132b17835ddc8d7"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0020.stdout.log",
+      "bytes": 752,
+      "sha256": "30925314996afd1c23bbc222ed8e00e4d39b9653bb2e123439c9954d3ef22ee8"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0050.stdout.log",
+      "bytes": 753,
+      "sha256": "89285d6c47f558410a92091e480c5c0e88f61983c7456ccaa6ac96f057cccd8f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0100.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e150_t0100.stdout.log",
+      "bytes": 754,
+      "sha256": "21facab31d37e7240024ebe6f828c73ee2dec85ce7f6396d37abf7047129d98f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0005.stdout.log",
+      "bytes": 752,
+      "sha256": "2bff420f4d99e61478d3f352f479cb91027dd5b87cd9c7bf09a3f3267803bb9d"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0010.stdout.log",
+      "bytes": 752,
+      "sha256": "1147c96974e5b872fe8d4fd2c335ee99527528fd60dc70fdf93d6f0304b4cd84"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0020.stdout.log",
+      "bytes": 752,
+      "sha256": "7e1c7d6d53435af414043ac9a0c1992671bf757125d9133b7b10ea8c8d5a86f2"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0050.stdout.log",
+      "bytes": 753,
+      "sha256": "b115b9f422232ce1806a9c43e8a3cfccb25bd71b187c3c13366a3430439ecdb9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0100.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e180_t0100.stdout.log",
+      "bytes": 754,
+      "sha256": "b28b683aa338eb766c386ccfbf13e192abe49d9204f0b39ca34be4a37974357f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0005.stdout.log",
+      "bytes": 752,
+      "sha256": "64fb378e937de711a3ca5e2de28710f553b18a2e01be2424990691296f75792f"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0010.stdout.log",
+      "bytes": 752,
+      "sha256": "13226bee056c1a9b8e3de6282a51109f92a4c1d98f4ba307e767dd001ccb5c02"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0020.stdout.log",
+      "bytes": 752,
+      "sha256": "7c8feb76eaeab8dd2d7a9a07f9aeeb49df397c851e8fc00d4ff2e06351bef909"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0050.stdout.log",
+      "bytes": 753,
+      "sha256": "00bc338bb479b4f319e3421bd8be847957c18b2d5f83759c6429d98350655e16"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0100.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e200_t0100.stdout.log",
+      "bytes": 754,
+      "sha256": "558d014e84dd0397a241d709bf99705576cee7bac62ceaf8521f38123da9adf9"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0005.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0005.stdout.log",
+      "bytes": 752,
+      "sha256": "2a993597fe6555ae599289b83f07fa00edbe390e2354f84cfbe402859d057787"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0010.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0010.stdout.log",
+      "bytes": 752,
+      "sha256": "01ba57e9dd6850cf53414786939d443632a2af6c20afc593f4f26a7c59d81250"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0020.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0020.stdout.log",
+      "bytes": 752,
+      "sha256": "6c2c0428163f619c41581a53a13fb54817d52e93fa75a60936375a9f629e1e63"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0050.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0050.stdout.log",
+      "bytes": 754,
+      "sha256": "ab4beaa4d36bce6c42737a91345644554d3cdcbce70a0149d6217ae8cb55ed25"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0100.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/logs/water_e220_t0100.stdout.log",
+      "bytes": 754,
+      "sha256": "2ef317eaa3cfd8429cab38eaa6c3b0ea756382e02b0d771ef863ff5da35998af"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/material_scan_config.json",
+      "bytes": 741,
+      "sha256": "fa83c3d26c879ca2dbd677d9e77fcd7e46ade1d4b231415a659b4fc3aa7baa2e"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/material_scan_summary.csv",
+      "bytes": 14640,
+      "sha256": "01c3b2647073df733b8fd09dfdb5c8ca2380eedef9761f02d05ec94be556edee"
+    },
+    {
+      "path": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716/qc/s6_material_energy_scan/material_scan_summary.json",
+      "bytes": 215,
+      "sha256": "b7e7d30017dab235553aca687d3ab6cfef0c0f1c6d5707699937e1bf6ff3c78e"
+    }
+  ],
+  "file_count": 371,
+  "total_bytes": 439919322,
+  "simulation_config_sha256": "fa83c3d26c879ca2dbd677d9e77fcd7e46ade1d4b231415a659b4fc3aa7baa2e"
+}

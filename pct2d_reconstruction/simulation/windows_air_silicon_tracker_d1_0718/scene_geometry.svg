@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="650" viewBox="0 0 1400 650">
+  <rect width="1400" height="650" fill="white"/>
+  <text x="700" y="45" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold">D1 Air + four physical silicon tracking planes</text>
+  <text x="700" y="78" text-anchor="middle" font-family="Arial" font-size="17" fill="#475467">Side view, not to scale</text>
+  <polygon points="115,310 1250,205 1250,415" fill="#eaf2fa" stroke="#7aa6c2" stroke-width="2"/>
+  <circle cx="700" cy="310" r="138" fill="#b9def1" stroke="#2878a4" stroke-width="4"/>
+  <text x="700" y="315" text-anchor="middle" font-family="Arial" font-size="21" fill="#175c7d">Water cylinder</text>
+  <text x="700" y="342" text-anchor="middle" font-family="Arial" font-size="17" fill="#175c7d">radius 100 mm</text>
+  <line x1="350" y1="180" x2="350" y2="440" stroke="#d49b17" stroke-width="12"/>
+  <line x1="450" y1="180" x2="450" y2="440" stroke="#d49b17" stroke-width="12"/>
+  <line x1="950" y1="180" x2="950" y2="440" stroke="#d49b17" stroke-width="12"/>
+  <line x1="1050" y1="180" x2="1050" y2="440" stroke="#d49b17" stroke-width="12"/>
+  <line x1="520" y1="170" x2="520" y2="450" stroke="#344054" stroke-width="4" stroke-dasharray="10 8"/>
+  <line x1="880" y1="170" x2="880" y2="450" stroke="#344054" stroke-width="4" stroke-dasharray="10 8"/>
+  <circle cx="115" cy="310" r="10" fill="#c8553d"/>
+  <text x="115" y="285" text-anchor="middle" font-family="Arial" font-size="18">focused proton source</text>
+  <text x="350" y="472" text-anchor="middle" font-family="Arial" font-size="17">U1 -160</text>
+  <text x="450" y="472" text-anchor="middle" font-family="Arial" font-size="17">U2 -130</text>
+  <text x="520" y="500" text-anchor="middle" font-family="Arial" font-size="17">ideal In -110</text>
+  <text x="880" y="500" text-anchor="middle" font-family="Arial" font-size="17">ideal Out +110</text>
+  <text x="950" y="472" text-anchor="middle" font-family="Arial" font-size="17">D1 +130</text>
+  <text x="1050" y="472" text-anchor="middle" font-family="Arial" font-size="17">D2 +160</text>
+  <rect x="280" y="535" width="24" height="24" fill="#d49b17"/>
+  <text x="315" y="554" font-family="Arial" font-size="18">200 um Silicon, entering state recorded</text>
+  <line x1="740" y1="548" x2="790" y2="548" stroke="#344054" stroke-width="4" stroke-dasharray="10 8"/>
+  <text x="805" y="554" font-family="Arial" font-size="18">ideal Air reference plane</text>
+  <text x="700" y="610" text-anchor="middle" font-family="Arial" font-size="18" fill="#475467">Air world; six independent ROOT trees per projection; beam travels in +z</text>
+</svg>

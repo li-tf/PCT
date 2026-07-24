@@ -1,0 +1,5 @@
+opengate==10.1.0
+opengate-core==10.1.0
+numpy
+scipy
+uproot

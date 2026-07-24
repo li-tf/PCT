@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="820" viewBox="0 0 1500 820">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#34495e"/>
+    </marker>
+    <marker id="purpleArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#7d4bb3"/>
+    </marker>
+    <style>
+      .title{font:700 30px Arial,sans-serif;fill:#17202a}
+      .subtitle{font:18px Arial,sans-serif;fill:#4d5b6a}
+      .head{font:700 22px Arial,sans-serif;fill:#17202a}
+      .label{font:17px Arial,sans-serif;fill:#263746}
+      .small{font:15px Arial,sans-serif;fill:#455565}
+      .axis{stroke:#34495e;stroke-width:2;marker-end:url(#arrow)}
+      .beam{stroke:#5b94bd;stroke-width:2;fill:#dcecf8;fill-opacity:.55}
+      .plane{stroke:#34495e;stroke-width:3;stroke-dasharray:9 7}
+      .water{fill:#a9d4ea;stroke:#2479a6;stroke-width:4}
+      .insert{stroke:#43515f;stroke-width:2}
+    </style>
+  </defs>
+
+  <text x="750" y="44" text-anchor="middle" class="title">2-D heterogeneous MLP truth pilot</text>
+  <text x="750" y="74" text-anchor="middle" class="subtitle">72 projections; primary-proton Geant4 steps stored inside all phantom materials</text>
+
+  <text x="350" y="118" text-anchor="middle" class="head">Scanner x-z view (looking along +y)</text>
+  <text x="1100" y="118" text-anchor="middle" class="head">Object-fixed transverse layout</text>
+
+  <!-- Left scanner view -->
+  <polygon points="70,375 575,245 575,505" class="beam"/>
+  <circle cx="70" cy="375" r="10" fill="#d2573e"/>
+  <text x="35" y="347" class="label">source plane</text>
+  <text x="35" y="369" class="small">z = -1060 mm</text>
+  <circle cx="99" cy="375" r="5" fill="#844b9e"/>
+  <text x="112" y="404" class="small">effective focus z = -1000 mm</text>
+
+  <line x1="285" y1="195" x2="285" y2="555" class="plane"/>
+  <line x1="525" y1="195" x2="525" y2="555" class="plane"/>
+  <text x="285" y="582" text-anchor="middle" class="label">In: z = -110 mm</text>
+  <text x="525" y="582" text-anchor="middle" class="label">Out: z = +110 mm</text>
+
+  <circle cx="405" cy="375" r="109" class="water"/>
+  <text x="405" y="615" text-anchor="middle" class="label">water cylinder radius 100 mm</text>
+  <text x="405" y="638" text-anchor="middle" class="small">axis: scanner y; axial length: 400 mm</text>
+
+  <!-- Representative curved truth track -->
+  <path d="M285 354 C330 350,350 364,380 374 S440 402,472 389 S505 368,525 372"
+        fill="none" stroke="#c0392b" stroke-width="4"/>
+  <path d="M285 354 Q405 374 525 372"
+        fill="none" stroke="#f39c12" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="315" y="320" class="small" fill="#c0392b">Geant4 step trajectory</text>
+  <text x="420" y="438" class="small" fill="#b36b00">MLP estimate</text>
+
+  <!-- Scanner axes -->
+  <line x1="145" y1="700" x2="225" y2="700" class="axis"/>
+  <text x="238" y="706" class="label">+z</text>
+  <line x1="145" y1="700" x2="145" y2="630" class="axis"/>
+  <text x="126" y="622" class="label">+x</text>
+  <circle cx="145" cy="700" r="11" fill="none" stroke="#34495e" stroke-width="2"/>
+  <circle cx="145" cy="700" r="4" fill="#34495e"/>
+  <text x="113" y="735" class="label">+y toward viewer</text>
+
+  <!-- Right local object view -->
+  <circle cx="1100" cy="375" r="205" class="water"/>
+  <circle cx="1008" cy="303" r="31" class="insert" fill="#ffffff"/>
+  <circle cx="1100" cy="272" r="31" class="insert" fill="#9fc899"/>
+  <circle cx="1192" cy="303" r="31" class="insert" fill="#ef987c"/>
+  <circle cx="1028" cy="447" r="31" class="insert" fill="#d8bea0"/>
+  <circle cx="1172" cy="447" r="17" class="insert" fill="#f4b323"/>
+
+  <text x="1008" y="308" text-anchor="middle" class="small">Air</text>
+  <text x="1100" y="277" text-anchor="middle" class="small">Lung</text>
+  <text x="1192" y="308" text-anchor="middle" class="small">A150</text>
+  <text x="1028" y="452" text-anchor="middle" class="small">Bone</text>
+  <text x="1172" y="452" text-anchor="middle" class="small">Al</text>
+
+  <!-- Local axes -->
+  <line x1="1100" y1="375" x2="1250" y2="375" class="axis"/>
+  <text x="1260" y="382" class="label">local +x</text>
+  <line x1="1100" y1="375" x2="1100" y2="205" class="axis"/>
+  <text x="1110" y="195" class="label">local +y</text>
+  <text x="1100" y="613" text-anchor="middle" class="label">the complete layout rotates around scanner y</text>
+  <path d="M1325 280 C1390 325,1390 430,1325 475" fill="none" stroke="#7d4bb3" stroke-width="5" marker-end="url(#purpleArrow)"/>
+  <text x="1362" y="258" text-anchor="middle" class="label" fill="#7d4bb3">rotation</text>
+
+  <!-- Footer -->
+  <rect x="620" y="687" width="820" height="85" rx="12" fill="#f4f7f9" stroke="#ccd6dd"/>
+  <text x="645" y="718" class="label">Recorded per angle:</text>
+  <text x="645" y="746" class="small">PhaseSpaceIn.root + PhaseSpaceOut.root + PrimaryTrajectory.root</text>
+  <text x="645" y="768" class="small">Trajectory: proton, TrackID=1, all steps in water and five insert volumes</text>
+</svg>

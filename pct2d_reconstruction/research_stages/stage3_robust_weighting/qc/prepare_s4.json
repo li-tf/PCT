@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "dataset": "s4",
+  "runs": 720,
+  "identity": [
+    "RunID",
+    "paired_row_index"
+  ],
+  "rule": "splitmix64-v1(RunID, paired_row_index, 20260713) % 10: test=0, validation=1, train=2..9",
+  "total": 63190437,
+  "train": 50550543,
+  "validation": 6321389,
+  "test": 6318505,
+  "fractions": {
+    "train": 0.79997141023095,
+    "validation": 0.1000371147931767,
+    "test": 0.09999147497587332
+  },
+  "elapsed_seconds": 4.148397885997838,
+  "pairs": "data/preprocessing_data/results0717_s4_material_calibration_air_pilot/pairs",
+  "masks": "data/preprocessing_data/results0717_s4_material_calibration_air_pilot/stage3/splits/stage3_prefilter_80_10_10"
+}

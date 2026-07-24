@@ -1,0 +1,47 @@
+{
+  "scenario_id": "d1_air_silicon_tracker_full",
+  "output_name": "results0718_d1_air_tracker_full",
+  "description": "results0716 aluminium phantom in Air with four physical 200 um silicon tracking planes and ideal reference-plane energy",
+  "projections": 720,
+  "protons_per_projection": 450000,
+  "random_seed": 20260718,
+  "beam_energy_mev": 200.0,
+  "source_z_mm": -1060.0,
+  "focus_z_mm": -1000.0,
+  "source_size_mm": [15.0, 0.12, 0.000001],
+  "phantom_radius_mm": 100.0,
+  "phantom_length_mm": 400.0,
+  "phantom_material": "Water",
+  "insert_material": "Aluminium",
+  "insert_diameter_mm": 5.0,
+  "insert_angle_step_deg": 139.0,
+  "insert_radii_mm": [
+    0.0, 5.0, 9.0, 13.0, 17.0, 21.0, 25.0, 29.0, 33.0,
+    37.0, 41.0, 45.0, 49.0, 53.0, 57.0, 61.0, 65.0,
+    69.0, 73.0, 77.0, 81.0, 85.0, 89.0, 93.0, 97.0
+  ],
+  "phantom_max_step_mm": 1.0,
+  "world_material": "Air",
+  "world_size_mm": 4000.0,
+  "tracker_material": "Silicon",
+  "tracker_size_mm": [320.0, 20.0, 0.2],
+  "tracker_max_step_mm": 0.1,
+  "tracker_planes": [
+    {"name": "TrackerUpstream1", "z_mm": -160.0},
+    {"name": "TrackerUpstream2", "z_mm": -130.0},
+    {"name": "TrackerDownstream1", "z_mm": 130.0},
+    {"name": "TrackerDownstream2", "z_mm": 160.0}
+  ],
+  "reference_size_mm": [320.0, 20.0, 0.000001],
+  "reference_planes": [
+    {"name": "PhaseSpaceIn", "z_mm": -110.0},
+    {"name": "PhaseSpaceOut", "z_mm": 110.0}
+  ],
+  "physics_list": "QGSP_BIC_EMZ",
+  "number_of_threads": 1,
+  "minimum_free_gb": 200.0,
+  "output_attributes": [
+    "RunID", "EventID", "TrackID", "KineticEnergy", "PreGlobalTime",
+    "Position", "Direction"
+  ]
+}

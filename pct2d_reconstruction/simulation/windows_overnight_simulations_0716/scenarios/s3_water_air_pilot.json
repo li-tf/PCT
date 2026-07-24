@@ -1,0 +1,10 @@
+{
+  "base_config": "base_ct.json",
+  "scenario_id": "s3_water_air_pilot",
+  "description": "Uniform water cylinder in Air paired with s2",
+  "output_name": "results0717_s3_water_air_pilot",
+  "random_seed": 20262720,
+  "world_material": "Air",
+  "phantom_kind": "uniform_water",
+  "measurement_note": "WEPL between reference planes includes Air outside the water cylinder and must be corrected during preprocessing."
+}

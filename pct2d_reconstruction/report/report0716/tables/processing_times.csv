@@ -1,0 +1,7 @@
+stage,elapsed_seconds,device_or_workers
+OpenGATE simulation,6639.236244199999,Xeon w5-2455X; 12 single-thread processes
+primary pairing,1573.4676264600002,CPU; 4 processes
+3-sigma filtering,18.841125026000554,CPU; 4 processes
+720 DDB projections,928.5459066720005,CPU; 4 processes
+no-Hann analytic FDK,181.37456657199982,CPU
+0.1 mm iterative reconstruction,11559.329967705,NVIDIA GeForce RTX 4060 Laptop GPU

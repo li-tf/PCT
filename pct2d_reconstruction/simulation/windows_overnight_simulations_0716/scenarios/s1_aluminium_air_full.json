@@ -1,0 +1,19 @@
+{
+  "base_config": "base_ct.json",
+  "scenario_id": "s1_aluminium_air_full",
+  "description": "results0716 aluminium spiral with Air replacing Vacuum; paper fluence",
+  "output_name": "results0717_s1_aluminium_air_full",
+  "protons_per_projection": 450000,
+  "random_seed": 20260720,
+  "world_material": "Air",
+  "phantom_kind": "aluminium_spiral",
+  "insert_material": "Aluminium",
+  "insert_diameter_mm": 5.0,
+  "insert_angle_step_deg": 139.0,
+  "insert_radii_mm": [
+    0.0, 5.0, 9.0, 13.0, 17.0, 21.0, 25.0, 29.0, 33.0,
+    37.0, 41.0, 45.0, 49.0, 53.0, 57.0, 61.0, 65.0,
+    69.0, 73.0, 77.0, 81.0, 85.0, 89.0, 93.0, 97.0
+  ],
+  "measurement_note": "WEPL between reference planes includes Air outside the water cylinder and must be corrected during preprocessing."
+}

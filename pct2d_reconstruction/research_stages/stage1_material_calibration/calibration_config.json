@@ -1,0 +1,15 @@
+{
+  "dataset": "results0717_s6_material_energy_scan",
+  "bootstrap_seed": 20260723,
+  "uncertainty_blocks": 100,
+  "ionization_potential_ev": 78.0,
+  "ionization_sensitivity_ev": {
+    "start": 72.0,
+    "stop": 84.0,
+    "step": 0.5
+  },
+  "robust_mad_multiplier": 3.0,
+  "aluminium_rsp_200mev_reference": 2.1189760409708303,
+  "itk_crosscheck_samples": 64,
+  "itk_crosscheck_tolerance_mm": 0.0002
+}

@@ -1,0 +1,7 @@
+stage,count,fraction_of_previous
+planned primary protons,324000000,1.0
+simulated events,324015799,1.000048762345679
+exit phase-space rows,293921776,0.9071217419246893
+primary-only pairs,284021915,0.8765681052484727
+3-sigma retained pairs,244217799,0.8598554762930881
+DDB projections,720,1.0

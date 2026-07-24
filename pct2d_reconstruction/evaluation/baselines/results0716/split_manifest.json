@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "created_at": "2026-07-17T09:32:15+08:00",
+  "experiment": "0716",
+  "name": "baseline90_10",
+  "identity": [
+    "RunID",
+    "filtered_row_index"
+  ],
+  "algorithm": "splitmix64-v1",
+  "seed": 20260713,
+  "validation_modulus": 10,
+  "validation_remainder": 0,
+  "validation_rule": "splitmix64_v1(RunID, filtered_row_index, 20260713) % 10 == 0",
+  "bit_order": "little",
+  "angle_count": 720,
+  "total_count": 244217799,
+  "train_count": 219790828,
+  "validation_count": 24426971,
+  "validation_fraction": 0.10002125602647005,
+  "all_angles_have_train_and_validation": true,
+  "mask_directory": "data/preprocessing_data/results0716/splits/baseline90_10",
+  "runs_csv": "pct2d_reconstruction/evaluation/baselines/results0716/split_runs.csv",
+  "elapsed_seconds": 2.2736134480001056
+}

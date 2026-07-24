@@ -1,0 +1,64 @@
+{
+  "experiment": "0716",
+  "description": "Rit Simulation 2 geometry at the paper fluence on native Windows OpenGATE",
+  "paths": {
+    "simulation_code": "pct2d_reconstruction/simulation/simulation0716",
+    "simulation_data": "data/simulation_data/results0716",
+    "preprocessing_data": "data/preprocessing_data/results0716",
+    "reconstruction_data": "data/reconstruction_data/results0716",
+    "report_code": "pct2d_reconstruction/report/report0716"
+  },
+  "acquisition": {
+    "projections": 720,
+    "first_angle_deg": 0.0,
+    "angle_step_deg": 0.5,
+    "arc_deg": 360.0,
+    "protons_per_projection": 450000,
+    "beam_energy_mev": 200.0,
+    "source_to_isocenter_mm": 1000.0,
+    "source_to_detector_mm": 1110.0,
+    "entrance_plane_z_mm": -110.0,
+    "exit_plane_z_mm": 110.0
+  },
+  "preprocessing": {
+    "primary_only": true,
+    "energy_sigma_cut": 3.0,
+    "angle_sigma_cut": 3.0,
+    "ionization_potential_ev": 78.0,
+    "mlp": "schulte",
+    "ddb_size": [500, 2, 500],
+    "ddb_spacing_mm": [0.5, 1.0, 0.5]
+  },
+  "analytic": {
+    "method": "DDB-FDK no-Hann",
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "hann": 0.0
+  },
+  "iterative": {
+    "method": "GPU MLP OS-SART with Huber-TV",
+    "sample_fraction": 1.0,
+    "runs": 720,
+    "subsets": 18,
+    "epochs": 10,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "path_step_mm": 0.1,
+    "phantom_radius_mm": 100.0,
+    "batch_size": 4096,
+    "initialization": "fdk_nohann",
+    "checkpoint_every_epoch": true,
+    "progress_every_batches": 20,
+    "device": 0,
+    "regularizer": "huber_tv",
+    "regularization_weight": 0.0125,
+    "regularization_iterations": 100,
+    "regularization_every_epochs": 1,
+    "huber_delta": 0.002,
+    "primal_step": 0.25,
+    "dual_step": 0.25,
+    "seed": 20260713
+  }
+}

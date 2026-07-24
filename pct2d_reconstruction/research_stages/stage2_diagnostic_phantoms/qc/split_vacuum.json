@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "dataset": "vacuum",
+  "identity": [
+    "RunID",
+    "filtered_row_index"
+  ],
+  "algorithm": "splitmix64-v1",
+  "seed": 20260713,
+  "rule": "splitmix64_v1(RunID, filtered_row_index, 20260713) % 10: test=0, validation=1, train=2..9",
+  "angles": 720,
+  "total": 54376097,
+  "train": 43499353,
+  "validation": 5438156,
+  "test": 5438588,
+  "train_fraction": 0.79997196194497,
+  "validation_fraction": 0.10001004669386256,
+  "test_fraction": 0.10001799136116739,
+  "elapsed_seconds": 5.021178835000001,
+  "paths": {
+    "masks": "data/preprocessing_data/results0717_s2_water_vacuum_pilot/splits/stage2_80_10_10",
+    "train_pairs": "data/preprocessing_data/results0717_s2_water_vacuum_pilot/pairs_train"
+  }
+}

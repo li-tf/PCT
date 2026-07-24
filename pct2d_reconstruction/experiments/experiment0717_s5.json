@@ -1,0 +1,44 @@
+{
+  "experiment": "0717_s5",
+  "description": "Line-pair and slanted-edge resolution targets in a 100 mm-radius water cylinder in Air",
+  "paths": {
+    "simulation_code": "pct2d_reconstruction/simulation/windows_overnight_simulations_0716",
+    "simulation_data": "data/simulation_data/results0717_s5_resolution_air_pilot",
+    "preprocessing_data": "data/preprocessing_data/results0717_s5_resolution_air_pilot",
+    "reconstruction_data": "data/reconstruction_data/results0717_s5_resolution_air_pilot",
+    "report_code": "pct2d_reconstruction/research_stages/stage2_diagnostic_phantoms"
+  },
+  "acquisition": {
+    "projections": 720,
+    "first_angle_deg": 0.0,
+    "angle_step_deg": 0.5,
+    "arc_deg": 360.0,
+    "protons_per_projection": 100000,
+    "beam_energy_mev": 200.0,
+    "source_to_isocenter_mm": 1000.0,
+    "source_to_detector_mm": 1110.0,
+    "entrance_plane_z_mm": -110.0,
+    "exit_plane_z_mm": 110.0,
+    "world_material": "Air"
+  },
+  "preprocessing": {
+    "primary_only": true,
+    "energy_sigma_cut": 3.0,
+    "angle_sigma_cut": 3.0,
+    "ionization_potential_ev": 78.0,
+    "mlp": "schulte",
+    "ddb_size": [500, 2, 500],
+    "ddb_spacing_mm": [0.5, 1.0, 0.5],
+    "air_correction": true
+  },
+  "truth": {
+    "kind": "resolution",
+    "phantom_radius_mm": 100.0
+  },
+  "analytic": {
+    "method": "DDB-FDK",
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "hann": 0.0
+  }
+}

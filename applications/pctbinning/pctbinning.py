@@ -27,6 +27,15 @@ def build_parser():
     )
     parser.add_argument("--noise", help="Image of WEPL variance per pixel")
     parser.add_argument(
+        "--variance", help="Image of variance of WEPL values per pixel"
+    )
+    parser.add_argument(
+        "--fillvariance",
+        help="Fill zero holes in the WEPL variance image",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
         "-r",
         "--robust",
         help="Use robust estimation of scattering using 19.1 percentile.",
@@ -167,6 +176,7 @@ def process(args_info: argparse.Namespace):
     projection.SetRobust(args_info.robust)
     projection.SetComputeScattering(bool(args_info.scatwepl))
     projection.SetComputeNoise(bool(args_info.noise))
+    projection.SetComputeVariance(bool(args_info.variance))
 
     if args_info.quadricIn:
         # quadric = object surface
@@ -199,10 +209,10 @@ def process(args_info: argparse.Namespace):
     projection.Update()
 
     if args_info.fill:
-        filler = pct.SmallHoleFiller[OutputImageType]()
-        filler.SetImage(projection.GetOutput())
-        filler.SetHolePixel(0.0)
-        filler.Fill()
+        filler = pct.HoleFillingImageFilter[OutputImageType].New()
+        filler.SetInput(projection.GetOutput())
+        filler.SetHolePixelValue(0.0)
+        filler.Update()
 
     cii = itk.ChangeInformationImageFilter[OutputImageType].New()
     if args_info.fill:
@@ -224,6 +234,33 @@ def process(args_info: argparse.Namespace):
     if args_info.count:
         # Write
         itk.imwrite(projection.GetCount(), args_info.count)
+
+    if args_info.variance:
+        variance = projection.GetVariance()
+        if args_info.fillvariance:
+            variance_filler = pct.HoleFillingImageFilter[OutputImageType].New()
+            variance_filler.SetInput(variance)
+            variance_filler.SetHolePixelValue(0.0)
+            variance_filler.Update()
+            variance = variance_filler.GetOutput()
+
+        # Float accumulation can make E[x^2] - E[x]^2 a few ulps negative.
+        # Clamp those numerical artifacts so the written variance remains a
+        # mathematically valid, non-negative quantity.
+        variance_clamp = itk.ClampImageFilter[OutputImageType, OutputImageType].New()
+        variance_clamp.SetInput(variance)
+        variance_clamp.SetBounds(0.0, float("inf"))
+        variance = variance_clamp.GetOutput()
+
+        variance_cii = itk.ChangeInformationImageFilter[OutputImageType].New()
+        variance_cii.SetInput(variance)
+        variance_cii.ChangeOriginOn()
+        variance_cii.ChangeDirectionOn()
+        variance_cii.ChangeSpacingOn()
+        variance_cii.SetOutputDirection(projection.GetOutput().GetDirection())
+        variance_cii.SetOutputOrigin(projection.GetOutput().GetOrigin())
+        variance_cii.SetOutputSpacing(projection.GetOutput().GetSpacing())
+        itk.imwrite(variance_cii.GetOutput(), args_info.variance)
 
     if args_info.scatwepl:
         # Write

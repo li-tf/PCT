@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "dataset": "s3",
+  "runs": 720,
+  "identity": [
+    "RunID",
+    "paired_row_index"
+  ],
+  "rule": "splitmix64-v1(RunID, paired_row_index, 20260713) % 10: test=0, validation=1, train=2..9",
+  "total": 63191738,
+  "train": 50551862,
+  "validation": 6321442,
+  "test": 6318434,
+  "fractions": {
+    "train": 0.7999758132938202,
+    "validation": 0.10003589393284293,
+    "test": 0.09998829277333691
+  },
+  "elapsed_seconds": 4.268671480000194,
+  "pairs": "data/preprocessing_data/results0717_s3_water_air_pilot/pairs",
+  "masks": "data/preprocessing_data/results0717_s3_water_air_pilot/stage3/splits/stage3_prefilter_80_10_10"
+}

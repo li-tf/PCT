@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "scope": "temporary two-angle pipeline smoke test; no formal preprocessing output was written",
+  "angles": [0, 719],
+  "pairing": {
+    "angle_000": {
+      "local_run_id": 0,
+      "global_output_name": "pairs0000.mhd",
+      "primary_pairs": 393992,
+      "secondary_pairs": 0
+    },
+    "angle_719": {
+      "local_run_id": 0,
+      "global_output_name": "pairs0719.mhd",
+      "primary_pairs": 394366,
+      "secondary_pairs": 0
+    },
+    "mhd_element_data_file_rewritten_to_global_name": true
+  },
+  "filtering": {
+    "angle_000_output": 338686,
+    "angle_719_output": 338964,
+    "all_output_primary": true
+  },
+  "ddb_projection": {
+    "angle_000_object_zero_count": 0,
+    "angle_719_object_zero_count": 0,
+    "variance_nonfinite": 0,
+    "variance_negative": 0
+  }
+}

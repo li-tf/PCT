@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "started": "2026-07-16T13:12:10",
+  "stopped": "2026-07-16T16:24:49",
+  "elapsed_seconds": 11559.329967705,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "config": {
+    "method": "GPU MLP OS-SART with Huber-TV",
+    "sample_fraction": 1.0,
+    "runs": 720,
+    "subsets": 18,
+    "epochs": 3,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "path_step_mm": 0.1,
+    "phantom_radius_mm": 100.0,
+    "batch_size": 4096,
+    "initialization": "fdk_nohann",
+    "checkpoint_every_epoch": true,
+    "progress_every_batches": 20,
+    "device": 0,
+    "regularizer": "huber_tv",
+    "regularization_weight": 0.0125,
+    "regularization_iterations": 100,
+    "regularization_every_epochs": 1,
+    "huber_delta": 0.002,
+    "primal_step": 0.25,
+    "dual_step": 0.25,
+    "seed": 20260713
+  },
+  "pairs_dir": "/home/ltf/project/github/PCT/data/preprocessing_data/results0716/pairs_filtered",
+  "pairs_per_epoch": 244217799,
+  "grid": {
+    "size": [
+      2100,
+      1,
+      2100
+    ],
+    "spacing_mm": [
+      0.1,
+      1.0,
+      0.1
+    ],
+    "origin_mm": [
+      -104.95,
+      0.0,
+      -104.95
+    ]
+  },
+  "finite": true,
+  "support_outside_nonzero": 0,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0716/iterative/recon/recon_iterative_gpu.mhd",
+  "regularization_applications": 3,
+  "rsp_metrics": [
+    {
+      "checkpoint": "initial",
+      "epoch": 0,
+      "water_mean": 1.013717532157898,
+      "water_std": 0.009719619527459145,
+      "phantom_rsp_rmse": 0.044705025180590344,
+      "aluminium_inner_mean": 2.0954566747826617,
+      "aluminium_platform_rsp_recovery": 0.9889005983392842,
+      "roi_cnr_median": 106.92346909686383,
+      "edge_10_90_median_mm": 1.1367244984607179,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": NaN
+    },
+    {
+      "checkpoint": "epoch_01",
+      "epoch": 1,
+      "water_mean": 1.0145854949951172,
+      "water_std": 0.005567260552197695,
+      "phantom_rsp_rmse": 0.04294296475189416,
+      "aluminium_inner_mean": 2.0950226199624438,
+      "aluminium_platform_rsp_recovery": 0.9886957565610737,
+      "roi_cnr_median": 186.973853698288,
+      "edge_10_90_median_mm": 1.1307229855191796,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": 2.632819829363549
+    },
+    {
+      "checkpoint": "epoch_02",
+      "epoch": 2,
+      "water_mean": 1.0142040252685547,
+      "water_std": 0.003439317923039198,
+      "phantom_rsp_rmse": 0.04218900091843285,
+      "aluminium_inner_mean": 2.0932800432662697,
+      "aluminium_platform_rsp_recovery": 0.987873389218319,
+      "roi_cnr_median": 294.6082665984784,
+      "edge_10_90_median_mm": 1.1243085766533647,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": 2.6234503722226785
+    },
+    {
+      "checkpoint": "epoch_03",
+      "epoch": 3,
+      "water_mean": 1.014062523841858,
+      "water_std": 0.0024527660571038723,
+      "phantom_rsp_rmse": 0.041955501563870366,
+      "aluminium_inner_mean": 2.0916698631586628,
+      "aluminium_platform_rsp_recovery": 0.9871135032750739,
+      "roi_cnr_median": 399.5278522497617,
+      "edge_10_90_median_mm": 1.1178942230754338,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": 2.6213947365270056
+    }
+  ],
+  "experiment": "0716"
+}

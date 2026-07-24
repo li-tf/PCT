@@ -1,0 +1,25 @@
+{
+  "base_config": "base_ct.json",
+  "scenario_id": "s5_resolution_air_pilot",
+  "description": "Aluminium line pairs and oblique SpineBone edges in water surrounded by Air",
+  "output_name": "results0717_s5_resolution_air_pilot",
+  "random_seed": 20264720,
+  "world_material": "Air",
+  "phantom_kind": "resolution",
+  "line_pair_groups": [
+    {"line_width_mm": 0.5, "bar_count": 4, "bar_length_mm": 10.0, "center_mm": [-60.0, -55.0], "rotation_deg": 0.0, "material": "Aluminium"},
+    {"line_width_mm": 0.75, "bar_count": 4, "bar_length_mm": 10.0, "center_mm": [-30.0, -55.0], "rotation_deg": 0.0, "material": "Aluminium"},
+    {"line_width_mm": 1.0, "bar_count": 4, "bar_length_mm": 10.0, "center_mm": [0.0, -55.0], "rotation_deg": 0.0, "material": "Aluminium"},
+    {"line_width_mm": 1.5, "bar_count": 4, "bar_length_mm": 10.0, "center_mm": [30.0, -55.0], "rotation_deg": 0.0, "material": "Aluminium"},
+    {"line_width_mm": 2.0, "bar_count": 4, "bar_length_mm": 10.0, "center_mm": [58.0, -50.0], "rotation_deg": 0.0, "material": "Aluminium"},
+    {"line_width_mm": 3.0, "bar_count": 4, "bar_length_mm": 10.0, "center_mm": [55.0, -25.0], "rotation_deg": 0.0, "material": "Aluminium"}
+  ],
+  "edge_targets": [
+    {"center_mm": [0.0, 25.0], "size_xy_mm": [15.0, 15.0], "rotation_deg": 5.0, "material": "SpineBone"},
+    {"center_mm": [40.0, 35.0], "size_xy_mm": [15.0, 15.0], "rotation_deg": 50.0, "material": "SpineBone"},
+    {"center_mm": [-40.0, 35.0], "size_xy_mm": [15.0, 15.0], "rotation_deg": -40.0, "material": "SpineBone"},
+    {"center_mm": [72.0, 30.0], "size_xy_mm": [15.0, 15.0], "rotation_deg": 28.0, "material": "SpineBone"},
+    {"center_mm": [-72.0, 30.0], "size_xy_mm": [15.0, 15.0], "rotation_deg": -28.0, "material": "SpineBone"}
+  ],
+  "measurement_note": "All 720 angles are retained so angular undersampling does not confound MTF analysis."
+}

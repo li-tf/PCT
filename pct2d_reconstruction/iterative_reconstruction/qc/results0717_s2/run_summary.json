@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "started": "2026-07-23T16:59:04",
+  "stopped": "2026-07-23T17:35:12",
+  "elapsed_seconds": 2167.5717185039994,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "config": {
+    "method": "GPU MLP OS-SART with Huber-TV",
+    "sample_fraction": 1.0,
+    "runs": 720,
+    "subsets": 18,
+    "epochs": 3,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "path_step_mm": 0.1,
+    "phantom_radius_mm": 100.0,
+    "batch_size": 4096,
+    "initialization": "fdk_nohann",
+    "checkpoint_every_epoch": true,
+    "progress_every_batches": 20,
+    "device": 0,
+    "regularizer": "huber_tv",
+    "regularization_weight": 0.0125,
+    "regularization_iterations": 100,
+    "regularization_every_epochs": 1,
+    "huber_delta": 0.002,
+    "primal_step": 0.25,
+    "dual_step": 0.25,
+    "seed": 20260713
+  },
+  "pairs_dir": "/home/ltf/project/github/PCT/data/preprocessing_data/results0717_s2_water_vacuum_pilot/pairs_train",
+  "pairs_per_epoch": 43499353,
+  "grid": {
+    "size": [
+      2100,
+      1,
+      2100
+    ],
+    "spacing_mm": [
+      0.1,
+      1.0,
+      0.1
+    ],
+    "origin_mm": [
+      -104.95,
+      0.0,
+      -104.95
+    ]
+  },
+  "finite": true,
+  "support_outside_nonzero": 0,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s2_water_vacuum_pilot/iterative/recon/recon_iterative_gpu.mhd",
+  "regularization_applications": 3,
+  "rsp_metrics": [
+    {
+      "checkpoint": "initial",
+      "epoch": 0,
+      "water_mean": 1.0137739181518555,
+      "water_std": 0.01817421056330204,
+      "water_bias_vs_fixed_rsp": 0.013773918151855469,
+      "water_bias_vs_s6_effective_rsp": 0.0002561807632446289,
+      "phantom_rsp_rmse": 0.02898343703206272,
+      "phantom_effective_rsp_rmse": 0.02629583291392853,
+      "outside_rmse": 0.0,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": NaN
+    },
+    {
+      "checkpoint": "epoch_01",
+      "epoch": 1,
+      "water_mean": 1.0142854452133179,
+      "water_std": 0.013059132732450962,
+      "water_bias_vs_fixed_rsp": 0.014285445213317871,
+      "water_bias_vs_s6_effective_rsp": 0.0007677078247070312,
+      "phantom_rsp_rmse": 0.02419317358630027,
+      "phantom_effective_rsp_rmse": 0.019536017432818433,
+      "outside_rmse": 0.0,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": 2.4564628363906413
+    },
+    {
+      "checkpoint": "epoch_02",
+      "epoch": 2,
+      "water_mean": 1.0139636993408203,
+      "water_std": 0.009199263527989388,
+      "water_bias_vs_fixed_rsp": 0.013963699340820312,
+      "water_bias_vs_s6_effective_rsp": 0.00044596195220947266,
+      "phantom_rsp_rmse": 0.021248050245974332,
+      "phantom_effective_rsp_rmse": 0.015737791732386402,
+      "outside_rmse": 0.0,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": 2.4466494547288944
+    },
+    {
+      "checkpoint": "epoch_03",
+      "epoch": 3,
+      "water_mean": 1.013880729675293,
+      "water_std": 0.006402153521776199,
+      "water_bias_vs_fixed_rsp": 0.013880729675292969,
+      "water_bias_vs_s6_effective_rsp": 0.0003629922866821289,
+      "phantom_rsp_rmse": 0.019777167184424314,
+      "phantom_effective_rsp_rmse": 0.013684046607176042,
+      "outside_rmse": 0.0,
+      "outside_nonzero": 0,
+      "wepl_residual_rmse_mm": 2.444546859068955
+    }
+  ],
+  "experiment": "0717_s2"
+}

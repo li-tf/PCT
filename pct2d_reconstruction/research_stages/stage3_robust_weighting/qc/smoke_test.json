@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "synthetic": {
+    "baseline_3sigma": {
+      "finite_distance": true,
+      "clean_retention": 1.0,
+      "outlier_retention": 0.0
+    },
+    "median_mad": {
+      "finite_distance": true,
+      "clean_retention": 0.9983157894736842,
+      "outlier_retention": 0.0
+    },
+    "robust_mahalanobis": {
+      "finite_distance": true,
+      "clean_retention": 0.9987368421052631,
+      "outlier_retention": 0.002
+    }
+  },
+  "historical_count": 75392,
+  "stage3_all_row_baseline_count": 75395,
+  "historical_count_difference": 3,
+  "historical_reproduction_tolerance_rows": 5,
+  "two_angle_filter_ddb": [
+    {
+      "run_id": 0,
+      "input": 87852,
+      "selected_train": 59292,
+      "distance_finite": true,
+      "ddb_finite": true,
+      "ddb_shape": [
+        500,
+        2,
+        500
+      ]
+    },
+    {
+      "run_id": 719,
+      "input": 87665,
+      "selected_train": 58717,
+      "distance_finite": true,
+      "ddb_finite": true,
+      "ddb_shape": [
+        500,
+        2,
+        500
+      ]
+    }
+  ],
+  "weighted_unity_numerator_max_abs_error": 0.0,
+  "weighted_unity_denominator_max_abs_error": 0.0,
+  "weighted_constant_scale": 2.5,
+  "weighted_scaled_numerator_max_abs_error": 1.4901161193847656e-08,
+  "weighted_scaled_denominator_max_abs_error": 9.5367431640625e-07
+}

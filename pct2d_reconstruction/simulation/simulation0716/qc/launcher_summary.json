@@ -1,0 +1,14 @@
+﻿{
+    "start_angle":  0,
+    "end_angle":  719,
+    "total_angles":  720,
+    "protons_per_projection":  450000,
+    "workers":  12,
+    "already_complete":  0,
+    "completed_this_launch":  720,
+    "failed_angles":  [
+
+                      ],
+    "elapsed_seconds":  6639.2362441999994,
+    "finished_at":  "2026-07-15T20:43:43"
+}

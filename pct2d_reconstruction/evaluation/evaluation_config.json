@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "truth": {
+    "quantity": "RSP",
+    "reference_energy_mev": 200.0,
+    "file": "analytic/truth/truth_rsp_200mev.mhd",
+    "notes": "Fixed 200 MeV reference RSP; composition RED is not an evaluation target."
+  },
+  "split": {
+    "name": "baseline90_10",
+    "identity": ["RunID", "filtered_row_index"],
+    "algorithm": "splitmix64-v1",
+    "seed": 20260713,
+    "validation_modulus": 10,
+    "validation_remainder": 0,
+    "bit_order": "little"
+  },
+  "roi": {
+    "water_radius_mm": 95.0,
+    "water_insert_exclusion_radius_mm": 5.0,
+    "insert_platform_radius_mm": 2.0,
+    "insert_peak_radius_mm": 4.0,
+    "local_water_shell_mm": [4.0, 8.0],
+    "support_radius_mm": 100.0,
+    "outside_metric_radius_mm": 102.0
+  },
+  "edge": {
+    "method": "mean of 360 radial profiles followed by 90%-10% falling crossings",
+    "radial_range_mm": [0.5, 4.5],
+    "radial_step_mm": 0.025,
+    "profiles_per_insert": 360,
+    "reported_inserts": "24 non-central aluminium inserts"
+  },
+  "display": {
+    "extent_mm": [-105.0, 105.0, -105.0, 105.0],
+    "rsp_range": [0.0, 2.2],
+    "rsp_error_range": [-0.2, 0.2]
+  },
+  "unavailable_metrics": {
+    "mtf": "results0716 has no dedicated MTF calibration target",
+    "path_error": "results0716 has no saved Monte Carlo ground-truth proton trajectories"
+  }
+}
+

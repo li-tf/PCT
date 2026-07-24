@@ -1,0 +1,205 @@
+{
+  "description": "Analytic central-slice geometry and material values for future voxelized RED and 200 MeV reference-RSP truth maps",
+  "status": "Geometry definition generated in stage 3; voxelization on the exact reconstruction grid is deferred to stage 6.",
+  "coordinate_system": {
+    "image_plane": "central x-z slice",
+    "phantom_local_to_simulation": {
+      "x": "-local_y",
+      "z": "-local_x"
+    },
+    "simulation_to_ddb_reconstruction": {
+      "x": "x",
+      "z": "-z"
+    },
+    "phantom_local_to_image": {
+      "x": "-local_y",
+      "z": "local_x"
+    },
+    "units": "mm"
+  },
+  "geometry": {
+    "background_material": "Vacuum",
+    "phantom_material": "Water",
+    "phantom_radius_mm": 100.0,
+    "phantom_total_length_mm": 400.0,
+    "insert_material": "Aluminium",
+    "insert_radius_mm": 2.5,
+    "insert_count": 25,
+    "insert_centers_xz_mm": [
+      {
+        "id": 0,
+        "x": -0.0,
+        "z": 0.0
+      },
+      {
+        "id": 1,
+        "x": -3.2802951449525364,
+        "z": -3.77354790111386
+      },
+      {
+        "id": 2,
+        "x": 8.912412618674134,
+        "z": 1.2525579086405891
+      },
+      {
+        "id": 3,
+        "x": -10.902717383290513,
+        "z": 7.080307455195352
+      },
+      {
+        "id": 4,
+        "x": 4.685835048888987,
+        "z": -16.34144883095142
+      },
+      {
+        "id": 5,
+        "x": 8.874983496554687,
+        "z": 19.03246352776965
+      },
+      {
+        "id": 6,
+        "x": -22.83863644106502,
+        "z": -10.168416076895005
+      },
+      {
+        "id": 7,
+        "x": 27.732837922928013,
+        "z": -8.478779436959414
+      },
+      {
+        "id": 8,
+        "x": -17.487335719695764,
+        "z": 27.985587173162056
+      },
+      {
+        "id": 9,
+        "x": -5.788075206488606,
+        "z": -36.54446860202008
+      },
+      {
+        "id": 10,
+        "x": 31.4078221678781,
+        "z": 26.354291997148113
+      },
+      {
+        "id": 11,
+        "x": -44.9931462820376,
+        "z": 0.7853582896778359
+      },
+      {
+        "id": 12,
+        "x": 36.41409644839232,
+        "z": -32.78739971158405
+      },
+      {
+        "id": 13,
+        "x": -6.459075200472726,
+        "z": 52.60494603699008
+      },
+      {
+        "id": 14,
+        "x": -31.87399549783273,
+        "z": -47.255141635637266
+      },
+      {
+        "id": 15,
+        "x": 58.921475403633195,
+        "z": 15.787961751253667
+      },
+      {
+        "id": 16,
+        "x": -58.421613009445856,
+        "z": 28.494124541290027
+      },
+      {
+        "id": 17,
+        "x": 26.960447865760006,
+        "z": -63.51483488821833
+      },
+      {
+        "id": 18,
+        "x": 22.558240589371405,
+        "z": 69.42712568954613
+      },
+      {
+        "id": 19,
+        "x": -66.00188215406271,
+        "z": -39.65793176807406
+      },
+      {
+        "id": 20,
+        "x": 79.76942799398886,
+        "z": -14.065502391021353
+      },
+      {
+        "id": 21,
+        "x": -53.49223323923631,
+        "z": 66.05740672384242
+      },
+      {
+        "id": 22,
+        "x": -3.1060552065228944,
+        "z": -88.94578360469951
+      },
+      {
+        "id": 23,
+        "x": 63.42584748581247,
+        "z": 68.01589425058275
+      },
+      {
+        "id": 24,
+        "x": -96.46862385072251,
+        "z": -10.139260936962396
+      }
+    ],
+    "minimum_insert_center_distance_mm": 5.0,
+    "maximum_insert_extent_mm": 99.5
+  },
+  "materials": {
+    "Vacuum": {
+      "red": 0.0,
+      "rsp_200mev": 0.0
+    },
+    "Water": {
+      "density_g_cm3": 1.0,
+      "red": 1.0,
+      "rsp_200mev": 1.0
+    },
+    "Aluminium": {
+      "density_g_cm3": 2.6989,
+      "red": 2.343247781381188,
+      "rsp_200mev": 2.1189760409708303,
+      "total_mass_stopping_power_200mev_mev_cm2_g": 3.526
+    },
+    "water_total_mass_stopping_power_200mev_mev_cm2_g": 4.491
+  },
+  "planned_stage6_grid": {
+    "dim_size": [
+      2100,
+      1,
+      2100
+    ],
+    "spacing_mm": [
+      0.1,
+      1.0,
+      0.1
+    ],
+    "origin_mm_if_centered": [
+      -104.95,
+      0.0,
+      -104.95
+    ],
+    "voxel_model": "supersampled material area fractions",
+    "note": "The final origin will be read from the retained reconstruction."
+  },
+  "sources": {
+    "geometry": "pct2d_reconstruction/simulation/simulation0716/run_angle.py",
+    "material_database": ".venv-gate/lib/python3.12/site-packages/opengate/contrib/GateMaterials.db",
+    "rsp_method_reference": "test0707/simulation/generate_voxelized_rsp_truth.py"
+  },
+  "limitations": [
+    "Aluminium RSP is a 200 MeV reference value, not an energy-dependent path average.",
+    "RED uses the elemental composition and density in GateMaterials.db.",
+    "Boundary and insert partial-volume effects will be applied during stage-6 voxelization."
+  ]
+}

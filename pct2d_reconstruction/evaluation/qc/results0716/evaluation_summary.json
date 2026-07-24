@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "verified_at": "2026-07-17T09:47:11+08:00",
+  "elapsed_seconds": 66.58418392600015,
+  "experiment": "0716",
+  "checks": [
+    {
+      "name": "frozen_artifact_hashes",
+      "status": "PASS",
+      "detail": "all unchanged"
+    },
+    {
+      "name": "frozen_source_and_qc_hashes",
+      "status": "PASS",
+      "detail": "source and pre-existing QC unchanged"
+    },
+    {
+      "name": "split_mask_hashes",
+      "status": "PASS",
+      "detail": "720 byte-stable masks"
+    },
+    {
+      "name": "split_rule_reproduced",
+      "status": "PASS",
+      "detail": "all masks reproduced from the versioned rule"
+    },
+    {
+      "name": "split_partition_counts",
+      "status": "PASS",
+      "detail": "total=244,217,799, validation=24,426,971"
+    },
+    {
+      "name": "split_angle_coverage",
+      "status": "PASS",
+      "detail": "angles=720"
+    },
+    {
+      "name": "metric_outputs",
+      "status": "PASS",
+      "detail": "checkpoint and validation tables exist"
+    },
+    {
+      "name": "finite_metrics",
+      "status": "PASS",
+      "detail": "checkpoints=5"
+    },
+    {
+      "name": "existing_rsp_qc_reproduced",
+      "status": "PASS",
+      "detail": "absolute tolerance=2e-06"
+    },
+    {
+      "name": "planned_executed_config_recorded",
+      "status": "PASS",
+      "detail": "planned=10, executed=3"
+    }
+  ]
+}

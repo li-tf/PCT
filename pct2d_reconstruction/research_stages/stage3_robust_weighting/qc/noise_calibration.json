@@ -1,0 +1,23 @@
+{
+  "status": "FAIL",
+  "inverse_variance_eligible": false,
+  "minimum_passing_deciles": 8,
+  "datasets": [
+    {
+      "dataset": "s2",
+      "count": 5438456,
+      "passing_deciles": 7,
+      "coverage_1sigma": 0.6840092114379522,
+      "coverage_2sigma": 0.9286746091169994,
+      "coverage_3sigma": 0.9819342107392245
+    },
+    {
+      "dataset": "s3",
+      "count": 4681655,
+      "passing_deciles": 7,
+      "coverage_1sigma": 0.6772889074483276,
+      "coverage_2sigma": 0.9238104900937809,
+      "coverage_3sigma": 0.9801542403274056
+    }
+  ]
+}

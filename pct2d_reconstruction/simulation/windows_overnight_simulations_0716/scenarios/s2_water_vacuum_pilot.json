@@ -1,0 +1,9 @@
+{
+  "base_config": "base_ct.json",
+  "scenario_id": "s2_water_vacuum_pilot",
+  "description": "Uniform water cylinder in Vacuum for boundary-artifact isolation",
+  "output_name": "results0717_s2_water_vacuum_pilot",
+  "random_seed": 20261720,
+  "world_material": "Vacuum",
+  "phantom_kind": "uniform_water"
+}

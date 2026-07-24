@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "algorithm": "test0713 local 125x2 grid energy/angle joint 3-sigma",
+  "runs": 720,
+  "input_pairs": 63191738,
+  "output_pairs": 46617975,
+  "retained_fraction": 0.7377226276004626,
+  "all_output_primary": true,
+  "elapsed_seconds": 4.041723660000002,
+  "output_mhd": 720,
+  "output_raw": 720
+}

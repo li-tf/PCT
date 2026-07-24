@@ -1,0 +1,4 @@
+protocol,protons_per_projection,fluence_per_mm2_projection,software,medium
+test0713,100000,200,OpenGATE 10.1.0,Vacuum
+results0716,450000,900,OpenGATE 10.1.0,Vacuum
+Rit Simulation 2,450000,900,GATE 6.2 / Geant4 4.9.5.p01,Air
