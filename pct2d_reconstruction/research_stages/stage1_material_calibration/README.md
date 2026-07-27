@@ -4,6 +4,14 @@
 薄板仿真。入口直接读取工作站返回的ROOT与QC，只生成代码侧CSV、JSON、PNG和
 Markdown，不修改或复制原始ROOT。
 
+## 最终状态
+
+阶段1已完成并通过验收。52组case、104个ROOT和5,032,273条配对主质子均通过
+完整性检查。正式保留`I=78 eV`历史口径；200 MeV水的有效RSP拟合值为
+`1.013518`，5 mm铝的有效RSP为`2.107424`，Air WEPL斜率为
+`0.00114710 mm-WEPL/mm-Air`。完整物理解读见
+[`stage1_summary.md`](qc/results0717_s6_material_energy_scan/stage1_summary.md)。
+
 主要任务：
 
 - 对`TrackID=1`主质子按EventID配对入口和出口状态；

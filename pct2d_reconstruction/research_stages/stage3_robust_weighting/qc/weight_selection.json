@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "winner": "equal",
+  "baseline_retained": true,
+  "selection_reason": "The baseline wins the configured RMSE tie-break in variant order.",
+  "decisions": [
+    {
+      "weight": "equal",
+      "order": 0,
+      "passed": true,
+      "mean_validation_rmse_mm": 2.5399169921875,
+      "material_mape": 0.011962370929093314,
+      "noise_calibration_eligible": true
+    },
+    {
+      "weight": "inverse_variance",
+      "order": 1,
+      "passed": false,
+      "mean_validation_rmse_mm": 2.555487632751465,
+      "material_mape": 0.013011542301123532,
+      "noise_calibration_eligible": false
+    },
+    {
+      "weight": "robust_confidence",
+      "order": 2,
+      "passed": true,
+      "mean_validation_rmse_mm": 2.539927363395691,
+      "material_mape": 0.011943136950811515,
+      "noise_calibration_eligible": true
+    },
+    {
+      "weight": "combined",
+      "order": 3,
+      "passed": false,
+      "mean_validation_rmse_mm": 2.5553826093673706,
+      "material_mape": 0.01297957138516582,
+      "noise_calibration_eligible": false
+    }
+  ],
+  "test_partition_opened": false
+}

@@ -1,0 +1,3 @@
+variant,epoch,relaxation,relaxation_decay,s2_validation_rmse_mm,s4_validation_rmse_mm,s4_material_mape,score
+r0p25_d0p1_quadratic_b0_fixed_s18,5,0.25,0.1,2.4496555345073228,2.637645648100867,0.0119376048230781,1.0
+r0p25_d0p2_quadratic_b0_fixed_s18,5,0.25,0.2,2.4499835302695545,2.6380997913374333,0.01192666319772028,1.0001530360738968

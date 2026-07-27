@@ -1,0 +1,3 @@
+dataset,runs,missing_runs,initial,initial_exists
+s2,720,0,data/reconstruction_data/results0717_s2_water_vacuum_pilot/stage3/analytic/baseline_3sigma/recon.mhd,True
+s4,720,0,data/reconstruction_data/results0717_s4_material_calibration_air_pilot/stage3/analytic/baseline_3sigma/recon.mhd,True

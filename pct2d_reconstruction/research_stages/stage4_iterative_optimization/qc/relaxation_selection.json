@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "winner": {
+    "variant": "r0p25_d0p2_quadratic_b0_fixed_s18",
+    "epoch": 5,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "s2_validation_rmse_mm": 2.4499835302695545,
+    "s4_validation_rmse_mm": 2.6380997913374333,
+    "s4_material_mape": 0.01192666319772028,
+    "score": 1.0001530360738968,
+    "selection_reason": "Validation scores are within the 0.2% equivalence band; the more conservative decay is retained."
+  },
+  "candidates": [
+    {
+      "variant": "r0p25_d0p1_quadratic_b0_fixed_s18",
+      "epoch": 5,
+      "relaxation": 0.25,
+      "relaxation_decay": 0.1,
+      "s2_validation_rmse_mm": 2.4496555345073228,
+      "s4_validation_rmse_mm": 2.637645648100867,
+      "s4_material_mape": 0.0119376048230781,
+      "score": 1.0
+    },
+    {
+      "variant": "r0p25_d0p2_quadratic_b0_fixed_s18",
+      "epoch": 5,
+      "relaxation": 0.25,
+      "relaxation_decay": 0.2,
+      "s2_validation_rmse_mm": 2.4499835302695545,
+      "s4_validation_rmse_mm": 2.6380997913374333,
+      "s4_material_mape": 0.01192666319772028,
+      "score": 1.0001530360738968
+    }
+  ],
+  "test_partition_opened": false
+}

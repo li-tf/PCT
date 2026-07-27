@@ -14,8 +14,8 @@ pct2d_reconstruction/
 ├── analytic_reconstruction/     no-Hann DDB-FDK与200 MeV RSP真值
 ├── iterative_reconstruction/    GPU MLP OS-SART + Huber-TV
 ├── evaluation/                  冻结清单、固定划分和统一RSP/WEPL评价
-├── research_stages/             阶段1起的研究性分析、评价与阶段报告
-└── report/                      实验报告、图表和后续研究计划
+├── research_stages/             阶段1起的研究性算法、评价与阶段报告
+└── report/                      各实验的正式报告与图表生成器
 ```
 
 数据目录对应为：
@@ -23,13 +23,16 @@ pct2d_reconstruction/
 ```text
 data/
 ├── simulation_data/results0716/
-├── preprocessing_data/results0716/
-└── reconstruction_data/results0716/
+├── simulation_data/results0717_s1...s6/
+├── simulation_data/results0724_mlp_truth_pilot/
+├── preprocessing_data/results0716及results0717_s1...s5/
+└── reconstruction_data/results0716及results0717_s1...s5/
 ```
 
 `experiments/experiment0716.json`将`simulation0716`、`results0716`和
 `report0716`绑定为同一实验。Linux入口统一使用`--experiment 0716`，不依赖当前
-工作目录推断数据位置。
+工作目录推断数据位置。S1--S6是研究阶段使用的诊断数据，不冒充results0716正式
+基线；D1和compact-3D已在工作站完成，但大型ROOT尚未复制到当前`data/`。
 
 ## results0716当前状态
 
@@ -46,6 +49,18 @@ data/
 
 实验注册文件中的迭代`epochs=10`是原计划值；results0716实际完成并冻结的正式
 结果为3 epoch，运行摘要是执行配置的权威来源。
+
+## 研究路线当前状态
+
+| 阶段 | 状态 | 冻结结论 |
+|---|---|---|
+| 1 材料能量标定 | PASS | 保留`I=78 eV`主口径，同时用有效RSP解释能量相关差异 |
+| 2 诊断模体 | PASS | 建立Air、边界、材料MAPE和MTF基线 |
+| 3 稳健过滤与权重 | PASS，保留基线 | 局部3σ与等权优于或等效于候选方法 |
+| 4 固定MLP迭代优化 | 进行中 | 已冻结`λ0=0.25`、衰减`0.2`、quadratic、固定Huber-TV `β=0.0125`和5 epoch；正在比较18/36子集 |
+
+阶段性算法不会自动替换results0716成熟入口。只有完整训练—验证—锁定测试通过后，
+才在阶段报告中决定是否推荐晋升。
 
 ## 主要命令
 
@@ -76,6 +91,16 @@ data/
   pct2d_reconstruction/research_stages/stage2_diagnostic_phantoms/run_stage2.py \
   --action all --jobs 4
 
+# 复核阶段3最终决定
+.venv-gate/bin/python \
+  pct2d_reconstruction/research_stages/stage3_robust_weighting/run_stage3.py \
+  --action report --datasets s1,s3,s5
+
+# Stage4必须按README分批运行；当前步骤为18/36子集比较
+.venv-gate/bin/python \
+  pct2d_reconstruction/research_stages/stage4_iterative_optimization/run_stage4.py \
+  --action subset-screen --datasets s2,s4,s5 --device 0
+
 # 生成实验报告
 .venv-gate/bin/python pct2d_reconstruction/report/build_report.py \
   --experiment 0716 --force
@@ -94,4 +119,7 @@ data/
    阶段1的材料能量、有效RSP与Air WEPL结论；
 5. `research_stages/stage2_diagnostic_phantoms/qc/stage2_summary.md`：
    S2--S5的边界、材料定量与空间分辨率诊断；
-6. `future_research_plan.md`：阶段0至阶段8研究路线与完成记录。
+6. `research_stages/stage3_robust_weighting/qc/stage3_summary.md`：
+   稳健过滤、噪声模型和权重的完整负结果；
+7. `pct_performance_benchmarks.md`：文献、商业系统与当前项目的性能参照；
+8. `future_research_plan.md`：阶段0至阶段8研究路线与完成记录。

@@ -10,6 +10,13 @@ D:\OpenGATE\windows_air_silicon_tracker_d1_0718
 200 μm物理硅跟踪器。出口能量仍由理想参考面记录，不包含物理能量探测器、像素
 量化或电子学噪声。
 
+## 当前状态
+
+工作站正式仿真已于2026-07-20完成：720/720角度成功，12进程墙钟时间约
+20.55小时，六类ROOT合计约114.55 GiB。manifest和日志已在本目录
+`qc/full/`，但大型ROOT尚未复制到当前项目的`data/simulation_data/`，因此
+阶段7数据处理尚未开始。
+
 ![D1 geometry](scene_geometry.svg)
 
 ## 场景参数

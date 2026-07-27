@@ -10,6 +10,13 @@ D:\OpenGATE\windows_compact_3d_pilot_0718
 世界和理想二维相空间面，不加入硅跟踪器、像素噪声或物理能量探测器，以便单独
 验证三维结构重叠、出平面散射和后续三维MLP数据链。
 
+## 当前状态
+
+工作站正式仿真已于2026-07-21完成：360/360角度成功，共7.2亿个质子，12进程
+墙钟时间约13.63小时，入口/出口ROOT合计约86.37 GiB。manifest和日志已在
+`qc/full/`，但大型ROOT尚未复制到当前项目的`data/simulation_data/`，三维读取器、
+预处理和重建尚未启动。
+
 ![Compact 3-D geometry](scene_geometry.svg)
 
 ## 三维坐标和采集几何

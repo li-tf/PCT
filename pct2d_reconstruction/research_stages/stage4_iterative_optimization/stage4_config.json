@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "stage3_config": "../stage3_robust_weighting/stage3_config.json",
+  "filter": "baseline_3sigma",
+  "data_weight": "equal",
+  "grid": {
+    "size": 2100,
+    "spacing_mm": 0.1,
+    "path_step_mm": 0.1,
+    "phantom_radius_mm": 100.0,
+    "batch_size": 4096
+  },
+  "relaxation_screen": {
+    "initial_relaxations": [0.1, 0.15, 0.2, 0.25],
+    "initial_decay": 0.2,
+    "initial_epochs": 3,
+    "retained_relaxations": 2,
+    "decays": [0.1, 0.2, 0.4],
+    "maximum_epochs": 5,
+    "retained_schedules": 2
+  },
+  "loss_screen": {
+    "losses": [
+      {"name": "quadratic", "huber_delta_mm": null},
+      {"name": "huber3", "huber_delta_mm": 3.0},
+      {"name": "huber5", "huber_delta_mm": 5.0}
+    ],
+    "epochs": 4
+  },
+  "regularization_screen": {
+    "weights": [0.0, 0.003, 0.006, 0.0125],
+    "initial_epochs": 3,
+    "maximum_epochs": 6,
+    "retained_weights": 2,
+    "huber_delta": 0.002,
+    "iterations": 100,
+    "primal_step": 0.25,
+    "dual_step": 0.25,
+    "decay": 0.5
+  },
+  "subset_screen": {
+    "subsets": [18, 36],
+    "maximum_runtime_ratio": 1.1,
+    "minimum_rmse_improvement": 0.002
+  },
+  "early_stopping": {
+    "consecutive_degrading_epochs": 2,
+    "relative_rmse_degradation": 0.001
+  },
+  "selection": {
+    "validation_rmse_max_degradation": 0.005,
+    "huber_rmse_min_improvement": 0.0025,
+    "huber_p99_min_improvement": 0.03,
+    "material_mape_max_degradation_percentage_points": 0.2,
+    "small_roi_max_degradation_percentage_points": 0.3,
+    "water_bias_max_degradation_percentage_points": 0.1,
+    "mtf_max_relative_degradation": 0.05,
+    "regularization_metric_min_improvement": 0.02,
+    "regularization_other_metric_max_degradation": 0.01,
+    "test_mean_wepl_rmse_min_improvement": 0.0025,
+    "test_water_std_min_improvement": 0.05,
+    "test_material_mape_min_improvement_percentage_points": 0.2,
+    "test_s5_rsp_rmse_min_improvement": 0.03
+  },
+  "defaults": {
+    "subsets": 18,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "epochs": 3,
+    "loss": "quadratic",
+    "regularization_weight": 0.0125,
+    "regularization_schedule": "fixed",
+    "device": 0,
+    "seed": 20260713
+  }
+}

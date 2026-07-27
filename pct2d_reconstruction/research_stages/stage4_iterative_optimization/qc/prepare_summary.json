@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "filter": "baseline_3sigma",
+  "weight": "equal",
+  "datasets": [
+    "s2",
+    "s4"
+  ],
+  "runs": 720,
+  "test_partition_opened": false
+}

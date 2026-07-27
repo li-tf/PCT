@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "dataset": "s1",
+  "runs": 720,
+  "identity": [
+    "RunID",
+    "paired_row_index"
+  ],
+  "rule": "splitmix64-v1(RunID, paired_row_index, 20260713) % 10: test=0, validation=1, train=2..9",
+  "total": 283558776,
+  "train": 226844364,
+  "validation": 28352599,
+  "test": 28361813,
+  "fractions": {
+    "train": 0.7999906305139362,
+    "validation": 0.09998843767050257,
+    "test": 0.10002093181556122
+  },
+  "elapsed_seconds": 8.737242463001166,
+  "pairs": "data/preprocessing_data/results0717_s1_aluminium_air_full/pairs",
+  "masks": "data/preprocessing_data/results0717_s1_aluminium_air_full/stage3/splits/stage3_prefilter_80_10_10"
+}

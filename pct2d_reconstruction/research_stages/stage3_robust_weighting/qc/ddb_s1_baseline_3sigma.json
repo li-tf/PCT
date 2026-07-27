@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s1",
+  "candidate": "baseline_3sigma",
+  "runs": 720,
+  "ddb": "data/preprocessing_data/results0717_s1_aluminium_air_full/stage3/ddb/baseline_3sigma",
+  "selected_train": 168262322
+}

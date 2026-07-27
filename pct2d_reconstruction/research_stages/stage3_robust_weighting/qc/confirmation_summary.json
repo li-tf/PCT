@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "winner_filter": "baseline_3sigma",
+  "winner_weight": "equal",
+  "datasets": [
+    "s1",
+    "s3",
+    "s5"
+  ],
+  "compared_variants": [
+    "baseline_3sigma__equal"
+  ],
+  "baseline_retained": true,
+  "test_partition_opened": true,
+  "note": "PASS denotes a complete locked comparison; the report action decides whether the new method replaces or retains the baseline."
+}

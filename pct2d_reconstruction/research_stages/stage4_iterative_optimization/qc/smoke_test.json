@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "run_id": 0,
+      "rows": 8,
+      "quadratic_numerator_max_difference": 0.0,
+      "quadratic_denominator_max_difference": 0.0,
+      "finite": true
+    },
+    {
+      "run_id": 719,
+      "rows": 8,
+      "quadratic_numerator_max_difference": 0.0,
+      "quadratic_denominator_max_difference": 0.0,
+      "finite": true
+    }
+  ]
+}

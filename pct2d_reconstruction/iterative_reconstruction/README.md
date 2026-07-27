@@ -47,3 +47,7 @@ RSP指标写入`iterative_reconstruction/qc/results0716/`。第3轮水区标准�
 已有重建默认拒绝覆盖。重新运行全量3轮会耗费约3小时，使用`--force`前应确认
 确实需要替换正式检查点和迭代QC。
 
+固定MLP下的参数优化位于
+`research_stages/stage4_iterative_optimization/`，检查点写入各研究数据集的
+`stage4/`目录，不会覆盖本目录的results0716正式基线。阶段4完成锁定测试前，
+这里列出的3 epoch配置仍是正式方法。

@@ -1,7 +1,8 @@
 # report0716
 
-本目录对应`simulation0716 / results0716`，保存完整中文实验报告、英文图表、数据表、
-报告QC和后续研究路线。
+本目录对应`simulation0716 / results0716`，保存完整中文实验报告、英文图表、
+数据表和报告QC。跨实验研究路线已移至
+`pct2d_reconstruction/future_research_plan.md`。
 
 ## 当前内容
 
@@ -10,7 +11,7 @@
 - results0716 no-Hann解析重建，并与test0713 no-Hann作统一RSP对照；
 - results0716全量0.1 mm、3 epoch GPU迭代重建；
 - 200 MeV参考RSP真值、误差图、边界剖面、epoch曲线和关键指标；
-- 阶段0至阶段8后续研究计划。
+- 指向阶段0至阶段8研究计划和后续阶段报告的链接。
 
 迭代部分只使用results0716自身结果，不把test0713迭代结果混入比较。阶段0固定
 训练/验证划分和验证WEPL结果保存在`pct2d_reconstruction/evaluation/`；完成记录已

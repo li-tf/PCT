@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s5",
+  "candidate": "baseline_3sigma",
+  "runs": 720,
+  "ddb": "data/preprocessing_data/results0717_s5_resolution_air_pilot/stage3/ddb/baseline_3sigma",
+  "selected_train": 37275621
+}

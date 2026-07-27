@@ -10,6 +10,21 @@ Huber-TV实现，不修改：
 大型掩码、权重、DDB和重建结果写入各实验在`data/`中的目录；代码侧`qc/`
 只保存清单、CSV、日志和总结。
 
+## 最终状态
+
+阶段3已于2026-07-25完成。完整比较和锁定测试流程为**PASS**，但没有新方法
+达到预设晋升门槛，最终保留：
+
+- 过滤：`baseline_3sigma`；
+- 权重：`equal`。
+
+median/MAD和稳健马氏距离未达到残差p99至少改善5%的门槛；按出射能量拟合的
+噪声模型在S2、S3均只有7/10个十分位通过校准，逆方差权重反而恶化验证RMSE、
+材料MAPE并引入WEPL负偏差。成熟的预处理和重建代码未被替换。
+
+详细结果见[stage3_summary.md](qc/stage3_summary.md)，机器可读决定见
+`qc/stage3_summary.json`。
+
 ## 科学设计
 
 划分发生在任何过滤之前。质子身份固定为
@@ -34,7 +49,7 @@ S2均匀水用于按出射能量拟合WEPL随机标准差，S3检查该模型从
 
 ## 分段运行
 
-第一批长计算：
+完整复现顺序：
 
 ```bash
 .venv-gate/bin/python \
@@ -44,10 +59,23 @@ S2均匀水用于按出射能量拟合WEPL随机标准差，S3检查该模型从
 .venv-gate/bin/python \
   pct2d_reconstruction/research_stages/stage3_robust_weighting/run_stage3.py \
   --action filter-screen --datasets s2,s4 --jobs 4
+
+.venv-gate/bin/python \
+  pct2d_reconstruction/research_stages/stage3_robust_weighting/run_stage3.py \
+  --action weight-screen --datasets s2,s4 --jobs 4 --device 0
+
+.venv-gate/bin/python \
+  pct2d_reconstruction/research_stages/stage3_robust_weighting/run_stage3.py \
+  --action prepare --datasets s1 --jobs 4
+
+.venv-gate/bin/python \
+  pct2d_reconstruction/research_stages/stage3_robust_weighting/run_stage3.py \
+  --action confirm --datasets s1,s3,s5 --jobs 4 --device 0
 ```
 
-等待检查并冻结过滤器后才运行`weight-screen`。最终才处理高通量S1并打开
-S1/S3/S5测试集。所有正式动作默认拒绝以`--force`覆盖自己的完整产物。
+正式执行严格按上述顺序完成：先冻结过滤器，再运行`weight-screen`，最后处理
+高通量S1并打开S1/S3/S5测试集。所有正式动作默认拒绝以`--force`覆盖自己的
+完整产物。
 
 轻量检查：
 

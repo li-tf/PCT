@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "winner": {
+    "name": "quadratic",
+    "huber_delta_mm": null,
+    "mean_rmse_mm": 2.5445849756638923,
+    "mean_p99_mm": 6.851391553878784,
+    "s4_material_mape": 0.011922227254567238,
+    "s4_material_max_ape": 0.019023539498448372
+  },
+  "candidates": [
+    {
+      "name": "quadratic",
+      "huber_delta_mm": null,
+      "mean_rmse_mm": 2.5445849756638923,
+      "mean_p99_mm": 6.851391553878784,
+      "s4_material_mape": 0.011922227254567238,
+      "s4_material_max_ape": 0.019023539498448372
+    },
+    {
+      "name": "huber3",
+      "huber_delta_mm": 3.0,
+      "mean_rmse_mm": 2.5450722983435137,
+      "mean_p99_mm": 6.859774827957153,
+      "s4_material_mape": 0.011454096923653897,
+      "s4_material_max_ape": 0.01833522506058216,
+      "eligible": false,
+      "rmse_improvement": -0.00019151361981695203,
+      "p99_improvement": -0.001223587064385967
+    },
+    {
+      "name": "huber5",
+      "huber_delta_mm": 5.0,
+      "mean_rmse_mm": 2.5446805776499835,
+      "mean_p99_mm": 6.855303764343262,
+      "s4_material_mape": 0.011660303293655697,
+      "s4_material_max_ape": 0.018807103857398033,
+      "eligible": false,
+      "rmse_improvement": -3.757075790566944e-05,
+      "p99_improvement": -0.0005710096166176015
+    }
+  ],
+  "test_partition_opened": false
+}

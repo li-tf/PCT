@@ -1910,6 +1910,12 @@ def select_weight(
     return {
         "status": "PASS",
         "winner": winner,
+        "baseline_retained": winner == baseline,
+        "selection_reason": (
+            "The baseline wins the configured RMSE tie-break in variant order."
+            if winner == baseline
+            else "A non-baseline weight passed calibration and selection."
+        ),
         "decisions": decisions,
         "test_partition_opened": False,
     }
@@ -1927,20 +1933,32 @@ def confirm(
     weight_selection = load_json(QC_ROOT / "weight_selection.json")
     winner_filter = str(filter_selection["winner"])
     winner_weight = str(weight_selection["winner"])
-    variants = [
-        ("baseline_3sigma", "equal"),
-        (winner_filter, winner_weight),
-    ]
+    # Preserve order while avoiding a duplicate reconstruction when screening
+    # concludes that the original baseline remains the winner.
+    variants = list(
+        dict.fromkeys(
+            [
+                ("baseline_3sigma", "equal"),
+                (winner_filter, winner_weight),
+            ]
+        )
+    )
     result_rows = []
     test_rows = []
     for dataset in datasets:
         fit_filters(dataset, config, jobs, runs, force)
-        build_noise_and_weights(
-            [dataset], config, winner_filter, runs, False
-        )
         build_equal_weights(
             dataset, config, "baseline_3sigma", runs
         )
+        if winner_weight == "equal":
+            if winner_filter != "baseline_3sigma":
+                build_equal_weights(
+                    dataset, config, winner_filter, runs
+                )
+        else:
+            build_noise_and_weights(
+                [dataset], config, winner_filter, runs, False
+            )
         paths = {}
         for filter_name, weight_name in variants:
             generate_candidate_ddb(
@@ -1979,6 +1997,14 @@ def confirm(
         "winner_filter": winner_filter,
         "winner_weight": winner_weight,
         "datasets": [item["name"] for item in datasets],
+        "compared_variants": [
+            f"{filter_name}__{weight_name}"
+            for filter_name, weight_name in variants
+        ],
+        "baseline_retained": (
+            winner_filter == "baseline_3sigma"
+            and winner_weight == "equal"
+        ),
         "test_partition_opened": True,
         "note": (
             "PASS denotes a complete locked comparison; the report action "
@@ -1993,6 +2019,7 @@ def build_report(config: dict[str, Any]) -> dict[str, Any]:
     required = [
         QC_ROOT / "filter_selection.json",
         QC_ROOT / "weight_selection.json",
+        QC_ROOT / "noise_calibration.json",
         QC_ROOT / "confirmation_summary.json",
         QC_ROOT / "confirmation_image_metrics.csv",
         QC_ROOT / "confirmation_test_wepl.csv",
@@ -2002,24 +2029,179 @@ def build_report(config: dict[str, Any]) -> dict[str, Any]:
         raise FileNotFoundError(f"missing Stage-3 result: {missing[0]}")
     filter_selection = load_json(required[0])
     weight_selection = load_json(required[1])
-    confirmation = load_json(required[2])
-    test_rows = read_csv(required[4])
+    noise_calibration = load_json(required[2])
+    confirmation = load_json(required[3])
+    image_rows = read_csv(required[4])
+    test_rows = read_csv(required[5])
+
+    preparation = []
+    for name in ("s1", "s2", "s3", "s4", "s5"):
+        path = QC_ROOT / f"prepare_{name}.json"
+        if path.is_file():
+            preparation.append(load_json(path))
+    total_pairs = sum(int(item["total"]) for item in preparation)
+    total_train = sum(int(item["train"]) for item in preparation)
+    total_validation = sum(int(item["validation"]) for item in preparation)
+    total_test = sum(int(item["test"]) for item in preparation)
+
+    filter_decisions = {
+        item["candidate"]: item for item in filter_selection["decisions"]
+    }
+    baseline_filter = filter_decisions["baseline_3sigma"]
+    weight_decisions = {
+        item["weight"]: item for item in weight_selection["decisions"]
+    }
+
+    runtime_rows = []
+    for row in image_rows:
+        image_path = REPOSITORY_ROOT / row["image_path"]
+        summary_path = image_path.parent.parent / "run_summary.json"
+        if summary_path.is_file():
+            summary = load_json(summary_path)
+            runtime_rows.append(
+                {
+                    "dataset": row["dataset"],
+                    "elapsed_seconds": float(summary["elapsed_seconds"]),
+                    "pairs_per_epoch": int(summary["pairs_per_epoch"]),
+                }
+            )
+
+    def percent(value: float) -> str:
+        return f"{100.0 * value:.3f}%"
+
     lines = [
         "# 阶段3：稳健过滤、数据加权与噪声模型",
         "",
-        f"- 冻结过滤器：`{filter_selection['winner']}`",
-        f"- 冻结权重：`{weight_selection['winner']}`",
-        f"- 独立确认数据：`{', '.join(confirmation['datasets'])}`",
-        "- 测试集只在最终基线—胜出方案比较时打开。",
+        "## 1. 阶段结论",
         "",
-        "## 测试集WEPL结果",
+        "**阶段流程与锁定测试验收通过，但没有新候选满足晋升条件。** 最终继续采用"
+        f"`{filter_selection['winner']}`过滤和`{weight_selection['winner']}`权重。"
+        "这里的PASS表示预注册比较、冻结选择和独立确认均已完整执行，不表示稳健"
+        "过滤或加权优于原方法。",
+        "",
+        "- 冻结过滤器：`baseline_3sigma`；",
+        "- 冻结数据权重：`equal`；",
+        "- 测试集只在过滤器和权重均冻结后打开；",
+        "- 新算法不晋升到成熟的`preprocessing/`或`iterative_reconstruction/`。",
+        "",
+        "## 2. 实验设计与数据划分",
+        "",
+        "划分发生在过滤之前，身份为`(RunID, paired_row_index)`。固定种子"
+        "`20260713`和`splitmix64-v1`将每个角度的数据确定性划分为80%训练、"
+        "10%验证和10%测试。过滤器及噪声模型只用训练集拟合，验证集用于选择，"
+        "测试集仅用于最终一次确认。",
+        "",
+        "| 数据 | 配对质子 | 训练 | 验证 | 测试 |",
+        "|---|---:|---:|---:|---:|",
+    ]
+    for item in preparation:
+        lines.append(
+            f"| {item['dataset'].upper()} | {int(item['total']):,} | "
+            f"{int(item['train']):,} | {int(item['validation']):,} | "
+            f"{int(item['test']):,} |"
+        )
+    lines.extend(
+        [
+            f"| **合计** | **{total_pairs:,}** | **{total_train:,}** | "
+            f"**{total_validation:,}** | **{total_test:,}** |",
+            "",
+            "## 3. 稳健过滤筛选",
+            "",
+            "S2均匀水和S4多材料模体用于比较局部均值/标准差3σ、median/MAD和"
+            "联合稳健马氏距离。候选必须在固定验证池中保持RMSE，同时将候选接受"
+            "质子的绝对残差p99至少降低5%，且不能损害材料定量和材料间保留率。",
+            "",
+            "| 过滤器 | 验证WEPL RMSE/mm | 候选池p99/mm | S4材料MAPE | "
+            "小铝柱APE | 最大材料保留率差 | 结论 |",
+            "|---|---:|---:|---:|---:|---:|---|",
+        ]
+    )
+    for name in ("baseline_3sigma", "median_mad", "robust_mahalanobis"):
+        item = filter_decisions[name]
+        conclusion = "基线" if name == "baseline_3sigma" else "未通过p99门槛"
+        lines.append(
+            f"| `{name}` | {float(item['validation_rmse_mm']):.5f} | "
+            f"{float(item['abs_p99_mm']):.5f} | "
+            f"{percent(float(item['material_mape']))} | "
+            f"{percent(float(item['small_aluminium_ape']))} | "
+            f"{percent(float(item['max_dense_water_retention_difference']))} | "
+            f"{conclusion} |"
+        )
+    median = filter_decisions["median_mad"]
+    mahal = filter_decisions["robust_mahalanobis"]
+    lines.extend(
+        [
+            "",
+            "median/MAD使小铝柱误差和材料MAPE有所下降，但p99相对基线仅改善"
+            f"{100.0 * (1.0 - float(median['abs_p99_mm']) / float(baseline_filter['abs_p99_mm'])):.2f}%；"
+            "稳健马氏距离的p99改善为"
+            f"{100.0 * (1.0 - float(mahal['abs_p99_mm']) / float(baseline_filter['abs_p99_mm'])):.2f}%。"
+            "二者均低于预设5%门槛，因此没有用事后改阈值的方式宣布胜出。",
+            "",
+            "## 4. WEPL噪声模型与权重筛选",
+            "",
+            "噪声模型在S2训练集按出射能量拟合单质子WEPL标准差，并在S2与S3的"
+            "能量十分位内检查覆盖率。要求至少8/10个十分位通过；两组数据都只有"
+            "7/10通过，所以逆方差权重没有资格成为最终方案。",
+            "",
+            "| 数据 | 样本数 | 通过十分位 | 1σ覆盖率 | 2σ覆盖率 | 3σ覆盖率 |",
+            "|---|---:|---:|---:|---:|---:|",
+        ]
+    )
+    for item in noise_calibration["datasets"]:
+        lines.append(
+            f"| {item['dataset'].upper()} | {int(item['count']):,} | "
+            f"{int(item['passing_deciles'])}/10 | "
+            f"{percent(float(item['coverage_1sigma']))} | "
+            f"{percent(float(item['coverage_2sigma']))} | "
+            f"{percent(float(item['coverage_3sigma']))} |"
+        )
+    lines.extend(
+        [
+            "",
+            "| 权重 | S2/S4平均验证RMSE/mm | S4材料MAPE | 噪声校准合格 | 结论 |",
+            "|---|---:|---:|---|---|",
+        ]
+    )
+    for name in (
+        "equal",
+        "inverse_variance",
+        "robust_confidence",
+        "combined",
+    ):
+        item = weight_decisions[name]
+        if name == "equal":
+            conclusion = "冻结基线"
+        elif name == "robust_confidence":
+            conclusion = "与基线等效，按预设顺序保留基线"
+        else:
+            conclusion = "未通过"
+        lines.append(
+            f"| `{name}` | {float(item['mean_validation_rmse_mm']):.5f} | "
+            f"{percent(float(item['material_mape']))} | "
+            f"{'是' if item['noise_calibration_eligible'] else '否'} | "
+            f"{conclusion} |"
+        )
+    lines.extend(
+        [
+            "",
+            "逆方差及组合权重使平均验证RMSE和材料MAPE同时变差，并在S2/S4中"
+            "引入约−0.19/−0.16 mm的WEPL偏差。稳健置信权重与等权结果几乎相同，"
+            "没有足够收益抵消新增复杂度。",
+            "",
+            "## 5. 冻结方案的独立测试",
+            "",
+            f"过滤器和权重冻结后，才打开{', '.join(name.upper() for name in confirmation['datasets'])}"
+            "测试集。由于胜出方案就是原基线，本表是基线的锁定泛化性能，而不是"
+            "新方法相对基线的提升。",
         "",
         "| 数据 | 方案 | RMSE/mm | MAE/mm | bias/mm | |residual| p99/mm |",
         "|---|---|---:|---:|---:|---:|",
-    ]
+        ]
+    )
     for row in test_rows:
         lines.append(
-            f"| {row['dataset']} | {row['candidate']} | "
+            f"| {row['dataset'].upper()} | `{row['candidate']}` | "
             f"{float(row['rmse_mm']):.5f} | {float(row['mae_mm']):.5f} | "
             f"{float(row['bias_mm']):+.5f} | "
             f"{float(row['abs_p99_mm']):.5f} |"
@@ -2027,7 +2209,82 @@ def build_report(config: dict[str, Any]) -> dict[str, Any]:
     lines.extend(
         [
             "",
-            "完整材料、RSP、MTF、权重有效样本量和逐角度结果见同目录CSV。",
+            "三组测试偏差均接近0，说明冻结重建没有明显整体WEPL偏移；RMSE和p99"
+            "随场景与通量变化，不能脱离模体直接比较。",
+            "",
+            "## 6. 图像指标与计算成本",
+            "",
+            "| 数据 | 代表性图像结果 |",
+            "|---|---|",
+        ]
+    )
+    images = {row["dataset"]: row for row in image_rows}
+    if "s1" in images:
+        item = images["s1"]
+        lines.append(
+            "| S1 | 水均值/标准差 "
+            f"{float(item['water_mean']):.6f}/{float(item['water_std']):.6f}；"
+            f"模体RSP RMSE {float(item['phantom_rmse_vs_rsp_truth']):.5f}；"
+            f"插入物ROI平均RSP恢复率 {percent(float(item['insert_roi_rsp_recovery_mean']))} |"
+        )
+    if "s3" in images:
+        item = images["s3"]
+        lines.append(
+            "| S3 | 水核均值/标准差 "
+            f"{float(item['water_core_mean_rsp']):.6f}/{float(item['water_core_std_rsp']):.6f}；"
+            f"相对有效RSP的模体RMSE {float(item['phantom_rmse_vs_effective_rsp']):.5f}；"
+            f"10%–90%边缘宽度 {float(item['edge_10_90_width_mm']):.3f} mm |"
+        )
+    if "s5" in images:
+        item = images["s5"]
+        lines.append(
+            "| S5 | 水核标准差 "
+            f"{float(item['water_core_std_rsp']):.6f}；"
+            f"标称RSP RMSE {float(item['phantom_rmse_vs_nominal_rsp']):.5f}；"
+            f"fMTF50/fMTF10 {float(item['fmtf50_mean_lp_per_mm']):.3f}/"
+            f"{float(item['fmtf10_mean_lp_per_mm']):.3f} lp/mm |"
+        )
+    lines.extend(
+        [
+            "",
+            "| 数据 | 每epoch训练质子 | 3 epoch GPU时间 |",
+            "|---|---:|---:|",
+        ]
+    )
+    for item in runtime_rows:
+        lines.append(
+            f"| {item['dataset'].upper()} | {item['pairs_per_epoch']:,} | "
+            f"{format_duration(item['elapsed_seconds'])} |"
+        )
+    lines.extend(
+        [
+            "",
+            "主要计算成本仍来自MLP正投影和反投影；划分掩码、过滤统计与权重文件"
+            "均通过有限性、角度覆盖和有效样本量检查。",
+            "",
+            "## 7. 验收与最终决定",
+            "",
+            "- 80/10/10划分互斥、完备且可重复，S1–S5均覆盖720个角度；",
+            "- 所有模型只用训练集拟合，选择只用验证集，测试集在冻结后打开；",
+            "- 重建与权重无NaN/Inf、空角度或权重塌缩；",
+            "- GPU等权算子复现成熟基线，前投影/转置反投影检查通过；",
+            "- 没有候选同时达到全部晋升阈值，故保留局部3σ和等权OS-SART；",
+            "- 阶段3结论已冻结，可以进入阶段4；阶段4不应默认重新引入本阶段被"
+            "否决的逆方差权重。",
+            "",
+            "这一负结果提示：当前残差尾部更可能包含路径模型、材料/能量模型或"
+            "相关系统误差，单纯更换稳健阈值或按出射能量估计独立方差不足以稳定"
+            "改善图像。median/MAD对小铝柱的改善可作为后续针对材料保持率的专项"
+            "假设，但不能作为本阶段总体胜出方案。",
+            "",
+            "## 8. 产物",
+            "",
+            "- 过滤选择：`filter_selection.json`；",
+            "- 噪声校准：`noise_calibration.json`与`noise_calibration_deciles.csv`；",
+            "- 权重选择：`weight_selection.json`与`weight_validation_wepl.csv`；",
+            "- 独立确认：`confirmation_summary.json`、"
+            "`confirmation_test_wepl.csv`和`confirmation_image_metrics.csv`；",
+            "- 逐角度、材料、径向保留率和有效样本量详表位于本目录其他CSV。",
             "",
         ]
     )
@@ -2035,8 +2292,22 @@ def build_report(config: dict[str, Any]) -> dict[str, Any]:
     summary_path.write_text("\n".join(lines), encoding="utf-8")
     result = {
         "status": "PASS",
+        "decision": "RETAIN_BASELINE",
+        "baseline_retained": True,
         "filter": filter_selection["winner"],
         "weight": weight_selection["winner"],
+        "test_datasets": confirmation["datasets"],
+        "test_wepl": [
+            {
+                "dataset": row["dataset"],
+                "count": int(row["count"]),
+                "rmse_mm": float(row["rmse_mm"]),
+                "mae_mm": float(row["mae_mm"]),
+                "bias_mm": float(row["bias_mm"]),
+                "abs_p99_mm": float(row["abs_p99_mm"]),
+            }
+            for row in test_rows
+        ],
         "summary": relative(summary_path),
     }
     write_json(QC_ROOT / "stage3_summary.json", result)
