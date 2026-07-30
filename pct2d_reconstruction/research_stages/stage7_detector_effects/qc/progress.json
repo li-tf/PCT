@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "stage": "complete",
+  "completed_runs": 720,
+  "total_runs": 720,
+  "updated_at": "2026-07-30T07:35:33",
+  "elapsed_seconds": 0.36428825699999834,
+  "eta_seconds": 0.0,
+  "mode": "full",
+  "variant": "energy_1pct"
+}

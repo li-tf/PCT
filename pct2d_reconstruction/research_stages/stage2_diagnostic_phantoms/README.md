@@ -15,6 +15,11 @@
 S2/S3另外执行3 epoch GPU迭代对照；S4/S5在本阶段完成no-Hann
 DDB-FDK诊断，依据材料误差和MTF结果再决定是否增加通量和迭代重建。
 
+当前S2、S3大型数据已迁入第一批冷归档，S4、S5及其Stage 6B正式结果保留在
+本地。已有阶段总结和代码侧QC不受影响；若执行包含S2/S3的`--action all`，
+必须先按[`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)
+恢复原路径。
+
 统一入口：
 
 ```bash

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "dataset": "s1",
+  "elapsed_seconds": 13756.725750332,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s1_aluminium_air_full/stage6b_calibrated/iterative/recon/recon_iterative_gpu.mhd"
+}

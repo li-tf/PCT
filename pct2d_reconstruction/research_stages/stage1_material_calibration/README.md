@@ -12,6 +12,11 @@ Markdown，不修改或复制原始ROOT。
 `0.00114710 mm-WEPL/mm-Air`。完整物理解读见
 [`stage1_summary.md`](qc/results0717_s6_material_energy_scan/stage1_summary.md)。
 
+2026-07-30以后，S6原始ROOT已迁入第一批冷归档，本目录的代码、QC和总结仍
+保留在仓库中。下列重算命令只有在恢复
+`data/simulation_data/results0717_s6_material_energy_scan/`后才能执行；归档
+位置见[`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)。
+
 主要任务：
 
 - 对`TrackID=1`主质子按EventID配对入口和出口状态；

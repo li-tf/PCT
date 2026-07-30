@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "prior_checks": [
+    {
+      "method": "tgv",
+      "finite": true,
+      "outside_nonzero": 0,
+      "max_abs_change": 0.006088852882385254
+    },
+    {
+      "method": "adaptive_tv",
+      "finite": true,
+      "outside_nonzero": 0,
+      "max_abs_change": 0.005359172821044922
+    },
+    {
+      "method": "directional_tv",
+      "finite": true,
+      "outside_nonzero": 0,
+      "max_abs_change": 0.005380749702453613
+    }
+  ],
+  "real_data_checks": [
+    {
+      "run_id": 0,
+      "rows": 8,
+      "valid": 7,
+      "finite": true
+    },
+    {
+      "run_id": 719,
+      "rows": 8,
+      "valid": 7,
+      "finite": true
+    }
+  ]
+}

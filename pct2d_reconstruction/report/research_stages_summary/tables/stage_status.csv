@@ -1,0 +1,12 @@
+stage,title,status,datasets,decision
+0,冻结基线与统一评价体系,PASS,results0716,冻结no-Hann解析和3 epoch迭代历史基线
+1,能量相关RSP与WEPL一致性,PASS,S6,保留I=78 eV并同时报告固定参考RSP和有效RSP
+2,诊断模体处理与评价,PASS,S2-S5,建立水边界、多材料和空间分辨率诊断基线
+3,稳健过滤、数据加权和噪声模型,PASS_RETAIN_BASELINE,S1-S5,保留局部3sigma过滤和等权OS-SART
+4,固定MLP下的迭代重建优化,PASS_PROMOTE_STAGE4,S1-S5,冻结18子集5 epoch方案并通过锁定测试
+5,非均匀MLP与迭代MLP,PASS_RETAIN_STAGE4,真实轨迹pilot,Level 1未通过并按预注册门控停止Level 2/3
+6,高级先验约束,PASS_RETAIN_STAGE4,S2+S4+S5,验证门槛未通过且锁定测试未打开
+6A,虚拟MLIC参考,PASS_FREEZE_MLIC,独立水和材料板,冻结200 MeV高统计MLIC-RSP
+6B,独立WEPL标定与三场景复算,PASS_PROMOTE_G4_WATER_CALIBRATED,独立水板+S1-S5,锁定Geant4一致射程表并通过S2/S3及三场景门控
+7,Air与硅跟踪器效应,PASS_D1_CHARACTERIZED,D1,连续硅hit稳定且参数化位置/能量噪声边界已量化
+8,三维模型与出平面散射,READY,compact-3D pilot,阶段7门控通过并等待正式三维处理

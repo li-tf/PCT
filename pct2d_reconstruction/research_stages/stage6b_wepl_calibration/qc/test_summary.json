@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "test_mean_absolute_relative_bias": 0.0004605361110407226,
+  "test_max_absolute_relative_bias": 0.0016574859619140625,
+  "thresholds": {
+    "test_mean_absolute_relative_bias": 0.002,
+    "test_max_absolute_relative_bias": 0.005,
+    "s2_water_mean_tolerance": 0.003,
+    "s4_large_insert_mape_relative_improvement": 0.5,
+    "s5_fmtf_max_relative_degradation": 0.02
+  },
+  "model": "/home/ltf/project/github/PCT/pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json"
+}

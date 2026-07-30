@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "dataset": "s5",
+  "elapsed_seconds": 3017.3939898099998,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s5_resolution_air_pilot/stage6b_calibrated/iterative/recon/recon_iterative_gpu.mhd"
+}

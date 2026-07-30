@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "decision": "RETAIN_STAGE4_VALIDATION_FAIL",
+  "winner": null,
+  "candidates": [
+    {
+      "method": "adaptive_tv",
+      "weight": 0.0125,
+      "second_order_ratio": 1.0,
+      "minimum_weight": 0.4,
+      "name": "adaptive_tv_b0p0125_m0p4",
+      "score": -0.157828688845407,
+      "safe": true,
+      "improvements": {
+        "s2_water_std": -0.4714631636120141,
+        "s4_material_mape": 0.0036264289966835284,
+        "s5_rsp_rmse": -0.005649331920890344,
+        "s4_material_max_ape": -0.02151912037041037
+      },
+      "safety": {
+        "s2_water_bias": true,
+        "s4_material_mape": true,
+        "s5_mtf50": true,
+        "s5_mtf10": true
+      },
+      "wepl_safe": true,
+      "image_safety": {
+        "s2_water_bias": true,
+        "s4_material_mape": true,
+        "s5_mtf50": true,
+        "s5_mtf10": true
+      },
+      "substantive": {
+        "water_std": false,
+        "material_mape": false,
+        "material_max_ape": false,
+        "s5_rsp_rmse": false
+      },
+      "eligible": false
+    },
+    {
+      "method": "directional_tv",
+      "weight": 0.0125,
+      "second_order_ratio": 1.0,
+      "minimum_weight": 0.5,
+      "name": "directional_tv_b0p0125_m0p5",
+      "score": -0.09163723736512064,
+      "safe": true,
+      "improvements": {
+        "s2_water_std": -0.2747161768879187,
+        "s4_material_mape": 0.0020104537086542695,
+        "s5_rsp_rmse": -0.0022059889160974677,
+        "s4_material_max_ape": -0.014955156155530114
+      },
+      "safety": {
+        "s2_water_bias": true,
+        "s4_material_mape": true,
+        "s5_mtf50": true,
+        "s5_mtf10": true
+      },
+      "wepl_safe": true,
+      "image_safety": {
+        "s2_water_bias": true,
+        "s4_material_mape": true,
+        "s5_mtf50": true,
+        "s5_mtf10": true
+      },
+      "substantive": {
+        "water_std": false,
+        "material_mape": false,
+        "material_max_ape": false,
+        "s5_rsp_rmse": false
+      },
+      "eligible": false
+    }
+  ],
+  "test_partition_opened": false
+}

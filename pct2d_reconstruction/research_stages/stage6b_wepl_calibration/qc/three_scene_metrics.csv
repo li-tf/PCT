@@ -1,0 +1,4 @@
+dataset,water_mean_old,water_mean_calibrated,aluminium_rsp_calibrated,aluminium_mlic_rsp,aluminium_mlic_error_percent,mlic_large_insert_mape_old_percent,mlic_large_insert_mape_calibrated_percent,mlic_all_non_air_mape_calibrated_percent,mlic_max_ape_calibrated_percent,fmtf50_old_lp_per_mm,fmtf50_calibrated_lp_per_mm,fmtf10_old_lp_per_mm,fmtf10_calibrated_lp_per_mm
+s1,1.0139793157577515,0.9997331500053406,2.0671382427215574,2.094511207867794,-1.3068903638907732,,,,,,,,
+s4,,,,,,1.1987247329556214,0.2550948386798285,0.440804929180364,2.6693260151867904,,,,
+s5,,,,,,,,,,0.4919548179452248,0.5002614743352983,1.1167182511817153,1.173324686479304

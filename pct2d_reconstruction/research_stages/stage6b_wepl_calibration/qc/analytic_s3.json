@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "dataset": "s3",
+  "elapsed_seconds": 0.0,
+  "finite": true,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s3_water_air_pilot/stage6b_calibrated/analytic/recon_ddb_nohann.mhd"
+}

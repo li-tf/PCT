@@ -34,3 +34,13 @@
 
 当前报告QC为PASS，8幅图片链接均有效。后续研究安排和阶段完成记录见
 [二维质子CT下一阶段研究计划](../../future_research_plan.md)。
+
+## 数据归档状态
+
+本报告、图表、表格和QC仍完整保留，但其results0716与test0713大型源数据已于
+2026-07-30迁入第一批冷归档。阅读现有报告不受影响；重新执行生成器或追溯
+MHD/ROOT时，应先按
+[`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)
+恢复原路径。当前对外汇报用的最终PPT统一保存在
+本地私有目录`report/final_presentations/`；该目录包含个人信息，已整体排除
+在Git版本控制之外。

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s1",
+  "runs": 720,
+  "missing": [],
+  "new_runs": 720,
+  "ddb": "/home/ltf/project/github/PCT/data/preprocessing_data/results0717_s1_aluminium_air_full/stage6b_calibrated/projections_ddb"
+}

@@ -16,7 +16,11 @@ import numpy as np
 from gpu_mlp_operator import GpuMlpProjector
 from gpu_regularization import proximal_regularize
 from mhd_io import read_header, read_image_2d, read_pairs, resample_to_grid, write_image_2d
-from physics import energies_to_wepl_vectorized, make_vectorized_wepl_lut
+from physics import (
+    energies_to_wepl_model,
+    load_wepl_model,
+    subtract_external_air_wepl,
+)
 
 
 HERE = Path(__file__).resolve().parent
@@ -67,6 +71,8 @@ def make_parser() -> argparse.ArgumentParser:
     parser.add_argument("--experiment", default="0716")
     parser.add_argument("--pairs-dir", type=Path)
     parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--initial-image", type=Path, help="override no-Hann MHD initialization")
+    parser.add_argument("--qc-dir", type=Path, help="override code-side QC output directory")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--epochs", type=int, help="OS-SART epochs (default: 5)")
     parser.add_argument("--sample-fraction", type=float, help="per-angle proton fraction (default: 1.0)")
@@ -80,7 +86,31 @@ def make_parser() -> argparse.ArgumentParser:
     parser.add_argument("--relaxation-decay", type=float, help="epoch relaxation decay (default: 0.1)")
     parser.add_argument("--initialization", choices=["fdk_nohann", "zero"])
     parser.add_argument("--device", type=int, help="CUDA device index (default: 0)")
+    parser.add_argument("--angle-step-deg", type=float, help="projection angle increment")
+    parser.add_argument("--phantom-radius-mm", type=float, help="circular support radius")
+    parser.add_argument(
+        "--air-wepl-slope",
+        type=float,
+        default=0.0,
+        help="subtract this calibrated mm-WEPL/mm-Air outside the support",
+    )
+    parser.add_argument(
+        "--wepl-model",
+        choices=["bb78", "g4_water_calibrated"],
+        default="bb78",
+        help="versioned energy-to-WEPL model (default: historical bb78)",
+    )
+    parser.add_argument(
+        "--wepl-calibration",
+        type=Path,
+        help="frozen Stage-6B JSON table required by g4_water_calibrated",
+    )
     parser.add_argument("--progress-every-batches", type=int, help="batch progress interval (default: 10)")
+    parser.add_argument(
+        "--skip-truth-metrics",
+        action="store_true",
+        help="finish without experiment-specific RSP truth/ROI metrics",
+    )
     parser.add_argument(
         "--regularizer", choices=["none", "tv", "huber_tv"],
         help="proximal regularizer applied after selected epochs (default: none)",
@@ -103,9 +133,11 @@ def main() -> None:
     simulation_code = path_for(experiment, "simulation_code")
     args.pairs_dir = args.pairs_dir or preprocessing_data / "pairs_filtered"
     args.output_dir = args.output_dir or reconstruction_data / "iterative"
-    fdk_nohann = reconstruction_data / "analytic" / "recon" / "recon_ddb_nohann.mhd"
+    fdk_nohann = args.initial_image or (
+        reconstruction_data / "analytic" / "recon" / "recon_ddb_nohann.mhd"
+    )
     truth_dir = reconstruction_data / "analytic" / "truth"
-    qc_dir = HERE / "qc" / f"results{args.experiment}"
+    qc_dir = args.qc_dir or HERE / "qc" / f"results{args.experiment}"
     epochs = int(option(args.epochs, config, "epochs"))
     fraction = float(option(args.sample_fraction, config, "sample_fraction"))
     spacing = float(option(args.grid_spacing_mm, config, "grid_spacing_mm"))
@@ -118,6 +150,11 @@ def main() -> None:
     relaxation_decay = float(option(args.relaxation_decay, config, "relaxation_decay"))
     initialization = args.initialization or str(config["initialization"])
     device = int(option(args.device, config, "device"))
+    angle_step = float(
+        args.angle_step_deg
+        if args.angle_step_deg is not None
+        else experiment.get("acquisition", {}).get("angle_step_deg", 0.5)
+    )
     progress_every = int(option(args.progress_every_batches, config, "progress_every_batches"))
     regularizer = args.regularizer or str(config.get("regularizer", "none"))
     regularization_weight = float(
@@ -141,14 +178,26 @@ def main() -> None:
     dual_step = float(
         args.dual_step if args.dual_step is not None else config.get("dual_step", 0.25)
     )
-    radius = float(config["phantom_radius_mm"])
+    radius = float(
+        args.phantom_radius_mm
+        if args.phantom_radius_mm is not None
+        else config["phantom_radius_mm"]
+    )
     seed = int(config["seed"])
     if not (epochs >= 1 and size >= 2 and spacing > 0 and step > 0 and batch_size >= 1):
         raise SystemExit("epochs, grid size, spacing, path step, and batch size must be positive")
     if not 0.0 < fraction <= 1.0:
         raise SystemExit("sample fraction must be in (0, 1]")
-    if not 1 <= runs <= 720 or not 1 <= subsets <= runs or progress_every < 1:
-        raise SystemExit("require 1 <= subsets <= runs <= 720 and positive progress interval")
+    if (
+        not 1 <= subsets <= runs
+        or progress_every < 1
+        or angle_step <= 0.0
+        or args.air_wepl_slope < 0.0
+    ):
+        raise SystemExit(
+            "require 1 <= subsets <= runs, positive angle step, and "
+            "progress interval, and nonnegative Air WEPL slope"
+        )
     if regularizer != "none" and (
         regularization_weight <= 0.0
         or regularization_iterations < 1
@@ -193,7 +242,7 @@ def main() -> None:
             path = qc_dir / pattern
             if path.exists():
                 path.unlink()
-    if not fdk_nohann.is_file():
+    if initialization == "fdk_nohann" and not fdk_nohann.is_file():
         raise FileNotFoundError(f"no-Hann initialization is missing: {fdk_nohann}")
     image_cpu, origin = initial_image(initialization, size, spacing, fdk_nohann)
     coordinates = origin + np.arange(size, dtype=np.float32) * spacing
@@ -216,10 +265,14 @@ def main() -> None:
             f"huber_delta={huber_delta:g}",
             flush=True,
         )
-    print("building vectorized Bethe--Bloch LUT...", flush=True)
+    print(f"loading WEPL model {args.wepl_model}...", flush=True)
     lut_start = time.perf_counter()
-    wepl_lut = make_vectorized_wepl_lut()
-    print(f"Bethe--Bloch LUT ready in {time.perf_counter()-lut_start:.1f}s", flush=True)
+    wepl_model = load_wepl_model(args.wepl_model, args.wepl_calibration)
+    print(
+        f"WEPL model ready in {time.perf_counter()-lut_start:.1f}s: "
+        f"sha256={wepl_model.sha256[:12]}...",
+        flush=True,
+    )
     print("compiling CUDA MLP kernels (first launch may take a few seconds)...", flush=True)
 
     image = cp.asarray(image_cpu)
@@ -255,7 +308,13 @@ def main() -> None:
                         selected = np.asarray(pairs[begin : min(begin + batch_size, count)], dtype=np.float32)
                     else:
                         selected = np.asarray(pairs[indices[begin : begin + batch_size]], dtype=np.float32)
-                    wepl = energies_to_wepl_vectorized(wepl_lut, selected[:, 4, 0], selected[:, 4, 1])
+                    wepl = energies_to_wepl_model(
+                        wepl_model, selected[:, 4, 0], selected[:, 4, 1]
+                    )
+                    if args.air_wepl_slope > 0.0:
+                        wepl = subtract_external_air_wepl(
+                            selected, wepl, radius, args.air_wepl_slope
+                        )
                     batch = {
                         "position_in": selected[:, 0, :],
                         "position_out": selected[:, 1, :],
@@ -265,7 +324,7 @@ def main() -> None:
                     }
                     try:
                         residual_squared, measurements = projector.accumulate(
-                            image, batch, 0.5 * run_id, numerator, denominator
+                            image, batch, angle_step * run_id, numerator, denominator
                         )
                     except cp.cuda.memory.OutOfMemoryError as error:
                         raise RuntimeError(
@@ -391,6 +450,10 @@ def main() -> None:
         "batch_size": batch_size,
         "initialization": initialization,
         "device": device,
+        "angle_step_deg": angle_step,
+        "phantom_radius_mm": radius,
+        "air_wepl_slope_mm_wepl_per_mm_air": args.air_wepl_slope,
+        "wepl_model": wepl_model.metadata(),
         "regularizer": regularizer,
         "regularization_weight": regularization_weight,
         "regularization_iterations": regularization_iterations,
@@ -414,7 +477,19 @@ def main() -> None:
         "support_outside_nonzero": int(np.count_nonzero(final_image[~support_cpu])),
         "output": str((recon_dir / "recon_iterative_gpu.mhd").resolve()),
         "regularization_applications": len(regularization_rows),
+        "truth_metrics_skipped": bool(args.skip_truth_metrics),
     }
+
+    if args.skip_truth_metrics:
+        summary["rsp_metrics"] = []
+        summary["experiment"] = args.experiment
+        (qc_dir / "run_summary.json").write_text(
+            json.dumps(summary, indent=2) + "\n", encoding="utf-8"
+        )
+        print(json.dumps(summary, indent=2), flush=True)
+        if summary["status"] != "PASS":
+            raise SystemExit(1)
+        return
 
     red_truth, truth_x, truth_z, _ = rsp_metrics.read_mhd(truth_dir / "truth_red.mhd")
     rsp_truth, rsp_x, rsp_z, _ = rsp_metrics.read_mhd(truth_dir / "truth_rsp_200mev.mhd")

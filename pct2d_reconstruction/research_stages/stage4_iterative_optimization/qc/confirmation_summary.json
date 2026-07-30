@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "decision": "PROMOTE_STAGE4",
+  "promoted": true,
+  "settings": {
+    "epochs": 5,
+    "subsets": 18,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "huber_delta_mm": null,
+    "regularization_weight": 0.0125,
+    "regularization_schedule": "fixed",
+    "regularization_decay": 0.5
+  },
+  "mean_test_wepl_rmse_improvement": 0.0009517227391631078,
+  "water_std_improvement": 0.42577581979166523,
+  "material_mape_improvement_percentage_points": -0.007252407690080433,
+  "s5_rsp_rmse_improvement": 0.027066618873027082,
+  "safety_checks": {
+    "individual_wepl": true,
+    "s4_material": true,
+    "s5_mtf50": true,
+    "s5_mtf10": true
+  },
+  "substantive_improvements": {
+    "mean_test_wepl": false,
+    "water_std": true,
+    "material_mape": false,
+    "s5_rsp_rmse": false
+  },
+  "test_partition_opened": true
+}

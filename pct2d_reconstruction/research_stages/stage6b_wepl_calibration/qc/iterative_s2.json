@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s2",
+  "elapsed_seconds": 0.0,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s2_water_vacuum_pilot/stage6b_calibrated/iterative/recon/recon_iterative_gpu.mhd",
+  "water_mean": 0.9996414184570312,
+  "water_std": 0.0033700806088745594
+}

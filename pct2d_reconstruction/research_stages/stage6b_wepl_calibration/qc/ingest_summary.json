@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "cases": 84,
+  "samples": 4200000,
+  "elapsed_seconds": 0.07051050699965344,
+  "cache": "/home/ltf/project/github/PCT/data/preprocessing_data/results0728_stage6b_wepl_calibration/calibration_samples"
+}

@@ -4,6 +4,12 @@
 评价模块不改写仿真、预处理或重建结果；`--force`也只覆盖本模块生成的清单、
 掩码和表格。
 
+冻结清单、CSV和QC继续保存在本目录，但其覆盖的67.77 GiB `results0716`数据已于
+2026-07-30移入第一批冷归档。因此历史数值和哈希仍有效，重新执行`freeze`、
+`split`、`metrics`或`verify`前必须先按
+[`archive_batch1_20260730_record.md`](../archive_batch1_20260730_record.md)
+恢复原路径。
+
 ## 固定数据划分
 
 现有过滤后pair没有保存EventID，因此质子身份固定为
@@ -59,4 +65,3 @@ MTF和路径误差已预留统一字段，但results0716没有专用MTF靶或真
 `evaluation/baselines/results0716/`，最终验收结果位于
 `evaluation/qc/results0716/evaluation_summary.json`。后续报告应直接读取统一CSV，
 不得重新定义ROI，也不得把在线训练残差与固定验证残差混用。
-

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "decision": "PROMOTE_G4_WATER_CALIBRATED",
+  "checks": {
+    "s2_s3_gate": true,
+    "s4_large_insert_mape_improves_50_percent": true,
+    "s5_fmtf50_not_degraded_over_2_percent": true,
+    "s5_fmtf10_not_degraded_over_2_percent": true
+  },
+  "headline": {
+    "s1_aluminium_mlic_error_percent": -1.3068903638907732,
+    "s4_large_insert_mape_old_percent": 1.1987247329556214,
+    "s4_large_insert_mape_calibrated_percent": 0.2550948386798285,
+    "s5_fmtf50_relative_change_percent": 1.6884998554884456,
+    "s5_fmtf10_relative_change_percent": 5.06899884887595
+  }
+}

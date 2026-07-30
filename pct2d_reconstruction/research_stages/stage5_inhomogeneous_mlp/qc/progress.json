@@ -1,0 +1,15 @@
+{
+  "status": "COMPLETE",
+  "level": "level1",
+  "task": "scientific gate stopped workflow",
+  "overall_fraction": 1.0,
+  "planned_min_seconds": 68400,
+  "planned_max_seconds": 126000,
+  "updated_at": "2026-07-27T21:24:34",
+  "completed": 72,
+  "total": 72,
+  "elapsed_seconds": 357.8402466080006,
+  "trajectories": 222901,
+  "rate": 665.9380531334981,
+  "final_decision": "RETAIN_STAGE4_LEVEL1_FAIL"
+}

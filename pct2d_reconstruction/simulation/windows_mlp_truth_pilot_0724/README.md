@@ -4,11 +4,14 @@
 
 ## 当前状态
 
-72个角度的三类ROOT已经复制到
-`data/simulation_data/results0724_mlp_truth_pilot/`：入口、出口和主质子逐step
-轨迹文件各72个，轨迹ROOT约4.34 GiB。工作站侧正式QC尚未整理进本目录，当前
-只能确认文件数量与基本布局；阶段5开始前仍需冻结manifest、检查ROOT分支并验证
-轨迹—入口—出口EventID配对。
+工作站72角度仿真和Stage 5真实轨迹审计均已完成。Stage 5得到222,901条可用
+轨迹，真值材料非均匀MLP未达到预注册路径改善门槛，因此决定保留Schulte水MLP，
+未继续启动固定图像和交替非均匀MLP重建。完整结论见
+[`../../research_stages/stage5_inhomogeneous_mlp/qc/stage5_summary.md`](../../research_stages/stage5_inhomogeneous_mlp/qc/stage5_summary.md)。
+
+入口、出口、逐step ROOT及Stage 5大型轨迹缓存已于2026-07-30迁入第一批冷归档，
+本目录保留仿真配置和QC。恢复清单见
+[`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)。
 
 ## 1. 为什么需要这次仿真
 
@@ -181,3 +184,5 @@ D:\OpenGATE\windows_mlp_truth_pilot_0724\qc\full
 - 路径比较应在水圆柱内部统一深度位置采样，并分别报告横向RMSE、最大偏差和材料界面附近误差。
 - 本pilot只有72角度、每角度5,000个质子，不用于评价最终RSP噪声、空间分辨率或临床剂量性能。
 - 本目录不会修改当前成熟的预处理、解析重建和迭代重建代码。
+- 若未来改进非均匀散射模型，可恢复本pilot重新做路径级验证；在路径改善达到
+  门槛以前，不应直接消耗全量CT数据做非均匀MLP重建。

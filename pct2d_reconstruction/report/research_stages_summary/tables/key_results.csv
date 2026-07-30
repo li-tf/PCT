@@ -1,0 +1,54 @@
+stage,scope,metric,value,unit,status
+0,results0716 no-Hann,phantom_rsp_rmse,0.045075,RSP,frozen
+0,results0716 iterative epoch3,phantom_rsp_rmse,0.041956,RSP,frozen
+0,results0716 iterative epoch3,validation_wepl_rmse,2.62098,mm,frozen_evaluation_subset
+1,S6 Water 200MeV,origin_constrained_effective_rsp,1.013518,RSP,final
+1,S6 Aluminium 200MeV 5mm,median_effective_rsp,2.107424,RSP,final
+1,S6 Air 200MeV,mean_wepl_slope,0.00114710,mm-WEPL/mm-Air,final
+2,S2 analytic,water_mean,1.013774,RSP,final
+2,S3 Air-corrected analytic,water_mean,1.013761,RSP,final
+2,S2 iterative epoch3,effective_rsp_rmse,0.013684,RSP,final
+2,S3 iterative epoch3,effective_rsp_rmse,0.015633,RSP,final
+2,S4 analytic,non_air_material_mape,1.17,percent,final
+2,S4 analytic,maximum_material_absolute_error,1.79,percent,final
+2,S4 analytic,test_wepl_bias,0.32678,mm,final
+2,S5 analytic,mean_fmtf50,0.502,lp/mm,final
+2,S5 analytic,mean_fmtf10,1.088,lp/mm,final
+2,S5 analytic,minimum_measured_fmtf10,0.934,lp/mm,final
+2,S5 analytic,test_wepl_bias,0.32369,mm,final
+3,baseline_3sigma+equal S1 test,test_wepl_rmse,2.61943,mm,final
+3,baseline_3sigma+equal S3 test,test_wepl_rmse,2.44458,mm,final
+3,baseline_3sigma+equal S5 test,test_wepl_rmse,2.56278,mm,final
+4,locked S1-S5,mean_test_wepl_rmse_improvement,0.0952,percent,final
+4,locked S2-S3,mean_water_std_improvement,42.58,percent,final
+4,locked S2,effective_rsp_rmse_improvement,8.75,percent,final
+4,locked S3,effective_rsp_rmse_improvement,15.13,percent,final
+4,locked S4,nominal_rsp_rmse_improvement,6.17,percent,final
+4,locked S4,material_mape,1.2035,percent,final
+4,locked S5,nominal_rsp_rmse_improvement,2.71,percent,final
+4,locked S5,fmtf50,0.491955,lp/mm,final
+4,locked S5,fmtf10,1.116718,lp/mm,final
+5,truth trajectory pilot,usable_truth_trajectories,222901,count,final
+5,validation all,water_mlp_path_rmse,0.273815,mm,final
+5,validation all,inhomogeneous_mlp_path_rmse,0.272731,mm,final
+5,validation all,mean_relative_path_improvement,0.006087,percent,final
+5,validation heterogeneous,mean_relative_path_improvement,0.073715,percent,final
+5,validation heterogeneous,bootstrap_95_lower,-0.193525,percent,final
+6,validation S2,adaptive_tv_water_std_change,47.1463,percent,final_validation
+6,validation S2,directional_tv_water_std_change,27.4716,percent,final_validation
+6,validation S4,adaptive_tv_material_mape,1.1991,percent,final_validation
+6,validation S4,directional_tv_material_mape,1.2011,percent,final_validation
+6,validation S5,adaptive_tv_fmtf50,0.508753,lp/mm,final_validation
+6,validation S5,directional_tv_fmtf50,0.505985,lp/mm,final_validation
+6,validation S5,adaptive_tv_fmtf10,1.207165,lp/mm,final_validation
+6,validation S5,directional_tv_fmtf10,1.202002,lp/mm,final_validation
+7,D1 full ideal_reference,water_std,0.001825741,RSP,final
+7,D1 full ideal_reference,phantom_rsp_rmse,0.039867781,RSP,final
+7,D1 full continuous_hits,water_std,0.001888012,RSP,final
+7,D1 full continuous_hits,phantom_rsp_rmse,0.040747892,RSP,final
+7,D1 full continuous_hits,rmse_change_vs_ideal,2.2076,percent,final
+7,D1 full continuous_hits,cnr_change_vs_ideal,-6.2110,percent,final
+7,D1 full energy_1pct,water_std,0.002594006,RSP,parameterized_sensitivity
+7,D1 full energy_1pct,phantom_rsp_rmse,0.056903163,RSP,parameterized_sensitivity
+7,D1 full energy_1pct,rmse_change_vs_ideal,42.7297,percent,parameterized_sensitivity
+7,D1 full energy_1pct,cnr_change_vs_ideal,-32.5388,percent,parameterized_sensitivity

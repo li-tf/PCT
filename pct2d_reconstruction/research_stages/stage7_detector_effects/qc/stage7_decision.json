@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "decision": "D1_DETECTOR_EFFECTS_CHARACTERIZED",
+  "full_variants": [
+    "ideal_reference",
+    "continuous_hits",
+    "energy_1pct"
+  ],
+  "metrics": "/home/ltf/project/github/PCT/pct2d_reconstruction/research_stages/stage7_detector_effects/qc/image_metrics.csv"
+}

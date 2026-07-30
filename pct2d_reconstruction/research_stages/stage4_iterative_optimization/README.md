@@ -8,7 +8,7 @@ Schulte水MLP，只优化OS-SART松弛调度、数据损失、Huber-TV、停止e
 大型图像和检查点写入各数据集的`data/reconstruction_data/.../stage4/`；
 代码侧`qc/`只保存配置、选择结果、指标和总结。
 
-## 当前状态（2026-07-27）
+## 最终状态（2026-07-27）
 
 - GPU两角度smoke test通过，quadratic更新与阶段3等权算子的分子、分母差异均为0；
 - 松弛调度冻结为初值`0.25`、衰减`0.2`；
@@ -16,7 +16,17 @@ Schulte水MLP，只优化OS-SART松弛调度、数据损失、Huber-TV、停止e
 - Huber-TV冻结为固定权重`0.0125`，停止在第5 epoch；
 - 相对同轮无正则化结果，S2有效RSP RMSE、水区标准差和S5标称RSP RMSE分别
   改善约41.5%、81.3%和9.6%；S4材料MAPE仅轻微恶化且仍通过约束；
-- 18/36子集比较正在运行；`frozen_final.json`尚未生成，测试集保持锁定。
+- 18/36子集比较已经完成：36子集的平均验证WEPL RMSE仅改善`0.0537%`，
+  未达到预设`0.2%`门槛，因此冻结18子集；
+- S1--S5锁定测试已经完成，所有WEPL、材料和MTF安全检查通过；
+- S2/S3水区标准差平均降低`42.58%`，达到实质改善门槛；
+- 最终决定为`PROMOTE_STAGE4`，详细结论见`qc/stage4_summary.md`。
+
+该冻结配置已通过Stage 6B校准三场景和Stage 7探测器效应实验继续验证。S1、
+S4、S5的正式Stage 6B检查点仍在本地；S2、S3和早期阶段4大型检查点已进入
+第一批冷归档。若要完整复跑以下筛选流程，先按
+[`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)
+恢复相应数据。
 
 ## 数据纪律
 
@@ -78,3 +88,21 @@ q_i=\min(1,\delta/|b_i-A_ix|)
 
 重复相同命令会读取已有epoch并继续缺失部分。只有明确需要重算当前候选时才使用
 `--force`；配置哈希不一致时程序拒绝混写。
+
+另开终端可用只读状态入口查看整个Stage4动作的汇总进度，而不只是当前单个epoch：
+
+```bash
+.venv-gate/bin/python \
+  pct2d_reconstruction/research_stages/stage4_iterative_optimization/run_stage4.py \
+  --action status --datasets s2,s4,s5
+```
+
+持续刷新：
+
+```bash
+watch -n 30 '.venv-gate/bin/python pct2d_reconstruction/research_stages/stage4_iterative_optimization/run_stage4.py --action status --datasets s2,s4,s5'
+```
+
+该动作只读取`epoch_metrics.csv`和选择JSON，不加载GPU、不创建结果，也不会干扰
+重建。查看历史最终确认时可把数据集改为`s1,s2,s3,s4,s5`；若数据已归档，
+状态页只反映仍在本地的产物。

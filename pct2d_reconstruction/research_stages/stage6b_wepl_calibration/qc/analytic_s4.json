@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "dataset": "s4",
+  "elapsed_seconds": 136.63697657099965,
+  "finite": true,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s4_material_calibration_air_pilot/stage6b_calibrated/analytic/recon_ddb_nohann.mhd"
+}

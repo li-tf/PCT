@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s3",
+  "runs": 720,
+  "missing": [],
+  "new_runs": 0,
+  "ddb": "/home/ltf/project/github/PCT/data/preprocessing_data/results0717_s3_water_air_pilot/stage6b_calibrated/projections_ddb"
+}

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "dataset": "s4",
+  "elapsed_seconds": 3019.9519159230003,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s4_material_calibration_air_pilot/stage6b_calibrated/iterative/recon/recon_iterative_gpu.mhd"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "dataset": "s1",
+  "elapsed_seconds": 138.8116062629997,
+  "finite": true,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s1_aluminium_air_full/stage6b_calibrated/analytic/recon_ddb_nohann.mhd"
+}

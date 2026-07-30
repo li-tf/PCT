@@ -67,6 +67,7 @@ def parse_args() -> argparse.Namespace:
             "confirm",
             "report",
             "smoke",
+            "status",
         ),
         required=True,
     )
@@ -1427,6 +1428,148 @@ def final_settings(config: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def variant_progress(
+    dataset: dict[str, Any],
+    settings: dict[str, Any],
+) -> dict[str, Any]:
+    name = variant_name(settings)
+    root = stage4_root(dataset) / "variants" / name
+    history_path = root / "epoch_metrics.csv"
+    rows = read_csv(history_path)
+    target = int(settings["epochs"])
+    usable = [row for row in rows if int(row["epoch"]) <= target]
+    completed = min(
+        max((int(row["epoch"]) for row in usable), default=0),
+        target,
+    )
+    elapsed = sum(float(row["epoch_seconds"]) for row in usable)
+    return {
+        "dataset": dataset["name"],
+        "variant": name,
+        "completed_epochs": completed,
+        "target_epochs": target,
+        "elapsed_seconds": elapsed,
+        "complete": completed >= target,
+        "history_path": relative(history_path),
+    }
+
+
+def estimated_remaining_seconds(
+    current: dict[str, Any],
+    reference: dict[str, Any] | None = None,
+) -> float:
+    remaining = current["target_epochs"] - current["completed_epochs"]
+    if remaining <= 0:
+        return 0.0
+    if current["completed_epochs"] > 0:
+        seconds_per_epoch = (
+            current["elapsed_seconds"] / current["completed_epochs"]
+        )
+    elif reference and reference["completed_epochs"] > 0:
+        seconds_per_epoch = (
+            reference["elapsed_seconds"] / reference["completed_epochs"]
+        )
+    else:
+        return math.nan
+    return float(remaining * seconds_per_epoch)
+
+
+def status(datasets: list[dict[str, Any]], config: dict[str, Any]) -> dict[str, Any]:
+    """Print read-only aggregate progress for the active Stage-4 workflow."""
+    selected = {dataset["name"]: dataset for dataset in datasets}
+    subset_names = [name for name in ("s2", "s4", "s5") if name in selected]
+    rows: list[dict[str, Any]] = []
+    remaining_seconds = 0.0
+    unknown_eta = False
+
+    print("Stage 4 aggregate progress (read-only)")
+    print("=" * 72)
+    if (QC_ROOT / "regularization_selection.json").is_file():
+        base = final_pre_subset_settings(config)
+        subset_counts = [int(value) for value in config["subset_screen"]["subsets"]]
+        references: dict[str, dict[str, Any]] = {}
+        for subsets in subset_counts:
+            settings = {**base, "subsets": subsets}
+            for name in subset_names:
+                current = variant_progress(selected[name], settings)
+                reference = references.get(name)
+                eta = estimated_remaining_seconds(current, reference)
+                current["estimated_remaining_seconds"] = eta
+                rows.append(current)
+                if subsets == 18:
+                    references[name] = current
+                if not math.isfinite(eta):
+                    unknown_eta = True
+                else:
+                    remaining_seconds += eta
+                state = "DONE" if current["complete"] else "RUNNING/WAITING"
+                print(
+                    f"{name:>2}  subsets={subsets:>2}  "
+                    f"epoch={current['completed_epochs']}/"
+                    f"{current['target_epochs']}  {state:<15}  "
+                    f"elapsed={format_duration(current['elapsed_seconds'])}  "
+                    f"ETA={format_duration(eta) if math.isfinite(eta) else 'unknown'}"
+                )
+        completed = sum(row["completed_epochs"] for row in rows)
+        target = sum(row["target_epochs"] for row in rows)
+        print("-" * 72)
+        print(
+            f"subset-screen epochs: {completed}/{target} "
+            f"({100.0 * completed / target:.1f}%)"
+        )
+        print(
+            "estimated aggregate remaining: "
+            + (
+                f"{format_duration(remaining_seconds)}"
+                if not unknown_eta
+                else f"at least {format_duration(remaining_seconds)}"
+            )
+        )
+        print(
+            "subset selection: "
+            + (
+                "complete"
+                if (QC_ROOT / "frozen_final.json").is_file()
+                else "not yet frozen"
+            )
+        )
+    else:
+        print("regularization selection is not complete; subset progress unavailable")
+
+    frozen_path = QC_ROOT / "frozen_final.json"
+    confirmation_path = QC_ROOT / "confirmation_summary.json"
+    if frozen_path.is_file():
+        frozen = final_settings(config)
+        print("\nFinal confirmation progress")
+        print("-" * 72)
+        confirmation_rows = [
+            variant_progress(dataset, frozen) for dataset in datasets
+        ]
+        for current in confirmation_rows:
+            state = "DONE" if current["complete"] else "WAITING"
+            print(
+                f"{current['dataset']:>2}  "
+                f"epoch={current['completed_epochs']}/"
+                f"{current['target_epochs']}  {state}"
+            )
+        print(
+            "locked test decision: "
+            + ("complete" if confirmation_path.is_file() else "not yet complete")
+        )
+        rows.extend(confirmation_rows)
+
+    return {
+        "status": "PASS",
+        "read_only": True,
+        "progress": rows,
+        "estimated_remaining_seconds": (
+            None if unknown_eta else remaining_seconds
+        ),
+        "subset_selection_complete": frozen_path.is_file(),
+        "confirmation_complete": confirmation_path.is_file(),
+    }
+
+
 def confirm(
     datasets: list[dict[str, Any]],
     config: dict[str, Any],
@@ -1574,23 +1717,202 @@ def confirm(
 
 def report(config: dict[str, Any]) -> dict[str, Any]:
     confirmation = require_selection("confirmation_summary.json")
+    relaxation = require_selection("relaxation_selection.json")
+    loss = require_selection("loss_selection.json")
+    regularization = require_selection("regularization_selection.json")
+    subset = require_selection("subset_selection.json")
+    wepl_rows = read_csv(QC_ROOT / "confirmation_test_wepl.csv")
+    image_rows = read_csv(QC_ROOT / "confirmation_image_metrics.csv")
+    by_wepl = {
+        (row["dataset"], row["method"]): row for row in wepl_rows
+    }
+    by_image = {
+        (row["dataset"], row["method"]): row for row in image_rows
+    }
+    runtime_rows = [
+        variant_progress(dataset, confirmation["settings"])
+        for dataset in datasets_from("s1,s2,s3,s4,s5", config)
+    ]
+    runtime_total = sum(row["elapsed_seconds"] for row in runtime_rows)
+    subset36 = next(
+        row for row in subset["candidates"] if int(row["subsets"]) == 36
+    )
     lines = [
         "# 阶段4：固定MLP下的迭代重建优化",
         "",
-        "本文件由Stage4报告动作生成。完整科学结论将在所有锁定测试指标复核后回填。",
+        "## 1. 阶段结论",
         "",
-        f"- 平均测试WEPL RMSE相对改善："
-        f"`{100.0*confirmation['mean_test_wepl_rmse_improvement']:.3f}%`；",
-        f"- 冻结配置：`{json.dumps(confirmation['settings'], ensure_ascii=False)}`。",
+        f"**阶段4状态为PASS，最终决定为"
+        f"`{confirmation['decision']}`。** 本阶段固定局部3σ过滤、等权数据和"
+        "Schulte水MLP，只优化OS-SART与Huber-TV。所有参数在开发/验证数据上"
+        "冻结后才打开S1--S5测试集。",
         "",
-        "详细候选、逐epoch和图像指标见同目录CSV/JSON。",
+        "冻结配置为初始松弛因子`0.25`、衰减`0.2`、quadratic数据项、固定"
+        "Huber-TV `β=0.0125`、18子集和5 epoch。相对阶段3的3 epoch基线，"
+        f"S2/S3水区标准差平均降低"
+        f"`{100.0*confirmation['water_std_improvement']:.2f}%`。五个测试集的"
+        "WEPL RMSE均略有改善，S5 RSP RMSE与MTF改善；S4材料MAPE轻微恶化但"
+        "通过安全约束。",
         "",
+        "## 2. 参数筛选",
+        "",
+        "### 2.1 松弛调度与数据损失",
+        "",
+        f"松弛调度冻结为`λ0={relaxation['winner']['relaxation']}`、衰减"
+        f"`{relaxation['winner']['relaxation_decay']}`。衰减0.1与0.2位于"
+        "0.2%等效带内，按预设规则保留更保守的0.2。",
+        "",
+        "| 损失 | 平均验证RMSE/mm | p99/mm | S4材料MAPE | 决定 |",
+        "|---|---:|---:|---:|---|",
     ]
+    for candidate in loss["candidates"]:
+        decision = (
+            "保留"
+            if candidate["name"] == loss["winner"]["name"]
+            else "未通过"
+        )
+        lines.append(
+            f"| {candidate['name']} | {candidate['mean_rmse_mm']:.6f} | "
+            f"{candidate['mean_p99_mm']:.6f} | "
+            f"{100.0*candidate['s4_material_mape']:.3f}% | {decision} |"
+        )
+    lines.extend(
+        [
+            "",
+            "Huber 3/5 mm虽略微改善材料MAPE，但验证WEPL RMSE和p99均未改善，"
+            "因此继续使用quadratic数据项。",
+            "",
+            "### 2.2 Huber-TV、停止epoch和子集",
+            "",
+            f"固定`β={regularization['winner']['weight']}`、第"
+            f"`{regularization['winner']['epoch']}`轮胜出。相对同轮无正则化"
+            f"候选，S2有效RSP RMSE、水区标准差和S5名义RSP RMSE分别改善"
+            f"`{100.0*regularization['winner']['improvements']['s2_effective_rsp_rmse']:.1f}%`、"
+            f"`{100.0*regularization['winner']['improvements']['s2_water_std']:.1f}%`和"
+            f"`{100.0*regularization['winner']['improvements']['s5_nominal_rsp_rmse']:.1f}%`。"
+            "第6轮因S4材料退化超过平衡改善规则而被否决。",
+            "",
+            f"36子集相对18子集只改善`{100.0*subset36['rmse_improvement']:.4f}%`"
+            f"验证WEPL RMSE，时间比为`{subset36['runtime_ratio']:.4f}`。图像安全"
+            "检查全部通过，但改善未达到0.2%门槛，因此冻结18子集。",
+            "",
+            "## 3. S1--S5锁定测试WEPL",
+            "",
+            "| 数据 | 基线RMSE/mm | 阶段4RMSE/mm | 改善 | 阶段4bias/mm | p99/mm |",
+            "|---|---:|---:|---:|---:|---:|",
+        ]
+    )
+    for dataset in ("s1", "s2", "s3", "s4", "s5"):
+        baseline = by_wepl[(dataset, "baseline")]
+        candidate = by_wepl[(dataset, "candidate")]
+        improvement = 1.0 - float(candidate["rmse_mm"]) / float(
+            baseline["rmse_mm"]
+        )
+        lines.append(
+            f"| {dataset.upper()} | {float(baseline['rmse_mm']):.6f} | "
+            f"{float(candidate['rmse_mm']):.6f} | "
+            f"{100.0*improvement:.3f}% | "
+            f"{float(candidate['bias_mm']):+.6f} | "
+            f"{float(candidate['abs_p99_mm']):.6f} |"
+        )
+    lines.extend(
+        [
+            "",
+            f"平均测试WEPL RMSE改善"
+            f"`{100.0*confirmation['mean_test_wepl_rmse_improvement']:.3f}%`，"
+            "未达到0.25%的独立实质改善门槛；但五个数据集均未恶化，bias保持在"
+            "约±0.002 mm。阶段4晋升的主要依据是在保持数据一致性的同时明显降噪。",
+            "",
+            "## 4. 图像指标",
+            "",
+            "| 数据/指标 | 阶段3基线 | 阶段4 | 相对变化 |",
+            "|---|---:|---:|---:|",
+        ]
+    )
+    image_specs = [
+        ("S1 水标准差", "s1", "water_std"),
+        ("S1 RSP RMSE", "s1", "phantom_rmse_vs_rsp_truth"),
+        ("S2 水标准差", "s2", "water_core_std_rsp"),
+        ("S2 有效RSP RMSE", "s2", "phantom_rmse_vs_effective_rsp"),
+        ("S3 水标准差", "s3", "water_core_std_rsp"),
+        ("S3 有效RSP RMSE", "s3", "phantom_rmse_vs_effective_rsp"),
+        ("S4 名义RSP RMSE", "s4", "phantom_rmse_vs_nominal_rsp"),
+        ("S4 材料MAPE", "s4", "material_mape_non_air"),
+        ("S4 最大材料误差", "s4", "material_max_ape_non_air"),
+        ("S5 水标准差", "s5", "water_core_std_rsp"),
+        ("S5 名义RSP RMSE", "s5", "phantom_rmse_vs_nominal_rsp"),
+        ("S5 fMTF50/lp·mm⁻¹", "s5", "fmtf50_mean_lp_per_mm"),
+        ("S5 fMTF10/lp·mm⁻¹", "s5", "fmtf10_mean_lp_per_mm"),
+    ]
+    for label, dataset, key in image_specs:
+        baseline = float(by_image[(dataset, "baseline")][key])
+        candidate = float(by_image[(dataset, "candidate")][key])
+        change = 100.0 * (candidate / baseline - 1.0)
+        lines.append(
+            f"| {label} | {baseline:.6f} | {candidate:.6f} | "
+            f"{change:+.2f}% |"
+        )
+    lines.extend(
+        [
+            "",
+            "S2/S3水区标准差分别降低47.0%和39.6%。S4名义RSP RMSE降低6.17%、"
+            "最大材料误差降低9.67%，但材料MAPE由1.196%升至1.203%，恶化"
+            "0.0073个百分点。S5名义RSP RMSE降低2.71%，fMTF50和fMTF10提高"
+            "1.13%和0.66%，没有观察到以明显分辨率损失换取降噪。",
+            "",
+            "## 5. 运行成本",
+            "",
+            "| 数据 | 最终候选5 epoch累计更新时间 |",
+            "|---|---:|",
+        ]
+    )
+    for row in runtime_rows:
+        lines.append(
+            f"| {row['dataset'].upper()} | "
+            f"{format_duration(row['elapsed_seconds'])} |"
+        )
+    lines.extend(
+        [
+            f"| **合计** | **{format_duration(runtime_total)}** |",
+            "",
+            "该合计不含全部候选扫描、验证/测试正投影和分析时间。S1论文通量约为"
+            "pilot的4.5倍，是主要计算成本；瓶颈仍是逐质子MLP投影，而不是TV近端。",
+            "",
+            "## 6. 验收、限制与下一步",
+            "",
+            "- S1--S5逐数据集测试WEPL安全检查：PASS；",
+            "- S4材料MAPE退化约束：PASS；",
+            "- S5 fMTF50/fMTF10保持约束：PASS；",
+            "- S2/S3平均水标准差改善42.6%：达到实质改善门槛；",
+            f"- 最终决定：**{confirmation['decision']}**。",
+            "",
+            "晋升只表示阶段5/6应把该配置作为固定MLP迭代基线；成熟的"
+            "`iterative_reconstruction/`入口没有被自动替换。平均测试WEPL只改善"
+            "0.095%，S4材料MAPE没有改善，说明正则化不能替代材料/能量或路径模型。"
+            "下一步应固定本阶段参数，使用真实轨迹pilot验证非均匀MLP。",
+            "",
+            "## 7. 主要产物",
+            "",
+            "- `frozen_final.json`：冻结参数；",
+            "- `relaxation_selection.json`、`loss_selection.json`、"
+            "`regularization_selection.json`、`subset_selection.json`：筛选决定；",
+            "- `confirmation_test_wepl.csv`：S1--S5锁定测试；",
+            "- `confirmation_image_metrics.csv`：基线与阶段4图像指标；",
+            "- `confirmation_summary.json`：晋升和验收判定。",
+            "",
+        ]
+    )
     path = QC_ROOT / "stage4_summary.md"
     path.write_text("\n".join(lines), encoding="utf-8")
     result = {
         "status": "PASS",
         "summary": relative(path),
+        "decision": confirmation["decision"],
+        "runtime_seconds_final_candidates": runtime_total,
+        "relaxation": relaxation,
+        "loss": loss,
+        "regularization": regularization,
+        "subset": subset,
         "confirmation": confirmation,
     }
     write_json(QC_ROOT / "stage4_summary.json", result)
@@ -1686,7 +2008,7 @@ def main() -> None:
     args = parse_args()
     config = load_config()
     datasets = datasets_from(args.datasets, config)
-    if args.runs != RUNS and args.action != "smoke":
+    if args.runs != RUNS and args.action not in {"smoke", "status"}:
         raise SystemExit("--runs other than 720 is restricted to smoke")
     started = time.perf_counter()
     if args.action == "prepare":
@@ -1713,6 +2035,8 @@ def main() -> None:
         )
     elif args.action == "report":
         result = report(config)
+    elif args.action == "status":
+        result = status(datasets, config)
     else:
         result = smoke(datasets, config, args.device, args.runs)
     print(

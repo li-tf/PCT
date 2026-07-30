@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#d3543c"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="620" fill="white"/>
+  <text x="600" y="45" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="bold">Stage 6A virtual MLIC geometry</text>
+  <text x="600" y="78" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#4b5b70">Range-shift calibration in water</text>
+  <line x1="80" y1="300" x2="1080" y2="300" stroke="#6b7280" stroke-width="2"/>
+  <circle cx="110" cy="300" r="12" fill="#d3543c"/>
+  <text x="110" y="270" text-anchor="middle" font-family="sans-serif" font-size="16">Proton source</text>
+  <text x="110" y="338" text-anchor="middle" font-family="sans-serif" font-size="15">z = -80 mm</text>
+  <line x1="130" y1="300" x2="330" y2="300" stroke="#d3543c" stroke-width="7" marker-end="url(#arrow)"/>
+  <rect x="365" y="205" width="75" height="190" rx="4" fill="#edb54a" stroke="#8d6417" stroke-width="3"/>
+  <text x="402" y="185" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold">Sample</text>
+  <text x="402" y="424" text-anchor="middle" font-family="sans-serif" font-size="15">5 or 15 mm</text>
+  <line x1="440" y1="300" x2="510" y2="300" stroke="#d3543c" stroke-width="7" marker-end="url(#arrow)"/>
+  <text x="475" y="280" text-anchor="middle" font-family="sans-serif" font-size="14">5 mm gap</text>
+  <rect x="525" y="145" width="535" height="310" rx="8" fill="#b9e1f3" stroke="#247ba0" stroke-width="4"/>
+  <text x="792" y="132" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold">Water tank: 40 × 40 × 350 mm³</text>
+  <g stroke="#4c91ad" stroke-width="1" opacity="0.65">
+    <line x1="540" y1="145" x2="540" y2="455"/>
+    <line x1="555" y1="145" x2="555" y2="455"/>
+    <line x1="570" y1="145" x2="570" y2="455"/>
+    <line x1="585" y1="145" x2="585" y2="455"/>
+    <line x1="600" y1="145" x2="600" y2="455"/>
+    <line x1="615" y1="145" x2="615" y2="455"/>
+    <line x1="630" y1="145" x2="630" y2="455"/>
+    <line x1="645" y1="145" x2="645" y2="455"/>
+    <line x1="660" y1="145" x2="660" y2="455"/>
+    <line x1="675" y1="145" x2="675" y2="455"/>
+    <line x1="690" y1="145" x2="690" y2="455"/>
+  </g>
+  <text x="792" y="485" text-anchor="middle" font-family="sans-serif" font-size="16">Depth-dose scoring: 3500 bins × 0.1 mm</text>
+  <path d="M560 370 C650 365, 760 350, 880 320 C925 308, 940 205, 962 370 C986 390, 1010 400, 1040 404" fill="none" stroke="#8d3f9d" stroke-width="5"/>
+  <line x1="962" y1="190" x2="962" y2="410" stroke="#8d3f9d" stroke-width="2" stroke-dasharray="8,5"/>
+  <text x="962" y="178" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#8d3f9d">Distal R80</text>
+  <line x1="105" y1="535" x2="1090" y2="535" stroke="#111827" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1100" y="541" font-family="sans-serif" font-size="18">+z</text>
+  <text x="525" y="566" text-anchor="middle" font-family="sans-serif" font-size="16">Water front: z = 0 mm</text>
+  <text x="600" y="600" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#4b5b70">Reference run omits the sample; range shift ΔR80 divided by sample thickness gives MLIC-RSP.</text>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "epochs": 5,
+  "subsets": 18,
+  "relaxation": 0.25,
+  "relaxation_decay": 0.2,
+  "huber_delta_mm": null,
+  "regularization_weight": 0.0125,
+  "regularization_schedule": "fixed",
+  "regularization_decay": 0.5,
+  "frozen_at": "2026-07-27T12:07:30",
+  "test_partition_opened": false
+}

@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "final_decision": "RETAIN_STAGE4_LEVEL1_FAIL",
+  "level1": {
+    "status": "FAIL",
+    "continue_to_level2": false,
+    "validation_count": 22462,
+    "validation_overall_improvement": 6.0869752989660814e-05,
+    "validation_heterogeneous_count": 11202,
+    "validation_heterogeneous_improvement": 0.0007371527634492932,
+    "bootstrap_95_lower": -0.0019352472484553986,
+    "test": null,
+    "elapsed_seconds": 336.23709147000045
+  },
+  "level2": null,
+  "level3": null,
+  "confirmation": null,
+  "generated_at": "2026-07-27T21:24:34",
+  "workflow_elapsed_seconds_this_call": 357.8402466080006,
+  "resource_state": {
+    "status": "COMPLETE",
+    "level": "level1",
+    "task": "scientific gate stopped workflow",
+    "overall_fraction": 1.0,
+    "planned_min_seconds": 68400,
+    "planned_max_seconds": 126000,
+    "updated_at": "2026-07-27T21:24:34",
+    "completed": 72,
+    "total": 72,
+    "elapsed_seconds": 357.8402466080006,
+    "trajectories": 222901,
+    "rate": 665.9380531334981,
+    "final_decision": "RETAIN_STAGE4_LEVEL1_FAIL"
+  }
+}

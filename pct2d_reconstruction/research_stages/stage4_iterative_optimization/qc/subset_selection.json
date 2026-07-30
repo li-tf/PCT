@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "winner": {
+    "subsets": 18,
+    "mean_validation_rmse_mm": 2.544504177643937,
+    "elapsed_seconds": 10910.266127791001
+  },
+  "candidates": [
+    {
+      "subsets": 18,
+      "mean_validation_rmse_mm": 2.544504177643937,
+      "elapsed_seconds": 10910.266127791001
+    },
+    {
+      "subsets": 36,
+      "mean_validation_rmse_mm": 2.543137928200396,
+      "elapsed_seconds": 11138.064734963004,
+      "rmse_improvement": 0.0005369413245791543,
+      "runtime_ratio": 1.0208792896986945,
+      "image_checks": {
+        "s4_material": true,
+        "s2_water_bias": true,
+        "s5_mtf50": true,
+        "s5_mtf10": true
+      }
+    }
+  ],
+  "test_partition_opened": false
+}

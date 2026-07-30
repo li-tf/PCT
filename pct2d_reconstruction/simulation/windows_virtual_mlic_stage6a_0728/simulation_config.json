@@ -1,0 +1,32 @@
+{
+  "scenario_id": "stage6a_virtual_mlic",
+  "output_name": "results0728_stage6a_virtual_mlic",
+  "description": "Virtual multi-layer ionisation chamber reference RSP calibration",
+  "energies_mev": [150.0, 180.0, 200.0, 220.0],
+  "cases_per_energy": [
+    {"name": "Reference", "material": null, "thickness_mm": 0.0},
+    {"name": "Water", "material": "Water", "thickness_mm": 15.0},
+    {"name": "Aluminium", "material": "Aluminium", "thickness_mm": 5.0},
+    {"name": "Lung", "material": "Lung", "thickness_mm": 15.0},
+    {"name": "A150", "material": "A150_Tissue_Plastic", "thickness_mm": 15.0},
+    {"name": "SpineBone", "material": "SpineBone", "thickness_mm": 15.0}
+  ],
+  "protons_per_case": 100000,
+  "replicates_per_case": 10,
+  "random_seed": 20260728,
+  "physics_list": "QGSP_BIC_EMZ",
+  "number_of_threads": 1,
+  "world_material": "Vacuum",
+  "source_z_mm": -80.0,
+  "source_size_mm": [10.0, 10.0, 0.000001],
+  "sample_downstream_gap_mm": 5.0,
+  "sample_transverse_size_mm": [40.0, 40.0],
+  "sample_max_step_mm": 0.1,
+  "water_tank_size_mm": [40.0, 40.0, 350.0],
+  "water_tank_front_z_mm": 0.0,
+  "water_max_step_mm": 0.1,
+  "depth_bin_mm": 0.1,
+  "r80_smoothing_sigma_mm": 0.2,
+  "bootstrap_samples": 2000,
+  "minimum_free_gb": 10.0
+}

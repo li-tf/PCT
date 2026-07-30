@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "continue_to_level2": false,
+  "validation_count": 22462,
+  "validation_overall_improvement": 6.0869752989660814e-05,
+  "validation_heterogeneous_count": 11202,
+  "validation_heterogeneous_improvement": 0.0007371527634492932,
+  "bootstrap_95_lower": -0.0019352472484553986,
+  "test": null,
+  "elapsed_seconds": 336.23709147000045
+}

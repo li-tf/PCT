@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "decision": "FREEZE_MLIC_200MEV_AND_PROCEED_TO_STAGE7",
+  "checks": {
+    "highstat_summary_pass": true,
+    "reference_materials_complete": true,
+    "water_consistency_within_0p1_percent": true,
+    "all_four_water_individual_95ci_include_one": false,
+    "all_four_water_familywise_95ci_include_one": true,
+    "all_relative_reference_sd_below_0p5_percent": true,
+    "s4_methods_complete": true,
+    "s5_methods_complete": true,
+    "all_outputs_finite": true
+  },
+  "input_hashes": {
+    "highstat_rsp": "fc6c48c8dad8b0e2e3bd354a620f99402eaf7f4f5cad45173c47f49ed8857fc6",
+    "highstat_r80": "fda038d8d2863e61b59fec9b272cdff933455e55ac12a3977223885d0695819c",
+    "energy_scan_rsp": "c10bae2067e7bf3c12099586d8ff9b0dfe204b120cd5c965200e807e5ce63e88",
+    "stage4_confirmation": "4fbfee8951ab15202f1cc67cb5c18be7e993c47a1f9f663c6f7b4dd3702efaac"
+  },
+  "headline": {
+    "results0716_iterative_aluminium_mlic_error_percent": -0.13565669634318123,
+    "s4_stage4_fixed_mape_percent": 1.203489795607589,
+    "s4_stage4_mlic_mape_percent": 1.1924120343145428
+  },
+  "planned_deviations": [
+    "The 180 MeV low-stat Water control individual bootstrap 95% CI narrowly excludes 1; the simultaneous family-wise 95% interval includes 1. It is retained for sensitivity only and does not define the frozen 200 MeV reference."
+  ]
+}

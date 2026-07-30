@@ -1,0 +1,46 @@
+{
+  "screen/ideal_reference": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "screen/continuous_hits": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "screen/strip_0p1mm": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "screen/strip_0p2mm": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "screen/strip_0p5mm": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "screen/energy_0p5pct": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "screen/energy_1pct": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "screen/energy_2pct": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "full/ideal_reference": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "full/continuous_hits": {
+    "status": "PASS",
+    "runs": 720
+  },
+  "full/energy_1pct": {
+    "status": "PASS",
+    "runs": 720
+  }
+}

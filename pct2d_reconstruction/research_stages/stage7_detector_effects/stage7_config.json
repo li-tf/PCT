@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "simulation_data": "data/simulation_data/results0718_d1_air_tracker_full",
+  "simulation_config": "pct2d_reconstruction/simulation/windows_air_silicon_tracker_d1_0718/simulation_config.json",
+  "wepl_model": "pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json",
+  "wepl_gate": "pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/test_summary.json",
+  "runs": 720,
+  "angle_step_deg": 0.5,
+  "preprocessing_output": "data/preprocessing_data/results0718_d1_air_tracker_full/stage7",
+  "reconstruction_output": "data/reconstruction_data/results0718_d1_air_tracker_full/stage7",
+  "geometry": "data/reconstruction_data/results0716/analytic/geometry.xml",
+  "air_wepl_slope_mm_per_mm": 0.0011471876206752695,
+  "phantom_radius_mm": 100.0,
+  "reference_planes_z_mm": [-110.0, 110.0],
+  "screen_fraction": 0.1,
+  "screen_epochs": 3,
+  "final_variants": ["ideal_reference", "continuous_hits", "energy_1pct"],
+  "minimum_free_gib": 120,
+  "required_root": [
+    "PhaseSpaceIn.root",
+    "PhaseSpaceOut.root",
+    "TrackerUpstream1.root",
+    "TrackerUpstream2.root",
+    "TrackerDownstream1.root",
+    "TrackerDownstream2.root"
+  ],
+  "split": {
+    "algorithm": "splitmix64-v1",
+    "seed": 20260713,
+    "train": 0.8,
+    "validation": 0.1,
+    "test": 0.1
+  },
+  "detector_variants": {
+    "ideal_reference": {"track_state": "reference_planes", "position_sigma_mm": 0.0, "energy_sigma_fraction": 0.0},
+    "continuous_hits": {"track_state": "four_hit_fit", "position_sigma_mm": 0.0, "energy_sigma_fraction": 0.0},
+    "strip_0p1mm": {"track_state": "four_hit_fit", "position_sigma_mm": 0.1, "energy_sigma_fraction": 0.0},
+    "strip_0p2mm": {"track_state": "four_hit_fit", "position_sigma_mm": 0.2, "energy_sigma_fraction": 0.0},
+    "strip_0p5mm": {"track_state": "four_hit_fit", "position_sigma_mm": 0.5, "energy_sigma_fraction": 0.0},
+    "energy_0p5pct": {"track_state": "four_hit_fit", "position_sigma_mm": 0.2, "energy_sigma_fraction": 0.005},
+    "energy_1pct": {"track_state": "four_hit_fit", "position_sigma_mm": 0.2, "energy_sigma_fraction": 0.01},
+    "energy_2pct": {"track_state": "four_hit_fit", "position_sigma_mm": 0.2, "energy_sigma_fraction": 0.02}
+  },
+  "reconstruction": {
+    "frozen_config": "pct2d_reconstruction/iterative_reconstruction/best_reconstruction_config.json",
+    "retune_on_test": false
+  }
+}

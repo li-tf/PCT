@@ -4,6 +4,11 @@
 `data/simulation_data/resultsXXXX/run_###/`中的720组入口/出口ROOT分片，不需要
 生成额外的合并ROOT。
 
+> 存储状态（2026-07-30）：`results0716`和S2/S3的ROOT及预处理结果已移入第一批
+> 冷归档。以下历史命令和路径仍是权威复现接口，但运行前必须按
+> [`archive_batch1_20260730_record.md`](../archive_batch1_20260730_record.md)
+> 恢复对应数据。S1/S4/S5的Stage 6B正式输入和Stage 7全量数据仍在本机。
+
 ## 处理流程
 
 1. **Primary-only配对**：公共`pctpairprotons --no-nuclear`先按
@@ -13,8 +18,10 @@
    穿过两个参考面；
 2. **局部3σ过滤**：在`125×2 @ 2 mm`网格内联合检查能损与两个投影方向的
    散射角，去除网格外记录、异常散射和离群能损；
-3. **DDB投影**：采用`I=78 eV`水Bethe–Bloch LUT将入口/出口能量转换为WEPL，
-   用Schulte MLP计算弯曲路径，并生成`500×2×500 @ 0.5 mm`距离驱动投影。
+3. **DDB投影**：历史入口采用`I=78 eV`水Bethe–Bloch LUT将入口/出口能量转换为
+   WEPL，用Schulte MLP计算弯曲路径，并生成`500×2×500 @ 0.5 mm`距离驱动
+   投影。Stage 6B之后的正式研究结果显式使用
+   `g4_water_calibrated`模型，不会静默改变历史`bb78`结果。
 
 pair文件采用`N×5×3`的float32布局，保存入口/出口位置、方向和能量等重建字段。
 当前格式没有继续保存EventID，因此阶段0固定划分使用

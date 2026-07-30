@@ -14,8 +14,10 @@ D:\OpenGATE\windows_compact_3d_pilot_0718
 
 工作站正式仿真已于2026-07-21完成：360/360角度成功，共7.2亿个质子，12进程
 墙钟时间约13.63小时，入口/出口ROOT合计约86.37 GiB。manifest和日志已在
-`qc/full/`，但大型ROOT尚未复制到当前项目的`data/simulation_data/`，三维读取器、
-预处理和重建尚未启动。
+`qc/full/`。大型ROOT当前保存在外部存储，尚未复制到本地`data/`；Stage 8代码
+入口已建立为READY状态，但正式三维读取、预处理和重建尚未启动。运行前应挂载
+原始ROOT并执行
+[`stage8 preflight`](../../research_stages/stage8_compact_3d/README.md)。
 
 ![Compact 3-D geometry](scene_geometry.svg)
 
@@ -126,7 +128,8 @@ voxels    = 4,608,000
 ```
 
 一个float32体积约18.4 MB。三线性路径算子使用8邻域权重，建议batch size从1024
-开始；预计GPU峰值1–3 GB，3 epoch约1–3小时，RTX 4060 8 GB可以运行。
+开始；预计GPU峰值1–3 GB。早期估计3 epoch约1–3小时仅用于资源规划，正式耗时
+应以Stage 8 smoke test和首个完整epoch的实测速率为准。
 
 不应直接使用0.1 mm三维网格：`1200×400×1200`包含5.76亿体素，单个float32体积
 约2.3 GB，多组GPU工作数组将超过8 GB显存。

@@ -25,6 +25,10 @@ median/MAD和稳健马氏距离未达到残差p99至少改善5%的门槛；按�
 详细结果见[stage3_summary.md](qc/stage3_summary.md)，机器可读决定见
 `qc/stage3_summary.json`。
 
+阶段结论及轻量QC仍保留在本地。2026-07-30以后，S2/S3及其阶段3大型派生数据
+位于第一批冷归档，因此下面的完整复现流程需要先恢复相应`data/`路径；恢复
+清单见[`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)。
+
 ## 科学设计
 
 划分发生在任何过滤之前。质子身份固定为

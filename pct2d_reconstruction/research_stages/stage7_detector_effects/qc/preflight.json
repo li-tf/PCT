@@ -1,0 +1,14 @@
+{
+  "status": "READY",
+  "wepl_calibration_status": "PASS",
+  "wepl_model_exists": true,
+  "data_root": "/mnt/d/\u4e34\u65f6/results0718_d1_air_tracker_full",
+  "complete_runs": 720,
+  "expected_runs": 720,
+  "missing_run_count": 0,
+  "first_missing": [],
+  "root_bytes": 122992430532,
+  "output_free_bytes": 581540368384,
+  "minimum_free_bytes": 128849018880,
+  "next_action": "run six-plane pairing and detector processing"
+}

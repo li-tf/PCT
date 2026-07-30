@@ -1,0 +1,31 @@
+{
+  "scenario_id": "stage6b_independent_wepl_calibration",
+  "output_name": "results0728_stage6b_wepl_calibration",
+  "description": "Independent OpenGATE water-degrader energy-to-WEPL calibration",
+  "energies_mev": [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230],
+  "thickness_fractions": [0.1, 0.3, 0.5, 0.7],
+  "split_by_energy": {
+    "train": [30, 50, 70, 90, 110, 130, 150, 170, 190, 210, 230],
+    "validation": [40, 80, 120, 160, 200],
+    "test": [60, 100, 140, 180, 220]
+  },
+  "protons_per_case": 100000,
+  "random_seed": 2026072800,
+  "physics_list": "QGSP_BIC_EMZ",
+  "number_of_threads": 1,
+  "world_material": "Vacuum",
+  "world_size_mm": [300, 300, 1000],
+  "source_size_mm": [10, 10, 0.000001],
+  "source_to_slab_gap_mm": 20,
+  "reference_plane_gap_mm": 0.5,
+  "reference_plane_thickness_mm": 0.000001,
+  "reference_plane_size_mm": [40, 40],
+  "slab_transverse_size_mm": [40, 40],
+  "water_max_step_mm": 1.0,
+  "nominal_range_source": "PCT I=78 eV LUT; used only to choose slab thickness",
+  "output_attributes": [
+    "RunID", "EventID", "TrackID", "ParentID", "KineticEnergy",
+    "Position", "Direction", "PreGlobalTime"
+  ],
+  "minimum_free_gb": 10
+}

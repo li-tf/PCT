@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "dataset": "s2",
+  "elapsed_seconds": 0.0,
+  "finite": true,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s2_water_vacuum_pilot/stage6b_calibrated/analytic/recon_ddb_nohann.mhd"
+}

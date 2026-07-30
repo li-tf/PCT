@@ -16,6 +16,9 @@ test0713/
 # Large local pCT experiment data (code/QC live in pct2d_reconstruction/)
 /data/
 
+# Final presentation directory contains personal information and stays local.
+/pct2d_reconstruction/report/final_presentations/
+
 # Per-angle operational QC stays local; compact summaries remain trackable.
 pct2d_reconstruction/**/qc/logs/
 pct2d_reconstruction/simulation/*/qc/runs/

@@ -1,0 +1,7 @@
+{
+  "status": "FIT_FROZEN_TEST_CLOSED",
+  "selected_smoothness": 0.01,
+  "train_mean_absolute_relative_bias": 0.0006043789639464434,
+  "validation_mean_absolute_relative_bias": 0.000544644319849574,
+  "model": "/home/ltf/project/github/PCT/pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json"
+}

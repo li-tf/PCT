@@ -1,0 +1,46 @@
+{
+  "screen/ideal_reference": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/ideal_reference/analytic/recon_ddb_nohann.mhd"
+  },
+  "screen/continuous_hits": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/continuous_hits/analytic/recon_ddb_nohann.mhd"
+  },
+  "screen/strip_0p1mm": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/strip_0p1mm/analytic/recon_ddb_nohann.mhd"
+  },
+  "screen/strip_0p2mm": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/strip_0p2mm/analytic/recon_ddb_nohann.mhd"
+  },
+  "screen/strip_0p5mm": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/strip_0p5mm/analytic/recon_ddb_nohann.mhd"
+  },
+  "screen/energy_0p5pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/energy_0p5pct/analytic/recon_ddb_nohann.mhd"
+  },
+  "screen/energy_1pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/energy_1pct/analytic/recon_ddb_nohann.mhd"
+  },
+  "screen/energy_2pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/energy_2pct/analytic/recon_ddb_nohann.mhd"
+  },
+  "full/ideal_reference": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/full/ideal_reference/analytic/recon_ddb_nohann.mhd"
+  },
+  "full/continuous_hits": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/full/continuous_hits/analytic/recon_ddb_nohann.mhd"
+  },
+  "full/energy_1pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/full/energy_1pct/analytic/recon_ddb_nohann.mhd"
+  }
+}

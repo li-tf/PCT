@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "stage4_config": "../stage4_iterative_optimization/stage4_config.json",
+  "baseline": {
+    "filter": "baseline_3sigma",
+    "data_weight": "equal",
+    "path_model": "schulte_water_mlp",
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "loss": "quadratic",
+    "subsets": 18,
+    "epochs": 5,
+    "prior": "huber_tv",
+    "prior_weight": 0.0125
+  },
+  "proximal": {
+    "huber_delta": 0.002,
+    "iterations": 100,
+    "tv_primal_step": 0.25,
+    "tv_dual_step": 0.25,
+    "tgv_primal_step": 0.1,
+    "tgv_dual_step": 0.1,
+    "smoothing_iterations": 4,
+    "kappa_quantile": 0.9
+  },
+  "prescreen": {
+    "datasets": ["s2", "s4", "s5"],
+    "tgv": {
+      "weights": [0.003, 0.006, 0.0125],
+      "second_order_ratios": [1.0, 2.0]
+    },
+    "adaptive_tv": {
+      "weights": [0.006, 0.0125],
+      "minimum_weights": [0.2, 0.4]
+    },
+    "directional_tv": {
+      "weights": [0.006, 0.0125],
+      "minimum_weights": [0.25, 0.5]
+    },
+    "retained_per_family": 1
+  },
+  "selection": {
+    "validation_rmse_max_degradation": 0.005,
+    "water_bias_max_degradation_percentage_points": 0.1,
+    "material_mape_max_degradation_percentage_points": 0.2,
+    "mtf_max_relative_degradation": 0.05,
+    "water_std_min_improvement": 0.05,
+    "material_mape_min_improvement_percentage_points": 0.2,
+    "material_max_ape_min_improvement": 0.1,
+    "s5_rsp_rmse_min_improvement": 0.03
+  },
+  "runtime": {
+    "seed": 20260713,
+    "progress_phase_weights": {
+      "smoke": 0.02,
+      "prescreen": 0.08,
+      "validation": 0.65,
+      "confirmation": 0.23,
+      "report": 0.02
+    }
+  }
+}

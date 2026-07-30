@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "frozen_from": "research_stages/stage4_iterative_optimization",
+  "decision": "PROMOTE_STAGE4",
+  "input": {
+    "pairs": "primary-only, locally filtered 3-sigma pairs",
+    "data_weight": "equal",
+    "path_model": "Schulte water MLP",
+    "external_air_correction": "explicit calibrated slope; disabled for Vacuum",
+    "initialization": "DDB-FDK no-Hann"
+  },
+  "reconstruction": {
+    "sample_fraction": 1.0,
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "path_step_mm": 0.1,
+    "phantom_radius_mm": 100.0,
+    "batch_size": 4096,
+    "subsets": 18,
+    "epochs": 5,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "regularizer": "huber_tv",
+    "regularization_weight": 0.0125,
+    "regularization_iterations": 100,
+    "regularization_every_epochs": 1,
+    "huber_delta": 0.002,
+    "primal_step": 0.25,
+    "dual_step": 0.25,
+    "seed": 20260713
+  },
+  "scope": {
+    "dimension": "2-D",
+    "default_projections": 720,
+    "default_angle_step_deg": 0.5,
+    "energy_model": "I=78 eV water Bethe-Bloch LUT",
+    "constraints": ["nonnegative", "circular support"]
+  }
+}

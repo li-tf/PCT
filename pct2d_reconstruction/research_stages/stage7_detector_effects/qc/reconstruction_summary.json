@@ -1,0 +1,46 @@
+{
+  "screen/ideal_reference": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/ideal_reference/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "screen/continuous_hits": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/continuous_hits/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "screen/strip_0p1mm": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/strip_0p1mm/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "screen/strip_0p2mm": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/strip_0p2mm/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "screen/strip_0p5mm": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/strip_0p5mm/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "screen/energy_0p5pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/energy_0p5pct/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "screen/energy_1pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/energy_1pct/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "screen/energy_2pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/screen/energy_2pct/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "full/ideal_reference": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/full/ideal_reference/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "full/continuous_hits": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/full/continuous_hits/iterative/recon/recon_iterative_gpu.mhd"
+  },
+  "full/energy_1pct": {
+    "status": "PASS",
+    "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7/full/energy_1pct/iterative/recon/recon_iterative_gpu.mhd"
+  }
+}

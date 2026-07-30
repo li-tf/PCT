@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s2",
+  "runs": 720,
+  "missing": [],
+  "new_runs": 0,
+  "ddb": "/home/ltf/project/github/PCT/data/preprocessing_data/results0717_s2_water_vacuum_pilot/stage6b_calibrated/projections_ddb"
+}

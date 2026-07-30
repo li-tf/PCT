@@ -24,7 +24,9 @@ PowerShell中依次运行：
 每个角度使用单独进程和`20260713 + angle_index`随机种子，支持依靠代码侧
 `qc\runs\run_###\completed.flag`断点续跑。
 
-当前正式ROOT已迁移到仓库侧`data/simulation_data/results0716/run_###/`，入口和
-出口文件分别为`PhaseSpaceIn.root`与`PhaseSpaceOut.root`。代码侧`qc/`保留
-launcher摘要、逐角度OpenGATE统计、运行元数据、manifest和ROOT SHA-256清单。
-上述批处理命令用于复现或断点续跑；已有720角度完整数据时不需要再次启动仿真。
+正式ROOT曾迁移到仓库侧`data/simulation_data/results0716/run_###/`并通过大小
+及哈希校验。2026-07-30为释放Stage 8空间，整套results0716大型数据已进入第一批
+冷归档；代码侧`qc/`仍保留Windows日志、launcher摘要、逐角度统计、manifest和
+ROOT SHA-256清单。归档恢复说明见
+[`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)。
+上述批处理命令仅用于重新仿真或工作站侧断点续跑，通常应优先恢复已校验归档。

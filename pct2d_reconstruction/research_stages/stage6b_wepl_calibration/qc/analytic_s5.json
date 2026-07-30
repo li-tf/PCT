@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "dataset": "s5",
+  "elapsed_seconds": 134.57294388900027,
+  "finite": true,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s5_resolution_air_pilot/stage6b_calibrated/analytic/recon_ddb_nohann.mhd"
+}

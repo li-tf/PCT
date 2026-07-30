@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "simulation_data": "data/simulation_data/results0728_stage6b_wepl_calibration",
+  "simulation_config": "pct2d_reconstruction/simulation/windows_wepl_calibration_stage6b_0728/simulation_config.json",
+  "sample_cache": "data/preprocessing_data/results0728_stage6b_wepl_calibration/calibration_samples",
+  "model_name": "g4_water_calibrated",
+  "maximum_pairs_per_case": 50000,
+  "robust_mad_cut": 3.5,
+  "derivative_knot_step_mev": 10.0,
+  "output_step_mev": 0.1,
+  "energy_max_mev": 230.0,
+  "smoothness_candidates": [0.0, 0.0001, 0.001, 0.01, 0.1],
+  "acceptance": {
+    "test_mean_absolute_relative_bias": 0.002,
+    "test_max_absolute_relative_bias": 0.005,
+    "s2_water_mean_tolerance": 0.003,
+    "s4_large_insert_mape_relative_improvement": 0.5,
+    "s5_fmtf_max_relative_degradation": 0.02
+  },
+  "datasets": {
+    "s1": "data/preprocessing_data/results0717_s1_aluminium_air_full",
+    "s2": "data/preprocessing_data/results0717_s2_water_vacuum_pilot",
+    "s3": "data/preprocessing_data/results0717_s3_water_air_pilot",
+    "s4": "data/preprocessing_data/results0717_s4_material_calibration_air_pilot",
+    "s5": "data/preprocessing_data/results0717_s5_resolution_air_pilot"
+  },
+  "reconstruction_data": {
+    "s1": "data/reconstruction_data/results0717_s1_aluminium_air_full",
+    "s2": "data/reconstruction_data/results0717_s2_water_vacuum_pilot",
+    "s3": "data/reconstruction_data/results0717_s3_water_air_pilot",
+    "s4": "data/reconstruction_data/results0717_s4_material_calibration_air_pilot",
+    "s5": "data/reconstruction_data/results0717_s5_resolution_air_pilot"
+  },
+  "geometry": {
+    "s1": "data/reconstruction_data/results0716/analytic/geometry.xml",
+    "s2": "data/reconstruction_data/results0717_s2_water_vacuum_pilot/analytic/geometry.xml",
+    "s3": "data/reconstruction_data/results0717_s3_water_air_pilot/analytic/geometry.xml",
+    "s4": "data/reconstruction_data/results0717_s4_material_calibration_air_pilot/analytic/geometry.xml",
+    "s5": "data/reconstruction_data/results0717_s5_resolution_air_pilot/analytic/geometry.xml"
+  },
+  "air_datasets": ["s1", "s3", "s4", "s5"],
+  "air_wepl_slope_mm_per_mm": 0.0011471876206752695
+}

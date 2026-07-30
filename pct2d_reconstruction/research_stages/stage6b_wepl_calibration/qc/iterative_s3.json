@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dataset": "s3",
+  "elapsed_seconds": 0.0,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0717_s3_water_air_pilot/stage6b_calibrated/iterative/recon/recon_iterative_gpu.mhd",
+  "water_mean": 0.9996353387832642,
+  "water_std": 0.005247137509286404
+}

@@ -14,8 +14,11 @@ D:\OpenGATE\windows_air_silicon_tracker_d1_0718
 
 工作站正式仿真已于2026-07-20完成：720/720角度成功，12进程墙钟时间约
 20.55小时，六类ROOT合计约114.55 GiB。manifest和日志已在本目录
-`qc/full/`，但大型ROOT尚未复制到当前项目的`data/simulation_data/`，因此
-阶段7数据处理尚未开始。
+`qc/full/`。大型ROOT保存在Windows
+`D:\临时\results0718_d1_air_tracker_full`，Stage 7已通过WSL只读挂载完成
+六平面配对、数字化筛选和三套全量重建，最终状态为
+`D1_DETECTOR_EFFECTS_CHARACTERIZED`。阶段7总结见
+[`../../research_stages/stage7_detector_effects/qc/stage7_summary.md`](../../research_stages/stage7_detector_effects/qc/stage7_summary.md)。
 
 ![D1 geometry](scene_geometry.svg)
 
@@ -92,12 +95,12 @@ D:\OpenGATE\data\simulation_data\results0718_d1_air_tracker_full
 
 ## 时间和容量
 
-| 项目 | 预计值 |
+| 项目 | 计划/实测 |
 |---|---:|
-| 正式OpenGATE时间 | 4–10小时 |
-| 六组ROOT总量 | 80–150 GB |
+| 正式OpenGATE时间 | 实测约20.55小时 |
+| 六组ROOT总量 | 实测约114.55 GiB |
 | 启动所需最小可用空间 | 200 GB |
-| 后续pairs及派生数据 | 约20–35 GB |
+| Stage 7本地预处理/重建 | 实测约55/1.2 GB |
 
 smoke test只运行角度0的2,000个质子，并自动检查六个ROOT的树名、必需分支、有限
 浮点值、primary数量和重复primary hit。
@@ -115,9 +118,12 @@ smoke test只运行角度0的2,000个质子，并自动检查六个ROOT的树名
 
 ## 不包含的内容
 
-- 像素/条带量化和位置分辨率；
-- 参数化能量噪声；
+- OpenGATE内部的像素/条带量化和电子学读出；
+- OpenGATE内部的参数化能量噪声；
 - 完整物理能量探测器；
-- D1专用配对、方向拟合和重建代码。
+- 仿真包自身不包含D1配对和重建代码。
 
-这些内容应在本仿真完成并确认六面hit可稳定配对后分阶段加入。
+Stage 7已在仿真后离线实现连续hit拟合、`0.1/0.2/0.5 mm`位置扰动以及
+`0.5/1/2%`出射能量噪声。连续硅hit相对理想参考面的模体RMSE增加`2.21%`；
+`0.2 mm + 1%`能量噪声组合增加`42.73%`。后者是参数化灵敏度分析，不能解释为
+真实能量探测器的实测性能。

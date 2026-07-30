@@ -1,0 +1,10 @@
+{
+  "config_hash": "919275f228285ac494eac1dceaf113b3a76cb423c698aa576903c08610549b75",
+  "source_hashes": {
+    "run_stage6.py": "4be70704f78b55b33f222cd81220a1b1fd6e5847e7b1e9f74e8f26dcc32d91ab",
+    "advanced_priors.py": "53353e269f92c9f019dc2e1b980a3a7a51b049faccfad8caf3a7d281a289f3c7",
+    "stage6_config.json": "bbd950ab76de23800b857640ac41c6c380192beba90b119384a81b76c721e4e5"
+  },
+  "stage4_frozen_hash": "7dc6a3f9b683071dd8f51abeb22b550951b05dac63ba262c29e68fdc8609c3b6",
+  "created_at": "2026-07-27T23:00:24"
+}

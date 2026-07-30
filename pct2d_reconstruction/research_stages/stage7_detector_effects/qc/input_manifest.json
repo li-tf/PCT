@@ -1,0 +1,6 @@
+{
+  "config_sha256": "b6d864b0f01a17492a4cd8b6344ddb976f923d7a08c7e951a469b2563601e338",
+  "data_root": "/mnt/d/\u4e34\u65f6/results0718_d1_air_tracker_full",
+  "runs": 720,
+  "wepl_model": "/home/ltf/project/github/PCT/pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json"
+}

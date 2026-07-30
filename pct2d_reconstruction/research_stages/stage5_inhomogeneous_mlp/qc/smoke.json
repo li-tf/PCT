@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "samples": 400,
+  "synthetic_residuals_mm": [
+    100.0,
+    100.0
+  ],
+  "adjoint_relative_error": 5.012854211411612e-07,
+  "real_data_angles": [
+    0,
+    719
+  ],
+  "real_data_valid_protons": 26,
+  "real_data_update_max_abs": 0.07235191762447357,
+  "materials": {
+    "Air": {
+      "rsp": 0.0011471876206752695,
+      "rscp": 0.0012915722118858775
+    },
+    "Lung": {
+      "rsp": 0.25748988758806907,
+      "rscp": 0.2567721562977157
+    },
+    "Water": {
+      "rsp": 1.0,
+      "rscp": 1.0
+    },
+    "A150_Tissue_Plastic": {
+      "rsp": 1.1244583097375929,
+      "rscp": 0.9605565884385945
+    },
+    "SpineBone": {
+      "rsp": 1.3215450211843316,
+      "rscp": 1.6452893431624798
+    },
+    "Aluminium": {
+      "rsp": 2.1021010459005205,
+      "rscp": 4.059418640480791
+    }
+  }
+}
