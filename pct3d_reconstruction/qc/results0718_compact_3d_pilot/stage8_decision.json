@@ -1,0 +1,210 @@
+{
+  "status": "PASS",
+  "winner_beta": 0.0,
+  "selected_epoch": 3,
+  "validation": {
+    "wepl_rmse_mm": 2.0151431309980983,
+    "wepl_mae_mm": 1.5568505528782262,
+    "wepl_bias_mm": 0.007026574092024188,
+    "wepl_measurements": 44329481
+  },
+  "test": {
+    "wepl_rmse_mm": 2.0145973546373157,
+    "wepl_mae_mm": 1.5566449834190854,
+    "wepl_bias_mm": 0.007531031110525564,
+    "wepl_measurements": 44348520
+  },
+  "image": {
+    "water_mean_rsp": 0.9984990358352661,
+    "water_bias": -0.0012467503547668457,
+    "water_std_rsp": 0.010995612479746342,
+    "phantom_rmse": 0.053297046571969986,
+    "nonair_material_mape_percent": 35.200982337110624,
+    "nonair_material_max_error_percent": 96.39692721234306,
+    "large_material_mape_percent": 37.032211831631734,
+    "edge_width_mean_mm": 1.3297003954648972,
+    "edge_width_x_mm": NaN,
+    "edge_width_y_mm": 1.3297003954648972,
+    "edge_width_z_mm": NaN,
+    "edge_width_anisotropy_ratio": 1.0,
+    "outside_nonzero": 0,
+    "nonfinite": 0
+  },
+  "materials": [
+    {
+      "sphere": "AirSphere",
+      "material": "Air",
+      "samples": 2176,
+      "mean_rsp": 0.4587005078792572,
+      "std_rsp": 0.04000472649931908,
+      "reference_rsp": 0.0011471876206752695,
+      "error_percent": 39884.78536660395,
+      "absolute_rsp_error": 0.4575533202585819,
+      "cnr": 49.09217462422444,
+      "centroid_error_mm": 0.010960788698304922,
+      "equivalent_volume_mm3": 225.0,
+      "reference_volume_mm3": 523.5987755982989
+    },
+    {
+      "sphere": "AluminiumSphere",
+      "material": "Aluminium",
+      "samples": 280,
+      "mean_rsp": 1.4722886085510254,
+      "std_rsp": 0.022870291024446487,
+      "reference_rsp": 2.094511207867794,
+      "error_percent": -29.707293853547302,
+      "absolute_rsp_error": 0.6222225993167685,
+      "cnr": 43.08896603881489,
+      "centroid_error_mm": NaN,
+      "equivalent_volume_mm3": 0.0,
+      "reference_volume_mm3": 113.09733552923255
+    },
+    {
+      "sphere": "SpineBoneSphere",
+      "material": "SpineBone",
+      "samples": 2176,
+      "mean_rsp": 1.1826300621032715,
+      "std_rsp": 0.013789433985948563,
+      "reference_rsp": 1.3222608703586636,
+      "error_percent": -10.560004563813282,
+      "absolute_rsp_error": 0.1396308082553921,
+      "cnr": 16.745863553046306,
+      "centroid_error_mm": 0.1227031633016818,
+      "equivalent_volume_mm3": 264.25,
+      "reference_volume_mm3": 523.5987755982989
+    },
+    {
+      "sphere": "LungSphere",
+      "material": "Lung",
+      "samples": 7208,
+      "mean_rsp": 0.5069893598556519,
+      "std_rsp": 0.042826514691114426,
+      "reference_rsp": 0.25814526074916555,
+      "error_percent": 96.39692721234306,
+      "absolute_rsp_error": 0.2488440991064863,
+      "cnr": 44.70052731350468,
+      "centroid_error_mm": 0.24295992284403564,
+      "equivalent_volume_mm3": 1140.0,
+      "reference_volume_mm3": 1436.755040241732
+    },
+    {
+      "sphere": "A150Sphere",
+      "material": "A150_Tissue_Plastic",
+      "samples": 4224,
+      "mean_rsp": 1.0777041912078857,
+      "std_rsp": 0.006414675619453192,
+      "reference_rsp": 1.124244586148391,
+      "error_percent": -4.139703718738857,
+      "absolute_rsp_error": 0.046540394940505214,
+      "cnr": 7.203341834619367,
+      "centroid_error_mm": 0.15573491083722493,
+      "equivalent_volume_mm3": 630.625,
+      "reference_volume_mm3": 904.7786842338604
+    }
+  ],
+  "edges": [
+    {
+      "sphere": "AirSphere",
+      "material": "Air",
+      "axis": "x",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "AirSphere",
+      "material": "Air",
+      "axis": "y",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "AirSphere",
+      "material": "Air",
+      "axis": "z",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "AluminiumSphere",
+      "material": "Aluminium",
+      "axis": "x",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "AluminiumSphere",
+      "material": "Aluminium",
+      "axis": "y",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "AluminiumSphere",
+      "material": "Aluminium",
+      "axis": "z",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "SpineBoneSphere",
+      "material": "SpineBone",
+      "axis": "x",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "SpineBoneSphere",
+      "material": "SpineBone",
+      "axis": "y",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "SpineBoneSphere",
+      "material": "SpineBone",
+      "axis": "z",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "LungSphere",
+      "material": "Lung",
+      "axis": "x",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "LungSphere",
+      "material": "Lung",
+      "axis": "y",
+      "edge_width_10_90_mm": 1.0123454332351685
+    },
+    {
+      "sphere": "LungSphere",
+      "material": "Lung",
+      "axis": "z",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "A150Sphere",
+      "material": "A150_Tissue_Plastic",
+      "axis": "x",
+      "edge_width_10_90_mm": NaN
+    },
+    {
+      "sphere": "A150Sphere",
+      "material": "A150_Tissue_Plastic",
+      "axis": "y",
+      "edge_width_10_90_mm": 1.6470553576946259
+    },
+    {
+      "sphere": "A150Sphere",
+      "material": "A150_Tissue_Plastic",
+      "axis": "z",
+      "edge_width_10_90_mm": NaN
+    }
+  ],
+  "resources": {
+    "confirm_elapsed_seconds": 5299.099543268,
+    "batch_size": 1024,
+    "gpu_memory_pool_peak_bytes": 535045632,
+    "training_measurements": 1064483106
+  },
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_compact_3d_pilot/stage8/final/recon_stage8.mhd",
+  "test_partition_opened": true,
+  "performance_targets": {
+    "water_bias_pass": true,
+    "large_material_mape_pass": false,
+    "aluminium_core_pass": false
+  }
+}

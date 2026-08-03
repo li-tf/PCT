@@ -8,7 +8,8 @@ MHD、RAW以及重建检查点统一位于仓库根目录的`data/`；已经完�
 
 ```text
 pct2d_reconstruction/
-├── current_research_summary.md  S1--S6、阶段0--7及当前最优算法总览
+├── current_research_summary.md  Stage 0--8完整研究档案与当前结论
+├── future_research_plan.md      仅保留目标、当前基线和下一步优先级
 ├── experiments/                 实验编号与代码/数据路径映射
 ├── simulation/                  Windows OpenGATE仿真包及仿真QC
 ├── preprocessing/               配对、3σ过滤和Schulte MLP DDB投影
@@ -21,25 +22,16 @@ pct2d_reconstruction/
                                 第一批冷数据结构、规模和恢复说明
 ```
 
-当前本地重点保留的数据为：
-
-```text
-data/
-├── simulation_data/
-│   ├── results0717_s1/s4/s5...
-│   └── results0728_stage6a/stage6b...
-├── preprocessing_data/
-│   ├── results0717_s1/s4/s5.../stage6b_calibrated/
-│   └── results0718_d1.../stage7/full/
-└── reconstruction_data/
-    ├── results0717_s1/s4/s5.../stage6b_calibrated/
-    └── results0718_d1.../stage7/full/
-```
+当前大型数据分布在WSL本地、Windows D/F盘和已断开的E盘移动硬盘。S1、S4、
+S5的部分预处理数据以及D1的Stage 7/7B数据已经临时迁出；Stage 8活动pairs和
+检查点仍保留在本地用于诊断。具体位置和可用性以
+[`data/README.md`](../data/README.md)为准，不能再根据旧目录树假定数据仍在WSL。
 
 `experiments/experiment0716.json`将`simulation0716`、`results0716`和
 `report0716`绑定为同一实验。Linux入口统一使用`--experiment 0716`，不依赖当前
 工作目录推断数据位置。S1--S6是研究阶段使用的诊断数据，不冒充results0716正式
-基线；D1通过Windows D盘只读挂载完成阶段7，compact-3D等待阶段8正式处理。
+基线；D1的原始ROOT通过Windows盘只读挂载完成阶段7，compact-3D由仓库根目录
+独立工程`pct3d_reconstruction/`处理。
 
 `results0716`、S2/S3、MLP真实轨迹pilot以及`test0707/0710/0713`已进入第一批
 冷归档。目录结构、逐项字节数和恢复方法见
@@ -75,10 +67,10 @@ data/
 | 6A 虚拟MLIC真值 | PASS | 24-case能量扫描及200 MeV高统计完成；MLIC主参考和三个重点场景重评已冻结 |
 | 6B 独立WEPL标定 | PASS，模型晋升 | 锁定测试和S2/S3门控通过，S4大柱MAPE降至0.255% |
 | 7 探测器效应 | PASS | 连续硅hit仅使RMSE增加2.21%；0.2 mm位置与1%能量噪声组合使RMSE增加42.73% |
-| 7B 噪声稳健重建 | PLANNED | 分离D1位置/能量噪声并标定异方差数据项 |
-| 7C 通量敏感性 | PLANNED | 使用嵌套质子子集建立质量—通量曲线 |
-| 8 紧凑三维 | READY | 接入compact-3D并执行三维体素算子验证 |
-| 9 3D Gaussian | PLANNED | Stage 8之后开展单场景可行性研究 |
+| 7B 噪声稳健重建 | PASS，保留基线 | 所有加权/Huber候选均未超过等权quadratic；测试集未打开 |
+| 7C 通量敏感性 | PASS | 三种条件最低推荐通量均为25%；10%失稳 |
+| 8 紧凑三维 | PIPELINE PASS / PERFORMANCE FAIL | 三维链闭环；大材料球MAPE 37.03%，需先诊断 |
+| 9 3D Gaussian | BLOCKED | 等待Stage 8形成可靠体素基线 |
 
 阶段性算法不会自动替换results0716成熟入口。只有完整训练—验证—锁定测试通过后，
 才在阶段报告中决定是否推荐晋升。
@@ -127,10 +119,10 @@ data/
 .venv-gate/bin/python pct2d_reconstruction/report/build_report.py \
   --experiment 0716 --force
 
-# 查看Stage 6B、7、8门控状态
+# 查看Stage 6B、7和独立三维Stage 8历史状态/正式产物
 .venv-gate/bin/python pct2d_reconstruction/research_stages/stage6b_wepl_calibration/run_stage6b.py --action status
 .venv-gate/bin/python pct2d_reconstruction/research_stages/stage7_detector_effects/run_stage7.py --action status
-.venv-gate/bin/python pct2d_reconstruction/research_stages/stage8_compact_3d/run_stage8.py --action status
+.venv-gate/bin/python pct3d_reconstruction/run_stage8.py --action status
 ```
 
 各计算入口完成后直接写本阶段QC，不使用独立的`validate_stage*.py`。预处理和重建
@@ -139,12 +131,12 @@ data/
 
 ## 推荐阅读顺序
 
-1. `current_research_summary.md`：S1--S6、真实轨迹pilot、阶段0--7、当前最优算法及
-   外部性能定位的阶段性总览；
+1. `current_research_summary.md`：S1--S6、真实轨迹pilot、Stage 0--8、当前最优
+   算法、负结果、三维首轮结果及外部性能定位；
 2. `reconstruction_principles.md`：数据处理、MLP、DDB、解析和迭代重建原理；
 3. `report/report0716/report0716_summary_report.md`：results0716完整实验报告；
-4. `report/research_stages_summary/research_stages_summary.md`：
-   基线之后阶段0--7的综合结论与当前进展；
+4. `report/research_stages_summary/research_stages_summary.md`：截至Stage 7的历史
+   跨阶段报告；最新状态以根目录`current_research_summary.md`为准；
 5. `evaluation/baselines/results0716/baseline_summary.md`：冻结后的统一基线；
 6. `research_stages/stage1_material_calibration/qc/results0717_s6_material_energy_scan/stage1_summary.md`：
    阶段1的材料能量、有效RSP与Air WEPL结论；
@@ -164,4 +156,5 @@ data/
 14. 本地私有目录`report/final_presentations/`：最终进展汇报和成果总结PPT，
     因包含个人信息而整体排除在Git版本控制之外；
 15. `archive_batch1_20260730_record.md`：冷归档范围与恢复说明；
-16. `future_research_plan.md`：阶段0至阶段8研究路线与完成记录。
+16. `future_research_plan.md`：精简后的目标、冻结基线和近期优先级；已完成阶段
+    的详细记录统一见`current_research_summary.md`。

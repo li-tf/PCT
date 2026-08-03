@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETE",
+  "stage": "report",
+  "completed_runs": 720,
+  "total_runs": 720,
+  "updated_at": "2026-07-31T19:36:35",
+  "elapsed_seconds": 8.673000110999993,
+  "task_eta_seconds": 0.0,
+  "group": "combined_0p2mm_1pct/seed_20260732/f010",
+  "completed_groups": 12,
+  "total_groups": 13,
+  "epoch": 5,
+  "total_epochs": 5,
+  "subset": 18,
+  "total_subsets": 18
+}

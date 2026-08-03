@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "angle_checks": [
+    {
+      "run_id": 0,
+      "angle_deg": 0.0,
+      "adjoint_lhs": 20.386492138838072,
+      "adjoint_rhs": 20.386491318689345,
+      "adjoint_relative_error": 4.023000730154179e-08,
+      "cpu_cuda_mlp_max_abs_mm": 1.9000518065581673e-06,
+      "cpu_cuda_mlp_compared": 58,
+      "valid_rays": 64
+    },
+    {
+      "run_id": 90,
+      "angle_deg": 90.0,
+      "adjoint_lhs": -48.1311626470251,
+      "adjoint_rhs": -48.131163295346,
+      "adjoint_relative_error": 1.3469878033277906e-08,
+      "cpu_cuda_mlp_max_abs_mm": 1.9215225819380066e-06,
+      "cpu_cuda_mlp_compared": 56,
+      "valid_rays": 64
+    }
+  ],
+  "constant_huber_tv_max_abs_change": 0.0,
+  "gpu_memory_peak_bytes": 424607232
+}

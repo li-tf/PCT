@@ -1,0 +1,16 @@
+sphere,material,axis,edge_width_10_90_mm
+AirSphere,Air,x,nan
+AirSphere,Air,y,nan
+AirSphere,Air,z,nan
+AluminiumSphere,Aluminium,x,nan
+AluminiumSphere,Aluminium,y,nan
+AluminiumSphere,Aluminium,z,nan
+SpineBoneSphere,SpineBone,x,nan
+SpineBoneSphere,SpineBone,y,nan
+SpineBoneSphere,SpineBone,z,nan
+LungSphere,Lung,x,nan
+LungSphere,Lung,y,1.0123454332351685
+LungSphere,Lung,z,nan
+A150Sphere,A150_Tissue_Plastic,x,nan
+A150Sphere,A150_Tissue_Plastic,y,1.6470553576946259
+A150Sphere,A150_Tissue_Plastic,z,nan

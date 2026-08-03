@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "training_sample_count": 3658320,
+  "validation_sample_count": 4344508,
+  "model_path": "/home/ltf/project/github/PCT/pct2d_reconstruction/research_stages/stage7b_noise_robustness/qc/empirical_noise_model.npz",
+  "models": {
+    "analytic": {
+      "passing_deciles": 10,
+      "eligible": true,
+      "coverage_1sigma": 0.6838056230993245,
+      "coverage_2sigma": 0.9542106954343277
+    },
+    "empirical": {
+      "passing_deciles": 10,
+      "eligible": true,
+      "coverage_1sigma": 0.6659994641510615,
+      "coverage_2sigma": 0.9577956813521807
+    }
+  },
+  "test_partition_opened": false
+}

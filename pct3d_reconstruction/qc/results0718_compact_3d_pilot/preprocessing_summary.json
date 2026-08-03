@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "paired": 684197294,
+  "physical": 684197294,
+  "filtered_support_hit": 443653707,
+  "train": 354946229,
+  "validation": 44344246,
+  "test": 44363232,
+  "screen_train": 35494264,
+  "air_only_count": 213540610,
+  "air_only_residual_mean_mm": -0.0055173156736331545,
+  "air_only_residual_mae_mm": 0.04083827135638903,
+  "elapsed_seconds": 17.3623391619999,
+  "test_partition_opened": false
+}

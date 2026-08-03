@@ -1,0 +1,6 @@
+{
+  "status": "PASS_WITH_FALLBACK",
+  "selected_epoch": 3,
+  "reason": "joint WEPL/material/edge tolerances had no intersection; selected minimum fixed-validation WEPL RMSE",
+  "test_partition_opened": false
+}

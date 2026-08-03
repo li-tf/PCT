@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "batch": "confirm",
+  "stage": "negative_result",
+  "updated_at": "2026-07-30T23:17:13",
+  "completed_runs": 720,
+  "total_runs": 720,
+  "elapsed_seconds": 0.30421205400011786,
+  "task_eta_seconds": 0.0,
+  "completed_reconstructions": 9,
+  "estimated_reconstructions": 9,
+  "group": "screen/shared_primary_train",
+  "candidate": "equal_quadratic",
+  "epoch": 3,
+  "total_epochs": 3,
+  "subset": 18,
+  "total_subsets": 18,
+  "pairs_per_second": 36760.95028142873,
+  "gpu_memory_bytes": 74972160,
+  "eval_completed_runs": 720,
+  "eval_total_runs": 720
+}

@@ -1,480 +1,360 @@
-# 二维质子CT阶段性研究总览：S1–S6、真实轨迹与阶段0–7
+# 质子CT当前研究总结
 
-**版本日期：2026-07-30**  
-**研究范围：二维OpenGATE仿真、独立WEPL/MLIC标定、探测器效应与固定MLP迭代重建**  
-**当前冻结算法：阶段4 GPU Schulte-MLP OS-SART + Huber-TV**
+**版本日期：2026-08-03**
+
+**覆盖范围：S1--S6、真实轨迹pilot、Stage 0--7C及Stage 8首轮三维重建**
+
+**当前正式二维方法：G4水标定WEPL + Schulte水MLP + GPU OS-SART + Huber-TV**
 
 ## 摘要
 
-本项目从`results0716`的单一高通量仿真出发，建立了S1–S6和真实轨迹pilot组成的
-诊断实验体系，并按阶段0–7依次检验评价口径、材料能量依赖、边界伪影、稳健
-过滤、数据权重、迭代参数、非均匀MLP、高级图像先验、独立WEPL标定和硅
-跟踪器效应。
+本项目已经建立从OpenGATE相空间ROOT、单质子配对、异常历史过滤、WEPL计算、
+Schulte最可能路径，到二维解析和GPU list-mode迭代重建的完整链条；随后又用诊断
+模体、真实轨迹、虚拟多层电离室、独立水板标定、四层硅跟踪器和通量抽样逐项
+检验误差来源。Stage 8进一步把数据链扩展到三维体素重建。
 
-目前最可靠的结论不是“某一个复杂算法显著胜出”，而是已经分离了若干容易混淆的
-误差来源：
+目前最重要的结论有六点：
 
-1. 旧BB78水平台约`+1.4%`偏差已定位到WEPL射程标定，并由独立Geant4一致水板
-   标定消除；S2/S3及经典场景水均值现为约`0.9996--0.9997`；
-2. 均匀水圆柱外围圆环主要与解析Ramp滤波、边界阶跃和算子响应有关，Air和扩大
-   FOV均不是主因；
-3. 当前理想数据中，稳健过滤、逆方差权重、Huber数据损失、非均匀MLP、TGV和
-   自适应TV都没有通过预注册晋升门槛；
-4. 唯一得到锁定测试支持的方法升级来自阶段4：在固定水MLP下，将算法冻结为
-   5 epoch、18子集、`λ0=0.25`、衰减0.2和固定`β=0.0125` Huber-TV；
-5. 独立WEPL标定后S4大材料柱MLIC-MAPE降至`0.255%`，S5 fMTF10为
-   `1.173 lp/mm`；但这些仍是理想二维结果，不能据此宣称真实设备性能突破；
-6. D1连续四层硅hit相对理想参考使RMSE增加`2.21%`，算法仍稳定；0.2 mm位置
-   与1%参数化能量噪声组合使RMSE增加`42.73%`，说明读出精度是现实瓶颈。
+1. 早期约`+1.4%`的水平台偏差来自BB78水射程LUT与当前Geant4输运的标定口径，
+   不是OS-SART或Schulte MLP代码错误；独立水板标定已将其消除。
+2. 当前二维数据上，局部3σ、等权quadratic、Schulte水MLP和固定Huber-TV的综合
+   结果最好；稳健过滤、逆方差权重、Huber数据损失、非均匀MLP和高级先验均未
+   通过预注册晋升门槛。
+3. Stage 6B后，S4的15 mm大材料柱MLIC-MAPE达到`0.2551%`，S5平均
+   fMTF10达到`1.1733 lp/mm`；这些是高通量二维仿真结果，不能直接等同于临床
+   pCT性能。
+4. 四层连续硅hit本身只带来温和退化；0.2 mm位置误差与1%出射能量噪声组合
+   使图像RMSE增加`42.73%`，当前逆方差和Huber方法没有降低这项退化。
+5. 三种D1测量条件在冻结算法下的推荐最低有效通量均为25%，即
+   `225 protons/mm²/projection`；降到10%后出现明显非线性失稳。
+6. Stage 8三维链和严格伴随算子通过，但首轮大材料球MAPE为`37.03%`，因此
+   状态是**PIPELINE PASS / PERFORMANCE FAIL**，不能直接进入3D Gaussian。
 
-![S1–S6与真实轨迹pilot](report/research_stages_summary/assets/current_summary/scenario_overview.png)
+![研究场景总览](report/research_stages_summary/assets/current_summary/scenario_overview.png)
 
 ---
 
-## 1. 证据范围和比较纪律
+## 1. 研究问题、证据边界与评价纪律
 
-### 1.1 当前数据能够回答什么
+### 1.1 研究问题
 
-S1–S5使用理想入口/出口相空间面。除蒙卡输运外，它们没有像素化、有限位置
-分辨率、硅跟踪器散射、能量探测器响应、电子学噪声、效率、堆积和运动，因此适合
-隔离算法与物理模型，但不等价于真实扫描器。
+本项目不是只比较几张重建图，而是依次回答：
 
-S6不是CT扫描，而是材料—能量—厚度标定。真实轨迹pilot保存了Geant4逐step
-轨迹，用于直接评价路径模型，不用于形成高质量CT图像。
+- 单质子能量如何转换为与当前输运一致的WEPL；
+- 水MLP是否足以描述当前200 MeV、小尺度模体中的质子路径；
+- 过滤、权重、数据损失、迭代调度和图像先验中，哪些真正改善独立评价；
+- 材料RSP真值应如何独立获得，避免用重建结果校准自身；
+- Air、硅跟踪器、位置/能量噪声和通量降低分别造成多大退化；
+- 二维方法扩展到出平面散射和有限轴向结构后是否仍然成立。
 
 ### 1.2 三种结果等级
 
-| 等级 | 含义 | 本项目实例 |
+| 等级 | 含义 | 可支持的结论 |
 |---|---|---|
-| 锁定测试结果 | 参数冻结后才读取test，可用于阶段晋升 | 阶段4 |
-| 训练/验证结果 | 可选择参数，不能宣称独立泛化性能 | 阶段3、6候选 |
-| 上限或诊断实验 | 回答机制问题，不直接代表最终图像性能 | S6、真实轨迹pilot |
+| 理想二维仿真 | 理想参考面、高统计、参数化噪声可控 | 验证算法、标定和分辨率上限 |
+| 详细探测器仿真 | Air、物理硅层、hit拟合和离线数字化 | 评估跟踪器及测量误差敏感性 |
+| 三维pilot | 出平面散射、有限轴向模体和三线性体素算子 | 验证三维链，不能自动代表临床系统 |
 
-`results0716`是在全量重建之后才划出10%固定子集，因此它只称为固定评估子集。
-S1–S5则在任何重建前按稳定质子身份固定为80%训练、10%验证和10%测试。
+数值比较必须同时标明：真值口径、材料集合、ROI尺寸、通量、是否包含真实探测器、
+是否二维以及使用解析还是迭代方法。不同论文的MAPE和MTF不能脱离这些条件直接
+排序。
 
-### 1.3 为什么不能直接按一个数字排名
+### 1.3 数据划分和真值口径
 
-pCT的RSP误差、噪声、空间分辨率、剂量和扫描时间互相制约。不同论文使用的
-模体、材料、ROI、通量、投影数、像素大小、能量测量方式和重建算法并不一致。
-因此本报告只在相同数据和评价代码下判断项目内部晋升；外部文献数据用于定位，
-不作为严格排行榜。
+- `results0716`是在全量重建后划出固定10%子集，只称为固定评估子集。
+- S1--S5、D1和compact-3D在算法选择前按稳定质子身份执行80%训练、10%验证、
+  10%锁定测试。
+- 单质子WEPL使用Stage 6B的`g4_water_calibrated`模型。
+- 材料平台以Stage 6A高统计200 MeV虚拟MLIC的R80射程移动为主参考。
+- 固定200 MeV理论RSP仍保留，用于历史比较和能量依赖解释。
+- 没有DoseActor的实验只报告质子通量，不换算为mGy。
 
 ---
 
 ## 2. 仿真体系
 
-### 2.1 S1–S5公共CT条件
+### 2.1 二维CT公共设置
 
-| 参数 | 设置 |
-|---|---|
-| 蒙卡平台 | OpenGATE 10.1.0 / Geant4 |
-| 物理列表 | `QGSP_BIC_EMZ` |
-| 入射质子 | 200 MeV单能 |
-| 投影 | 720个，`0,0.5,…,359.5°` |
-| 水模体 | 半径100 mm、轴向长度400 mm |
-| 有效源到等中心距离 | 1000 mm |
-| 物理源平面/焦点 | `z=-1060/-1000 mm` |
-| 源尺寸 | `15×0.12×10⁻⁶ mm³` |
-| 理想参考面 | `z=-110/+110 mm` |
-| 参考面尺寸 | `400×400 mm²` |
-| 模体最大step | 1 mm |
-| 线程 | 每个角度单线程，角度间并行 |
+S1--S5使用200 MeV单能质子、720个角度、0.5°间隔和`QGSP_BIC_EMZ`。模体为
+半径100 mm水圆柱，入口/出口状态外推到固定`z=-110/+110 mm`平面。论文通量
+配置为450,000质子/角度，约900 protons/mm²/projection；部分诊断pilot使用
+100,000质子/角度。
 
-源的第二个方向只有`0.12 mm`，用于形成近似二维扇束；第三维厚度仅
-`10⁻⁶ mm`。参考面记录质子位置、方向和能量，不模拟真实探测器读出。
+| 数据集 | 场景 | 主要目的 | 当前结论 |
+|---|---|---|---|
+| S1 | Air、水圆柱、25根5 mm铝柱 | 小目标恢复、径向一致性 | Stage 6B正式复算完成 |
+| S2 | Vacuum均匀水圆柱 | 水平台、边界、FOV和滤波 | 建立无Air边界基线 |
+| S3 | Air均匀水圆柱 | 外部Air WEPL与边界效应 | Air不是外围圆环主因 |
+| S4 | Air、多材料三半径、中心5 mm铝柱 | 材料定量、径向趋势、部分容积 | 大柱MAPE 0.2551% |
+| S5 | 铝线对、五个SpineBone斜边 | fMTF和方向依赖 | fMTF10 1.1733 lp/mm |
+| S6 | Water/Al/Air薄板，多个能量和厚度 | 能量相关RSP与Air WEPL | 暴露统一尺度失配 |
 
-### 2.2 S1：Air中的原始铝柱模体
+S5的五个斜边使用SpineBone材料，放置在不同位置并采用不同边缘方向，用于测量
+空间分辨率是否随半径和方向变化；它们不是五种不同骨材料。
 
-| 项目 | 设置 |
-|---|---|
-| 通量 | `720×450,000` |
-| 外部介质 | Air |
-| 模体 | 水圆柱内25根直径5 mm铝柱 |
-| 铝柱半径位置 | 0–97 mm螺旋分布 |
-| 目的 | 与results0716的Vacuum高通量数据配对，单独评价Air |
+### 2.2 独立标定实验
 
-参考面之间包含圆柱外Air的能损，因此预处理必须扣除已知Air WEPL，不能将其
-错误写入水圆柱RSP。
+| 实验 | 输入 | 输出 | 与CT重建的关系 |
+|---|---|---|---|
+| 虚拟MLIC | 样品前后水中深度剂量 | 由R80射程移动得到材料RSP | 提供图像评价真值 |
+| 独立水板WEPL标定 | 30--230 MeV、84个能量/厚度工况 | 单调Geant4一致射程函数 | 把每条质子的能量转换为WEPL |
 
-### 2.3 S2与S3：均匀水边界对照
+两者相互独立：水板标定定义测量模型，MLIC定义材料参考值，均不使用CT重建图像
+反向拟合。
 
-| 数据 | 外部介质 | 通量 | 目的 |
-|---|---|---:|---|
-| S2 | Vacuum | `720×100,000` | 隔离水—真空边界及解析圆环 |
-| S3 | Air | `720×100,000` | 与S2配对，评价Air能损与散射 |
+### 2.3 D1探测器实验
 
-二者内部均只有均匀水，因此任何材料结构、径向条纹或圆环都不是铝柱造成。结果
-显示Air校正后的S3与S2水平台几乎一致，而圆环在两者中都存在。
+D1把世界材料改为Air，并加入四层200 μm硅跟踪器。上游和下游各两层硅hit用于
+拟合入口与出口直线；理想参考面仍记录出口能量，因此D1不是完整物理能量探测器。
+Stage 7又离线加入位置分辨率和出射能量高斯噪声，分离跟踪器材料、hit拟合与
+数字化误差。
 
-### 2.4 S4：多材料定量模体
+### 2.4 compact-3D pilot
 
-| 项目 | 设置 |
-|---|---|
-| 通量 | `720×100,000` |
-| 外部介质 | Air |
-| 材料 | Air、Lung、A150、SpineBone、Aluminium |
-| 大柱 | 直径15 mm，分布在30、60、85 mm三个半径 |
-| 小目标 | 中心直径5 mm铝柱 |
-| 目的 | 分离材料平台误差、径向趋势和部分容积效应 |
-
-![S4多材料重建](research_stages/stage2_diagnostic_phantoms/qc/figures/s4_material_reconstruction.png)
-
-### 2.5 S5：空间分辨率模体
-
-| 目标 | 设置 |
-|---|---|
-| 铝线对 | 线宽0.5、0.75、1、1.5、2、3 mm |
-| 斜边 | 5个15 mm SpineBone方块，多角度、多半径 |
-| 通量 | `720×100,000` |
-| 目的 | 评价线对可见性、fMTF50/fMTF10及方向依赖 |
-
-![S5分辨率重建](research_stages/stage2_diagnostic_phantoms/qc/figures/s5_resolution_reconstruction.png)
-
-### 2.6 S6：材料—能量—厚度扫描
-
-S6共52种配置，每种100,000个质子：
-
-| 材料 | 厚度/mm | 能量/MeV |
-|---|---|---|
-| Water | 5、10、20、50、100 | 150、180、200、220 |
-| Aluminium | 5、10、20、50 | 150、180、200、220 |
-| Air | 20、220、1000、2000 | 150、180、200、220 |
-
-目的不是重建图像，而是测量OpenGATE输运条件下的有效RSP和Air WEPL斜率，检查
-`I=78 eV`水Bethe–Bloch LUT与固定参考RSP是否一致。
-
-### 2.7 真实轨迹MLP pilot
-
-| 参数 | 设置 |
-|---|---|
-| 角度与通量 | `72×5,000`，5°间隔 |
-| 外部介质 | Air |
-| 插入物 | 30 mm Air/Lung/A150/SpineBone，16 mm Aluminium |
-| 特殊输出 | 入口ROOT、出口ROOT、primary逐step轨迹ROOT |
-| 目的 | 将水MLP和真值材料非均匀MLP直接与Monte Carlo路径比较 |
-
-301,991条入口/出口记录成功配对，其中222,901条具有可用真实轨迹。
+三维pilot使用360角度、每角度2,000,000个质子、半径50 mm且轴向长度30 mm的
+有限水圆柱。内部包含Air、Aluminium、SpineBone、Lung和A150球体，推荐网格为
+`240×80×240 @ 0.5 mm`。该实验有真实出平面散射，但仍使用理想入口/出口相空间，
+不包含硅层和物理能量探测器。
 
 ---
 
-## 3. 阶段0–7做了什么
+## 3. 数据处理与重建方法
 
-![阶段0–6A原始决策图；阶段6B和7结果见本节后续](report/research_stages_summary/assets/current_summary/stage_decisions.png)
+### 3.1 ROOT到单质子pairs
 
-### 3.1 阶段0：冻结基线与评价体系
+入口和出口ROOT按`RunID/EventID`匹配，只保留唯一`TrackID=1`主质子。记录位置、
+方向和能量被外推到固定参考面。局部3σ过滤在二维位置网格中联合检查能损和两个
+有符号散射分量，用于去除核反应、异常散射和离群能损历史。
 
-完成内容：
+阶段3曾比较median/MAD和联合稳健马氏距离。它们能改变尾部分布，但没有在验证
+WEPL、材料保留和最终图像之间形成更好的综合结果，因此正式链仍使用局部3σ。
 
-- 冻结results0716输入、配置、代码哈希和正式检查点；
-- 建立统一RSP ROI、边缘、WEPL残差和运行资源评价；
-- 对后续新数据固定80/10/10划分纪律；
-- 明确200 MeV固定RSP与沿降能路径有效RSP是两个不同口径。
+### 3.2 WEPL与Schulte MLP
 
-结果：**PASS**。它没有改变重建图像，而是保证后续候选不会因ROI或数据划分变化
-得到虚假提升。
+单质子WEPL定义为
 
-### 3.2 阶段1：能量相关RSP与WEPL一致性
+\[
+b_p=R_w(E_{\mathrm{in}})-R_w(E_{\mathrm{out}}).
+\]
 
-S6得到的主要结果：
+早期(R_w(E))来自`I=78 eV`的简化Bethe--Bloch LUT。Stage 6B使用独立水板
+数据拟合严格单调的(R_{\mathrm{G4}}(E))，锁定测试平均/最大绝对相对偏差为
+`0.0461%/0.1657%`，随后晋升为正式模型。
 
-| 指标 | 数值 |
-|---|---:|
-| Water 200 MeV原点约束有效RSP | 1.013518 |
-| Aluminium 200 MeV、5 mm有效RSP中位数 | 2.107424 |
-| Air平均WEPL斜率 | `0.00114710 mm-WEPL/mm-Air` |
+Schulte MLP用入口/出口位置和方向，以及均匀水多重散射协方差，计算物体内部的
+最大后验中心路径。真实轨迹pilot表明，在当前200 MeV和模体尺度下，即使使用真值
+材料RScP更新散射统计，路径改善也不足以通过门槛，因此正式链保留水MLP。
 
-这组结果说明S6有效RSP与当前WEPL重建在内部口径上自洽，但它不是独立实验真值。
-阶段6A的高统计MLIC Water为`0.999746`，因此图像水平台约`+1.4%`仍是相对外部
-参考的真实系统偏差，不能再用S6有效RSP将其消除。当前采用三级口径：
-MLIC-RSP用于对外准确性比较，固定200 MeV理论RSP用于历史追溯，有效RSP仅用于
-分析降能路径和LUT的内部机制。
+### 3.3 解析重建
 
-结果：**PASS**，保留`I=78 eV`作为当前WEPL主口径。
+解析链把单质子WEPL按角度、横向坐标(u)和MLP深度(d)写入DDB：
 
-### 3.3 阶段2：诊断模体处理与评价
+\[
+N_{\mathrm p}\times\text{state}
+\longrightarrow N_\theta\times N_u\times N_d
+\longrightarrow N_x\times N_z.
+\]
 
-主要结论：
+DDB经几何加权、no-Hann Ramp滤波后，对每个图像像素计算对应的((u,v,d))，
+插值读取滤波投影并累加720个角度。该方法是快速解析基线和迭代初值，不是把DDB
+当成普通二维X射线sinogram直接调用直线FBP。
 
-- S2/S3证明Air不是水平台偏差和外围圆环的主因；
-- 210–260 mm FOV变化没有消除圆环；
-- 支撑域能清除圆柱外响应，但不能修复边界内侧误差；
-- S4建立多材料MAPE、最大误差和小铝柱恢复评价；
-- S5建立多方向fMTF与线对评价。
+### 3.4 list-mode迭代重建
 
-阶段2解析S4材料MAPE约`1.17%`，S5解析fMTF50/fMTF10约
-`0.502/1.088 lp/mm`。这些诊断集成为阶段3–6的公共开发平台。
+迭代算法直接读取pairs，每个batch重新计算MLP并沿路径采样：
 
-结果：**PASS**。
+\[
+\hat b_p=(A x)_p=\sum_j a_{pj}x_j,
+\qquad r_p=b_p-\hat b_p.
+\]
 
-### 3.4 阶段3：稳健过滤、权重和噪声模型
+二维使用四邻域双线性权重，三维使用8邻域三线性权重；正投影和转置反投影严格
+复用同一权重。当前二维最优更新为18子集OS-SART，初始松弛0.25、衰减0.2、
+5 epoch，子集后施加非负和支撑域，每轮后执行`β=0.0125`的Huber-TV近端处理。
 
-比较了当前均值/标准差3σ、median/MAD、联合稳健马氏距离、能量相关噪声模型、
-WEPL逆方差权重和稳健置信权重。
+![当前冻结二维算法](report/research_stages_summary/assets/current_summary/best_pipeline.png)
 
-结果：
+---
 
-- 稳健过滤没有达到绝对残差p99改善5%的门槛；
-- 出射能量噪声模型没有通过十分位校准；
-- 逆方差权重使验证RMSE、材料MAPE和偏差变差；
-- 锁定测试后决定保留局部3σ和等权数据。
+## 4. Stage 0--8执行结果
 
-结果：**PASS（有效负结果，保留基线）**。
+### 4.1 总体决策表
 
-### 3.5 阶段4：固定MLP下优化迭代方法
+| 阶段 | 研究因素 | 状态 | 最终决定 |
+|---|---|---|---|
+| 0 | 基线、固定划分、统一评价 | PASS | 冻结results0716历史基线 |
+| 1 | 材料能量、有效RSP、Air WEPL | PASS | 找到能量/口径问题，保留历史BB78 |
+| 2 | 边界、材料和MTF诊断模体 | PASS | 建立S2--S5评价体系 |
+| 3 | 稳健过滤、噪声模型和权重 | PASS / NO PROMOTION | 保留局部3σ和等权 |
+| 4 | 松弛、损失、TV、子集和epoch | PASS / PROMOTED | 冻结当前二维最优配置 |
+| 5 | 真值材料非均匀MLP | PASS / NEGATIVE | 保留Schulte水MLP |
+| 6 | TGV、自适应TV、方向TV | PASS / NEGATIVE | 保留固定Huber-TV |
+| 6A | 虚拟MLIC材料真值 | PASS | 冻结200 MeV高统计MLIC-RSP |
+| 6B | 独立水板WEPL标定 | PASS / PROMOTED | 晋升`g4_water_calibrated` |
+| 7 | Air、硅hit和参数化数字化 | PASS | 连续hit稳定，组合噪声明显退化 |
+| 7B | 噪声条件下加权和Huber | PASS / NO PROMOTION | 保留等权quadratic |
+| 7C | 100%到10%有效通量 | PASS | 推荐最低有效通量25% |
+| 8 | 三维体素链 | PIPELINE PASS / PERFORMANCE FAIL | 暂缓Stage 9并诊断三维系统 |
 
-依次筛选松弛因子、衰减、quadratic/Huber数据损失、Huber-TV、停止epoch和
-18/36子集。最终冻结：
+![阶段决策轨迹](report/research_stages_summary/assets/current_summary/stage_decisions.png)
 
-| 参数 | 最优值 |
-|---|---:|
-| 数据 | 局部3σ、等权 |
-| 路径 | 水Schulte MLP |
-| 网格/路径步长 | `0.1/0.1 mm` |
-| 初值 | DDB-FDK no-Hann |
+### 4.2 Stage 0--2：建立可比较的证据体系
+
+Stage 0冻结results0716的代码、数据哈希、MHD网格、固定评估子集和统一RSP/WEPL
+指标。Stage 1用S6分离固定200 MeV RSP、沿降能路径的有效RSP和Air WEPL，发现
+水与铝存在共同尺度偏移。Stage 2用S2/S3证明外围圆环并非主要由Air造成，并用
+S4/S5建立材料MAPE、部分容积和fMTF评价。
+
+这一阶段的关键贡献不是提高图像，而是避免把边界伪影、真值口径、材料偏差和
+空间分辨率混成一个RMSE数字。
+
+### 4.3 Stage 3--4：筛选数据项并冻结迭代参数
+
+Stage 3在过滤前固定80/10/10划分，比较局部3σ、median/MAD、稳健马氏过滤，
+以及等权、WEPL逆方差、稳健置信和组合权重。没有候选同时改善残差尾部和材料
+定量，最终保留局部3σ与等权。
+
+Stage 4依次筛选松弛调度、quadratic/Huber数据损失、Huber-TV权重、停止epoch和
+18/36子集。最终配置为`λ0=0.25`、衰减0.2、quadratic、固定
+`β=0.0125`、18子集和5 epoch。S2/S3水区标准差平均降低`42.58%`，满足实质
+改善门槛；36子集收益只有约`0.054%`，没有晋升。
+
+### 4.4 Stage 5--6：复杂路径和高级先验没有胜出
+
+真实轨迹pilot得到222,901条可用Geant4逐step路径。真值材料图驱动的非均匀MLP
+相对水MLP，对全部/强异质路径的平均改善仅`0.006%/0.074%`，bootstrap 95%
+下限跨过零。由于连“真值材料上限”都没有稳定收益，图像驱动固定非均匀MLP和
+交替更新MLP没有继续执行。
+
+Stage 6比较TGV、自适应TV和方向TV。部分候选提高局部分辨率，但水噪声、RMSE
+或材料指标恶化，没有通过验证门槛。当前负结果说明在本数据上继续增加先验复杂度
+不是主要突破口。
+
+![高级先验的权衡](report/research_stages_summary/assets/current_summary/stage6_tradeoff.png)
+
+### 4.5 Stage 6A--6B：重新建立真值和测量标定
+
+虚拟MLIC通过样品导致的R80射程移动定义材料RSP。200 MeV高统计参考中，Water
+和Aluminium分别为`0.999746`和`2.094511`。随后独立水板实验建立
+Geant4一致射程曲线。S2门控通过后，S1/S4/S5从WEPL开始完整复算，而不是把旧
+重建图统一除以常数。
+
+标定前后最明显的变化是：S4的15 mm大材料柱MAPE由约`1.1987%`降至
+`0.2551%`；S5 fMTF没有下降。由此确认旧统一偏差主要在能量到WEPL的测量模型，
+而不是通过图像经验缩放可以严谨解决的问题。
+
+### 4.6 Stage 7--7B：探测器和噪声鲁棒性
+
+连续硅hit相对理想参考面使水标准差增加`3.41%`、图像RMSE增加`2.21%`、铝
+平台变化约`0.047%`，说明物理硅散射和四层直线拟合没有使算法失效。0.2 mm
+位置误差与1%出射能量噪声组合则使RMSE增加`42.73%`、CNR降低`32.54%`。
+
+Stage 7B把位置噪声和能量噪声拆开，并比较解析/经验逆方差、Huber 1.5/2.5及
+组合方法。组合噪声下等权quadratic验证WEPL RMSE为`3.73757 mm`，全部候选
+均更差，因此按预注册规则不打开测试集，也不运行无意义的80%双重建。
+
+![D1三种结果相对MLIC真值的差值](research_stages/stage7_detector_effects/qc/assets/stage7_difference_vs_mlic_truth.png)
+
+### 4.7 Stage 7C：通量工作下限
+
+Stage 7C在过滤后按EventID生成100%、50%、25%和10%的严格嵌套子集，720个
+角度全部保留。理想参考面、连续硅hit和组合噪声三种条件的推荐最低有效通量均为
+25%，即`225 protons/mm²/projection`。组合噪声25%用三个随机种子复核，均
+通过；10%在三种条件下均失败。
+
+25%时水绝对偏差小于0.1%、水标准差低于1%、CNR高于100；10%时水标准差升至
+约`8.4%--10.6%`。这表明当前5轮冻结算法在25%和10%之间存在工作下限，不能
+简单用(1/\sqrt N)外推。
+
+![水噪声随通量变化](research_stages/stage7c_fluence_sensitivity/qc/assets/water_noise_vs_fluence.png)
+
+![RMSE随通量变化](research_stages/stage7c_fluence_sensitivity/qc/assets/rmse_vs_fluence.png)
+
+### 4.8 Stage 8：三维链通过，材料性能失败
+
+Stage 8共配对`684,197,294`条primary，过滤并命中有限圆柱后保留
+`443,653,707`条；训练、验证和测试分别为`354,946,229`、`44,344,246`和
+`44,363,232`条。0°/90°伴随内积相对误差为`4.02×10⁻⁸/1.35×10⁻⁸`，
+CPU/CUDA MLP最大位置差约`1.92×10⁻⁶ mm`。
+
+正则化筛选最终选择`β=0`。第1到第3轮验证WEPL RMSE从`2.211`降至
+`2.015 mm`，模体RMSE从`0.0626`降至`0.0533`，说明仍在收敛；但材料误差
+过大，不能只用增加epoch解释。
+
+| 指标 | 第3轮结果 | 判定 |
+|---|---:|---|
+| 测试WEPL RMSE / MAE / bias | 2.0146 / 1.5566 / 0.0075 mm | 有限、可重复 |
+| 水均值 / 偏差 / 标准差 | 0.99850 / −0.1247% / 0.01100 | 水尺度通过 |
+| 三维模体RMSE | 0.05330 | 未形成可靠材料基线 |
+| 10--14 mm材料球MAPE | 37.03% | FAIL |
+| Aluminium / SpineBone误差 | −29.71% / −10.56% | FAIL |
+| Lung / A150误差 | +96.40% / −4.14% | FAIL |
+| Air球重建RSP | 0.4587 | FAIL |
+
+![Stage 8不同轴向层面的真值、重建和误差](../pct3d_reconstruction/qc/results0718_compact_3d_pilot/assets/truth_reconstruction_error.png)
+
+![Stage 8正交切片](../pct3d_reconstruction/qc/results0718_compact_3d_pilot/assets/orthogonal_slices.png)
+
+该结果只证明ROOT到三维报告的工程链完整，不证明三维成像性能通过。可靠体素
+基线形成前，Stage 9暂停。
+
+---
+
+## 5. 当前最优二维算法及三种经典场景
+
+### 5.1 冻结配置
+
+| 项目 | 当前选择 |
+|---|---|
+| WEPL | `g4_water_calibrated` |
+| 过滤 | 局部3σ |
+| 数据权重/损失 | 等权quadratic |
+| 路径 | Schulte水MLP |
+| 网格/路径步长 | 0.1 mm / 0.1 mm |
 | 子集/epoch | 18 / 5 |
-| 初始松弛因子/衰减 | 0.25 / 0.2 |
-| 数据损失 | quadratic |
-| Huber-TV权重/过渡点 | 0.0125 / 0.002 |
-| 约束 | 非负、100 mm圆形支撑 |
+| 松弛 | 0.25，衰减0.2 |
+| 先验 | Huber-TV，`β=0.0125` |
+| 约束 | 非负、100 mm圆形支撑域 |
 
-锁定测试相对阶段3：
+![三种经典场景的MLIC真值、重建和误差](report/research_stages_summary/assets/current_summary/classic_scenario_results.png)
 
-| 指标 | 变化 |
+### 5.2 S1：25根铝柱
+
+| 指标 | 结果 |
 |---|---:|
-| S1–S5平均测试WEPL RMSE | 改善0.095% |
-| S2/S3水区标准差平均 | 降低42.58% |
-| S4名义RSP RMSE | 降低6.17% |
-| S4材料MAPE | 恶化0.0073个百分点 |
-| S5名义RSP RMSE | 降低2.71% |
-| S5 fMTF50/fMTF10 | 提高1.13%/0.66% |
-
-结果：**PASS（`PROMOTE_STAGE4`）**。这是阶段0–7中唯一晋升迭代求解参数的
-方法；阶段6A更新评价真值，阶段6B更新WEPL物理标定，阶段7只做外部鲁棒性检验。
-
-### 3.6 阶段5：非均匀与迭代MLP
-
-Level 1先使用真值材料RScP图计算非均匀MLP，避免重建图噪声限制理论上限。
-
-| 指标 | 非均匀MLP相对水MLP |
-|---|---:|
-| 全部验证路径平均改善 | +0.006% |
-| 强异质路径平均改善 | +0.074% |
-| 强异质bootstrap 95%下限 | -0.194% |
-
-![真实轨迹路径误差](research_stages/stage5_inhomogeneous_mlp/qc/assets/path_error_comparison.png)
-
-结果远低于预注册的整体3%和强异质5%门槛，因此自动跳过图像驱动固定非均匀MLP
-和交替更新MLP。这个结论与Brooke和Penfold的研究方向一致：非均匀MLP在厚骨、
-较低能量等条件可能改善5%–17%，但在200 MeV临床头部模型中未观察到明显收益
-（[Physica Medica, 2020](https://doi.org/10.1016/j.ejmp.2020.01.025)）。
-
-结果：**PASS（有效负结果，保留阶段4水MLP）**。
-
-### 3.7 阶段6：TGV和自适应先验
-
-14组TGV、自适应TV和方向TV先进行近端预筛。TGV未通过S5 fMTF10安全约束；
-自适应TV和方向TV各一组进入S2/S4/S5完整重建。
-
-| 指标 | 自适应TV相对阶段4 | 方向TV相对阶段4 |
-|---|---:|---:|
-| S2水区标准差 | +47.15% | +27.47% |
-| S4材料MAPE | 改善0.0044个百分点 | 改善0.0024个百分点 |
-| S4最大材料误差 | +2.15% | +1.50% |
-| S5 RSP RMSE | +0.56% | +0.22% |
-| S5 fMTF50 | +3.41% | +2.85% |
-| S5 fMTF10 | +8.10% | +7.64% |
-
-![阶段6噪声—分辨率权衡](report/research_stages_summary/assets/current_summary/stage6_tradeoff.png)
-
-高级先验提高了MTF，但本质上是减弱平滑并增加噪声，没有形成更好的综合权衡。
-没有候选满足实质改善门槛，锁定测试未打开。
-
-结果：**PASS（有效负结果，保留阶段4 Huber-TV）**。
-
-### 3.8 阶段6A：虚拟MLIC参考与重新评价
-
-为与真实pCT原型论文的材料真值口径一致，阶段6A用已知厚度样品引起的水中射程
-移动建立虚拟多层电离室参考。首轮覆盖四个能量的24个case；随后在200 MeV下
-使用独立随机种子完成6个高统计case，每个case为100万质子。
-
-| 材料 | 冻结MLIC-RSP | bootstrap相对SD |
-|---|---:|---:|
-| Water | 0.999746 | 0.075% |
-| Lung | 0.258145 | 0.322% |
-| A150_Tissue_Plastic | 1.124245 | 0.074% |
-| SpineBone | 1.322261 | 0.067% |
-| Aluminium | 2.094511 | 0.143% |
-
-重新评价没有改变图像本身，只改变独立参考和误差解释：
-
-- results0716第3轮迭代的铝误差由相对固定参考的`−1.289%`变为相对MLIC的
-  `−0.136%`，说明原单一铝柱误差主要来自旧参考定义；
-- S4阶段4多材料MAPE由`1.203%`变为`1.192%`，改善很小，说明多材料系统误差
-  不能主要归因于真值选错；
-- S5骨—水边缘对比恢复为`100.74%`，3 mm铝线p90恢复为`99.64%`；MTF不因
-  RSP参考改变；
-- MLIC Water接近1，确认约`+1.4%`水平台是当前体系相对独立参考的外部偏差。
-
-180 MeV低统计Water的单项bootstrap 95%区间略低于1，但四个Water同时检验的
-family-wise 95%区间包含1；它只保留为能量敏感性提示，不影响200 MeV主参考。
-
-结果：**PASS（冻结MLIC参考；先完成Stage 6B，再进入Stage 7）**。
-
-### 3.9 阶段6B：独立WEPL标定与三场景复算
-
-专项代码审计确认约`+1.4%`水偏差在`KineticEnergy → WEPL`转换中已经存在，
-并非pairs配对、3σ过滤、MLP路径、DDB或OS-SART实现造成。为避免用测试图像
-经验缩放，Stage 6B新增30--230 MeV、84个独立水板工况，并在仿真前固定
-训练、验证和测试能量。
-
-锁定测试平均/最大绝对相对偏差为`0.0461%/0.1657%`，通过预注册的
-`0.2%/0.5%`门槛。使用冻结模型复算后，S2/S3水区均值为
-`0.999641/0.999635`，均通过`1.000±0.003`门控。
-
-三种经典场景的主要变化为：
-
-- S1水区均值由`1.013979`降至`0.999733`；
-- S4大材料柱MLIC-MAPE由`1.1987%`降至`0.2551%`；
-- S5平均fMTF50/fMTF10分别提高`1.69%/5.07%`，没有分辨率代价；
-- S1的5 mm铝平台相对MLIC仍低`1.307%`，表明小目标和材料相关误差仍需单独
-  研究，不能再归因于统一水尺度。
-
-结果：**PASS（PROMOTE_G4_WATER_CALIBRATED）**。阶段7/8正式定量评价使用
-冻结的新模型；`bb78`保留为历史复现接口。
-
-### 3.10 阶段7：Air、四层硅跟踪器与参数化数字化
-
-阶段7固定阶段4重建参数和阶段6B WEPL模型，直接处理D1的720组六平面ROOT。
-8套配置先以10%质子、3 epoch筛选，再对理想参考面、四层连续硅hit和
-`0.2 mm`位置加`1%`出射能量噪声执行全量5 epoch重建。
-
-| 配置 | 水均值 | 水标准差 | 模体RMSE | 铝平台RSP | 中位CNR |
-|---|---:|---:|---:|---:|---:|
-| 理想参考面 | 0.999447 | 0.001826 | 0.039868 | 2.069840 | 551.14 |
-| 四层连续硅hit | 0.999407 | 0.001888 | 0.040748 | 2.070807 | 516.90 |
-| 0.2 mm位置 + 1%能量噪声 | 0.999739 | 0.002594 | 0.056903 | 2.044424 | 371.80 |
-
-连续硅hit相对理想参考只使水标准差增加`3.41%`、RMSE增加`2.21%`，铝平台变化
-`0.047%`，说明物理硅散射、四层直线拟合和跟踪接受率没有使当前算法失效。
-参数化位置与能量噪声组合使RMSE增加`42.73%`、CNR降低`32.54%`，显示现实读出
-精度会成为主要限制。
-
-这个结果不是完整物理能量探测器结论：D1仍使用理想出口能量，所谓1%能量噪声
-是离线加到出射能量的高斯扰动，而且该配置同时包含0.2 mm hit位置噪声。阶段7
-因此回答了“冻结算法在物理硅hit下是否稳定”，并给出了数字化灵敏度边界，但
-尚未覆盖响应非线性、效率、堆积和电子学噪声。
-
-结果：**PASS（D1_DETECTOR_EFFECTS_CHARACTERIZED）**。阶段8可以启动；阶段7
-不替换阶段4算法，也不改变阶段6B WEPL模型。
-
----
-
-## 4. 当前最优算法和复用接口
-
-![当前冻结算法](report/research_stages_summary/assets/current_summary/best_pipeline.png)
-
-### 4.1 算法定义
-
-当前最优算法是阶段4冻结的二维list-mode重建：
-
-\[
-b_p = \sum_j a_{pj}x_j+\varepsilon_p ,
-\]
-
-其中\(b_p\)是单质子WEPL，\(a_{pj}\)由Schulte水MLP以0.1 mm步长离散并通过
-四邻域双线性权重形成。每个子集采用OS-SART更新：
-
-\[
-x^{k+1}=
-\mathcal P_{\Omega,+}
-\left[
-x^k+\lambda_k
-\frac{A_s^\mathrm TD_r^{-1}(b_s-A_sx^k)}
-     {A_s^\mathrm T\mathbf1}
-\right],
-\qquad
-\lambda_k=\frac{0.25}{1+0.2k},
-\]
-
-再求解Huber-TV近端问题：
-
-\[
-\operatorname{prox}_{\beta R}(f)=
-\arg\min_{u\in\Omega,u\ge0}
-\frac12\|u-f\|_2^2+
-0.0125\sum_j\phi_{0.002}(|\nabla u_j|).
-\]
-
-它不是阶段6的TGV，也不是非均匀MLP。
-
-### 4.2 三种经典场景下的实际效果
-
-下图统一展示阶段4冻结算法结合阶段6B新WEPL标定后，在三种经典二维场景中的
-正式结果。S1使用与
-results0716相同的25根铝柱几何，但采用Air外部介质和论文通量；S4评价多材料
-定量；S5评价线对和多方向斜边。真值图已经将材料平台替换为阶段6A冻结的
-200 MeV高统计MLIC-RSP，重建图为阶段6B重新计算WEPL、DDB初值并完成5轮
-list-mode迭代后的输出。
-
-![三种经典场景的MLIC真值、阶段4重建和误差](report/research_stages_summary/assets/current_summary/classic_scenario_results.png)
-
-三组结果使用相同的冻结重建参数：局部3σ过滤、等权数据、水Schulte MLP、
-`0.1 mm`网格和路径步长、18子集、5 epoch、`λ0=0.25`、衰减0.2、
-quadratic数据损失及固定`β=0.0125` Huber-TV；唯一物理变化是采用独立冻结的
-`g4_water_calibrated`射程表。下列指标均来自实际重建，而非示意图估读。
-
-#### S1：25根铝柱
-
-| 指标 | 阶段6B标定后 |
-|---|---:|
-| 水区RSP均值 | 0.999733 |
-| 水区RSP标准差 | 0.002043 |
-| 水区相对MLIC Water偏差 | −0.0013% |
-| 铝柱平台RSP | 2.067138 |
-| 铝柱相对MLIC误差 | −1.307% |
+| 水区均值 / 标准差 | 0.999733 / 0.002043 |
+| 水相对MLIC偏差 | −0.0013% |
+| 铝平台RSP | 2.067138 |
+| 铝相对MLIC误差 | −1.307% |
 | 铝柱中位CNR | 519.59 |
 
-水平台偏差已经消除，但5 mm铝柱相对MLIC参考`2.094511`仍低约1.31%。因此
-此前水与材料共同偏高的统一尺度问题已经解决，当前剩余误差更集中于材料相关
-阻止本领、降能历史、部分容积和外围小柱几何。
+水尺度已消除，剩余铝偏差主要集中在5 mm小目标，包含材料相关阻止本领、部分
+容积和边缘响应，不再是统一水标定问题。
 
-#### S4：多材料模体
+### 5.3 S4：多材料模体
 
-| 指标 | 阶段6B标定后 |
+| 指标 | 结果 |
 |---|---:|
-| 水区RSP均值 | 0.999636 |
-| 水区RSP标准差 | 0.011442 |
-| 非Air材料MLIC-MAPE | 0.4408% |
-| 仅15 mm大柱MLIC-MAPE | 0.2551% |
+| 水区均值 / 标准差 | 0.999636 / 0.011442 |
+| 15 mm大柱MLIC-MAPE | 0.2551% |
+| 全部非Air MAPE | 0.4408% |
 | 最大单插入物APE | 2.6693% |
 
-15 mm大柱MAPE相对阶段4的`1.1987%`改善78.7%，说明旧水射程标定是此前
-大平台多材料误差的主要共同来源。最大误差来自中心5 mm铝柱，其评价同时受到
-部分容积影响，不能与15 mm材料平台等同解释。
+最大误差来自中心5 mm铝柱，不能与15 mm材料平台直接比较。大材料柱结果说明
+当前二维链的材料定量上限较好，小目标恢复仍是主要短板。
 
-#### S5：线对与多方向斜边
+### 5.4 S5：线对与多方向斜边
 
-| 指标 | 阶段6B标定后 |
+| 指标 | 结果 |
 |---|---:|
-| 水区RSP均值 | 0.999666 |
-| 水区RSP标准差 | 0.008356 |
+| 水区均值 / 标准差 | 0.999666 / 0.008356 |
 | 平均fMTF50 | 0.5003 lp/mm |
 | 平均fMTF10 | 1.1733 lp/mm |
 
-相对阶段4，fMTF50和fMTF10分别提高1.69%和5.07%，说明标定没有以牺牲空间
-分辨率为代价。三种场景共同说明：统一水尺度偏差已解决，大材料平台达到约
-0.26% MAPE；当前主要短板转为5 mm及更小目标的部分容积、材料相关残差，以及
-尚未加入真实探测器效应。
+独立WEPL标定和五轮迭代没有牺牲空间分辨率。0.5 mm线对接近当前可见极限，
+但该结果仍来自二维理想能量测量。
 
-固定水偏差的专项代码审计此前确认：S2原始pairs、3σ过滤后pairs、Schulte
-MLP路径归一化、解析重建和阶段4迭代均得到约`1.0134--1.0143`的水比例。偏差
-在进入重建器前已经存在，来源是当前简化Bethe--Bloch水射程LUT与Geant4输运的
-标定失配，不是OS-SART或MLP实现错误。阶段6B的独立标定和复算已经以实验方式
-验证了该诊断。完整证据见
-[固定水平台偏差专项审计](research_stages/stage6a_mlic_reference/qc/reconstruction_bias_audit.md)。
-
-### 4.3 对新数据的稳定入口
+### 5.5 稳定复用入口
 
 ```bash
 .venv-gate/bin/python \
@@ -488,167 +368,111 @@ MLP路径归一化、解析重建和阶段4迭代均得到约`1.0134--1.0143`的
   --runs 720 --angle-step-deg 0.5 --device 0
 ```
 
-冻结配置位于
-[`best_reconstruction_config.json`](iterative_reconstruction/best_reconstruction_config.json)。
-入口允许调整新几何必需的投影数、角度间隔、支撑半径、网格和batch size，但不会
-悄悄改变阶段4冻结的5 epoch、18子集、松弛调度和Huber-TV参数。
-
-上例适用于Vacuum或已完成外部介质校正的数据。若参考面与水圆柱之间是Air，应
-额外指定阶段1标定的
-`--air-wepl-slope 0.00114710`；程序按入口/出口方向计算圆柱外路径长度后扣除
-对应WEPL。
-
-输入必须已经完成primary-only配对和局部3σ过滤。通用入口默认跳过实验特定真值
-指标，所有质子用于最终重建；参数开发时仍应重新建立训练/验证/测试划分，不能
-用这个部署入口在测试集上反复调参。
+Air场景需要额外指定Stage 1冻结的Air WEPL斜率；新几何可以调整角度、支撑半径、
+网格和batch size，但不得悄悄改变已经冻结的科学参数。
 
 ---
 
-## 5. 与论文和产品相比处于什么水平
+## 6. 外部性能定位
 
 ![外部性能定位](report/research_stages_summary/assets/current_summary/benchmark_context.png)
 
-### 5.1 RSP准确性
-
 | 系统/研究 | 场景 | RSP结果 | 空间分辨率 |
 |---|---|---:|---:|
-| 当前项目阶段6B | 理想二维S4仿真，高统计MLIC参考 | 大柱MAPE 0.2551%；全部非Air 0.4408% | S5 fMTF10 1.1733 lp/mm |
-| Phase-II原型 | 真实探测器、材料模体 | 全部MAPE 1.14%；排除sinus为0.72% | fMTF10 0.61 lp/mm |
-| ProtonVDA原型 | 真实探测器、材料模体 | 全部MAPE 0.81%；排除sinus为0.72% | fMTF10 0.46 lp/mm |
-| 2024 pCT对比 | 塑料模体 | MAPE `0.28±0.07%` | 约0.54 lp/mm |
+| 本项目Stage 6B | 高统计理想二维S4/S5 | 大柱MAPE 0.2551%；全部非Air 0.4408% | fMTF10 1.1733 lp/mm |
+| Phase-II原型 | 真实探测器材料模体 | 全材料MAPE约1.14% | fMTF10约0.61 lp/mm |
+| ProtonVDA原型 | 真实探测器材料模体 | 全材料MAPE约0.81% | fMTF10约0.46 lp/mm |
+| 2024 pCT/DECT/PCCT对比 | 塑料及离体模体 | pCT塑料MAPE约0.28% | 约0.54 lp/mm |
 
-Phase-II和ProtonVDA的直接对比来自
-[Dedes等，Medical Physics 2022](https://doi.org/10.1002/mp.15657)；2024年的
-pCT/DECT/PCCT对比来自
-[Phys Med Biol](https://pubmed.ncbi.nlm.nih.gov/39159669/)。
+本项目理想二维大材料柱MAPE数值优秀，但不构成对真实原型的直接超越：本项目
+仍缺少物理能量探测器、效率、堆积、剂量和可靠三维材料恢复。Stage 7说明硅hit
+本身影响较小，但位置与能量数字化能显著改变结果；Stage 8则证明二维优势尚未
+成功迁移到三维。
 
-当前理想二维S4大材料柱MAPE已达到约0.26%，数值上接近2024塑料模体研究，
-并优于上述真实原型的整体MAPE。但这还不能称为对真实系统的突破：当前没有
-物理能量探测器、效率、剂量和完整三维散射，材料集合及ROI定义也不同。阶段7
-已表明连续四层硅hit本身仅使RMSE增加约2.21%，但0.2 mm位置与1%参数化能量
-噪声组合可使RMSE增加42.73%。S5分辨率仍来自二维理想测量，不能直接外推到
-真实三维系统。
+截至当前公开文献，pCT已有多套科研或面向商业化的原型，但尚未像临床xCT一样
+形成广泛部署、统一验收和常规临床工作流。商业可用的DirectSPR等产品属于
+DECT到SPR的软件链，不是直接质子CT。
 
-### 5.2 商业与临床现实
-
-截至2024年的探测器综述指出，pCT尚未进入常规临床使用，少数原型仍普遍存在
-速度、孔径和易用性限制
-（[Johnson, Phys Med Biol 2024](https://doi.org/10.1088/1361-6560/ad42fc)）。
-2025年的在线自适应质子治疗综述同样指出临床pCT系统尚不可用
-（[Frontiers in Oncology 2025](https://doi.org/10.3389/fonc.2025.1660605)）。
-
-当前真正商业可用的是基于双能X射线CT生成SPR图的软件，例如Siemens
-[DirectSPR](https://www.siemens-healthineers.com/en-sa/radiotherapy/particle-therapy)。
-它是DECT材料分解和SPR预测，不是直接质子CT。ProtonVDA在论文中称为
-“commercially oriented prototype”，也不等同于已广泛临床部署的商业CT产品。
-
-### 5.3 当前项目的客观定位
-
-| 方面 | 当前水平 |
-|---|---|
-| 物理与算法正确性 | 已形成可复现、带数据划分和科学门控的二维研究平台 |
-| 理想场景RSP定量 | 大材料柱约0.26% MAPE，达到优秀仿真水平；尚未在真实探测器条件验证 |
-| 理想场景空间分辨率 | 数值优秀，但缺少真实探测器条件，不能外推 |
-| 噪声与剂量 | 有图像标准差，无mGy剂量，不能做临床效率比较 |
-| 采集真实性 | D1四层物理硅hit已验证；物理能量探测器、效率和堆积尚未覆盖 |
-| 维度 | 二维；尚未验证出平面散射和三维系统矩阵 |
-| 临床成熟度 | 算法研究原型，距离产品仍有明显硬件、标定和工程差距 |
-
-因此目前最合理的表述是：**已经达到有纪律的算法研究基线，但尚未达到真实pCT
-原型的综合性能证据，更不属于商业产品水平。**
+客观定位是：**已经形成具有独立标定、锁定测试和负结果记录的二维算法研究平台；
+理想二维定量达到优秀水平，但真实能量探测器和三维定量仍未通过。**
 
 ---
 
-## 6. 后续算法备忘录与阶段8冻结项
+## 7. 数据、代码和存储状态
 
-阶段6B已经晋升新WEPL模型，阶段7也已完成并通过；阶段8的物理标定和二维探测器
-门控已经解除。
-以下方向继续作为备忘录，排序表示当前研究价值：
+### 7.1 代码职责
 
-| 优先级 | 方向 | 当前判断与启动条件 |
-|---:|---|---|
-| 1 | 可标定WEPL不确定度与能量似然 | Stage 7证明噪声组合会显著退化图像，但D1仍无物理能量探测器；等待独立响应标定后启动，不能直接复用离线高斯噪声 |
-| 2 | CNN/U-Net、物理展开网络和3D Gaussian | 放在阶段8之后探索；现有数据足以做可行性研究，但若要证明跨模体和跨探测器泛化，仍需扩展训练分布 |
-| 3 | 交替非均匀MLP | 阶段5的真值材料路径上限未通过门槛，当前200 MeV场景收益概率低；仅在厚骨、低能量或真实轨迹显示明显水MLP失配时重启 |
-| 4 | 显式最小二乘目标与停止准则 | 有利于严格定义收敛、步长和停止条件，但预计不会显著改善当前图像指标 |
-| 5 | 多分辨率与算子工程 | 主要减少三维重建时间和显存，不改变当前物理模型；在阶段8出现算力瓶颈时启动 |
-| 6 | DDB分箱、边界延拓和解析伪影修正 | 只影响解析结果和迭代初值，后续list-mode迭代不使用DDB数据项，预期收益最低 |
-
-第1项应从能量测量误差传播到单质子WEPL方差，并用独立标定数据检查标准化残差，
-而不是重复阶段3未经标定的经验逆方差权重。第2项中，CNN/U-Net更适合作为
-图像先验或后处理，物理展开网络可以保留投影算子约束；3D Gaussian用于pCT仍属
-探索性方向，首先需要定义其与WEPL线积分和MLP路径的一致前向模型。
-
-第4项可以复用当前GPU前投影器，构造带预条件、线搜索和验证停止的最小二乘方法。
-其主要价值是收敛严谨性和可解释性，不应预设它会解决约1.2%的材料系统误差。
-第5、6项分别属于工程优化和解析支线，均不得占用阶段7–8的近期关键路径。
-
-### 6.1 阶段8之前冻结的内容
-
-| 内容 | 决定 |
+| 目录 | 职责 |
 |---|---|
-| 过滤 | 局部3σ |
-| 数据权重 | 等权 |
-| 路径 | 水Schulte MLP |
-| 迭代 | 阶段4五轮配置 |
-| 先验 | 固定Huber-TV |
-| 真值口径 | 高统计200 MeV MLIC为外部主口径；固定RSP保留历史；有效RSP用于内部物理解释 |
-| WEPL模型 | `g4_water_calibrated`用于阶段7/8正式评价；`bb78`仅用于历史复现 |
-| 测试纪律 | D1和3D数据不得用于重新选择阶段3–6参数 |
+| `pct2d_reconstruction/preprocessing/` | 正式二维配对、过滤和DDB生成 |
+| `analytic_reconstruction/` | no-Hann MLP-DDB-FDK |
+| `iterative_reconstruction/` | 正式二维GPU list-mode迭代与最佳入口 |
+| `evaluation/` | results0716冻结评价 |
+| `research_stages/` | Stage 1--7C研究性代码、QC和阶段总结 |
+| `pct3d_reconstruction/` | Stage 8独立三维工程 |
+| `data/` | 大型活动数据和检查点，不进入Git |
 
-Stage 6B只替换能量到WEPL的物理标定，不重新选择阶段3--6参数；Stage 7同样
-没有利用D1重新调参。阶段8的首要价值不是继续调出更好看的图，而是检验这套
-冻结算法遇到出平面散射和三维系统矩阵后会退化多少。
+### 7.2 冷归档
+
+`results0716`、S2/S3、真实轨迹pilot和更早test数据已进入第一批冷归档。结构、
+原始路径、文件数和恢复方法见
+[`archive_batch1_20260730_record.md`](archive_batch1_20260730_record.md)。恢复时应
+回到清单记录的原路径，不修改实验配置指向。
+
+当前WSL虚拟磁盘位于O盘，空间有限；E盘移动硬盘目前断开。Stage 8活动数据仍需
+保留用于诊断。任何再次全量重建前应同时检查：WSL内可用空间、O盘宿主可用空间、
+外部ROOT挂载状态和预计检查点增量。
 
 ---
 
-## 7. 结论
+## 8. 当前结论与下一步
 
-阶段0–7已经建立了一条包含探测器效应的二维pCT证据链：
+当前正式成果是二维链，而不是首轮三维结果。二维方面已经完成独立WEPL标定、
+MLIC真值、经典三场景重建、探测器敏感性和通量下限研究；继续在同一理想数据上
+微调TV、权重或MLP的优先级很低。
 
-- S1–S6把Air、边界、材料、分辨率和能量口径分开；
-- 真实轨迹pilot直接检验MLP，而不是用图像好坏间接猜测；
-- 所有算法候选经过训练/验证/测试纪律和预注册门槛；
-- 负结果被保留，避免无限增加复杂度；
-- 阶段4形成了可直接应用到新二维数据的冻结重建入口。
-- 阶段7证明连续四层硅hit下算法仍稳定，并量化了位置/能量数字化的退化边界。
+下一步首先诊断Stage 8：常数圆柱和单球闭环、任意角坐标、有限圆柱求交、轴向
+路径覆盖、三线性列权重和收敛性。只有材料平台恢复到可解释水平后，才冻结可靠
+体素基线并启动3D Gaussian。详细顺序见
+[`future_research_plan.md`](future_research_plan.md)。
 
-当前最优配置在理想二维仿真中将水均值控制到约`0.9996--0.9997`，S4大材料柱
-MLIC-MAPE降至`0.255%`，同时保持约`0.50 lp/mm`的平均fMTF50。这已经显著
-改善了物理定量基线，但仍不能等同于先进真实原型，因为能量记录、效率和剂量
-仍未真实建模。下一步进入紧凑三维重建，而不是继续在同一
-理想数据上微调TV或MLP。
+---
 
-## 参考与本地证据
+## 本地正式证据
 
-配套图可以只读复现，不会重新运行蒙卡、预处理或GPU重建：
-
-```bash
-.venv-gate/bin/python \
-  pct2d_reconstruction/report/build_current_research_assets.py
-```
-
-### 本地正式结果
-
-- [阶段0基线](evaluation/baselines/results0716/baseline_summary.md)
-- [阶段1材料能量标定](research_stages/stage1_material_calibration/qc/results0717_s6_material_energy_scan/stage1_summary.md)
-- [阶段2诊断模体](research_stages/stage2_diagnostic_phantoms/qc/stage2_summary.md)
-- [阶段3稳健过滤与权重](research_stages/stage3_robust_weighting/qc/stage3_summary.md)
-- [阶段4迭代优化](research_stages/stage4_iterative_optimization/qc/stage4_summary.md)
-- [阶段5非均匀MLP](research_stages/stage5_inhomogeneous_mlp/qc/stage5_summary.md)
-- [阶段6高级先验](research_stages/stage6_advanced_priors/qc/stage6_summary.md)
-- [阶段6A虚拟MLIC参考](research_stages/stage6a_mlic_reference/qc/stage6a_summary.md)
-- [阶段6B独立WEPL标定](research_stages/stage6b_wepl_calibration/qc/stage6b_summary.md)
-- [阶段7硅跟踪器与数字化](research_stages/stage7_detector_effects/qc/stage7_summary.md)
-- [详细重建原理](reconstruction_principles.md)
+- [Stage 0冻结基线](evaluation/baselines/results0716/baseline_summary.md)
+- [Stage 1材料能量分析](research_stages/stage1_material_calibration/qc/results0717_s6_material_energy_scan/stage1_summary.md)
+- [Stage 2诊断模体](research_stages/stage2_diagnostic_phantoms/qc/stage2_summary.md)
+- [Stage 3稳健过滤与权重](research_stages/stage3_robust_weighting/qc/stage3_summary.md)
+- [Stage 4迭代优化](research_stages/stage4_iterative_optimization/qc/stage4_summary.md)
+- [Stage 5非均匀MLP](research_stages/stage5_inhomogeneous_mlp/qc/stage5_summary.md)
+- [Stage 6高级先验](research_stages/stage6_advanced_priors/qc/stage6_summary.md)
+- [Stage 6A虚拟MLIC](research_stages/stage6a_mlic_reference/qc/stage6a_summary.md)
+- [Stage 6B独立WEPL标定](research_stages/stage6b_wepl_calibration/qc/stage6b_summary.md)
+- [Stage 7探测器效应](research_stages/stage7_detector_effects/qc/stage7_summary.md)
+- [Stage 7B噪声鲁棒性](research_stages/stage7b_noise_robustness/qc/stage7b_summary.md)
+- [Stage 7C通量敏感性](research_stages/stage7c_fluence_sensitivity/qc/stage7c_summary.md)
+- [Stage 8三维首轮结果](../pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8_summary.md)
+- [重建原理](reconstruction_principles.md)
 - [外部性能基准调研](pct_performance_benchmarks.md)
 
-### 主要外部来源
+## 主要外部来源
 
-1. [Dedes et al., Comparative accuracy and resolution assessment of two prototype pCT scanners, Medical Physics, 2022](https://doi.org/10.1002/mp.15657)
-2. [A direct comparison of multi-energy x-ray and proton CT, Phys Med Biol, 2024](https://pubmed.ncbi.nlm.nih.gov/39159669/)
-3. [Johnson, Meeting the detector challenges for pre-clinical proton and ion CT, Phys Med Biol, 2024](https://doi.org/10.1088/1361-6560/ad42fc)
-4. [Brooke and Penfold, An inhomogeneous MLP formalism, Physica Medica, 2020](https://doi.org/10.1016/j.ejmp.2020.01.025)
-5. [Schultze et al., An Iterative Least Squares Method for Proton CT](https://arxiv.org/abs/2009.14263)
-6. [Rit et al., Filtered backprojection pCT along MLPs](https://pubmed.ncbi.nlm.nih.gov/23464283/)
-7. [Siemens Healthineers DirectSPR](https://www.siemens-healthineers.com/en-sa/radiotherapy/particle-therapy)
+1. Dedes G, et al. *Comparative accuracy and resolution assessment of two
+   prototype proton computed tomography scanners*. Medical Physics, 2022.
+   [DOI](https://doi.org/10.1002/mp.15657)
+2. Fogazzi E, et al. *A direct comparison of multi-energy x-ray and proton CT
+   for imaging and relative stopping power estimation of plastic and ex-vivo
+   phantoms*. Physics in Medicine and Biology, 2024.
+   [PubMed](https://pubmed.ncbi.nlm.nih.gov/39159669/)
+3. Johnson RP. *Meeting the detector challenges for pre-clinical proton and
+   ion CT*. Physics in Medicine and Biology, 2024.
+   [DOI](https://doi.org/10.1088/1361-6560/ad42fc)
+4. Schulte RW, et al. *A maximum likelihood proton path formalism for
+   application in proton computed tomography*. Medical Physics, 2008.
+5. Brooke M, Penfold S. *An inhomogeneous most likely path formalism for
+   proton computed tomography*. Physica Medica, 2020.
+   [DOI](https://doi.org/10.1016/j.ejmp.2020.01.025)
+6. Rit S, et al. *Filtered backprojection proton CT reconstruction along most
+   likely paths*. Medical Physics, 2013.
+   [PubMed](https://pubmed.ncbi.nlm.nih.gov/23464283/)

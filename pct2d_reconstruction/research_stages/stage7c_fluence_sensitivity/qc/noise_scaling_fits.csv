@@ -1,0 +1,4 @@
+condition,c,alpha,sigma_floor,r_squared,full_fit_reliable,stable_range_min_fraction,stable_range_alpha,interpretation
+ideal_reference,0.0008267073116497507,1.999999999999721,1.9161344049058308e-28,0.9864962407088967,False,0.25,0.766966898412384,10% point enters nonlinear reconstruction breakdown; bounded four-point fit is not a physical noise exponent
+continuous_hits,0.0008885001229251235,1.9999999999999998,8.932384054064438e-36,0.9861686236880686,False,0.25,0.7796418807096878,10% point enters nonlinear reconstruction breakdown; bounded four-point fit is not a physical noise exponent
+combined_0p2mm_1pct,0.0010187002829595857,1.999999999999879,1.9993457534969635e-35,0.9909253806986837,False,0.25,0.8518924077343922,10% point enters nonlinear reconstruction breakdown; bounded four-point fit is not a physical noise exponent

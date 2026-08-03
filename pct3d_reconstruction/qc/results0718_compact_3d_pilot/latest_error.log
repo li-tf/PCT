@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/ltf/project/github/PCT/pct3d_reconstruction/run_stage8.py", line 963, in <module>
+    main()
+  File "/home/ltf/project/github/PCT/pct3d_reconstruction/run_stage8.py", line 956, in main
+    confirm(config, args.device, args.force)
+  File "/home/ltf/project/github/PCT/pct3d_reconstruction/run_stage8.py", line 668, in confirm
+    epoch = choose_epoch(config, summary)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ltf/project/github/PCT/pct3d_reconstruction/run_stage8.py", line 627, in choose_epoch
+    winner = eligible[0]
+             ~~~~~~~~^^^
+IndexError: list index out of range

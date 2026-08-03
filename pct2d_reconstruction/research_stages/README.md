@@ -15,7 +15,9 @@ research_stages/
 ├── stage6a_mlic_reference/         虚拟MLIC真值与双口径重评（PASS）
 ├── stage6b_wepl_calibration/       独立WEPL标定与三场景复算（PASS，模型晋升）
 ├── stage7_detector_effects/        D1 Air/硅跟踪器与离线数字化（PASS）
-└── stage8_compact_3d/              compact-3D输入与标定门控（READY）
+├── stage7b_noise_robustness/       D1位置/能量噪声鲁棒重建（PASS，保留等权）
+├── stage7c_fluence_sensitivity/    D1嵌套有效质子通量敏感性（PASS）
+└── stage8_compact_3d/              历史阶段编号；正式代码已迁至根目录pct3d_reconstruction
 ```
 
 每个阶段使用一个统一入口，并将该阶段的完整性检查直接集成在计算流程中，不再
@@ -23,7 +25,7 @@ research_stages/
 
 ## 当前数据状态
 
-截至2026-07-30，阶段代码、QC、图表和总结均保留在本目录。为给Stage 8三维
+截至2026-08-03，阶段代码、QC、图表和总结均保留在本目录。为给Stage 8三维
 重建腾出本地空间，results0716、S2、S3、MLP truth pilot及S6材料能量扫描的
 大型数据已经迁入第一批冷归档；S1、S4、S5的Stage 6B正式三场景结果和Stage 7
 正式结果仍在本地。归档相对路径、文件数量和校验信息见
@@ -75,7 +77,26 @@ Water/Aluminium MLIC-RSP分别为`0.999746/2.094511`。results0716迭代铝平�
 物理能量探测器，该结果仅为离线参数化灵敏度分析。完整结果见
 `stage7_detector_effects/qc/stage7_summary.md`。
 
-后续主线依次为Stage 7B D1噪声稳健重建、Stage 7C通量敏感性、Stage 8
-compact-3D体素重建和Stage 9单场景3D Gaussian可行性。Stage 7B/7C复用现有
-D1数据，无需新增蒙卡；compact-3D原始ROOT当前保存在外部存储，正式运行前需
-挂载并通过Stage 8 preflight。
+Stage 7B已完成。第一批从D1六平面ROOT按`(RunID, EventID)`在过滤前固定
+80/10/10划分，完成噪声源分离、训练集噪声标定和10%候选筛选。解析逆方差、
+经验逆方差、Huber及其组合均未改善等权quadratic基线；程序按预注册门槛跳过
+80%正式双重建和锁定测试，测试集始终未打开。最终决定为`NO_PROMOTION`，
+继续使用阶段4等权数据项。完整结果见
+`stage7b_noise_robustness/qc/stage7b_summary.md`。
+
+Stage 7C已完成单命令、可断点续跑全流程。它复用Stage 7的100%正式结果，在
+局部3σ过滤后按`(RunID, EventID)`构造严格嵌套的50%、25%和10%子集，完整比较
+理想参考面、连续硅hit和0.2 mm位置加1%出射能量噪声。组合噪声的25%和10%
+另做两个抽样种子复核。所有通量使用阶段4冻结参数及各自的DDB-FDK初值；D1
+没有DoseActor，因此只报告通量而不换算mGy。三种测量条件的推荐最低有效通量
+均为25%，即`225 protons/mm²/projection`；10%均进入明显重建失稳。完整结果见
+`stage7c_fluence_sensitivity/qc/stage7c_summary.md`。
+
+Stage 8已在仓库根目录独立工程`pct3d_reconstruction/`完成首轮正式运行。三维
+数据处理、CPU/CUDA MLP一致性和严格伴随算子通过，但10--14 mm材料球MAPE为
+`37.03%`、6 mm铝球误差为`−29.71%`且Air球未恢复。当前状态为
+`PIPELINE PASS / PERFORMANCE FAIL`，Stage 9暂缓。Stage 8正式总结位于
+`../../pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8_summary.md`。
+
+跨阶段最新结论统一见[`../current_research_summary.md`](../current_research_summary.md)；
+未来计划只维护目标、当前基线和下一步优先级，不再重复阶段历史。

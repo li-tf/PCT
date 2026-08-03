@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "winner_beta": 0.0,
+  "candidates": [
+    {
+      "beta": 0.0,
+      "validation_wepl_rmse_mm": 2.0154836192551233,
+      "material_mape_percent": 37.05202489649364,
+      "edge_width_mm": 1.350768506526947,
+      "phantom_rmse": 0.05345563963055611,
+      "eligible": true
+    },
+    {
+      "beta": 0.003,
+      "validation_wepl_rmse_mm": 2.017620811626457,
+      "material_mape_percent": 37.3290902793106,
+      "edge_width_mm": 1.3532778471708298,
+      "phantom_rmse": 0.05266602709889412,
+      "eligible": false
+    },
+    {
+      "beta": 0.006,
+      "validation_wepl_rmse_mm": 2.0201837931321465,
+      "material_mape_percent": 37.620637183140964,
+      "edge_width_mm": 1.3417464047670364,
+      "phantom_rmse": 0.05205751955509186,
+      "eligible": false
+    },
+    {
+      "beta": 0.0125,
+      "validation_wepl_rmse_mm": 2.026789042683303,
+      "material_mape_percent": 38.256303844284126,
+      "edge_width_mm": 1.0344600677490234,
+      "phantom_rmse": 0.05097323656082153,
+      "eligible": false
+    }
+  ],
+  "selection_fallback": null,
+  "test_partition_opened": false
+}

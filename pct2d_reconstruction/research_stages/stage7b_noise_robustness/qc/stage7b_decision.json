@@ -1,0 +1,6 @@
+{
+  "status": "NO_PROMOTION",
+  "winner": "equal_quadratic",
+  "reason": "No robust candidate passed the primary screen gate; multi-seed and locked-test confirmation were not opened.",
+  "test_partition_opened": false
+}

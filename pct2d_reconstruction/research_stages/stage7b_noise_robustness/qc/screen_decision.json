@@ -1,0 +1,14 @@
+{
+  "status": "NO_PROMOTION",
+  "winner": "equal_quadratic",
+  "winner_config": {
+    "name": "equal_quadratic",
+    "weight": "equal",
+    "huber_z": null
+  },
+  "provisional_winner": "equal_quadratic",
+  "seed_gate_pass": false,
+  "seed_details": [],
+  "test_partition_opened": false,
+  "next_action": "no robust candidate passed; confirm will finalize a negative result"
+}

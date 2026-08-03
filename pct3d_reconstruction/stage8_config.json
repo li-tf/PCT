@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "experiment": "results0718_compact_3d_pilot",
+  "raw_root_default": "/mnt/f/临时/results0718_compact_3d_pilot",
+  "simulation_config": "pct2d_reconstruction/simulation/windows_compact_3d_pilot_0718/simulation_config.json",
+  "wepl_model": "pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json",
+  "wepl_gate": "pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/test_summary.json",
+  "mlic_reference": "pct2d_reconstruction/research_stages/stage6a_mlic_reference/qc/mlic_reference_200mev.csv",
+  "preprocessing_output": "data/preprocessing_data/results0718_compact_3d_pilot/stage8",
+  "reconstruction_output": "data/reconstruction_data/results0718_compact_3d_pilot/stage8",
+  "runs": 360,
+  "angle_step_deg": 1.0,
+  "required_root": ["PhaseSpaceIn.root", "PhaseSpaceOut.root"],
+  "reference_z_mm": [-60.0, 60.0],
+  "phantom_radius_mm": 50.0,
+  "phantom_half_length_y_mm": 15.0,
+  "air_wepl_slope_mm_per_mm": 0.0011471876206752695,
+  "minimum_local_free_gib": 180,
+  "wsl_backing_mount": "/mnt/o",
+  "minimum_host_backing_free_gib": 40,
+  "minimum_host_backing_free_without_root_cache_gib": 160,
+  "split": {
+    "algorithm": "splitmix64-v1",
+    "seed": 20260713,
+    "train": 0.8,
+    "validation": 0.1,
+    "test": 0.1,
+    "screen_train_fraction": 0.1
+  },
+  "filter": {
+    "grid_origin_mm": [-59.0, -19.0],
+    "grid_spacing_mm": [2.0, 2.0],
+    "grid_size": [60, 20],
+    "energy_sigma": 3.0,
+    "angle_sigma": 3.0,
+    "minimum_train_per_bin": 32
+  },
+  "grid": {
+    "size_xyz": [240, 80, 240],
+    "spacing_xyz_mm": [0.5, 0.5, 0.5],
+    "origin_xyz_mm": [-59.75, -19.75, -59.75],
+    "path_step_mm": 0.5
+  },
+  "reconstruction": {
+    "subsets": 18,
+    "epochs": 3,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "batch_size": 1024,
+    "batch_size_fallback": 512,
+    "regularization_candidates": [0.0, 0.003, 0.006, 0.0125],
+    "huber_delta": 0.01,
+    "regularization_iterations": 40,
+    "screen_tag": "train_screen10",
+    "full_tag": "train80"
+  },
+  "selection": {
+    "validation_wepl_relative_tolerance": 0.005,
+    "material_mape_degradation_percentage_points": 0.2,
+    "edge_width_relative_tolerance": 0.05,
+    "truth_rmse_tie_relative": 0.005
+  },
+  "acceptance": {
+    "adjoint_relative_error_max": 0.00002,
+    "water_absolute_bias_max": 0.003,
+    "large_material_mape_max_percent": 1.0,
+    "aluminium_core_error_max_percent": 2.0,
+    "air_only_corrected_wepl_abs_mean_max_mm": 0.1,
+    "nonfinite_allowed": 0,
+    "support_outside_nonzero_allowed": 0
+  }
+}

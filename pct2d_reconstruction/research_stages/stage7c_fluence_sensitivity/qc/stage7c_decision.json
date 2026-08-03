@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "method": "frozen equal-quadratic Stage-4 reconstruction",
+  "recommendations": {
+    "ideal_reference": {
+      "minimum_fraction": 0.25,
+      "minimum_fluence_per_mm2_projection": 225.0
+    },
+    "continuous_hits": {
+      "minimum_fraction": 0.25,
+      "minimum_fluence_per_mm2_projection": 225.0
+    },
+    "combined_0p2mm_1pct": {
+      "minimum_fraction": 0.25,
+      "minimum_fluence_per_mm2_projection": 225.0
+    }
+  },
+  "noise_scaling": [
+    {
+      "condition": "ideal_reference",
+      "c": 0.0008267073116497507,
+      "alpha": 1.999999999999721,
+      "sigma_floor": 1.9161344049058308e-28,
+      "r_squared": 0.9864962407088967,
+      "full_fit_reliable": false,
+      "stable_range_min_fraction": 0.25,
+      "stable_range_alpha": 0.766966898412384,
+      "interpretation": "10% point enters nonlinear reconstruction breakdown; bounded four-point fit is not a physical noise exponent"
+    },
+    {
+      "condition": "continuous_hits",
+      "c": 0.0008885001229251235,
+      "alpha": 1.9999999999999998,
+      "sigma_floor": 8.932384054064438e-36,
+      "r_squared": 0.9861686236880686,
+      "full_fit_reliable": false,
+      "stable_range_min_fraction": 0.25,
+      "stable_range_alpha": 0.7796418807096878,
+      "interpretation": "10% point enters nonlinear reconstruction breakdown; bounded four-point fit is not a physical noise exponent"
+    },
+    {
+      "condition": "combined_0p2mm_1pct",
+      "c": 0.0010187002829595857,
+      "alpha": 1.999999999999879,
+      "sigma_floor": 1.9993457534969635e-35,
+      "r_squared": 0.9909253806986837,
+      "full_fit_reliable": false,
+      "stable_range_min_fraction": 0.25,
+      "stable_range_alpha": 0.8518924077343922,
+      "interpretation": "10% point enters nonlinear reconstruction breakdown; bounded four-point fit is not a physical noise exponent"
+    }
+  ],
+  "stage7b_test_partition_opened": false,
+  "dose_claim_allowed": false
+}

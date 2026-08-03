@@ -16,10 +16,12 @@
 检查点。阶段0--7均已有正式结论；阶段4在锁定测试后晋升，阶段5的真实轨迹
 上限实验和阶段6高级先验验证均未达到晋升门槛，因此继续保留阶段4水MLP与固定
 Huber-TV。阶段7证明连续硅hit下冻结算法仍稳定，并量化了离线位置/能量噪声
-边界；阶段8尚未形成正式结果。
+边界。Stage 7C和Stage 8完成后，本目录的旧综合报告不再作为最新总览；权威状态
+统一见[`../../current_research_summary.md`](../../current_research_summary.md)。
 
-当前正式结论以Stage 6B校准后的S1/S4/S5三场景结果和Stage 7三套全量结果为
-主。results0716、S2、S3、MLP truth pilot及S6原始大数据已进入第一批冷归档，
+当前二维正式结论以Stage 6B校准后的S1/S4/S5三场景、Stage 7探测器结果和
+Stage 7C通量曲线为主。Stage 8首轮三维工程链通过但材料性能失败。results0716、
+S2、S3、MLP truth pilot及S6原始大数据已进入第一批冷归档，
 但各阶段代码侧QC和本汇总均保留；恢复方法见
 [`../../archive_batch1_20260730_record.md`](../../archive_batch1_20260730_record.md)。
 最终进展汇报和总结汇报只保存在本地私有目录`report/final_presentations/`，
@@ -27,8 +29,11 @@ Huber-TV。阶段7证明连续硅hit下冻结算法仍稳定，并量化了离�
 
 后续更新原则：
 
-1. 每个阶段完成后先更新该阶段自己的`stage*_summary.md`和
-   `future_research_plan.md`；
-2. 再把正式状态、核心指标和阶段决策同步到本报告；
+1. 每个阶段完成后先更新该阶段自己的`stage*_summary.md`；
+2. 再把正式状态、核心指标和阶段决策同步到根目录
+   `current_research_summary.md`；
 3. 开发集、验证集和锁定测试结果必须明确区分；
 4. 负结果同样保留，不能只汇报胜出候选。
+
+`future_research_plan.md`只维护未来目标、当前基线和下一步优先级，不再保存
+已完成阶段的长篇工作结果。

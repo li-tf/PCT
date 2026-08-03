@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "raw_root": "/mnt/d/临时/results0718_d1_air_tracker_full",
+  "runs": 720,
+  "missing_runs": 0,
+  "first_missing": [],
+  "root_bytes": 122992430532,
+  "output_free_bytes": 724333383680,
+  "required_free_bytes": 48318382080,
+  "wepl_gate": "PASS",
+  "gpu": {
+    "status": "PASS",
+    "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "memory_bytes": 8585216000
+  }
+}

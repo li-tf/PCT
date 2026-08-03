@@ -14,10 +14,10 @@ D:\OpenGATE\windows_compact_3d_pilot_0718
 
 工作站正式仿真已于2026-07-21完成：360/360角度成功，共7.2亿个质子，12进程
 墙钟时间约13.63小时，入口/出口ROOT合计约86.37 GiB。manifest和日志已在
-`qc/full/`。大型ROOT当前保存在外部存储，尚未复制到本地`data/`；Stage 8代码
-入口已建立为READY状态，但正式三维读取、预处理和重建尚未启动。运行前应挂载
-原始ROOT并执行
-[`stage8 preflight`](../../research_stages/stage8_compact_3d/README.md)。
+`qc/full/`。大型ROOT保存在外部存储，并通过`/mnt/f/临时/`只读挂载。Stage 8
+首轮三维读取、预处理、算子筛选和全量3 epoch重建已经完成；工程链通过，但材料
+球性能未通过，不能把该pilot视为已经得到可靠三维图像。结果见
+[`Stage 8总结`](../../../pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8_summary.md)。
 
 ![Compact 3-D geometry](scene_geometry.svg)
 
@@ -128,21 +128,17 @@ voxels    = 4,608,000
 ```
 
 一个float32体积约18.4 MB。三线性路径算子使用8邻域权重，建议batch size从1024
-开始；预计GPU峰值1–3 GB。早期估计3 epoch约1–3小时仅用于资源规划，正式耗时
-应以Stage 8 smoke test和首个完整epoch的实测速率为准。
+开始。首轮完整80%训练集3 epoch重建用时约88分钟；该数字不包含ROOT审计、
+预处理、算子门控和正则化筛选，不能直接外推到修正后的再次运行。
 
 不应直接使用0.1 mm三维网格：`1200×400×1200`包含5.76亿体素，单个float32体积
 约2.3 GB，多组GPU工作数组将超过8 GB显存。
 
 ## 当前限制
 
-**现有`pct2d_reconstruction/preprocessing/`、DDB-FDK和GPU迭代程序都是二维实现，
-不能直接处理本数据。** 后续需要新增：
-
-- 三维四坐标pairs处理和过滤；
-- 三维MLP及其协方差；
-- 0.5 mm三线性正投影和严格配对转置；
-- 三维支撑域、真值和ROI评价；
-- 如需解析重建，还需建立三维DDB格式和反投影器。
+**现有`pct2d_reconstruction/`成熟入口仍是二维实现，不能处理本数据。** 三维
+pairs、双方向MLP、0.5 mm三线性前/反投影、有限圆柱支撑域和ROI评价已经在
+独立工程`pct3d_reconstruction/`实现。首轮材料恢复失败，目前需要诊断三维坐标、
+路径覆盖和收敛性，而不是回退到二维入口。
 
 本pilot不保存物体内逐step真实轨迹，也不包含D2数字化或真实探测器效应。

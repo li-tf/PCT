@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "runs": 720,
+  "elapsed_seconds": 0.3263148789999377,
+  "groups": {
+    "continuous/seed_20260713": {
+      "common_events": 256186178,
+      "physical": 256186178,
+      "accepted": 190533212,
+      "train": 152422448,
+      "validation": 19053694,
+      "test": 19057070,
+      "screen": 19052221,
+      "noise_wepl_rmse_mm": 0.0
+    },
+    "position_0p2mm/seed_20260713": {
+      "common_events": 256186178,
+      "physical": 256186178,
+      "accepted": 186235454,
+      "train": 148984465,
+      "validation": 18623332,
+      "test": 18627657,
+      "screen": 18623146,
+      "noise_wepl_rmse_mm": 0.0
+    },
+    "energy_1pct/seed_20260713": {
+      "common_events": 256186178,
+      "physical": 226040393,
+      "accepted": 177820873,
+      "train": 142253708,
+      "validation": 17783306,
+      "test": 17783859,
+      "screen": 17780322,
+      "noise_wepl_rmse_mm": 2.222005940905762
+    },
+    "combined_0p2mm_1pct/seed_20260713": {
+      "common_events": 256186178,
+      "physical": 226040393,
+      "accepted": 173758185,
+      "train": 139002842,
+      "validation": 17376945,
+      "test": 17378398,
+      "screen": 17374788,
+      "noise_wepl_rmse_mm": 2.2243504610219644
+    },
+    "combined_0p2mm_1pct/seed_20260714": {
+      "common_events": 256186178,
+      "physical": 226038448,
+      "accepted": 173759745,
+      "train": 139005113,
+      "validation": 17376939,
+      "test": 17377693,
+      "screen": 17374957,
+      "noise_wepl_rmse_mm": 2.2245189148270237
+    },
+    "combined_0p2mm_1pct/seed_20260715": {
+      "common_events": 256186178,
+      "physical": 226032015,
+      "accepted": 173754397,
+      "train": 139003619,
+      "validation": 17373905,
+      "test": 17376873,
+      "screen": 17373832,
+      "noise_wepl_rmse_mm": 2.2245337158294234
+    }
+  },
+  "split_identity": [
+    "RunID",
+    "EventID"
+  ],
+  "test_partition_opened": false
+}

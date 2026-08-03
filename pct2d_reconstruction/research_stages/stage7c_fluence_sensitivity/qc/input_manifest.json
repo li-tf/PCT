@@ -1,0 +1,7 @@
+{
+  "config_sha256": "523473095a4386f5f290a071c066460b559ecdafce2bb5d268229bb5b65c9c4c",
+  "raw_root": "/mnt/d/临时/results0718_d1_air_tracker_full",
+  "stage7_preprocessing": "/home/ltf/project/github/PCT/data/preprocessing_data/results0718_d1_air_tracker_full/stage7",
+  "runs": 720,
+  "stage7b_test_opened": false
+}

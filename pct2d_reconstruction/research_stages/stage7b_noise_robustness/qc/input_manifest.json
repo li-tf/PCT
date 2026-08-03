@@ -1,0 +1,170 @@
+{
+  "config": {
+    "version": 1,
+    "runs": 720,
+    "angle_step_deg": 0.5,
+    "reference_planes_z_mm": [
+      -110.0,
+      110.0
+    ],
+    "phantom_radius_mm": 100.0,
+    "air_wepl_slope_mm_per_mm": 0.0011471876206752695,
+    "wepl_model": "pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json",
+    "wepl_gate": "pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/test_summary.json",
+    "geometry": "data/reconstruction_data/results0716/analytic/geometry.xml",
+    "preprocessing_output": "data/preprocessing_data/results0718_d1_air_tracker_full/stage7b",
+    "reconstruction_output": "data/reconstruction_data/results0718_d1_air_tracker_full/stage7b",
+    "minimum_free_gib": 45,
+    "required_root": [
+      "PhaseSpaceIn.root",
+      "PhaseSpaceOut.root",
+      "TrackerUpstream1.root",
+      "TrackerUpstream2.root",
+      "TrackerDownstream1.root",
+      "TrackerDownstream2.root"
+    ],
+    "split": {
+      "identity": [
+        "RunID",
+        "EventID"
+      ],
+      "algorithm": "splitmix64-v1",
+      "seed": 20260713,
+      "modulus": 10,
+      "test_remainder": 0,
+      "validation_remainder": 1,
+      "screen_modulus": 8,
+      "screen_remainder": 0
+    },
+    "noise_seeds": [
+      20260713,
+      20260714,
+      20260715
+    ],
+    "noise_conditions": {
+      "continuous": {
+        "position_sigma_mm": 0.0,
+        "energy_sigma_fraction": 0.0
+      },
+      "position_0p2mm": {
+        "position_sigma_mm": 0.2,
+        "energy_sigma_fraction": 0.0
+      },
+      "energy_1pct": {
+        "position_sigma_mm": 0.0,
+        "energy_sigma_fraction": 0.01
+      },
+      "combined_0p2mm_1pct": {
+        "position_sigma_mm": 0.2,
+        "energy_sigma_fraction": 0.01
+      }
+    },
+    "filtering": {
+      "grid_size": [
+        125,
+        2
+      ],
+      "grid_spacing_mm": [
+        2.0,
+        2.0
+      ],
+      "grid_origin_mm": [
+        -124.0,
+        -1.0
+      ],
+      "source_mm": -1000.0,
+      "minimum_cell_training_rows": 128,
+      "maximum_merge_radius_cells": 2,
+      "scale_floor_fraction": 0.1,
+      "baseline_sigma_cut": 3.0,
+      "mad_cut": 3.5,
+      "mahalanobis_cut": 3.762479568122716,
+      "covariance_trim_quantile": 0.975,
+      "covariance_ridge": 0.0001
+    },
+    "noise_model": {
+      "energy_bin_width_mev": 5.0,
+      "minimum_bin_rows": 10000,
+      "minimum_sigma_mm": 0.02,
+      "calibration_ratio_range": [
+        0.8,
+        1.25
+      ],
+      "minimum_passing_deciles": 8
+    },
+    "weights": {
+      "clip": [
+        0.25,
+        4.0
+      ],
+      "minimum_effective_fraction": 0.6
+    },
+    "screen": {
+      "epochs": 3,
+      "candidates": [
+        {
+          "name": "equal_quadratic",
+          "weight": "equal",
+          "huber_z": null
+        },
+        {
+          "name": "analytic_invvar",
+          "weight": "analytic",
+          "huber_z": null
+        },
+        {
+          "name": "empirical_invvar",
+          "weight": "empirical",
+          "huber_z": null
+        },
+        {
+          "name": "huber_z1p5",
+          "weight": "equal",
+          "huber_z": 1.5
+        },
+        {
+          "name": "huber_z2p5",
+          "weight": "equal",
+          "huber_z": 2.5
+        }
+      ]
+    },
+    "reconstruction": {
+      "grid_size": 2100,
+      "grid_spacing_mm": 0.1,
+      "path_step_mm": 0.1,
+      "batch_size": 4096,
+      "subsets": 18,
+      "epochs": 5,
+      "relaxation": 0.25,
+      "relaxation_decay": 0.2,
+      "regularizer": "huber_tv",
+      "regularization_weight": 0.0125,
+      "regularization_iterations": 100,
+      "regularization_every_epochs": 1,
+      "huber_delta": 0.002,
+      "primal_step": 0.25,
+      "dual_step": 0.25
+    },
+    "selection": {
+      "screen_validation_rmse_max_degradation": 0.005,
+      "screen_p99_min_improvement": 0.03,
+      "test_ideal_wepl_rmse_min_improvement": 0.05,
+      "image_noise_or_rmse_min_improvement": 0.1,
+      "aluminium_error_max_degradation_percentage_points": 0.2,
+      "edge_width_max_relative_degradation": 0.05,
+      "seed_required_nonworse": 3,
+      "seed_required_primary_improvement": 2
+    }
+  },
+  "raw_root": "/mnt/d/临时/results0718_d1_air_tracker_full",
+  "runs": 720,
+  "source_hashes": {
+    "stage7b_config.json": "66a6bb86ef230ce24c398c6ffc93805618cfedfcbeaa5eccc94753a42f61d2b5",
+    "stage7b_data.py": "765f18819d9878f25ee4c8d0d2a9433f81e587e4843e441593e4dc16f35a3087",
+    "stage7b_gpu.py": "0ff2d6898169ff0ee7d1927f00aa3dd948f0a4f0e29e4de4c7dd7d81370a2d30",
+    "run_stage7b.py": "8e9b19fb4adf0c5713c4764f00d8fa1cfc100b694de30635acb303bf8054743b"
+  },
+  "invariant_sha256": "4427574f1497ca6ab0705b57aeb036b995b4001887fb84b6628625bff48c4b1e",
+  "test_partition_opened": false
+}

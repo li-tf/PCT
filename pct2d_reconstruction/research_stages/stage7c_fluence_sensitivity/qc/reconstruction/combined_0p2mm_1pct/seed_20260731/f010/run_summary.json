@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "started": "2026-07-31T17:48:17",
+  "stopped": "2026-07-31T18:12:28",
+  "elapsed_seconds": 1451.374335354,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "config": {
+    "method": "GPU MLP OS-SART with Huber-TV",
+    "sample_fraction": 1.0,
+    "runs": 720,
+    "subsets": 18,
+    "epochs": 5,
+    "relaxation": 0.25,
+    "relaxation_decay": 0.2,
+    "grid_size": 2100,
+    "grid_spacing_mm": 0.1,
+    "path_step_mm": 0.1,
+    "phantom_radius_mm": 100.0,
+    "batch_size": 4096,
+    "initialization": "fdk_nohann",
+    "checkpoint_every_epoch": true,
+    "progress_every_batches": 20,
+    "device": 0,
+    "regularizer": "huber_tv",
+    "regularization_weight": 0.0125,
+    "regularization_iterations": 100,
+    "regularization_every_epochs": 1,
+    "huber_delta": 0.002,
+    "primal_step": 0.25,
+    "dual_step": 0.25,
+    "seed": 20260713,
+    "angle_step_deg": 0.5,
+    "air_wepl_slope_mm_wepl_per_mm_air": 0.0,
+    "wepl_model": {
+      "name": "g4_water_calibrated",
+      "sha256": "f82aef4ee1b2f974b60e925a73be0178a60cbb43fe0bfb27360334deedcda343",
+      "source": "/home/ltf/project/github/PCT/pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json",
+      "energy_min_mev": 0.0,
+      "energy_max_mev": 230.0,
+      "samples": 2301
+    }
+  },
+  "pairs_dir": "/home/ltf/project/github/PCT/data/preprocessing_data/results0718_d1_air_tracker_full/stage7c/combined_0p2mm_1pct/seed_20260731/f010/pairs",
+  "pairs_per_epoch": 17345616,
+  "grid": {
+    "size": [
+      2100,
+      1,
+      2100
+    ],
+    "spacing_mm": [
+      0.1,
+      1.0,
+      0.1
+    ],
+    "origin_mm": [
+      -104.95,
+      0.0,
+      -104.95
+    ]
+  },
+  "finite": true,
+  "support_outside_nonzero": 0,
+  "output": "/home/ltf/project/github/PCT/data/reconstruction_data/results0718_d1_air_tracker_full/stage7c/combined_0p2mm_1pct/seed_20260731/f010/iterative/recon/recon_iterative_gpu.mhd",
+  "regularization_applications": 5,
+  "truth_metrics_skipped": true,
+  "rsp_metrics": [],
+  "experiment": "0716"
+}
