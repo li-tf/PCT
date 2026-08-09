@@ -1,0 +1,246 @@
+{
+  "document": "pct2d_reconstruction/project_overview.md",
+  "generated_at_utc": "2026-08-09T02:07:07.504196+00:00",
+  "archive_safe_default": true,
+  "mhd_panels_refreshed": false,
+  "key_metrics": {
+    "s1_water_mean": 0.9997331500053406,
+    "s1_al_error": -1.3068903638907732,
+    "s4_large_mape": 0.2550948386798285,
+    "s4_all_mape": 0.440804929180364,
+    "s5_fmtf50": 0.5002614743352983,
+    "s5_fmtf10": 1.173324686479304,
+    "minimum_fluence": 225.0,
+    "stage8b_rmse_improvement_percent": 4.839379092423613,
+    "stage8b_water_std_improvement_percent": 58.25377987895448,
+    "stage8_test_wepl": 2.0145973546373157,
+    "stage8_water_bias_percent": -0.12467503547668457,
+    "stage8_large_mape": 37.032211831631734,
+    "stage8c_test_wepl": 1.8908643786123907,
+    "stage8c_large_mape": 0.5968659651385018
+  },
+  "assets": [
+    {
+      "file": "benchmark_context.png",
+      "bytes": 120082,
+      "sha256": "3d96580519e7399d9e79ffc7e9292ab5649fc18debc81776c98cf4d9b890647b",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "best_pipeline.png",
+      "bytes": 78981,
+      "sha256": "10205d88cfa0f12657f39b3b400bfc934808dfba109de1b7bbefadd0598539c6",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "classic_scenario_results.png",
+      "bytes": 2116757,
+      "sha256": "b2997e29e5eeae5cdc4ecb76fdf0362546f79043d2deab49d0cfc657840d2498",
+      "source": "frozen tracked panel; source MHD is archived"
+    },
+    {
+      "file": "decision_funnel.png",
+      "bytes": 87038,
+      "sha256": "af52e78d5005644426024d7854e89856172ed5bd1d811eb29d0184449690d357",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "project_pipeline.png",
+      "bytes": 78611,
+      "sha256": "a8ed5fd5de9626e785782c3ebf0a0546203c79acf479e2d78b40617aaeb61b0a",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "project_status_dashboard.png",
+      "bytes": 120887,
+      "sha256": "24ce7309ad76d53d29f8d5e9993621504163576997d33f105cb929eec6002551",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "scenario_overview.png",
+      "bytes": 217613,
+      "sha256": "917a7ac246077bafbb5fa162bd9ef3f9e2454bfe47971b5c633d9805ec1a1b1f",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage0_frozen_baseline.png",
+      "bytes": 100240,
+      "sha256": "f8865b602d6dbf3c75139bb8e4ed794f72df7e30d5ae367e6c8a7d0bb738ac62",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage1_water_consistency.png",
+      "bytes": 95350,
+      "sha256": "2a1b62df88c57b37c905b4899c28b65e0a81e1e365a4b39728acb3f39504adce",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage2_diagnostic_metrics.png",
+      "bytes": 124376,
+      "sha256": "e62d43883b4def4e48dfe6a2ce919a44b262708946097f5c970317d77134e193",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage3_candidate_comparison.png",
+      "bytes": 114996,
+      "sha256": "230e8059cbb5cdcde531147055cd63c403fd67257309ff5dbec51568218a9aa9",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage4_convergence.png",
+      "bytes": 138416,
+      "sha256": "13c5fc6350206fd73828e76075e808d1d1235586908c744c29cf75ecf9dfdcf9",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage5_path_comparison.png",
+      "bytes": 63296,
+      "sha256": "580a6e4bd3e2a180085f97a592d6e18c9e6067ec2338b4cf36e6f47ee7166c30",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage6_tradeoff.png",
+      "bytes": 1668259,
+      "sha256": "ecd7de20acb081b45adbe4677e8c749854d5af54d7eb777289059087474e475d",
+      "source": "frozen tracked panel; source MHD is archived"
+    },
+    {
+      "file": "stage6a_mlic_reference.png",
+      "bytes": 71566,
+      "sha256": "2ccd188e1934cb277798ec49db85095cbcb36b3f4bf77805baa6b0e189b0b3eb",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage6b_calibration_effect.png",
+      "bytes": 91493,
+      "sha256": "165f11034b933a59e4ddc4dc3dd10891d76ef68f4590d52a437baa279b829e86",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage7_difference_vs_truth.png",
+      "bytes": 812370,
+      "sha256": "d5504887a5bda201fcb32d83b109e34f7953e5c858bb930116c7724c874d06e4",
+      "source": "pct2d_reconstruction/research_stages/stage7_detector_effects/qc/assets/stage7_difference_vs_mlic_truth.png"
+    },
+    {
+      "file": "stage7b_candidate_validation.png",
+      "bytes": 95948,
+      "sha256": "5844613e902a3ddb3d5c990e823f2615a0f3169e1a95b43962c237deca51d8de",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage7b_noise_sources.png",
+      "bytes": 43344,
+      "sha256": "e0d01dbaf768c54c0db44283fb44326ec697c091c2e396805ed37f1251449551",
+      "source": "pct2d_reconstruction/research_stages/stage7b_noise_robustness/qc/assets/noise_source_separation.png"
+    },
+    {
+      "file": "stage7c_multiseed.png",
+      "bytes": 82387,
+      "sha256": "6abb5a714f6abbed8bebae83864061f67d1bd57bfd2c8a12390ef59f601b8f2b",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage7c_rmse.png",
+      "bytes": 111306,
+      "sha256": "6678591307e18b5ce104c6e7b106821379b3445ce8d260817abe0c20dcbb46cc",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage7c_water_noise.png",
+      "bytes": 113987,
+      "sha256": "3728cdab093581b939674e19741b6698b251f3d753fe5802a862f7224597a8a6",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage8_convergence.png",
+      "bytes": 127356,
+      "sha256": "ba81967756642db99ba0f8a71e0f6cbfff7c8de76a545515b29cec202161718b",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/assets/epoch_convergence.png"
+    },
+    {
+      "file": "stage8_material_metrics.png",
+      "bytes": 75267,
+      "sha256": "5bebe2ec17d7f9b28d9aab5b789287a0b880207557e8af9c4a46b16341c43359",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/assets/material_and_edge_metrics.png"
+    },
+    {
+      "file": "stage8_orthogonal.png",
+      "bytes": 539451,
+      "sha256": "06dd27bd9386802c8017bd880c616f2f19be3af2da811cba902fdc3467431a43",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/assets/orthogonal_slices.png"
+    },
+    {
+      "file": "stage8_slices.png",
+      "bytes": 863281,
+      "sha256": "fd79a1383bdad503f284a57449b03e3d7a4f531d1ec61218abc9ae38fda5afca",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/assets/truth_reconstruction_error.png"
+    },
+    {
+      "file": "stage8b_angular_epochs.png",
+      "bytes": 148928,
+      "sha256": "71149cdd32da4fcc45a3782413b5157a907102289d8cddaeaea680dba32c0525",
+      "source": "pct2d_reconstruction/research_stages/stage8b_low_fluence_adaptation/qc/angular_fluence_360x20/assets/epoch_metric_comparison.png"
+    },
+    {
+      "file": "stage8b_angular_images.png",
+      "bytes": 3851445,
+      "sha256": "a381e0bb74a5b6c8a3bbe2a0c67a095f29630d6bcbd03b89ad56f73b072eabe2",
+      "source": "pct2d_reconstruction/research_stages/stage8b_low_fluence_adaptation/qc/angular_fluence_360x20/assets/image_and_difference_comparison.png"
+    },
+    {
+      "file": "stage8b_locked_test.png",
+      "bytes": 217510,
+      "sha256": "b25240b5057695dff334f959108cf614636ccd11170dfefa4b29d61c043ce86e",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage8b_noise_weighting.png",
+      "bytes": 131289,
+      "sha256": "a6fe3cc306547d079ad2188a9911d4eae80c3cd8f99f599bb4553c0781ea9dd5",
+      "source": "generated from code-side QC"
+    },
+    {
+      "file": "stage8c_convergence_candidates.png",
+      "bytes": 248570,
+      "sha256": "b8ec01d53c31261d4662f2bb6a870251e32f1367729a1576149d8362bf4c02f5",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c/assets/convergence_candidates.png"
+    },
+    {
+      "file": "stage8c_coverage.png",
+      "bytes": 187555,
+      "sha256": "e323171481aca5033debb151573637476752f4739f9bada8e227b94dab305a66",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c/assets/coverage_slices.png"
+    },
+    {
+      "file": "stage8c_full_convergence.png",
+      "bytes": 145696,
+      "sha256": "607f65a1c5a5c627515e6909ba7889904c1723be2a070a8d05fdadac9889812d",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c/assets/full_fixed015_convergence.png"
+    },
+    {
+      "file": "stage8c_material_comparison.png",
+      "bytes": 66289,
+      "sha256": "e682b94d29619aec4db15915edbe20358ce60d5aba878cdf4573b0ec8f3bff66",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c/assets/material_recovery_comparison.png"
+    },
+    {
+      "file": "stage8c_reconstruction_comparison.png",
+      "bytes": 477171,
+      "sha256": "5bc938bae84fc9148902ffc5b8cee9082e1b8ef31f7c9888c9f2f0fa32e35fed",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c/assets/stage8_stage8c_comparison.png"
+    },
+    {
+      "file": "stage8c_rotation.png",
+      "bytes": 36874,
+      "sha256": "f17d2670e2a2c7801e1bf55197ebb64b974dd92768a4b92c7d1672a1c0da6199",
+      "source": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c/assets/rotation_residuals.png"
+    },
+    {
+      "file": "stage_decisions.png",
+      "bytes": 154478,
+      "sha256": "633c72c5a110a228da88393e77ea247e69a1ea01ff712b22355ff4fb457a04f8",
+      "source": "generated from code-side QC"
+    }
+  ]
+}

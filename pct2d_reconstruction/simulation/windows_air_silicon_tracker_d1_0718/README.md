@@ -20,6 +20,8 @@ D:\OpenGATE\windows_air_silicon_tracker_d1_0718
 `D1_DETECTOR_EFFECTS_CHARACTERIZED`。阶段7总结见
 [`../../research_stages/stage7_detector_effects/qc/stage7_summary.md`](../../research_stages/stage7_detector_effects/qc/stage7_summary.md)。
 
+后续Stage 7B、7C和8B已经分别完成噪声源分解、通量敏感性和低通量专用参数适配。当前证据表明0.2 mm位置误差是主要退化来源，1%出射能量高斯噪声影响不可分辨，逆方差加权未形成收益；360角度×每角度20%的低通量专用配置通过锁定测试。本轮企业实践已经结束，完整结论见[`../../project_overview.md`](../../project_overview.md)。
+
 ![D1 geometry](scene_geometry.svg)
 
 ## 场景参数

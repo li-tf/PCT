@@ -1,0 +1,6 @@
+{
+  "config_sha256": "beb6c527af7f16361477ca09b5ccdf06d5be1a2f26d319e49fea7f18d5e4a129",
+  "raw_root": "/mnt/d/临时/results0718_d1_air_tracker_full",
+  "version": 2,
+  "action": "noise-weighting"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "equal-total-fluence baseline; no tuning",
+  "performance_gate": "FAIL",
+  "failed_criteria": [
+    "water_std_le_0p01",
+    "insert_cnr_ge_100"
+  ],
+  "selected_pairs_720x10": 17350551,
+  "selected_pairs_360x20": 17343126,
+  "selected_pair_relative_difference": -0.0004279402999938673,
+  "water_std_relative_change": -0.7752747191605541,
+  "phantom_rmse_relative_change": -0.49220054045037254,
+  "recommended_development_condition": "360_angles_x_20pct"
+}

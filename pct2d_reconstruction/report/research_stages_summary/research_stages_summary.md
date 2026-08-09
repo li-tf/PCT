@@ -1,7 +1,9 @@
 # 二维pCT研究阶段总结
 
 **版本日期：2026-07-29**  
-**报告状态：阶段性版本；阶段0--6B完成**
+**报告状态：冻结的阶段性版本；阶段0--6B完成**
+
+> 本轮企业实践已于2026-08-09结束。本报告不追溯改写Stage 7--8C结果，项目最终状态、最优二维/三维配置和候选后续路线统一见[`../../project_overview.md`](../../project_overview.md)。
 
 ## 摘要
 
@@ -899,8 +901,8 @@ WEPL似然与数据加权必须建立在独立探测器响应标定上，不能�
   [`stage6b_summary.md`](../../research_stages/stage6b_wepl_calibration/qc/stage6b_summary.md)
 - 阶段7：
   [`stage7_summary.md`](../../research_stages/stage7_detector_effects/qc/stage7_summary.md)
-- 总体研究计划：
-  [`future_research_plan.md`](../../future_research_plan.md)
+- 项目现状、完整结果与后续路线：
+  [`project_overview.md`](../../project_overview.md)
 
 核心机器可读指标汇总在
 [tables/key_results.csv](tables/key_results.csv)。若汇总表与阶段QC发生差异，应以

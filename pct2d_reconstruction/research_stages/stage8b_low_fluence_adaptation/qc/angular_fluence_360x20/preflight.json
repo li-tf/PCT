@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "missing_count": 0,
+  "first_missing": null,
+  "free_gib": 744.7985954284668,
+  "required_free_gib": 10,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+}

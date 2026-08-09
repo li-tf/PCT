@@ -73,6 +73,15 @@ extern "C" __global__ void debug_mlp_points(
   mlp(z,entry,exitp,di,doo,th,tth,t,x,y);
   points[3*ray]=(float)x;points[3*ray+1]=(float)y;points[3*ray+2]=(float)z;valid[ray]=1;
 }
+extern "C" __global__ void debug_cylinder_intervals(
+    const float *position,const float *direction,int rays,double radius,double half_y,
+    double *enter,double *leave,unsigned char *valid){
+  int ray=blockDim.x*blockIdx.x+threadIdx.x;if(ray>=rays)return;
+  const float *p=position+3*ray,*d=direction+3*ray;
+  double pd[3]={p[0],p[1],p[2]},dd[3]={d[0],d[1],d[2]},ti,tl;
+  bool ok=cylinder_forward(pd,dd,radius,half_y,ti,tl);
+  enter[ray]=ok?ti:0.;leave[ray]=ok?tl:0.;valid[ray]=ok?1:0;
+}
 extern "C" __global__ void build_paths(
     const float *pin,const float *pout,const float *din_f,const float *dout_f,
     int rays,int samples,double z0,double step,double radius,double half_y,
@@ -161,9 +170,28 @@ class GpuMlpProjector3D:
         module = cp.RawModule(code=CUDA_SOURCE, options=("--std=c++11",))
         self.build_kernel = module.get_function("build_paths")
         self.debug_kernel = module.get_function("debug_mlp_points")
+        self.intersection_kernel = module.get_function("debug_cylinder_intervals")
         self.forward_kernel = module.get_function("forward_rows")
         self.predict_kernel = module.get_function("predict_rows")
         self.back_kernel = module.get_function("back_rows")
+
+    def debug_cylinder_intervals(self, position: np.ndarray, direction: np.ndarray):
+        cp = self.cp
+        position = cp.asarray(np.ascontiguousarray(position, dtype=np.float32))
+        direction = cp.asarray(np.ascontiguousarray(direction, dtype=np.float32))
+        if position.shape != direction.shape or position.ndim != 2 or position.shape[1] != 3:
+            raise ValueError("position and direction must have shape (N,3)")
+        n = len(position)
+        enter, leave = cp.empty(n, cp.float64), cp.empty(n, cp.float64)
+        valid = cp.empty(n, cp.uint8)
+        threads, blocks = 128, ((n + 127) // 128,)
+        self.intersection_kernel(
+            blocks,
+            (threads,),
+            (position, direction, np.int32(n), np.float64(self.radius),
+             np.float64(self.half_y), enter, leave, valid),
+        )
+        return cp.asnumpy(enter), cp.asnumpy(leave), cp.asnumpy(valid).astype(bool)
 
     def debug_mlp_points(self, batch: dict[str, np.ndarray], z_values: np.ndarray):
         cp = self.cp
@@ -224,6 +252,62 @@ class GpuMlpProjector3D:
         )
         return pixels, weights, row_sum, blocks, threads
 
+    def build_paths(self, batch: dict[str, np.ndarray], angle_deg: float):
+        """Expose an immutable path bundle for Stage 8C diagnostics."""
+        pixels, weights, row_sum, blocks, threads = self._paths(batch, angle_deg)
+        return pixels, weights, row_sum, blocks, threads, len(batch["wepl_mm"])
+
+    def predict_from_paths(self, image, paths):
+        cp = self.cp
+        pixels, weights, row_sum, blocks, threads, n = paths
+        result, valid = cp.empty(n, cp.float32), cp.empty(n, cp.uint8)
+        self.predict_kernel(
+            blocks,
+            (threads,),
+            (image, pixels, weights, row_sum, np.int32(n), np.int32(self.samples), result, valid),
+        )
+        return result, valid
+
+    def accumulate_from_paths(self, image, measured, paths, numerator, denominator):
+        cp = self.cp
+        pixels, weights, row_sum, blocks, threads, n = paths
+        measured = cp.asarray(measured, dtype=cp.float32)
+        normalized, res2 = cp.empty(n, cp.float32), cp.empty(n, cp.float32)
+        valid = cp.empty(n, cp.uint8)
+        self.forward_kernel(
+            blocks,
+            (threads,),
+            (image, pixels, weights, row_sum, measured, np.int32(n), np.int32(self.samples),
+             normalized, res2, valid),
+        )
+        self.back_kernel(
+            blocks,
+            (threads,),
+            (pixels, weights, normalized, valid, np.int32(n), np.int32(self.samples),
+             numerator, denominator, np.int32(1)),
+        )
+        return float(cp.sum(res2, dtype=cp.float64).get()), int(cp.sum(valid, dtype=cp.int64).get())
+
+    def coverage_from_paths(self, paths):
+        cp = self.cp
+        output = cp.zeros(self.nx * self.ny * self.nz, cp.float32)
+        self.accumulate_coverage_from_paths(paths, output)
+        return output.reshape(self.nz, self.ny, self.nx)
+
+    def accumulate_coverage_from_paths(self, paths, output):
+        cp = self.cp
+        pixels, weights, row_sum, blocks, threads, n = paths
+        flat = output.reshape(-1)
+        valid = (row_sum > 0).astype(cp.uint8)
+        values = cp.ones(n, cp.float32)
+        self.back_kernel(
+            blocks,
+            (threads,),
+            (pixels, weights, values, valid, np.int32(n), np.int32(self.samples),
+             flat, flat, np.int32(0)),
+        )
+        return output
+
     def accumulate(self, image, batch, angle_deg, numerator, denominator):
         cp = self.cp
         n = len(batch["wepl_mm"])
@@ -246,16 +330,9 @@ class GpuMlpProjector3D:
         return float(cp.sum(res2, dtype=cp.float64).get()), int(cp.sum(valid, dtype=cp.int64).get())
 
     def predict(self, image, batch, angle_deg):
-        cp = self.cp
-        n = len(batch["wepl_mm"])
-        pixels, weights, row_sum, blocks, threads = self._paths(batch, angle_deg)
-        result, valid = cp.empty(n, cp.float32), cp.empty(n, cp.uint8)
-        self.predict_kernel(
-            blocks,
-            (threads,),
-            (image, pixels, weights, row_sum, np.int32(n), np.int32(self.samples), result, valid),
-        )
-        return result, valid, (pixels, weights, row_sum)
+        paths = self.build_paths(batch, angle_deg)
+        result, valid = self.predict_from_paths(image, paths)
+        return result, valid, paths[:3]
 
     def transpose(self, values, valid, paths):
         cp = self.cp

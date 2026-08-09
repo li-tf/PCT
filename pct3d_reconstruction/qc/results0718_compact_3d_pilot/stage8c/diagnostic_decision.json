@@ -1,0 +1,138 @@
+{
+  "status": "PASS",
+  "category": "LIKELY_UNDERCONVERGED",
+  "source_sha256": "39bd54f4a28a7eee31b5fa5bf20de192fb295ed30d0a1b5f52dc71f8e044eb3c",
+  "coordinate": {
+    "maximum_mm": 3.552713678800501e-15,
+    "rows": [
+      {
+        "angle_deg": 0,
+        "roundtrip_max_abs_mm": 0.0
+      },
+      {
+        "angle_deg": 37,
+        "roundtrip_max_abs_mm": 0.0
+      },
+      {
+        "angle_deg": 90,
+        "roundtrip_max_abs_mm": 0.0
+      },
+      {
+        "angle_deg": 179,
+        "roundtrip_max_abs_mm": 3.552713678800501e-15
+      },
+      {
+        "angle_deg": 271,
+        "roundtrip_max_abs_mm": 3.552713678800501e-15
+      }
+    ]
+  },
+  "intersection": {
+    "rays": 4096,
+    "validity_mismatches": 0,
+    "maximum_interval_difference_mm": 1.2789769243681803e-13,
+    "valid_rays": 2011
+  },
+  "operator": {
+    "constant_projection_max_relative_error": 1.1382320508346311e-07,
+    "adjoint_max_relative_error": 3.9652826643476277e-07,
+    "rows": [
+      {
+        "run_id": 0,
+        "constant_projection_relative_error": 1.1101541730340614e-07,
+        "adjoint_relative_error": 3.9652826643476277e-07,
+        "valid_rays": 256
+      },
+      {
+        "run_id": 37,
+        "constant_projection_relative_error": 1.0649723947153689e-07,
+        "adjoint_relative_error": 1.0149154459384155e-08,
+        "valid_rays": 256
+      },
+      {
+        "run_id": 90,
+        "constant_projection_relative_error": 1.1382320508346311e-07,
+        "adjoint_relative_error": 4.8282676871639816e-08,
+        "valid_rays": 256
+      },
+      {
+        "run_id": 179,
+        "constant_projection_relative_error": 1.049566478172892e-07,
+        "adjoint_relative_error": 1.2120034207471176e-08,
+        "valid_rays": 256
+      },
+      {
+        "run_id": 271,
+        "constant_projection_relative_error": 7.627573950230726e-08,
+        "adjoint_relative_error": 7.84709963516939e-08,
+        "valid_rays": 256
+      }
+    ]
+  },
+  "model": {
+    "core_coverage": [
+      {
+        "sphere": "AirSphere",
+        "voxels": 2176,
+        "zero_voxels": 0,
+        "minimum": 1263.5626220703125,
+        "median": 1333.485107421875,
+        "relative_to_support_median": 0.9874081611633301
+      },
+      {
+        "sphere": "AluminiumSphere",
+        "voxels": 280,
+        "zero_voxels": 0,
+        "minimum": 1283.5625,
+        "median": 1324.6754150390625,
+        "relative_to_support_median": 0.980884850025177
+      },
+      {
+        "sphere": "SpineBoneSphere",
+        "voxels": 2176,
+        "zero_voxels": 0,
+        "minimum": 1274.04541015625,
+        "median": 1330.159423828125,
+        "relative_to_support_median": 0.9849455952644348
+      },
+      {
+        "sphere": "LungSphere",
+        "voxels": 7208,
+        "zero_voxels": 0,
+        "minimum": 1291.085693359375,
+        "median": 1356.545166015625,
+        "relative_to_support_median": 1.0044834613800049
+      },
+      {
+        "sphere": "A150Sphere",
+        "voxels": 4224,
+        "zero_voxels": 0,
+        "minimum": 1278.299072265625,
+        "median": 1337.255126953125,
+        "relative_to_support_median": 0.9901998043060303
+      }
+    ],
+    "rotation_residuals": {
+      "correct": {
+        "rmse_mm": 2.072481961003067,
+        "measurements": 35482553
+      },
+      "reverse": {
+        "rmse_mm": 3.0914306118646473,
+        "measurements": 35482553
+      },
+      "none": {
+        "rmse_mm": 3.045984971804953,
+        "measurements": 35482553
+      }
+    }
+  },
+  "hard_gates": {
+    "coordinate": true,
+    "intersection": true,
+    "constant_projection": true,
+    "adjoint": true
+  },
+  "zero_core_voxels": 0,
+  "test_partition_opened": false
+}

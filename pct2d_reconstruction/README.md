@@ -4,12 +4,13 @@
 MHD、RAW以及重建检查点统一位于仓库根目录的`data/`；已经完成且短期不用的
 历史数据按批次移至移动硬盘，不再把所有实验数据长期堆放在工作区。
 
+> **最终状态（2026-08-09）：本轮企业实践已经结束，Stage 0--8C均已闭环。当前没有正在执行的正式计算；最新成果、局限和未来候选路线统一见[`project_overview.md`](project_overview.md)。**
+
 ## 目录职责
 
 ```text
 pct2d_reconstruction/
-├── current_research_summary.md  Stage 0--8完整研究档案与当前结论
-├── future_research_plan.md      仅保留目标、当前基线和下一步优先级
+├── project_overview.md          项目现状、完整证据、正式结果与后续路线唯一入口
 ├── experiments/                 实验编号与代码/数据路径映射
 ├── simulation/                  Windows OpenGATE仿真包及仿真QC
 ├── preprocessing/               配对、3σ过滤和Schulte MLP DDB投影
@@ -69,8 +70,10 @@ S5的部分预处理数据以及D1的Stage 7/7B数据已经临时迁出；Stage 
 | 7 探测器效应 | PASS | 连续硅hit仅使RMSE增加2.21%；0.2 mm位置与1%能量噪声组合使RMSE增加42.73% |
 | 7B 噪声稳健重建 | PASS，保留基线 | 所有加权/Huber候选均未超过等权quadratic；测试集未打开 |
 | 7C 通量敏感性 | PASS | 三种条件最低推荐通量均为25%；10%失稳 |
+| 8B 低通量适配 | PASS，方案晋升 | 360角度×20%、多尺度初值、2轮和较强Huber-TV形成低通量专用配置；能量加权未晋升 |
 | 8 紧凑三维 | PIPELINE PASS / PERFORMANCE FAIL | 三维链闭环；大材料球MAPE 37.03%，需先诊断 |
-| 9 3D Gaussian | BLOCKED | 等待Stage 8形成可靠体素基线 |
+| 8C 三维诊断与复算 | PERFORMANCE PASS | 固定松弛0.15、30轮、无TV；大材料球MAPE 0.5969%，测试WEPL RMSE 1.8909 mm |
+| 9 3D Gaussian | 未启动 | Stage 8C已提供体素对照；作为实践结束后的候选研究方向保留 |
 
 阶段性算法不会自动替换results0716成熟入口。只有完整训练—验证—锁定测试通过后，
 才在阶段报告中决定是否推荐晋升。
@@ -119,10 +122,11 @@ S5的部分预处理数据以及D1的Stage 7/7B数据已经临时迁出；Stage 
 .venv-gate/bin/python pct2d_reconstruction/report/build_report.py \
   --experiment 0716 --force
 
-# 查看Stage 6B、7和独立三维Stage 8历史状态/正式产物
+# 查看Stage 6B、7以及独立三维Stage 8/8C历史状态和正式产物
 .venv-gate/bin/python pct2d_reconstruction/research_stages/stage6b_wepl_calibration/run_stage6b.py --action status
 .venv-gate/bin/python pct2d_reconstruction/research_stages/stage7_detector_effects/run_stage7.py --action status
 .venv-gate/bin/python pct3d_reconstruction/run_stage8.py --action status
+.venv-gate/bin/python pct3d_reconstruction/run_stage8c.py --action status
 ```
 
 各计算入口完成后直接写本阶段QC，不使用独立的`validate_stage*.py`。预处理和重建
@@ -131,12 +135,12 @@ S5的部分预处理数据以及D1的Stage 7/7B数据已经临时迁出；Stage 
 
 ## 推荐阅读顺序
 
-1. `current_research_summary.md`：S1--S6、真实轨迹pilot、Stage 0--8、当前最优
-   算法、负结果、三维首轮结果及外部性能定位；
+1. `project_overview.md`：S1--S6、独立标定、真实轨迹pilot、Stage 0--8C、当前
+   最优二维/三维算法、负结果、外部性能定位及实践结束后的候选路线；
 2. `reconstruction_principles.md`：数据处理、MLP、DDB、解析和迭代重建原理；
 3. `report/report0716/report0716_summary_report.md`：results0716完整实验报告；
 4. `report/research_stages_summary/research_stages_summary.md`：截至Stage 7的历史
-   跨阶段报告；最新状态以根目录`current_research_summary.md`为准；
+   跨阶段报告；最新状态以根目录`project_overview.md`为准；
 5. `evaluation/baselines/results0716/baseline_summary.md`：冻结后的统一基线；
 6. `research_stages/stage1_material_calibration/qc/results0717_s6_material_energy_scan/stage1_summary.md`：
    阶段1的材料能量、有效RSP与Air WEPL结论；
@@ -155,6 +159,4 @@ S5的部分预处理数据以及D1的Stage 7/7B数据已经临时迁出；Stage 
    四层硅跟踪器、位置分辨率与参数化能量噪声结果；
 14. 本地私有目录`report/final_presentations/`：最终进展汇报和成果总结PPT，
     因包含个人信息而整体排除在Git版本控制之外；
-15. `archive_batch1_20260730_record.md`：冷归档范围与恢复说明；
-16. `future_research_plan.md`：精简后的目标、冻结基线和近期优先级；已完成阶段
-    的详细记录统一见`current_research_summary.md`。
+15. `archive_batch1_20260730_record.md`：冷归档范围与恢复说明。

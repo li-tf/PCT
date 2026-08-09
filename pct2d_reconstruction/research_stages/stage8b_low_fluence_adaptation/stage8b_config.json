@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "runs": 720,
+  "angle_step_deg": 0.5,
+  "raw_root_default": "/mnt/d/临时/results0718_d1_air_tracker_full",
+  "stage7c_preprocessing": "data/preprocessing_data/results0718_d1_air_tracker_full/stage7c",
+  "stage7c_reconstruction": "data/reconstruction_data/results0718_d1_air_tracker_full/stage7c",
+  "stage7_reconstruction": "data/reconstruction_data/results0718_d1_air_tracker_full/stage7",
+  "preprocessing_output": "data/preprocessing_data/results0718_d1_air_tracker_full/stage8b",
+  "reconstruction_output": "data/reconstruction_data/results0718_d1_air_tracker_full/stage8b",
+  "wepl_model": "pct2d_reconstruction/research_stages/stage6b_wepl_calibration/qc/g4_water_calibrated.json",
+  "noise_model": "pct2d_reconstruction/research_stages/stage7b_noise_robustness/qc/empirical_noise_model.npz",
+  "frozen_reconstruction": "pct2d_reconstruction/iterative_reconstruction/best_reconstruction_config.json",
+  "truth_geometry": "pct2d_reconstruction/simulation/simulation0716/truth_geometry_definition.json",
+  "reference_planes_z_mm": [-110.0, 110.0],
+  "air_wepl_slope_mm_per_mm": 0.0011471876206752695,
+  "phantom_radius_mm": 100.0,
+  "nominal_full_fluence_per_mm2_projection": 900.0,
+  "transition_seed": 20260730,
+  "validation_seed": 20260731,
+  "locked_test_seed": 20260803,
+  "transition_fractions": [0.25, 0.20, 0.175, 0.15, 0.125, 0.10],
+  "stage7c_reused_fractions": [0.25, 0.10],
+  "optimization_acquisition": {
+    "name": "360_angles_x_20pct",
+    "runs": 360,
+    "angle_step_deg": 1.0,
+    "original_run_offset": 0,
+    "original_run_stride": 2,
+    "per_angle_fraction": 0.20,
+    "nominal_total_fraction": 0.10,
+    "baseline_qc": "pct2d_reconstruction/research_stages/stage8b_low_fluence_adaptation/qc/angular_fluence_360x20/decision.json",
+    "baseline_reconstruction": "data/reconstruction_data/results0718_d1_air_tracker_full/stage8b/angular_fluence/angles360_f0200"
+  },
+  "condition": {
+    "name": "combined_0p2mm_1pct",
+    "stage7_name": "energy_1pct",
+    "track_state": "four_hit_fit",
+    "position_sigma_mm": 0.2,
+    "energy_sigma_fraction": 0.01
+  },
+  "noise_conditions": {
+    "continuous_hits": {"track_state": "four_hit_fit", "position_sigma_mm": 0.0, "energy_sigma_fraction": 0.0},
+    "position_0p2mm": {"track_state": "four_hit_fit", "position_sigma_mm": 0.2, "energy_sigma_fraction": 0.0},
+    "energy_1pct_only": {"track_state": "four_hit_fit", "position_sigma_mm": 0.0, "energy_sigma_fraction": 0.01},
+    "combined_0p2mm_1pct": {"track_state": "four_hit_fit", "position_sigma_mm": 0.2, "energy_sigma_fraction": 0.01}
+  },
+  "selection": {
+    "water_bias_max_fraction": 0.003,
+    "water_std_max": 0.01,
+    "phantom_rmse_ratio_max": 1.25,
+    "aluminium_error_degradation_max_pp": 0.5,
+    "cnr_min": 100.0,
+    "edge_width_ratio_max": 1.10,
+    "candidate_rmse_improvement_min": 0.20,
+    "candidate_water_std_improvement_min": 0.30
+  },
+  "optimization": {
+    "relaxations": [0.05, 0.10, 0.15, 0.25],
+    "decays": [0.1, 0.2, 0.4],
+    "regularization_weights": [0.0125, 0.025, 0.05],
+    "maximum_epochs": 5,
+    "validation_top_k": 2,
+    "multiscale_coarse_size": 420,
+    "multiscale_coarse_spacing_mm": 0.5,
+    "multiscale_coarse_path_step_mm": 0.5,
+    "multiscale_coarse_epochs": 2,
+    "multiscale_fine_epochs": 3
+  },
+  "energy_gate": {
+    "combined_vs_position_rmse_fraction": 0.05,
+    "energy_only_image_fraction": 0.10,
+    "validation_wepl_fraction": 0.05
+  },
+  "energy_weights": {
+    "gammas": [0.25, 0.5, 1.0],
+    "clip": [0.5, 2.0],
+    "minimum_effective_fraction": 0.8
+  },
+  "minimum_free_gib": 20
+}

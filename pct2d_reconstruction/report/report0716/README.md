@@ -1,8 +1,8 @@
 # report0716
 
 本目录对应`simulation0716 / results0716`，保存完整中文实验报告、英文图表、
-数据表和报告QC。跨实验研究路线已移至
-`pct2d_reconstruction/future_research_plan.md`。
+数据表和报告QC。跨实验现状、结果和路线统一见
+`pct2d_reconstruction/project_overview.md`。
 
 ## 当前内容
 
@@ -15,8 +15,7 @@
 
 迭代部分只使用results0716自身结果，不把test0713迭代结果混入比较。阶段0固定
 训练/验证划分和验证WEPL结果保存在`pct2d_reconstruction/evaluation/`。历史
-完成记录现已合并到根目录`current_research_summary.md`，计划文件不再保存阶段
-工作结果。
+完成记录现已合并到根目录`project_overview.md`。
 
 ## 生成命令
 
@@ -33,9 +32,8 @@
 - `tables/`中的协议、数量、时间和RSP指标CSV；
 - `qc/report_summary.json`中的本地链接及产物检查结果。
 
-当前报告QC为PASS，8幅图片链接均有效。阶段0--8的最新总结见
-[`current_research_summary.md`](../../current_research_summary.md)；后续研究安排见
-[下一阶段研究计划](../../future_research_plan.md)。
+当前报告QC为PASS，8幅图片链接均有效。Stage 0--8C的最终总结和实践结束后候选研究安排见
+[`project_overview.md`](../../project_overview.md)。
 
 ## 数据归档状态
 

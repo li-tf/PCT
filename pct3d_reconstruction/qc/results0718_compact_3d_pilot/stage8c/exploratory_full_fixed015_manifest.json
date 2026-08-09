@@ -1,0 +1,30 @@
+{
+  "source_sha256": "5305a124521fdec45732335bc867f5a83da34ff5509bb699fab0d993475cb6d8",
+  "configuration": {
+    "relaxation": 0.15,
+    "relaxation_decay": 0.0,
+    "max_epochs": 30,
+    "regularization_beta": 0.0,
+    "partition": "train",
+    "test_partition_opened": false
+  },
+  "screen_candidate": {
+    "candidate": "fixed_0p15",
+    "final": {
+      "epoch": 30,
+      "training_wepl_rmse_mm": 0.09652726402803227,
+      "matched_validation_wepl_rmse_mm": 0.09289355865678167,
+      "training_measurements": 35482553,
+      "update_max_abs": 0.009730935096740723,
+      "validation_wepl_rmse_mm": null,
+      "relaxation": 0.15,
+      "phantom_rmse": 0.014114942401647568,
+      "water_bias": -0.00023494908236898482,
+      "large_sphere_mape_percent": 0.2940292559235557,
+      "air_absolute_rsp_error": 0.011028239197755155,
+      "maximum_core_error_percent": 1.0560792310367266
+    }
+  },
+  "created_at": "2026-08-05T08:52:30",
+  "test_partition_opened": false
+}

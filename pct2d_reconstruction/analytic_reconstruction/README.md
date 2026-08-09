@@ -1,5 +1,7 @@
 # 解析重建：no-Hann DDB-FDK
 
+> 本轮企业实践已于2026-08-09结束。本目录保留二维解析基线和复现接口；项目最终状态见[`../project_overview.md`](../project_overview.md)。
+
 本目录只保留当前验证成熟的no-Hann DDB-FDK主链。输入不是普通二维X射线正弦图，
 而是包含横向探测器坐标和MLP深度坐标的DDB投影；`pctfdk`使用与该DDB定义配套的
 几何加权、Ramp滤波和距离驱动DDB反投影器。

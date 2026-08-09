@@ -1,5 +1,7 @@
 # GPU迭代重建：MLP OS-SART + Huber-TV
 
+> 本轮企业实践已于2026-08-09结束。本目录保留冻结的二维最优重建接口；三维性能基线位于`pct3d_reconstruction/`，跨阶段最终状态见[`../project_overview.md`](../project_overview.md)。
+
 正式算法直接读取过滤后list-mode pairs，使用入口/出口位置、方向和能量重建，
 不把DDB投影交给普通直线Joseph投影器。
 

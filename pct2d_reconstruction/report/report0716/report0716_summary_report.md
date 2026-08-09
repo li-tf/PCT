@@ -4,6 +4,8 @@
 
 实验配置：`simulation0716 / results0716 / report0716`
 
+> 本报告是results0716单次实验的冻结记录。本轮企业实践已于2026-08-09结束；Stage 0--8C最终结论见[`../../project_overview.md`](../../project_overview.md)。
+
 ## 摘要
 
 本实验在`test0713`已验证流程的基础上，将质子通量提高到Rit等人Simulation 2

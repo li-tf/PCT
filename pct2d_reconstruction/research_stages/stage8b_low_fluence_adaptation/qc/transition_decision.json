@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "monotonic": true,
+  "f_pass": 0.25,
+  "f_dev": 0.2,
+  "fractions": [
+    {
+      "fraction": 0.25,
+      "passed": true,
+      "water_std": 0.00845008809119463,
+      "phantom_rmse": 0.05781753173262772
+    },
+    {
+      "fraction": 0.2,
+      "passed": false,
+      "water_std": 0.0120047302916646,
+      "phantom_rmse": 0.0587026586642394
+    },
+    {
+      "fraction": 0.175,
+      "passed": false,
+      "water_std": 0.016558358445763588,
+      "phantom_rmse": 0.05997152582014624
+    },
+    {
+      "fraction": 0.15,
+      "passed": false,
+      "water_std": 0.025733036920428276,
+      "phantom_rmse": 0.06375012266455524
+    },
+    {
+      "fraction": 0.125,
+      "passed": false,
+      "water_std": 0.04767722263932228,
+      "phantom_rmse": 0.07739020095391325
+    },
+    {
+      "fraction": 0.1,
+      "passed": false,
+      "water_std": 0.10311025381088257,
+      "phantom_rmse": 0.12339333935679685
+    }
+  ],
+  "optimization_allowed": true
+}

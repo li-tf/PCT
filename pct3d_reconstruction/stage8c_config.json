@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "experiment": "results0718_compact_3d_pilot",
+  "stage8_config": "pct3d_reconstruction/stage8_config.json",
+  "stage8_qc": "pct3d_reconstruction/qc/results0718_compact_3d_pilot",
+  "stage8_preprocessing": "data/preprocessing_data/results0718_compact_3d_pilot/stage8",
+  "stage8_reconstruction": "data/reconstruction_data/results0718_compact_3d_pilot/stage8",
+  "stage8c_reconstruction": "data/reconstruction_data/results0718_compact_3d_pilot/stage8c",
+  "stage8c_qc": "pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c",
+  "diagnostic_runs": [0, 37, 90, 179, 271],
+  "diagnostic_batch_size": 1024,
+  "closure_max_epochs": 20,
+  "actual_screen_max_epochs": 15,
+  "convergence": {
+    "screen_case": "five_sphere",
+    "candidates": [
+      {
+        "name": "baseline_extended",
+        "relaxation": 0.25,
+        "relaxation_decay": 0.2,
+        "max_epochs": 50,
+        "resume_closure_epoch": 20
+      },
+      {
+        "name": "slow_decay",
+        "relaxation": 0.15,
+        "relaxation_decay": 0.05,
+        "max_epochs": 30
+      },
+      {
+        "name": "fixed_0p10",
+        "relaxation": 0.1,
+        "relaxation_decay": 0.0,
+        "max_epochs": 30
+      },
+      {
+        "name": "fixed_0p15",
+        "relaxation": 0.15,
+        "relaxation_decay": 0.0,
+        "max_epochs": 30
+      }
+    ],
+    "verification_cases": [
+      "center_air",
+      "center_high_rsp",
+      "offaxis_high_rsp"
+    ],
+    "verification_max_epochs": 50,
+    "score_tie_relative": 0.005
+  },
+  "exploratory_full_fixed015": {
+    "relaxation": 0.15,
+    "relaxation_decay": 0.0,
+    "max_epochs": 30,
+    "regularization_beta": 0.0,
+    "partition": "train",
+    "test_partition_opened": false
+  },
+  "fixed015_test_review": {
+    "frozen_epoch": 30,
+    "correctional_recheck": true
+  },
+  "confirm_max_epochs": 15,
+  "confirm_extension_max_epochs": 25,
+  "gates": {
+    "coordinate_roundtrip_max_mm": 0.000001,
+    "intersection_cpu_cuda_max_mm": 0.00001,
+    "constant_projection_relative_error": 0.0001,
+    "adjoint_relative_error": 0.00002,
+    "coverage_zero_core_voxels": 0,
+    "synthetic_wepl_rmse_mm": 0.01,
+    "water_absolute_bias": 0.003,
+    "large_sphere_mape_percent": 1.0,
+    "air_absolute_rsp_error": 0.05,
+    "confirm_validation_plateau_relative": 0.002,
+    "confirm_test_wepl_rmse_max_mm": 2.0146
+  }
+}

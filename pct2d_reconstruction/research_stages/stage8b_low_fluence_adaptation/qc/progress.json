@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "batch": "noise-weighting",
+  "stage": "report",
+  "updated_at": "2026-08-04T08:58:48",
+  "completed_runs": 360,
+  "total_runs": 360,
+  "task_eta_seconds": 0,
+  "group": "energy_gamma_1",
+  "completed_groups": 7,
+  "total_groups": 8,
+  "epoch": 2,
+  "total_epochs": 2,
+  "subset": 18,
+  "total_subsets": 18,
+  "candidate": "energy_gamma_0p5",
+  "pairs_per_second": 41406.26225027726,
+  "gpu_memory_bytes": 74972160,
+  "eval_completed_runs": 360,
+  "eval_total_runs": 360,
+  "rejection_reason": "energy-weight ESS collapsed to 0.767"
+}

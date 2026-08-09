@@ -14,10 +14,7 @@ D:\OpenGATE\windows_compact_3d_pilot_0718
 
 工作站正式仿真已于2026-07-21完成：360/360角度成功，共7.2亿个质子，12进程
 墙钟时间约13.63小时，入口/出口ROOT合计约86.37 GiB。manifest和日志已在
-`qc/full/`。大型ROOT保存在外部存储，并通过`/mnt/f/临时/`只读挂载。Stage 8
-首轮三维读取、预处理、算子筛选和全量3 epoch重建已经完成；工程链通过，但材料
-球性能未通过，不能把该pilot视为已经得到可靠三维图像。结果见
-[`Stage 8总结`](../../../pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8_summary.md)。
+`qc/full/`。大型ROOT保存在外部存储，并通过`/mnt/f/临时/`只读挂载。Stage 8首轮3轮重建暴露严重欠收敛；Stage 8C完成系统诊断和30轮全量复算后，大材料球MAPE为0.5969%、铝球误差为−0.8221%、测试WEPL RMSE为1.8909 mm，形成当前三维体素性能基线。严格合成闭环0.01 mm门槛仍未达到，测试集属于修正性复核。结果见[`Stage 8总结`](../../../pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8_summary.md)和[`Stage 8C总结`](../../../pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8c/fixed015_test_summary.md)。本轮企业实践已经结束，不再启动新的正式计算。
 
 ![Compact 3-D geometry](scene_geometry.svg)
 

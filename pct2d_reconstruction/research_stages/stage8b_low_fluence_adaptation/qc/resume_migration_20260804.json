@@ -1,0 +1,11 @@
+{
+  "action": "noise-weighting",
+  "previous_config_sha256": "48c12432a873437271fb18c89f4c2987ebd4c9b829ac131f8fd0691e8423ad15",
+  "accepted_config_sha256": "beb6c527af7f16361477ca09b5ccdf06d5be1a2f26d319e49fea7f18d5e4a129",
+  "intermediate_config_sha256": "1b2aa80c249cf384747c3c4fa0565fbcd36f7184945e2a2cadf91fc19c027d2f",
+  "reason": "Resume after verified acquisition-seed, zero-denominator energy-gate, candidate-label, and per-candidate ESS rejection handling fixes.",
+  "scientific_configuration_changed": false,
+  "input_data_changed": false,
+  "completed_noise_source_reconstructions_reused": 8,
+  "completed_energy_weight_candidates_reused": 2
+}

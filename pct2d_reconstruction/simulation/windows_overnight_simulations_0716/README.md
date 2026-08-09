@@ -14,8 +14,9 @@ D:\OpenGATE\data\simulation_data\<output_name>
 
 日志、配置快照、完成标志、manifest和汇总保存在本文件夹的`qc\`中。
 
-该包服务于`future_research_plan.md`的阶段1、阶段2和阶段7前置仿真：S6检查能量相关RSP/
-WEPL一致性，S2--S5提供均匀水、Air、材料定量和空间分辨率诊断场景，S1给出
+该包生成了项目Stage 1、Stage 2和Stage 7前置数据；完整实验历史见
+[`project_overview.md`](../../project_overview.md)。S6检查能量相关RSP/WEPL一致性，
+S2--S5提供均匀水、Air、材料定量和空间分辨率诊断场景，S1给出
 results0716的Air配对实验。它尚未加入真实探测器材料、有限分辨率或电子学噪声；
 这些效应应在现有理想探测器场景完成分析后分级加入。
 

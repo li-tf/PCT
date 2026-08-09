@@ -1,5 +1,7 @@
 # 预处理：ROOT到Schulte MLP DDB投影
 
+> 本轮企业实践已于2026-08-09结束。本目录继续作为二维正式预处理入口保留，当前没有正在运行的全量任务；项目最终状态见[`../project_overview.md`](../project_overview.md)。
+
 正式入口为`run_preprocessing.py`。它直接读取
 `data/simulation_data/resultsXXXX/run_###/`中的720组入口/出口ROOT分片，不需要
 生成额外的合并ROOT。

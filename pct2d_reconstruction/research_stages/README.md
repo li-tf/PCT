@@ -17,6 +17,7 @@ research_stages/
 ├── stage7_detector_effects/        D1 Air/硅跟踪器与离线数字化（PASS）
 ├── stage7b_noise_robustness/       D1位置/能量噪声鲁棒重建（PASS，保留等权）
 ├── stage7c_fluence_sensitivity/    D1嵌套有效质子通量敏感性（PASS）
+├── stage8b_low_fluence_adaptation/ 低通量角度分配、参数适配与能量加权（PASS，方案晋升）
 └── stage8_compact_3d/              历史阶段编号；正式代码已迁至根目录pct3d_reconstruction
 ```
 
@@ -25,7 +26,7 @@ research_stages/
 
 ## 当前数据状态
 
-截至2026-08-03，阶段代码、QC、图表和总结均保留在本目录。为给Stage 8三维
+截至2026-08-09，本轮企业实践已经结束，阶段代码、QC、图表和总结均保留在本目录。为给Stage 8三维
 重建腾出本地空间，results0716、S2、S3、MLP truth pilot及S6材料能量扫描的
 大型数据已经迁入第一批冷归档；S1、S4、S5的Stage 6B正式三场景结果和Stage 7
 正式结果仍在本地。归档相对路径、文件数量和校验信息见
@@ -92,11 +93,9 @@ Stage 7C已完成单命令、可断点续跑全流程。它复用Stage 7的100%�
 均为25%，即`225 protons/mm²/projection`；10%均进入明显重建失稳。完整结果见
 `stage7c_fluence_sensitivity/qc/stage7c_summary.md`。
 
-Stage 8已在仓库根目录独立工程`pct3d_reconstruction/`完成首轮正式运行。三维
-数据处理、CPU/CUDA MLP一致性和严格伴随算子通过，但10--14 mm材料球MAPE为
-`37.03%`、6 mm铝球误差为`−29.71%`且Air球未恢复。当前状态为
-`PIPELINE PASS / PERFORMANCE FAIL`，Stage 9暂缓。Stage 8正式总结位于
-`../../pct3d_reconstruction/qc/results0718_compact_3d_pilot/stage8_summary.md`。
+Stage 8B已经完成。等总质子数下，`360角度×每角度20%`相对`720角度×每角度10%`将水区标准差和模体RMSE分别降低77.53%和49.22%。最终低通量专用配置采用360角度、每角度20%、0.5 mm低通初值上采样、18子集、初始松弛0.25、衰减0.1、Huber-TV `β=0.05`并在第2轮停止；锁定测试水区标准差降低58.25%，模体RMSE降低4.84%，但铝平台误差有所恶化。位置误差仍是主要退化来源，能量逆方差权重没有收益，正式数据项继续使用等权quadratic。完整结果见`stage8b_low_fluence_adaptation/qc/stage8b_summary.md`。
 
-跨阶段最新结论统一见[`../current_research_summary.md`](../current_research_summary.md)；
-未来计划只维护目标、当前基线和下一步优先级，不再重复阶段历史。
+Stage 8在仓库根目录独立工程`pct3d_reconstruction/`完成首轮正式运行。三维数据处理、CPU/CUDA MLP一致性和严格伴随算子通过，但3轮重建时10--14 mm材料球MAPE为37.03%。随后Stage 8C完成坐标、旋转、求交、覆盖、匹配闭环和松弛策略诊断，确认首轮主要问题是严重欠收敛及松弛因子衰减过快。固定松弛0.15、18子集、30轮、`β=0`的全量复算在修正性测试中取得大材料球MAPE 0.5969%、铝球误差−0.8221%和测试WEPL RMSE 1.8909 mm，形成当前三维体素性能基线。严格合成闭环0.01 mm门槛仍未达到，测试集也不是全新盲测。Stage 9在本轮实践中没有启动。
+
+本轮实践已经结束。跨阶段最终结论、正式算法和未来恢复研究时的候选路线统一见
+[`../project_overview.md`](../project_overview.md)。

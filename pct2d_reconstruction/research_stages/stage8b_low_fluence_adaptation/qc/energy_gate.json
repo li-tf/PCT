@@ -1,0 +1,17 @@
+{
+  "triggered": true,
+  "paired_combined_vs_position_rmse_fraction": [
+    -0.004937833725344953,
+    -0.005262831941436286,
+    -0.004702033543109829
+  ],
+  "mean_combined_vs_position_rmse_fraction": -0.004967566403297023,
+  "energy_only_image_degradation_fraction": 0.10082049514387004,
+  "wepl_noise_increase_fraction": null,
+  "reasons": {
+    "paired_rmse": false,
+    "energy_only_image": true,
+    "wepl": false
+  },
+  "wepl_ratio_available": false
+}

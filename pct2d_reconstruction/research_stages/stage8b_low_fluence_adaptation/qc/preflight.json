@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "action": "noise-weighting",
+  "missing": [],
+  "free_bytes": 777788710912,
+  "required_free_bytes": 21474836480,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+}

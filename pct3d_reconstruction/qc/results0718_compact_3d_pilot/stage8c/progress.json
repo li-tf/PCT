@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "stage": "test-fixed015",
+  "group": "RELIABLE_VOXEL_BASELINE_CANDIDATE",
+  "updated_at": "2026-08-05T13:45:21",
+  "completed_runs": 1,
+  "total_runs": 1,
+  "task_elapsed_seconds": 13796.581490713,
+  "task_eta_seconds": 0.0,
+  "epoch": 30,
+  "total_epochs": 30,
+  "subset": 0,
+  "total_subsets": 0
+}

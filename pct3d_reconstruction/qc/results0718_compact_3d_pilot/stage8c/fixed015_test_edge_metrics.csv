@@ -1,0 +1,16 @@
+sphere,material,axis,edge_width_10_90_mm
+AirSphere,Air,x,1.4919595196843147
+AirSphere,Air,y,0.7759800255298615
+AirSphere,Air,z,1.4579099332913756
+AluminiumSphere,Aluminium,x,1.4573040753602982
+AluminiumSphere,Aluminium,y,0.787537693977356
+AluminiumSphere,Aluminium,z,1.4937218935228884
+SpineBoneSphere,SpineBone,x,1.375028290785849
+SpineBoneSphere,SpineBone,y,0.6829469427466393
+SpineBoneSphere,SpineBone,z,1.4171397485770285
+LungSphere,Lung,x,1.4452851666137576
+LungSphere,Lung,y,0.583495244383812
+LungSphere,Lung,z,1.401432586601004
+A150Sphere,A150_Tissue_Plastic,x,1.795472115278244
+A150Sphere,A150_Tissue_Plastic,y,0.573279619216919
+A150Sphere,A150_Tissue_Plastic,z,1.574851118028164

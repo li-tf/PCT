@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE",
+  "stage": "report",
+  "configuration": "360_angles_x_20pct",
+  "completed_runs": 360,
+  "total_runs": 360,
+  "updated_at": "2026-08-03T15:46:34",
+  "task_eta_seconds": 0,
+  "epoch": 5,
+  "total_epochs": 5,
+  "subset": 18,
+  "total_subsets": 18
+}
